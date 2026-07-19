@@ -37,6 +37,7 @@ Only Phase 1A is authorised. The remaining foundation work is not authorised yet
 - [x] Add and verify a directly executable typed-GDScript headless smoke test.
 - [x] Add and verify a minimal deterministic simulation clock with explicit daily ticks and configurable uniform month length.
 - [x] Add and verify strict pure-data simulation-clock state export and deterministic restoration.
+- [x] Add and verify one strictly validated pure-data good definition.
 
 Expected proof targets:
 

@@ -36,6 +36,14 @@ Pure-data deterministic clock state. It advances only through explicit daily tic
 
 Godot-generated UID sidecar belonging to `simulation_clock.gd`.
 
+### `src/simulation/good_definition.gd`
+
+Pure-data definition for one good. It strictly validates a stable `StringName` ID and display name from an independent input dictionary without owning a loader, registry or economic state.
+
+### `src/simulation/good_definition.gd.uid`
+
+Godot-generated UID sidecar belonging to `good_definition.gd`.
+
 ## `src/presentation/`
 
 Visual representation of the active province and other visible state.
@@ -105,6 +113,14 @@ Directly executable `SceneTree` test that verifies normal daily progression, con
 ### `tests/simulation_clock_test.gd.uid`
 
 Godot-generated UID sidecar belonging to `simulation_clock_test.gd`.
+
+### `tests/good_definition_test.gd`
+
+Directly executable `SceneTree` test that verifies valid grain-definition construction, stable-ID lookup, instance independence and strict malformed-data rejection.
+
+### `tests/good_definition_test.gd.uid`
+
+Godot-generated UID sidecar belonging to `good_definition_test.gd`.
 
 ## Dependency rule
 
