@@ -84,6 +84,16 @@ godot --headless --path . --script res://tests/good_definition_test.gd
 
 Exit code `0` means the good definition test passed. A non-zero exit code means it failed.
 
+## Running the building definition test
+
+From PowerShell inside this folder:
+
+```powershell
+godot --headless --path . --script res://tests/building_definition_test.gd
+```
+
+Exit code `0` means the building definition test passed. A non-zero exit code means it failed.
+
 ## Current stop condition
 
 Do not begin gameplay features until the workspace verification checklist in `docs/implementation_plan.md` is complete.

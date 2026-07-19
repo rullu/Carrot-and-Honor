@@ -44,6 +44,14 @@ Pure-data definition for one good. It strictly validates a stable `StringName` I
 
 Godot-generated UID sidecar belonging to `good_definition.gd`.
 
+### `src/simulation/building_definition.gd`
+
+Pure-data definition for one building. It strictly validates a stable `StringName` ID and display name from an independent input dictionary without owning production, construction or operating state.
+
+### `src/simulation/building_definition.gd.uid`
+
+Godot-generated UID sidecar belonging to `building_definition.gd`.
+
 ## `src/presentation/`
 
 Visual representation of the active province and other visible state.
@@ -121,6 +129,14 @@ Directly executable `SceneTree` test that verifies valid grain-definition constr
 ### `tests/good_definition_test.gd.uid`
 
 Godot-generated UID sidecar belonging to `good_definition_test.gd`.
+
+### `tests/building_definition_test.gd`
+
+Directly executable `SceneTree` test that verifies valid grain-farm definition construction, stable-ID lookup, instance independence and strict malformed-data rejection.
+
+### `tests/building_definition_test.gd.uid`
+
+Godot-generated UID sidecar belonging to `building_definition_test.gd`.
 
 ## Dependency rule
 
