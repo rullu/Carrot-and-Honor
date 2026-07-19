@@ -30,7 +30,7 @@ Expected future domains may include:
 
 ### `src/simulation/simulation_clock.gd`
 
-Pure-data deterministic clock state. It advances only through explicit daily ticks and uses a required configured month length to prove month rollover without defining a final game calendar.
+Pure-data deterministic clock state. It advances only through explicit daily ticks, uses a required configured month length to prove month rollover without defining a final game calendar, and exports or strictly restores all authoritative fields through independent dictionaries and clock instances.
 
 ### `src/simulation/simulation_clock.gd.uid`
 
@@ -100,7 +100,7 @@ Godot-generated UID sidecar belonging to `foundation_smoke_test.gd`
 
 ### `tests/simulation_clock_test.gd`
 
-Directly executable `SceneTree` test that verifies normal daily progression, configured month-boundary progression and deterministic repetition for the pure-data simulation clock.
+Directly executable `SceneTree` test that verifies normal daily progression, configured month-boundary progression, deterministic repetition, strict state validation and an independent save/load-style round trip for the pure-data simulation clock.
 
 ### `tests/simulation_clock_test.gd.uid`
 
