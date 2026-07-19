@@ -35,6 +35,7 @@ Only Phase 1A is authorised. The remaining foundation work is not authorised yet
 ### Phase 1A — Typed-GDScript and minimal headless smoke-test foundation
 
 - [x] Add and verify a directly executable typed-GDScript headless smoke test.
+- [x] Add and verify a minimal deterministic simulation clock with explicit daily ticks and configurable uniform month length.
 
 Expected proof targets:
 

@@ -64,6 +64,16 @@ godot --headless --path . --script res://tests/foundation_smoke_test.gd
 
 Exit code `0` means the smoke test passed. A non-zero exit code means it failed.
 
+## Running the simulation clock test
+
+From PowerShell inside this folder:
+
+```powershell
+godot --headless --path . --script res://tests/simulation_clock_test.gd
+```
+
+Exit code `0` means the simulation clock test passed. A non-zero exit code means it failed.
+
 ## Current stop condition
 
 Do not begin gameplay features until the workspace verification checklist in `docs/implementation_plan.md` is complete.

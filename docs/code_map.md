@@ -28,7 +28,13 @@ Expected future domains may include:
 - narrative eligibility and event history;
 - saving and loading.
 
-No simulation module exists yet.
+### `src/simulation/simulation_clock.gd`
+
+Pure-data deterministic clock state. It advances only through explicit daily ticks and uses a required configured month length to prove month rollover without defining a final game calendar.
+
+### `src/simulation/simulation_clock.gd.uid`
+
+Godot-generated UID sidecar belonging to `simulation_clock.gd`.
 
 ## `src/presentation/`
 
@@ -91,6 +97,14 @@ Directly executable `SceneTree` smoke test that verifies typed GDScript can run 
 ### `tests/foundation_smoke_test.gd.uid`
 
 Godot-generated UID sidecar belonging to `foundation_smoke_test.gd`
+
+### `tests/simulation_clock_test.gd`
+
+Directly executable `SceneTree` test that verifies normal daily progression, configured month-boundary progression and deterministic repetition for the pure-data simulation clock.
+
+### `tests/simulation_clock_test.gd.uid`
+
+Godot-generated UID sidecar belonging to `simulation_clock_test.gd`.
 
 ## Dependency rule
 
