@@ -30,7 +30,11 @@ Goal: establish a safe, understandable repository before gameplay work.
 
 ## Phase 1 — Foundation tests
 
-Not authorised yet. This section records the intended next gate only.
+Only Phase 1A is authorised. The remaining foundation work is not authorised yet.
+
+### Phase 1A — Typed-GDScript and minimal headless smoke-test foundation
+
+- [x] Add and verify a directly executable typed-GDScript headless smoke test.
 
 Expected proof targets:
 

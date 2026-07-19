@@ -1,6 +1,6 @@
 # Code Map
 
-The project is intentionally empty. This map establishes ownership before implementation begins.
+The project contains only its workspace scaffold and foundation smoke test. This map establishes ownership before implementation begins.
 
 ## Root
 
@@ -84,7 +84,13 @@ No project assets exist yet.
 
 Deterministic verification for simulation and data validation.
 
-No tests exist yet.
+### `tests/foundation_smoke_test.gd`
+
+Directly executable `SceneTree` smoke test that verifies typed GDScript can run headlessly and report success or failure through the process exit code.
+
+### `tests/foundation_smoke_test.gd.uid`
+
+Godot-generated UID sidecar belonging to `foundation_smoke_test.gd`
 
 ## Dependency rule
 

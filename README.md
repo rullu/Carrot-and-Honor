@@ -4,14 +4,15 @@ A 2D medieval-fantasy strategy and province-management game built with Godot 4 a
 
 ## Current phase
 
-**Development workspace establishment only.**
+**Phase 1A — typed-GDScript and minimal headless smoke-test foundation.**
 
 The repository currently contains:
 
-- an empty Godot 4 project;
+- a minimal Godot 4 project;
 - repository rules for Codex and human contributors;
 - technical documentation;
 - an intentionally empty modular source layout.
+- a typed-GDScript headless smoke test.
 
 There is no gameplay code and no main scene yet.
 
@@ -52,6 +53,16 @@ From PowerShell inside this folder:
 ```powershell
 godot --editor --path .
 ```
+
+## Running the foundation smoke test
+
+From PowerShell inside this folder:
+
+```powershell
+godot --headless --path . --script res://tests/foundation_smoke_test.gd
+```
+
+Exit code `0` means the smoke test passed. A non-zero exit code means it failed.
 
 ## Current stop condition
 
