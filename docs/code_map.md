@@ -1,0 +1,107 @@
+# Code Map
+
+The project is intentionally empty. This map establishes ownership before implementation begins.
+
+## Root
+
+### `project.godot`
+
+Godot project configuration. There is currently no main scene.
+
+### `AGENTS.md`
+
+Binding development rules.
+
+## `src/simulation/`
+
+Authoritative game state and deterministic rules.
+
+Expected future domains may include:
+
+- clock and tick scheduling;
+- goods and inventories;
+- buildings and production;
+- labour allocation;
+- population and needs;
+- prices and local markets;
+- construction;
+- narrative eligibility and event history;
+- saving and loading.
+
+No simulation module exists yet.
+
+## `src/presentation/`
+
+Visual representation of the active province and other visible state.
+
+Expected future responsibilities may include:
+
+- province scene binding;
+- building state visuals;
+- camera behaviour;
+- ambient bunny routes;
+- non-authoritative carts and activity;
+- animation and visual transitions.
+
+No presentation module exists yet.
+
+## `src/ui/`
+
+Player-facing Controls and input coordination.
+
+Expected future responsibilities may include:
+
+- persistent HUD;
+- time controls;
+- operational building panels;
+- goods overview;
+- alerts;
+- parchment notices;
+- chronicle;
+- construction browser.
+
+No UI module exists yet.
+
+## `data/`
+
+Data-driven definitions and test fixtures.
+
+No runtime data exists yet.
+
+## `scenes/`
+
+Godot scenes.
+
+No scenes exist yet.
+
+## `assets/`
+
+Replaceable visual, audio and font assets.
+
+No project assets exist yet.
+
+## `tests/`
+
+Deterministic verification for simulation and data validation.
+
+No tests exist yet.
+
+## Dependency rule
+
+```text
+data definitions
+      |
+      v
+simulation <---- UI requests
+      ^
+      |
+presentation reads
+```
+
+Simulation must never import UI or presentation code.
+
+UI and presentation may share read-only view models later, but they must not become alternate owners of simulation state.
+
+## Updating this map
+
+Add every new source file here when it introduces a new responsibility, public interface or cross-module dependency.

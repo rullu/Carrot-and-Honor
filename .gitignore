@@ -1,0 +1,37 @@
+# Godot-generated files
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+
+# Build and export output
+build/
+exports/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*~
+
+# Operating systems
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Local Codex / tooling state
+.codex/
+
+# Keep source folders even while empty
+!assets/.gitkeep
+!data/.gitkeep
+!scenes/.gitkeep
+!src/simulation/.gitkeep
+!src/presentation/.gitkeep
+!src/ui/.gitkeep
+!tests/.gitkeep
