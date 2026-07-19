@@ -15,18 +15,18 @@ Goal: establish a safe, understandable repository before gameplay work.
 - [x] Confirm `godot` is available from PowerShell.
 - [x] Install and configure Git.
 - [x] Install and authenticate Codex CLI.
-- [ ] Place this scaffold in the final local project folder.
-- [ ] Initialise a Git repository with branch `main`.
-- [ ] Confirm all required files exist.
-- [ ] Open the empty project in Godot.
-- [ ] Confirm Godot reports no project parse errors.
-- [ ] Confirm `git status` shows only expected initial files.
-- [ ] Create the initial Git commit.
-- [ ] Mark the workspace gate complete in this file.
+- [x] Place this scaffold in the final local project folder.
+- [x] Initialise a Git repository with branch `main`.
+- [x] Confirm all required files exist.
+- [x] Open the empty project in Godot.
+- [x] Confirm Godot reports no project parse errors.
+- [x] Confirm `git status` shows only expected initial files.
+- [x] Create the initial Git commit.
+- [x] Mark the workspace gate complete in this file.
 
 ### Workspace gate
 
-Gameplay work remains locked until every Phase 0 item is complete.
+**Status: COMPLETE.** No gameplay work is authorised in this setup chat; a separate explicit implementation task is required.
 
 ## Phase 1 — Foundation tests
 
