@@ -105,3 +105,16 @@ The repository may not begin gameplay implementation until Phase 0 in `implement
 **Reason:** Tooling, version control, documentation and project loading must be trusted first.
 
 **Consequence:** The first commit contains only workspace and documentation scaffolding.
+
+---
+
+## DEV-009 — Ordinary goods use capability semantics
+
+**Date:** 2026-07-20
+**Status:** Accepted
+
+Master Bible v1.3 is the consolidated high-level authority. Goods Design Workbook v1.3 is the detailed specialist annex, and Gameplay Direction Change Register v0.1 is reconciliation history.
+
+Ordinary goods represent province-local capability and access rather than universal numerical inventory. Carrots, Food and Population are separate systems. Code retains underscore stable IDs such as `good_grain` and `building_bakery`.
+
+**Consequence:** Timber enables automatic local Firewood without a prototype Woodcutter. The bread-capability foundation represents provider and prerequisite relationships without quantity fields, inventory, storage, recipe objects or production ticks.

@@ -4,17 +4,17 @@ This file explains where project truth lives and which document owns which type 
 
 ## External design authorities
 
-### Main Design Bible v1.8
+### Master Bible v1.3
 
-Owns game-system decisions, prototype scope, architecture direction, staged development and locked gameplay rules.
+Current consolidated high-level authority for game direction, prototype scope and locked gameplay rules.
 
-### Visual Concept Bible v0.7
+### Goods Design Workbook v1.3
 
-Owns prototype visual language, Hill-Fort spatial structure, placeholder policy, camera direction, visual progression and presentation readiness.
+Detailed specialist annex for ordinary-good capability and access relationships.
 
-### Narrative Design Bible
+### Gameplay Direction Change Register v0.1
 
-Owns narrative tiers, data fields, event relevance, pacing, writing rules, prototype rumours and future expansion requirements.
+Historical reconciliation record. It does not supersede the reconciled authorities.
 
 ## Repository authorities
 
@@ -46,13 +46,12 @@ Repository-level technical decisions and their consequences.
 
 When sources disagree:
 
-1. The newest explicit locked decision in the relevant design bible wins.
-2. A repository decision may refine implementation without changing game design.
-3. Repository documents must not silently contradict the design bibles.
-4. Any unresolved conflict must be logged before coding continues.
+1. Master Bible v1.3 controls consolidated high-level design.
+2. Goods Design Workbook v1.3 controls detailed goods questions within that direction.
+3. Repository documentation and tests control implemented reality.
+4. The change register supplies history rather than current authority.
+5. Any unresolved conflict must be logged before coding continues.
 
 ## Current phase boundary
 
-Only workspace creation and verification are authorised.
-
-The next phase may be planned, but gameplay code remains forbidden until the workspace gate is marked complete.
+The workspace gate is complete. The current authorised implementation is the pure-data capability-content foundation. Runtime production and broader gameplay remain unauthorised.

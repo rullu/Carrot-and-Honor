@@ -30,7 +30,7 @@ Goal: establish a safe, understandable repository before gameplay work.
 
 ## Phase 1 — Foundation tests
 
-Only Phase 1A is authorised. The remaining foundation work is not authorised yet.
+Phase 1A was the original authorised foundation boundary. Phase 1B was subsequently authorised as a separate pure-data milestone.
 
 ### Phase 1A — Typed-GDScript and minimal headless smoke-test foundation
 
@@ -51,6 +51,19 @@ Expected proof targets:
 - a synthetic performance benchmark.
 
 No province gameplay should be built before these foundations are reviewed.
+
+### Phase 1B — Pure-data capability-content foundation
+
+- [x] Expand strict good definitions with capability scope, availability, providers and ordered prerequisites.
+- [x] Expand strict building definitions with placement kinds.
+- [x] Add and verify the fixed Timber/Firewood and Farm/Grain/Mill/Flour/Bakery/Bread catalogue.
+- [x] Reject duplicate IDs, missing references and direct or indirect prerequisite cycles deterministically.
+- [x] Verify defensive collection copying and deterministic stable-ID lookup.
+- [x] Complete implementation, verification and diff review while leaving the milestone unstaged and uncommitted.
+
+This milestone is implemented but not committed. It contains no quantities, inventories, storage, recipes, production ticks or prototype Woodcutter. Carrots, Food and Population remain separate future numerical systems.
+
+The next implementation step must be separately authorised and tightly scoped. It must not introduce runtime production prematurely.
 
 ## Phase 2 — One-province greybox
 

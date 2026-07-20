@@ -12,9 +12,16 @@ Read these files before changing code:
 4. `docs/implementation_plan.md`
 5. `docs/decision_log.md`
 
-Current phase: **workspace establishment**.
+Current phase: **pure-data capability-content foundations**. The workspace gate is complete, and work has moved beyond workspace establishment.
 
-Do not implement gameplay, create a main scene or invent systems until the workspace gate is explicitly marked complete and the next implementation task is authorised.
+Design and implementation authority:
+
+- Master Bible v1.3 is the consolidated high-level design authority.
+- Goods Design Workbook v1.3 is the detailed specialist annex.
+- Gameplay Direction Change Register v0.1 is reconciliation history.
+- Repository documentation and tests remain authoritative for implemented reality.
+
+Do not implement runtime gameplay, create a main scene or invent systems until a separate implementation task explicitly authorises that work.
 
 ## 2. Language and Godot rules
 
@@ -96,7 +103,11 @@ Simulation -X-> UI or Presentation
 
 ## 6. Data-driven content
 
-Goods, buildings, recipes, narrative events and similar content should be definitions loaded from data or Resources, not scattered constants across scripts.
+Ordinary goods represent province-local capability and access, not universal numerical inventories. Carrots, Food and Population are separate future numerical systems, not ordinary goods.
+
+Code uses underscore stable IDs such as `good_grain` and `building_bakery`; dotted design notation is not used in code.
+
+In the prototype capability foundation, Timber enables automatic local Firewood. There is no prototype Woodcutter.
 
 Every definition must have a stable ID.
 
