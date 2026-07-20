@@ -6,6 +6,7 @@ var _failure_count: int = 0
 
 func _initialize() -> void:
     _test_complete_bread_catalogue()
+    _test_authoritative_good_order()
     _test_catalogue_rejections()
     _test_dependency_cycles()
     _test_capability_chain_without_production_execution()
@@ -121,6 +122,49 @@ func _test_complete_bread_catalogue() -> void:
         first_bread.get_required_good_ids(),
         [&"good_flour", &"good_firewood"],
         "Bread prerequisites after returned-array mutation"
+    )
+
+
+func _test_authoritative_good_order() -> void:
+    var catalogue: PrototypeContentCatalogue = (
+        PrototypeContentCatalogue.create_bread_capability_slice()
+    )
+    _expect_not_null(catalogue, "catalogue for authoritative good order")
+    if catalogue == null:
+        return
+
+    var expected_order: Array[StringName] = [
+        &"good_timber",
+        &"good_firewood",
+        &"good_grain",
+        &"good_flour",
+        &"good_bread",
+    ]
+    var first_returned_ids: Array[StringName] = catalogue.get_good_ids()
+    var second_returned_ids: Array[StringName] = catalogue.get_good_ids()
+    _expect_required_ids(
+        first_returned_ids,
+        expected_order,
+        "authoritative catalogue good order"
+    )
+
+    first_returned_ids.reverse()
+    _expect_required_ids(
+        catalogue.get_good_ids(),
+        expected_order,
+        "catalogue order after first returned-array mutation"
+    )
+    _expect_required_ids(
+        second_returned_ids,
+        expected_order,
+        "independent second returned good-ID array"
+    )
+
+    second_returned_ids.clear()
+    _expect_required_ids(
+        catalogue.get_good_ids(),
+        expected_order,
+        "catalogue order after second returned-array mutation"
     )
 
 

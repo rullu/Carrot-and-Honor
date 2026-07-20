@@ -12,11 +12,11 @@ Read these files before changing code:
 4. `docs/implementation_plan.md`
 5. `docs/decision_log.md`
 
-Current phase: **pure-data capability-content foundations**. The workspace gate is complete, and work has moved beyond workspace establishment.
+Current phase: **pure-data province capability foundations**. The workspace gate is complete, and work has moved beyond workspace establishment.
 
 Design and implementation authority:
 
-- Master Bible v1.3 is the consolidated high-level design authority.
+- Master Bible v1.4 is the consolidated high-level design authority.
 - Goods Design Workbook v1.3 is the detailed specialist annex.
 - Gameplay Direction Change Register v0.1 is reconciliation history.
 - Repository documentation and tests remain authoritative for implemented reality.
@@ -108,6 +108,8 @@ Ordinary goods represent province-local capability and access, not universal num
 Code uses underscore stable IDs such as `good_grain` and `building_bakery`; dotted design notation is not used in code.
 
 In the prototype capability foundation, Timber enables automatic local Firewood. There is no prototype Woodcutter.
+
+Province capability state owns a validated set of present building IDs and derives available goods plus direct blockers in authoritative catalogue order. It does not own quantities or production execution.
 
 Every definition must have a stable ID.
 

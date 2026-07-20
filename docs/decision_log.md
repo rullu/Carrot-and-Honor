@@ -113,8 +113,21 @@ The repository may not begin gameplay implementation until Phase 0 in `implement
 **Date:** 2026-07-20
 **Status:** Accepted
 
-Master Bible v1.3 is the consolidated high-level authority. Goods Design Workbook v1.3 is the detailed specialist annex, and Gameplay Direction Change Register v0.1 is reconciliation history.
+Master Bible v1.4 is the consolidated high-level authority. Goods Design Workbook v1.3 is the detailed specialist annex, and Gameplay Direction Change Register v0.1 is reconciliation history.
 
 Ordinary goods represent province-local capability and access rather than universal numerical inventory. Carrots, Food and Population are separate systems. Code retains underscore stable IDs such as `good_grain` and `building_bakery`.
 
 **Consequence:** Timber enables automatic local Firewood without a prototype Woodcutter. The bread-capability foundation represents provider and prerequisite relationships without quantity fields, inventory, storage, recipe objects or production ticks.
+
+---
+
+## DEV-010 — Province capabilities are immutable evaluated snapshots
+
+**Date:** 2026-07-20
+**Status:** Accepted
+
+A province capability state owns copied, validated present-building IDs and derives goods in deliberate catalogue content order. Duplicate and unknown building IDs invalidate creation.
+
+Blocked goods report direct missing providers and direct missing prerequisites in declared order rather than flattened transitive causes.
+
+**Consequence:** Province capability queries remain deterministic and pure data. This milestone adds no quantities, production execution, workforce, Food arithmetic, Nodes, scenes or UI.

@@ -4,6 +4,7 @@ extends RefCounted
 
 var _goods_by_id: Dictionary[StringName, GoodDefinition]
 var _buildings_by_id: Dictionary[StringName, BuildingDefinition]
+var _good_ids: Array[StringName]
 
 
 static func create_from_definitions(
@@ -12,6 +13,7 @@ static func create_from_definitions(
 ) -> PrototypeContentCatalogue:
     var good_map: Dictionary[StringName, GoodDefinition] = {}
     var building_map: Dictionary[StringName, BuildingDefinition] = {}
+    var ordered_good_ids: Array[StringName] = []
     for building: BuildingDefinition in buildings:
         if building == null:
             return null
@@ -25,6 +27,7 @@ static func create_from_definitions(
         if good_map.has(good.get_good_id()):
             return null
         good_map[good.get_good_id()] = good
+        ordered_good_ids.append(good.get_good_id())
 
     for good: GoodDefinition in goods:
         var provider_is_unknown: bool = (
@@ -44,6 +47,8 @@ static func create_from_definitions(
     var result: PrototypeContentCatalogue = PrototypeContentCatalogue.new()
     result._goods_by_id = good_map
     result._buildings_by_id = building_map
+    # Definition input order is deliberate authoritative catalogue content order.
+    result._good_ids = ordered_good_ids.duplicate()
     return result
 
 
@@ -93,6 +98,10 @@ func get_good_definition(good_id: StringName) -> GoodDefinition:
 
 func get_building_definition(building_id: StringName) -> BuildingDefinition:
     return _buildings_by_id.get(building_id)
+
+
+func get_good_ids() -> Array[StringName]:
+    return _good_ids.duplicate()
 
 
 static func _good(

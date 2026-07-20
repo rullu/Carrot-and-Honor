@@ -59,9 +59,19 @@ No province gameplay should be built before these foundations are reviewed.
 - [x] Add and verify the fixed Timber/Firewood and Farm/Grain/Mill/Flour/Bakery/Bread catalogue.
 - [x] Reject duplicate IDs, missing references and direct or indirect prerequisite cycles deterministically.
 - [x] Verify defensive collection copying and deterministic stable-ID lookup.
-- [x] Complete implementation, verification and diff review while leaving the milestone unstaged and uncommitted.
+- [x] Complete implementation, verification and diff review, then commit and push baseline `b4dc7b4485d86af37fddb56e1005032c9b58d4ca`.
 
-This milestone is implemented but not committed. It contains no quantities, inventories, storage, recipes, production ticks or prototype Woodcutter. Carrots, Food and Population remain separate future numerical systems.
+This milestone is complete and committed at pushed baseline `b4dc7b4485d86af37fddb56e1005032c9b58d4ca`. It contains no quantities, inventories, storage, recipes, production ticks or prototype Woodcutter. Carrots, Food and Population remain separate future numerical systems.
+
+### Phase 1C — Pure-data province capability state
+
+- [x] Store a validated, sorted defensive copy of present building IDs.
+- [x] Derive available and blocked goods in authoritative catalogue order.
+- [x] Report direct missing-provider and missing-prerequisite causes.
+- [x] Verify deterministic results, strict invalid-input rejection and collection independence.
+- [~] Complete verification and diff review while leaving this milestone unstaged and uncommitted.
+
+This milestone is implemented but not committed. It introduces no quantities, production, workforce, Food arithmetic, Nodes, scenes or UI.
 
 The next implementation step must be separately authorised and tightly scoped. It must not introduce runtime production prematurely.
 

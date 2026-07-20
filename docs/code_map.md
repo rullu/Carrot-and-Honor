@@ -54,11 +54,19 @@ Godot-generated UID sidecar belonging to `building_definition.gd`.
 
 ### `src/simulation/prototype_content_catalogue.gd`
 
-Tightly scoped pure-data catalogue for the fixed bread-capability slice. It validates nulls, duplicate IDs, provider and prerequisite references, and direct or indirect dependency cycles. It exposes deterministic lookups without exposing its dictionaries or owning quantities, inventories, storage, recipes or production ticks.
+Tightly scoped pure-data catalogue for the fixed bread-capability slice. It validates nulls, duplicate IDs, provider and prerequisite references, and direct or indirect dependency cycles. Validated definition input order is deliberate authoritative content order; the catalogue exposes deterministic lookups and a defensively copied ordered good-ID list.
 
 ### `src/simulation/prototype_content_catalogue.gd.uid`
 
 Godot-generated UID sidecar belonging to `prototype_content_catalogue.gd`.
+
+### `src/simulation/province_capability_state.gd`
+
+Immutable pure-data province snapshot. It owns sorted copied present-building IDs, derives available and blocked goods in authoritative catalogue order, and exposes direct missing-provider and missing-prerequisite queries through defensive collection copies.
+
+### `src/simulation/province_capability_state.gd.uid`
+
+Godot-generated UID sidecar belonging to `province_capability_state.gd`.
 
 ## `src/presentation/`
 
@@ -153,6 +161,14 @@ Directly executable `SceneTree` test that verifies exact fixed content, determin
 ### `tests/prototype_content_catalogue_test.gd.uid`
 
 Godot-generated UID sidecar belonging to `prototype_content_catalogue_test.gd`.
+
+### `tests/province_capability_state_test.gd`
+
+Directly executable `SceneTree` test that verifies province capability outcomes, direct blocker semantics, deterministic order, validation, stable-ID keys and defensive collection ownership.
+
+### `tests/province_capability_state_test.gd.uid`
+
+Godot-generated UID sidecar belonging to `province_capability_state_test.gd`.
 
 ## Dependency rule
 
