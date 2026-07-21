@@ -77,9 +77,14 @@ The next implementation step must be separately authorised and tightly scoped. I
 
 ## Stage 1.5 — World-map visual feasibility
 
-**Status: ACTIVE.** The verified starting baseline is `e2dbe901d38b2fe8dc9d55559aa148bc2e385f59`.
+**Status: ACTIVE.** The current verified baseline is `0a2a98045c7cab02fd67632572e3b21ece7fb1b1`.
 
-The immediate milestone is to establish the controlled empty repository workspace and document the separation between external editable art sources and future game-ready repository files. See `docs/world_map/world_map_workspace.md`.
+- [x] Establish the controlled empty repository workspace and external editable-source boundary.
+- [x] Record the locked visual, interaction, proof-content and acceptance direction in [`docs/world_map/world_map_visual_brief.md`](world_map/world_map_visual_brief.md).
+- [ ] Gather references and research suitable assets and the planned pipeline.
+- [ ] Begin the controlled six-province production proof in a separately authorised task.
+
+Azgaar, Wonderdraft and Godot map production have not started.
 
 The later six-province proof must be reviewed for:
 

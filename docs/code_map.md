@@ -12,6 +12,14 @@ Godot project configuration. There is currently no main scene.
 
 Binding development rules.
 
+## `docs/world_map/`
+
+Stage 1.5 workspace and visual-direction documentation.
+
+### `docs/world_map/world_map_visual_brief.md`
+
+Detailed authority for planned Stage 1.5 world-map visuals, interactions, proof content and acceptance criteria. It documents intended behaviour only and does not represent implemented map code, assets or runtime data.
+
 ## `src/simulation/`
 
 Authoritative game state and deterministic rules.

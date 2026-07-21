@@ -10,6 +10,8 @@ The full continent is blocked until the proof receives a **Pass** decision.
 
 Repository source, tests and documentation define implemented reality. Master Bible v1.6 defines the current high-level direction.
 
+[`world_map_visual_brief.md`](world_map_visual_brief.md) is the detailed authority for the locked Stage 1.5 visual and interaction decisions.
+
 A folder or planned filename documented here does not mean that map implementation exists.
 
 ## Editable source separation

@@ -4,7 +4,7 @@ This file explains where project truth lives and which document owns which type 
 
 ## External design authorities
 
-### Master Bible v1.4
+### Master Bible v1.6
 
 Current consolidated high-level authority for game direction, prototype scope and locked gameplay rules.
 
@@ -42,11 +42,15 @@ Ordered implementation stages, gates and current status.
 
 Repository-level technical decisions and their consequences.
 
+### [`docs/world_map/world_map_visual_brief.md`](world_map/world_map_visual_brief.md)
+
+Detailed authority for locked Stage 1.5 world-map visual, interaction, proof-content and acceptance decisions. It defines planned behaviour, not implemented map functionality.
+
 ## Source hierarchy
 
 When sources disagree:
 
-1. Master Bible v1.4 controls consolidated high-level design.
+1. Master Bible v1.6 controls consolidated high-level design.
 2. Goods Design Workbook v1.3 controls detailed goods questions within that direction.
 3. Repository documentation and tests control implemented reality.
 4. The change register supplies history rather than current authority.
@@ -54,4 +58,4 @@ When sources disagree:
 
 ## Current phase boundary
 
-The pushed capability-catalogue baseline is `b4dc7b4485d86af37fddb56e1005032c9b58d4ca`. The current authorised implementation is the pure-data province-capability milestone. Runtime production and broader gameplay remain unauthorised.
+Stage 1 foundation work is implemented. Stage 1.5 world-map visual feasibility is active, with detailed direction owned by the world-map visual brief. No map implementation or artwork exists, and full-continent production plus further simulation expansion remain blocked until the proof receives a **Pass** decision.

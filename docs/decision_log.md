@@ -131,3 +131,14 @@ A province capability state owns copied, validated present-building IDs and deri
 Blocked goods report direct missing providers and direct missing prerequisites in declared order rather than flattened transitive causes.
 
 **Consequence:** Province capability queries remain deterministic and pure data. This milestone adds no quantities, production execution, workforce, Food arithmetic, Nodes, scenes or UI.
+
+---
+
+## DEV-011 — Stage 1.5 world-map visual direction
+
+**Date:** 2026-07-21
+**Status:** Accepted
+
+Use a fixed, serious three-quarter world-map presentation. Terrain, political and diplomatic views are treatments of the same geography. Validate the direction through a six-province near-final-quality proof using a scalable, coherent commercial-asset pipeline.
+
+**Consequence:** The proof is judged through a Pass / Revise / Replace gate. Full-continent production and further simulation expansion remain blocked until **Pass**; the detailed requirements live in [`docs/world_map/world_map_visual_brief.md`](world_map/world_map_visual_brief.md).

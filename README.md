@@ -8,7 +8,7 @@ For Carrot and Honour is a real-time, pausable medieval-fantasy strategy game ab
 
 Stage 1 simulation and content-model foundations are complete. Further simulation expansion is paused until the world-map proof passes.
 
-The repository now reserves empty workspace paths for future world-map assets, data, scenes and presentation code. These paths contain no map implementation. See `docs/world_map/world_map_workspace.md` for the workspace boundary and editable-source separation.
+The repository now reserves empty workspace paths for future world-map assets, data, scenes and presentation code. Stage 1.5 visual direction is locked in the [world-map visual brief](docs/world_map/world_map_visual_brief.md), but no map implementation or artwork exists. The next activity is reference gathering and asset/pipeline research; full-continent work and further simulation expansion remain blocked until the proof passes.
 
 ## Implemented foundation
 
@@ -66,7 +66,8 @@ See:
 - `docs/code_map.md` for source ownership and dependency direction
 - `docs/implementation_plan.md` for staged work
 - `docs/decision_log.md` for technical decisions
-- `docs/world_map/world_map_workspace.md` for the Stage 1.5 workspace boundary
+- [`docs/world_map/world_map_workspace.md`](docs/world_map/world_map_workspace.md) for the Stage 1.5 workspace boundary
+- [`docs/world_map/world_map_visual_brief.md`](docs/world_map/world_map_visual_brief.md) for locked Stage 1.5 visual and interaction direction
 
 ## Opening the project
 
