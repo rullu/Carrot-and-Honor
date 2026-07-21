@@ -83,6 +83,10 @@ Expected future responsibilities may include:
 
 No presentation module exists yet.
 
+### `src/presentation/world_map/`
+
+Reserved for future presentation-only world-map controllers and helpers. It is empty apart from `.gitkeep`; no controller or other map implementation exists.
+
 ## `src/ui/`
 
 Player-facing Controls and input coordination.
@@ -106,17 +110,37 @@ Data-driven definitions and test fixtures.
 
 No runtime data exists yet.
 
+### `data/world_map/`
+
+Reserved for future stable province, settlement and map-related runtime data. It is empty apart from `.gitkeep`; no world-map data exists.
+
 ## `scenes/`
 
 Godot scenes.
 
 No scenes exist yet.
 
+### `scenes/world_map/`
+
+Reserved for future Godot world-map scenes. It is empty apart from `.gitkeep`; no world-map scene exists.
+
 ## `assets/`
 
 Replaceable visual, audio and font assets.
 
 No project assets exist yet.
+
+### `assets/world_map/base/`
+
+Reserved for approved game-ready static terrain exports. It is empty apart from `.gitkeep`; no terrain asset exists.
+
+### `assets/world_map/settlements/`
+
+Reserved for approved game-ready settlement markers. It is empty apart from `.gitkeep`; no settlement asset exists.
+
+### `assets/world_map/effects/`
+
+Reserved for approved game-ready map-effect resources. It is empty apart from `.gitkeep`; no map-effect asset exists.
 
 ## `tests/`
 

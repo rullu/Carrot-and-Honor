@@ -69,11 +69,26 @@ This milestone is complete and committed at pushed baseline `b4dc7b4485d86af37fd
 - [x] Derive available and blocked goods in authoritative catalogue order.
 - [x] Report direct missing-provider and missing-prerequisite causes.
 - [x] Verify deterministic results, strict invalid-input rejection and collection independence.
-- [~] Complete verification and diff review while leaving this milestone unstaged and uncommitted.
+- [x] Complete verification, diff review, commit and push.
 
-This milestone is implemented but not committed. It introduces no quantities, production, workforce, Food arithmetic, Nodes, scenes or UI.
+This milestone is implemented and committed. It introduces no quantities, production, workforce, Food arithmetic, Nodes, scenes or UI.
 
 The next implementation step must be separately authorised and tightly scoped. It must not introduce runtime production prematurely.
+
+## Stage 1.5 — World-map visual feasibility
+
+**Status: ACTIVE.** The verified starting baseline is `e2dbe901d38b2fe8dc9d55559aa148bc2e385f59`.
+
+The immediate milestone is to establish the controlled empty repository workspace and document the separation between external editable art sources and future game-ready repository files. See `docs/world_map/world_map_workspace.md`.
+
+The later six-province proof must be reviewed for:
+
+- fixed authored geography and readable static illustrated terrain;
+- camera movement and zoom;
+- province polygons and selection;
+- normal terrain mode and political mode.
+
+Full-continent work and further simulation expansion remain blocked until the six-province proof receives a **Pass** decision. Detailed province close-up scenes remain deferred beyond the prototype.
 
 ## Phase 2 — One-province greybox
 
