@@ -1,35 +1,49 @@
 # For Carrot and Honour
 
-A 2D medieval-fantasy strategy and province-management game built with Godot 4 and typed GDScript.
+For Carrot and Honour is a real-time, pausable medieval-fantasy strategy game about ruling a bunny kingdom across one fixed, handcrafted continent. The interactive world map is intended to be the primary playing field, with province management available through panels. The project is built with Godot 4 and typed GDScript.
 
 ## Current phase
 
-**Pure-data province capability foundations.**
+**Stage 1.5 — world-map visual feasibility.**
+
+Stage 1 simulation and content-model foundations are complete. Further simulation expansion is paused until the world-map proof passes.
+
+## Implemented foundation
 
 The repository currently contains:
 
-- a minimal Godot 4 project with no main scene;
+- a minimal Godot 4 project with no main gameplay scene;
 - binding repository rules and technical documentation;
 - a deterministic pure-data simulation clock;
-- strictly validated good and building definitions;
-- a tightly scoped bread-capability catalogue;
-- an immutable province capability snapshot with direct blocker queries;
-- directly executable typed-GDScript headless tests.
+- clock state round-trip support;
+- validated good and building definitions;
+- a prototype capability catalogue;
+- an immutable `ProvinceCapabilityState`;
+- direct typed-GDScript headless tests.
 
 There is no runtime gameplay yet.
 
-## Design sources
+## Active world-map gate
 
-1. Master Bible v1.4 is the consolidated high-level authority.
-2. Goods Design Workbook v1.3 is the detailed specialist annex.
-3. Gameplay Direction Change Register v0.1 is reconciliation history.
-4. Repository documentation and tests are authoritative for implemented reality.
+The planned production pipeline is **Azgaar → Wonderdraft → Godot**. The first proof will cover approximately six provinces and is intended to demonstrate camera pan and zoom, province polygons, province selection, and normal and political map modes on a static illustrated terrain map with fixed authored geography.
 
-Ordinary goods are province-local capabilities rather than universal inventories. Timber enables automatic Firewood; Farm provides Grain; Mill requires Grain and provides Flour; Bakery requires Flour and Firewood and provides Bread. There is no prototype Woodcutter. Carrots, Food and Population remain separate future systems.
+Full-continent production must not begin before the proof receives a **Pass** decision in the Pass / Revise / Replace review. Detailed province close-ups are deferred beyond the prototype.
 
-This foundation contains no quantities, inventories, storage, recipes or production ticks. Code uses underscore stable IDs.
+## Design authority
 
-Verified pushed baseline: `b4dc7b4485d86af37fddb56e1005032c9b58d4ca`.
+1. Master Bible v1.6 — consolidated high-level authority.
+2. MAP_00_Workflow — active world-map production gate.
+3. Goods Design Workbook v1.3 — detailed specialist authority for goods, Carrots, Food, Population, workforce, balancing and prototype scope.
+4. Gameplay Direction Change Register v0.1 — reconciliation history.
+5. Repository documentation, source and tests — authoritative for implemented reality.
+
+## Implemented economic foundation
+
+Ordinary goods are province-local capabilities rather than universal inventories. Timber enables Firewood; Farm provides Grain; Mill requires Grain and provides Flour; Bakery requires Flour and Firewood and provides Bread. Carrots, Food and Population remain separate systems, and there is no prototype Woodcutter.
+
+This foundation contains no quantity inventories, storage, recipes or production ticks. Code uses underscore stable IDs.
+
+Verified pushed baseline: `9c06a022f91c6bbd86d99e8733c04b071ab6c264`.
 
 ## Technical foundation
 
@@ -72,4 +86,4 @@ Exit code `0` means a test passed. A non-zero exit code means it failed.
 
 ## Current stop condition
 
-Do not begin runtime production or other gameplay features without a separate explicitly authorised milestone.
+Further simulation features—including Population, workforce, Food arithmetic, construction, routes and detailed province scenes—must not begin until the six-province world-map feasibility gate passes.
