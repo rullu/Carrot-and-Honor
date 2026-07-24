@@ -77,14 +77,15 @@ The next implementation step must be separately authorised and tightly scoped. I
 
 ## Stage 1.5 — World-map visual feasibility
 
-**Status: ACTIVE.** The current verified baseline is `0a2a98045c7cab02fd67632572e3b21ece7fb1b1`.
+**Status: ACTIVE.** The verified repository baseline before the Godot integration proof is `92d0ce544bef1671e560b3efeb35f51697a6aa72`.
 
 - [x] Establish the controlled empty repository workspace and external editable-source boundary.
 - [x] Record the locked visual, interaction, proof-content and acceptance direction in [`docs/world_map/world_map_visual_brief.md`](world_map/world_map_visual_brief.md).
 - [ ] Gather references and research suitable assets and the planned pipeline.
+- [~] Implement the disposable Godot terrain integration proof with native terrain display, bounded camera panning and restrained zoom. Headless integration verification is complete; manual visual and control verification remains required.
 - [ ] Begin the controlled six-province production proof in a separately authorised task.
 
-Azgaar, Wonderdraft and Godot map production have not started.
+The terrain integration proof does not establish permanent world-map architecture and does not satisfy the Stage 1.5 Pass gate. Province geometry, selection, map modes and the wider six-province production proof remain unimplemented.
 
 The later six-province proof must be reviewed for:
 

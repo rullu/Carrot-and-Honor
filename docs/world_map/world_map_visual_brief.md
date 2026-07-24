@@ -162,7 +162,7 @@ The camera supports:
 - arrow keys;
 - mouse-wheel zoom.
 
-Zoom is centred on the screen centre, not the mouse cursor. Movement and zoom are smooth but restrained, responsive and slightly snappy; inputs stop quickly without floaty drifting.
+Mouse-wheel zoom is centred on the cursor where camera bounds permit. Movement and zoom are smooth but restrained, responsive and slightly snappy; inputs stop quickly without floaty drifting.
 
 The camera has firm playable boundaries with a very small slowdown near the edge. Terrain artwork extends beyond those boundaries as visual bleed so the player never sees a harsh rectangular map edge. Bleed contains no selectable provinces or gameplay data.
 

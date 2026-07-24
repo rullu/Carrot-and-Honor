@@ -89,11 +89,15 @@ Expected future responsibilities may include:
 - non-authoritative carts and activity;
 - animation and visual transitions.
 
-No presentation module exists yet.
+The only presentation module is a disposable Stage 1.5 terrain integration proof. It establishes no permanent world-map architecture.
 
 ### `src/presentation/world_map/`
 
-Reserved for future presentation-only world-map controllers and helpers. It is empty apart from `.gitkeep`; no controller or other map implementation exists.
+Reserved for presentation-only world-map controllers and helpers.
+
+### `src/presentation/world_map/world_map_camera_controller.gd`
+
+Typed camera controller used only by the disposable Stage 1.5 integration proof. It owns keyboard, middle-drag, screen-edge and wheel input; cursor-focused uniform zoom; viewport-responsive cover zoom; and terrain-bound camera clamping. It has no simulation, province, UI or gameplay dependency and does not establish the permanent world-map controller architecture.
 
 ## `src/ui/`
 
@@ -126,21 +130,29 @@ Reserved for future stable province, settlement and map-related runtime data. It
 
 Godot scenes.
 
-No scenes exist yet.
+The repository contains one dedicated disposable world-map integration proof scene. There is still no main gameplay scene.
 
 ### `scenes/world_map/`
 
-Reserved for future Godot world-map scenes. It is empty apart from `.gitkeep`; no world-map scene exists.
+Reserved for Godot world-map scenes.
+
+### `scenes/world_map/world_map_integration_proof.tscn`
+
+Disposable Stage 1.5 integration scene containing only the native-scale terrain sprite and its presentation camera. It is directly launchable for manual verification, is not assigned as the project main scene and has no simulation or UI dependency.
 
 ## `assets/`
 
 Replaceable visual, audio and font assets.
 
-No project assets exist yet.
+The repository contains one approved game-ready terrain export for the disposable Stage 1.5 integration proof.
 
 ### `assets/world_map/base/`
 
-Reserved for approved game-ready static terrain exports. It is empty apart from `.gitkeep`; no terrain asset exists.
+Reserved for approved game-ready static terrain exports.
+
+### `assets/world_map/base/stage_1_5_six_province_map_01_terrain_base_candidate_01.png`
+
+Unmodified 1920 x 1080 PNG terrain export displayed by the disposable Stage 1.5 integration proof. It owns no runtime state or behaviour.
 
 ### `assets/world_map/settlements/`
 
@@ -201,6 +213,10 @@ Directly executable `SceneTree` test that verifies province capability outcomes,
 ### `tests/province_capability_state_test.gd.uid`
 
 Godot-generated UID sidecar belonging to `province_capability_state_test.gd`.
+
+### `tests/world_map_integration_proof_test.gd`
+
+Directly executable `SceneTree` integration test for the disposable Stage 1.5 proof. It verifies terrain dimensions, scene structure, native terrain transform, camera placement and controller attachment, required input actions, and the absence of simulation dependencies.
 
 ## Dependency rule
 

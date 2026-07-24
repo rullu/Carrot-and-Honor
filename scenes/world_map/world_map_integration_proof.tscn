@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/world_map/base/stage_1_5_six_province_map_01_terrain_base_candidate_01.png" id="1_terrain"]
+[ext_resource type="Script" path="res://src/presentation/world_map/world_map_camera_controller.gd" id="2_camera"]
+
+[node name="WorldMapIntegrationProof" type="Node2D"]
+
+[node name="Terrain" type="Sprite2D" parent="."]
+texture = ExtResource("1_terrain")
+position = Vector2(960, 540)
+
+[node name="WorldMapCamera" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+enabled = true
+script = ExtResource("2_camera")

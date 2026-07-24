@@ -21,6 +21,27 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+window/stretch/aspect="expand"
+
+[input]
+
+map_move_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":87,"unicode":119), Object(InputEventKey,"physical_keycode":4194320)]
+}
+map_move_down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":83,"unicode":115), Object(InputEventKey,"physical_keycode":4194322)]
+}
+map_move_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":65,"unicode":97), Object(InputEventKey,"physical_keycode":4194319)]
+}
+map_move_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":68,"unicode":100), Object(InputEventKey,"physical_keycode":4194321)]
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
