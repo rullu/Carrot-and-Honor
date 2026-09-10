@@ -1,0 +1,8 @@
+[
+ {"name":"ocean_and_coastal_clouds","target":[-5580,0,-1700],"size":1600,"pan":[100,-55],"seconds":8},
+ {"name":"exposed_rock_shelves","target":[427,17,-6835],"size":800,"pan":[70,-40],"seconds":8},
+ {"name":"river_flow_and_rocks","target":[-2815,11,-706],"size":800,"pan":[80,-80],"seconds":8},
+ {"name":"cloud_shadow_over_meadow","target":[-4300,0,-1400],"size":1600,"pan":[100,0],"seconds":12},
+ {"name":"oasis_and_desert_river","target":[11702,0,6145],"size":800,"pan":[50,-40],"seconds":8},
+ {"name":"mountain_relief_and_lake","target":[10498,0,-2869],"size":1600,"pan":[160,0],"seconds":8}
+]

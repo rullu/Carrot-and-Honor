@@ -1,0 +1,424 @@
+[
+  {
+    "name": "whole_oblique",
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "size": 30000,
+    "pitch": 40
+  },
+  {
+    "name": "whole_top_down",
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "size": 29000,
+    "pitch": 90
+  },
+  {
+    "name": "default_gameplay",
+    "target": [
+      -4500,
+      0,
+      -1700
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "closest_gameplay",
+    "target": [
+      -4500,
+      0,
+      -1700
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "furthest_gameplay",
+    "target": [
+      -4500,
+      0,
+      -1700
+    ],
+    "size": 3600,
+    "pitch": 40
+  },
+  {
+    "name": "beech_downs_normal",
+    "target": [
+      -3100,
+      0,
+      -2300
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "western_watermeadows_normal",
+    "target": [
+      -5100,
+      0,
+      -1350
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "central_green_vales_normal",
+    "target": [
+      1100,
+      0,
+      -3200
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "sunlit_downs_normal",
+    "target": [
+      -2200,
+      0,
+      300
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "western_wind_heath_normal",
+    "target": [
+      -9500,
+      0,
+      -3700
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "parmetos_groves_normal",
+    "target": [
+      -15800,
+      0,
+      2500
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "southern_olive_country_normal",
+    "target": [
+      -12100,
+      0,
+      4650
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "chalk_coast_normal",
+    "target": [
+      -18200,
+      0,
+      3600
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "central_stony_march_normal",
+    "target": [
+      6400,
+      0,
+      300
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "northern_pine_vales_normal",
+    "target": [
+      3200,
+      0,
+      -7800
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "northern_silver_heath_normal",
+    "target": [
+      6700,
+      0,
+      -9650
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "waring_pine_shores_normal",
+    "target": [
+      12970,
+      0,
+      -4770
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "eastern_copper_foothills_normal",
+    "target": [
+      11700,
+      0,
+      2100
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "amber_sands_normal",
+    "target": [
+      10800,
+      0,
+      4700
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "southeastern_wind_stones_normal",
+    "target": [
+      12500,
+      0,
+      6100
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "southern_dry_vales_normal",
+    "target": [
+      9900,
+      0,
+      8050
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "elder_beech_normal",
+    "target": [
+      -2795.41015625,
+      20.511077880859375,
+      -2246.09375
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "elder_beech_close",
+    "target": [
+      -2795.41015625,
+      20.511077880859375,
+      -2246.09375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "seven_sisters_normal",
+    "target": [
+      -5957.03125,
+      2.420478343963623,
+      -1501.46484375
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "seven_sisters_close",
+    "target": [
+      -5957.03125,
+      2.420478343963623,
+      -1501.46484375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "parmetos_silent_arch_normal",
+    "target": [
+      -16003.41796875,
+      1.0820960998535156,
+      2661.1328125
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "parmetos_silent_arch_close",
+    "target": [
+      -16003.41796875,
+      1.0820960998535156,
+      2661.1328125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "heather_stones_normal",
+    "target": [
+      4394.53125,
+      38.707000732421875,
+      -8105.46875
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "heather_stones_close",
+    "target": [
+      4394.53125,
+      38.707000732421875,
+      -8105.46875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "amber_spring_normal",
+    "target": [
+      11999.51171875,
+      11.026670455932617,
+      6555.17578125
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "amber_spring_close",
+    "target": [
+      11999.51171875,
+      11.026670455932617,
+      6555.17578125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "waring_silver_grove_normal",
+    "target": [
+      12756.34765625,
+      3.697056293487549,
+      -4846.19140625
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "waring_silver_grove_close",
+    "target": [
+      12756.34765625,
+      3.697056293487549,
+      -4846.19140625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "copper_wind_arch_normal",
+    "target": [
+      13562.01171875,
+      0.22813701629638672,
+      5590.8203125
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "copper_wind_arch_close",
+    "target": [
+      13562.01171875,
+      0.22813701629638672,
+      5590.8203125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "mountain_lake",
+    "target": [
+      10300,
+      0,
+      -3300
+    ],
+    "size": 3000,
+    "pitch": 40
+  },
+  {
+    "name": "river_close",
+    "target": [
+      -2576,
+      0,
+      -928
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "ground_without_vegetation",
+    "target": [
+      -3100,
+      0,
+      -2300
+    ],
+    "size": 800,
+    "pitch": 40,
+    "bare": true
+  },
+  {
+    "name": "desert_ground",
+    "target": [
+      11600,
+      0,
+      4950
+    ],
+    "size": 800,
+    "pitch": 40,
+    "bare": true
+  },
+  {
+    "name": "ocean_surface",
+    "target": [
+      15800,
+      0,
+      5800
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "rocky_headland",
+    "target": [
+      427.24609375,
+      17.311174392700195,
+      -6835.9375
+    ],
+    "size": 1000,
+    "pitch": 40
+  },
+  {
+    "name": "sheltered_beach",
+    "target": [
+      -3100.5859375,
+      1.007133960723877,
+      2160.64453125
+    ],
+    "size": 1000,
+    "pitch": 40
+  }
+]

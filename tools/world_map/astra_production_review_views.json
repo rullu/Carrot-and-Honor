@@ -1,0 +1,1124 @@
+[
+  {
+    "name": "whole_oblique",
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "size": 30000,
+    "pitch": 40
+  },
+  {
+    "name": "whole_top_down",
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "size": 29000,
+    "pitch": 90
+  },
+  {
+    "name": "default_gameplay",
+    "target": [
+      -4500,
+      0,
+      -1700
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "closest_gameplay",
+    "target": [
+      -4500,
+      0,
+      -1700
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "furthest_gameplay",
+    "target": [
+      -4500,
+      0,
+      -1700
+    ],
+    "size": 3600,
+    "pitch": 40
+  },
+  {
+    "name": "beech_downs_normal",
+    "target": [
+      -3100,
+      0,
+      -2300
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "western_watermeadows_normal",
+    "target": [
+      -5100,
+      0,
+      -1350
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "central_green_vales_normal",
+    "target": [
+      1100,
+      0,
+      -3200
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "sunlit_downs_normal",
+    "target": [
+      -2200,
+      0,
+      300
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "western_wind_heath_normal",
+    "target": [
+      -9500,
+      0,
+      -3700
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "parmetos_groves_normal",
+    "target": [
+      -15800,
+      0,
+      2500
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "southern_olive_country_normal",
+    "target": [
+      -12100,
+      0,
+      4650
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "chalk_coast_normal",
+    "target": [
+      -18200,
+      0,
+      3600
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "central_stony_march_normal",
+    "target": [
+      6400,
+      0,
+      300
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "northern_pine_vales_normal",
+    "target": [
+      3200,
+      0,
+      -7800
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "northern_silver_heath_normal",
+    "target": [
+      6700,
+      0,
+      -9650
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "waring_pine_shores_normal",
+    "target": [
+      12970,
+      0,
+      -4770
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "eastern_copper_foothills_normal",
+    "target": [
+      11700,
+      0,
+      2100
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "amber_sands_normal",
+    "target": [
+      10800,
+      0,
+      4700
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "southeastern_wind_stones_normal",
+    "target": [
+      12500,
+      0,
+      6100
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "southern_dry_vales_normal",
+    "target": [
+      9900,
+      0,
+      8050
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "elder_beech_normal",
+    "target": [
+      -2795.41015625,
+      20.511077880859375,
+      -2246.09375
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "elder_beech_close",
+    "target": [
+      -2795.41015625,
+      20.511077880859375,
+      -2246.09375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "seven_sisters_normal",
+    "target": [
+      -5957.03125,
+      2.420478343963623,
+      -1501.46484375
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "seven_sisters_close",
+    "target": [
+      -5957.03125,
+      2.420478343963623,
+      -1501.46484375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "parmetos_silent_arch_normal",
+    "target": [
+      -16003.41796875,
+      1.0820960998535156,
+      2661.1328125
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "parmetos_silent_arch_close",
+    "target": [
+      -16003.41796875,
+      1.0820960998535156,
+      2661.1328125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "heather_stones_normal",
+    "target": [
+      4394.53125,
+      38.707000732421875,
+      -8105.46875
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "heather_stones_close",
+    "target": [
+      4394.53125,
+      38.707000732421875,
+      -8105.46875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "amber_spring_normal",
+    "target": [
+      11999.51171875,
+      11.026670455932617,
+      6555.17578125
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "amber_spring_close",
+    "target": [
+      11999.51171875,
+      11.026670455932617,
+      6555.17578125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "waring_silver_grove_normal",
+    "target": [
+      12756.34765625,
+      3.697056293487549,
+      -4846.19140625
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "waring_silver_grove_close",
+    "target": [
+      12756.34765625,
+      3.697056293487549,
+      -4846.19140625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "copper_wind_arch_normal",
+    "target": [
+      13562.01171875,
+      0.22813701629638672,
+      5590.8203125
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "copper_wind_arch_close",
+    "target": [
+      13562.01171875,
+      0.22813701629638672,
+      5590.8203125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "mountain_lake",
+    "target": [
+      10300,
+      0,
+      -3300
+    ],
+    "size": 3000,
+    "pitch": 40
+  },
+  {
+    "name": "river_close",
+    "target": [
+      -2576,
+      0,
+      -928
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "ground_without_vegetation",
+    "target": [
+      -3100,
+      0,
+      -2300
+    ],
+    "size": 800,
+    "pitch": 40,
+    "bare": true
+  },
+  {
+    "name": "desert_ground",
+    "target": [
+      11600,
+      0,
+      4950
+    ],
+    "size": 800,
+    "pitch": 40,
+    "bare": true
+  },
+  {
+    "name": "ocean_surface",
+    "target": [
+      15800,
+      0,
+      5800
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "rocky_headland",
+    "target": [
+      427.24609375,
+      17.311174392700195,
+      -6835.9375
+    ],
+    "size": 1000,
+    "pitch": 40
+  },
+  {
+    "name": "sheltered_beach",
+    "target": [
+      -3100.5859375,
+      1.007133960723877,
+      2160.64453125
+    ],
+    "size": 1000,
+    "pitch": 40
+  },
+  {
+    "name": "river_normal",
+    "target": [
+      -2576,
+      0,
+      -928
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "highest_range_normal",
+    "target": [
+      10498,
+      0,
+      -2869
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "highest_range_close",
+    "target": [
+      10498,
+      0,
+      -2869
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "northern_range_normal",
+    "target": [
+      3796,
+      0,
+      -6299
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "northern_range_far",
+    "target": [
+      4956,
+      0,
+      -6726
+    ],
+    "size": 3600,
+    "pitch": 40
+  },
+  {
+    "name": "western_range_normal",
+    "target": [
+      -2075,
+      0,
+      928
+    ],
+    "size": 1600,
+    "pitch": 40
+  },
+  {
+    "name": "small_oasis_close",
+    "target": [
+      11702,
+      0,
+      6145
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "southern_spring_close",
+    "target": [
+      9587,
+      0,
+      8487
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_western_gravel_reach",
+    "target": [
+      -2819.82421875,
+      0,
+      -744.62890625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_western_overgrown_reach",
+    "target": [
+      -4638.671875,
+      0,
+      -1049.8046875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_watermeadow_margin",
+    "target": [
+      -5895.99609375,
+      0,
+      -1892.08984375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_western_headland_stones",
+    "target": [
+      -6042.48046875,
+      0,
+      -1428.22265625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_central_reed_reach",
+    "target": [
+      1123.046875,
+      0,
+      -3222.65625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_parmetos_sheltered_reeds",
+    "target": [
+      -16516.11328125,
+      0,
+      2221.6796875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_parmetos_gravel_margin",
+    "target": [
+      -15710.44921875,
+      0,
+      2282.71484375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_waring_stone_margin",
+    "target": [
+      12719.7265625,
+      0,
+      -4833.984375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_waring_sheltered_reeds",
+    "target": [
+      13220.21484375,
+      0,
+      -4675.29296875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_mountain_lake_scree",
+    "target": [
+      10644.53125,
+      0,
+      -3149.4140625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_northern_quiet_lake",
+    "target": [
+      7336.42578125,
+      0,
+      -8581.54296875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_amber_oasis_crescent",
+    "target": [
+      11596.6796875,
+      0,
+      6030.2734375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_southern_small_spring",
+    "target": [
+      9533.69140625,
+      0,
+      8447.265625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_exposed_rocky_headland",
+    "target": [
+      415.0390625,
+      0,
+      -6872.55859375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_chalk_coast_outcrop",
+    "target": [
+      -18164.0625,
+      0,
+      3503.41796875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_southwestern_lake_reeds",
+    "target": [
+      -6701.66015625,
+      0,
+      2453.61328125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_01",
+    "target": [
+      10571.2890625,
+      0,
+      5810.546875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_02",
+    "target": [
+      8886.71875,
+      0,
+      -4260.25390625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_03",
+    "target": [
+      9985.3515625,
+      0,
+      -4418.9453125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_04",
+    "target": [
+      8581.54296875,
+      0,
+      -5700.68359375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_05",
+    "target": [
+      -14221.19140625,
+      0,
+      1538.0859375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_06",
+    "target": [
+      -2343.75,
+      0,
+      2075.1953125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_07",
+    "target": [
+      7128.90625,
+      0,
+      -3051.7578125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_08",
+    "target": [
+      219.7265625,
+      0,
+      -4626.46484375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_09",
+    "target": [
+      2856.4453125,
+      0,
+      -2111.81640625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_10",
+    "target": [
+      1757.8125,
+      0,
+      1611.328125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_11",
+    "target": [
+      5163.57421875,
+      0,
+      2893.06640625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_12",
+    "target": [
+      -13183.59375,
+      0,
+      2307.12890625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_13",
+    "target": [
+      -1281.73828125,
+      0,
+      -5773.92578125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_14",
+    "target": [
+      -4492.1875,
+      0,
+      -4357.91015625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_15",
+    "target": [
+      -2453.61328125,
+      0,
+      -4040.52734375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_16",
+    "target": [
+      1354.98046875,
+      0,
+      -4736.328125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_17",
+    "target": [
+      -13610.83984375,
+      0,
+      4174.8046875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_18",
+    "target": [
+      2209.47265625,
+      0,
+      3100.5859375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_19",
+    "target": [
+      3405.76171875,
+      0,
+      2185.05859375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_20",
+    "target": [
+      219.7265625,
+      0,
+      2416.9921875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_21",
+    "target": [
+      11218.26171875,
+      0,
+      -5187.98828125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_22",
+    "target": [
+      -5664.0625,
+      0,
+      2209.47265625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_23",
+    "target": [
+      -6420.8984375,
+      0,
+      -4968.26171875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_river_pocket_24",
+    "target": [
+      -2819.82421875,
+      0,
+      573.73046875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_01",
+    "target": [
+      13024.90234375,
+      0,
+      5981.4453125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_02",
+    "target": [
+      6921.38671875,
+      0,
+      7958.984375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_03",
+    "target": [
+      -20483.3984375,
+      0,
+      2355.95703125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_04",
+    "target": [
+      12817.3828125,
+      0,
+      -6896.97265625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_05",
+    "target": [
+      13220.21484375,
+      0,
+      4052.734375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_06",
+    "target": [
+      -1818.84765625,
+      0,
+      -7873.53515625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_07",
+    "target": [
+      -12927.24609375,
+      0,
+      -2490.234375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_08",
+    "target": [
+      -18151.85546875,
+      0,
+      5908.203125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_09",
+    "target": [
+      -2368.1640625,
+      0,
+      -5822.75390625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_10",
+    "target": [
+      -17150.87890625,
+      0,
+      4931.640625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_11",
+    "target": [
+      -3576.66015625,
+      0,
+      -8398.4375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_12",
+    "target": [
+      2575.68359375,
+      0,
+      5566.40625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_13",
+    "target": [
+      256.34765625,
+      0,
+      5261.23046875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_14",
+    "target": [
+      -5346.6796875,
+      0,
+      -7092.28515625
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_15",
+    "target": [
+      -3955.078125,
+      0,
+      -6384.27734375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_16",
+    "target": [
+      -10693.359375,
+      0,
+      -5285.64453125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_17",
+    "target": [
+      -9423.828125,
+      0,
+      1171.875
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_18",
+    "target": [
+      -7214.35546875,
+      0,
+      -6945.80078125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_19",
+    "target": [
+      -9692.3828125,
+      0,
+      -3613.28125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_20",
+    "target": [
+      -4431.15234375,
+      0,
+      3845.21484375
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_21",
+    "target": [
+      13977.05078125,
+      0,
+      -1489.2578125
+    ],
+    "size": 800,
+    "pitch": 40
+  },
+  {
+    "name": "pocket_shore_pocket_22",
+    "target": [
+      -14978.02734375,
+      0,
+      341.796875
+    ],
+    "size": 800,
+    "pitch": 40
+  }
+]

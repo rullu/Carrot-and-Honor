@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "source_authorities_verified": 12,
+  "accepted_instances_sha256": "570f6d852d9b6ff0ae6a3694f9dc908a6c426bb16c12f06bdd7b9ff9e06408cc",
+  "preserved_water_vertices_sha256": "557009005265969ddbf2d624afa48ad013ad09d51334ca523fd3609b2d6aa090",
+  "channels": [
+    "damp bank",
+    "gravel pocket",
+    "water-influenced vegetation",
+    "rock interruption"
+  ],
+  "sites": 62,
+  "added_instances": 903,
+  "wakes": 24,
+  "provenance": "Original deterministic project geometry and composition; no additional third-party assets.",
+  "files": {
+    "shore_finish_rgba.png": {
+      "sha256": "4b1f7b71713d2282ff83d0aa0009250b1d088a2c388406c0f25a24a5f1520809",
+      "bytes": 15359181,
+      "dev019_sha256": "ef2d3a973aa82d0476631ffcaf9de8e59364ad708aacf0869737d9af2148f43c"
+    },
+    "shore_details.json": {
+      "sha256": "45212fdce15f67a8772a84f86c847abd7fe69c0bc9d7b09c64ec8938b771d2a5",
+      "bytes": 174006
+    },
+    "river_motion_rgba.png": {
+      "sha256": "5237e829f28720ae77d58734b51e35aab21a21f9a8f98c60c2ac3b51503c5fff",
+      "bytes": 12762635
+    }
+  },
+  "revision_note": "DEV-019 detail inventory retained. DEV-020 replaces only the shore-finish presentation field; beauty_manifest.json owns the current artistic package."
+}

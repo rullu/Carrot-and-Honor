@@ -1,0 +1,110 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://src/presentation/world_map/astra_natural_world.gd" id="1_controller"]
+[ext_resource type="Shader" path="res://src/presentation/world_map/astra_natural_terrain.gdshader" id="2_shader"]
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_art"]
+shader_override = ExtResource("2_shader")
+shader_override_enabled = true
+world_background = 0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_art"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sea"]
+size = Vector2(180000, 150000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sea"]
+shading_mode = 0
+albedo_color = Color(0.105, 0.255, 0.325, 1)
+roughness = 1.0
+
+[sub_resource type="ProceduralSkyMaterial" id="SkyMaterial_polish"]
+sky_top_color = Color(0.28, 0.45, 0.62, 1)
+sky_horizon_color = Color(0.76, 0.81, 0.78, 1)
+ground_bottom_color = Color(0.18, 0.22, 0.18, 1)
+ground_horizon_color = Color(0.65, 0.71, 0.66, 1)
+sun_angle_max = 8.0
+sun_curve = 0.12
+
+[sub_resource type="Sky" id="Sky_polish"]
+radiance_size = 3
+sky_material = SubResource("SkyMaterial_polish")
+
+[sub_resource type="Environment" id="Environment_art"]
+background_mode = 1
+background_color = Color(0.105, 0.255, 0.325, 1)
+sky = SubResource("Sky_polish")
+reflected_light_source = 2
+ambient_light_source = 2
+ambient_light_color = Color(0.72, 0.83, 1, 1)
+ambient_light_energy = 0.48
+fog_enabled = true
+fog_light_color = Color(0.65, 0.76, 0.79, 1)
+fog_density = 0.000012
+fog_sun_scatter = 0.08
+
+[node name="AstraNaturalWorldFinal" type="Node3D"]
+script = ExtResource("1_controller")
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+region_size = 128
+vertex_spacing = 12.20703125
+data_directory = "res://assets/world_map/astra/terrain_data"
+material = SubResource("Terrain3DMaterial_art")
+assets = SubResource("Terrain3DAssets_art")
+mesh_lods = 8
+mesh_size = 128
+cast_shadows = 0
+free_editor_textures = false
+top_level = true
+
+[node name="SeaLevelReference" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.05, 0)
+mesh = SubResource("PlaneMesh_sea")
+material_override = SubResource("StandardMaterial3D_sea")
+
+[node name="InspectionCamera" type="Camera3D" parent="."]
+projection = 1
+size = 34000.0
+near = 10.0
+far = 100000.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_art")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-52, -145, 0)
+light_color = Color(1, 0.955, 0.865, 1)
+light_energy = 1.08
+shadow_enabled = true
+shadow_bias = 0.035
+shadow_normal_bias = 0.6
+shadow_blur = 2.0
+directional_shadow_mode = 1
+directional_shadow_max_distance = 10000.0
+
+[node name="InspectionControls" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="PanelContainer" parent="InspectionControls"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 900.0
+offset_bottom = 118.0
+
+[node name="Margin" type="MarginContainer" parent="InspectionControls/Panel"]
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Rows" type="VBoxContainer" parent="InspectionControls/Panel/Margin"]
+
+[node name="Title" type="Label" parent="InspectionControls/Panel/Margin/Rows"]
+theme_override_font_sizes/font_size = 18
+text = "FOR CARROT AND HONOUR | ATMOSPHERIC NATURAL WORLD · 2026-09-10"
+
+[node name="View" type="Label" parent="InspectionControls/Panel/Margin/Rows"]
+text = "View: OBLIQUE (north is screen top)"
+
+[node name="Controls" type="Label" parent="InspectionControls/Panel/Margin/Rows"]
+text = "WASD / middle drag pan | wheel zoom | Shift+wheel development | V top | F world | Home reset\n1–9 regions | 0 discoveries | P vegetation | H hide controls"

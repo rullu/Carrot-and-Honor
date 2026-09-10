@@ -1,0 +1,296 @@
+[
+  {
+    "name": "Western woodland at default",
+    "target": [
+      -4800,
+      0,
+      -1800
+    ],
+    "size": 1600,
+    "pan": [
+      600,
+      220
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Western woodland closest",
+    "target": [
+      -4500,
+      0,
+      -1700
+    ],
+    "size": 800,
+    "pan": [
+      280,
+      90
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Western regional panorama",
+    "target": [
+      -5100,
+      0,
+      -1350
+    ],
+    "size": 3600,
+    "pan": [
+      1050,
+      400
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Western wind heath",
+    "target": [
+      -9800,
+      0,
+      -3900
+    ],
+    "size": 1600,
+    "pan": [
+      750,
+      260
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Parmetos margins",
+    "target": [
+      -16500,
+      0,
+      2390
+    ],
+    "size": 1600,
+    "pan": [
+      950,
+      230
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Mediterranean coast",
+    "target": [
+      -12300,
+      0,
+      4510
+    ],
+    "size": 1600,
+    "pan": [
+      700,
+      210
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Chalk coast",
+    "target": [
+      -18300,
+      0,
+      3460
+    ],
+    "size": 1600,
+    "pan": [
+      400,
+      800
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Central green vales",
+    "target": [
+      650,
+      0,
+      -3300
+    ],
+    "size": 1600,
+    "pan": [
+      950,
+      230
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Central stony country",
+    "target": [
+      6000,
+      0,
+      150
+    ],
+    "size": 1600,
+    "pan": [
+      900,
+      320
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Northern pine vales",
+    "target": [
+      2900,
+      0,
+      -8000
+    ],
+    "size": 1600,
+    "pan": [
+      850,
+      380
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Northern mountain mass",
+    "target": [
+      3600,
+      0,
+      -6400
+    ],
+    "size": 1600,
+    "pan": [
+      780,
+      100
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Northern ranges at far view",
+    "target": [
+      4300,
+      0,
+      -6650
+    ],
+    "size": 3600,
+    "pan": [
+      1400,
+      150
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Northern lake and heath",
+    "target": [
+      6700,
+      0,
+      -8820
+    ],
+    "size": 1600,
+    "pan": [
+      850,
+      220
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Waring pine shores",
+    "target": [
+      12600,
+      0,
+      -4860
+    ],
+    "size": 1600,
+    "pan": [
+      800,
+      160
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Highest range normal",
+    "target": [
+      10200,
+      0,
+      -2950
+    ],
+    "size": 1600,
+    "pan": [
+      700,
+      180
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Highest range closest",
+    "target": [
+      10498,
+      0,
+      -2869
+    ],
+    "size": 800,
+    "pan": [
+      220,
+      -80
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Eastern copper foothills",
+    "target": [
+      11300,
+      0,
+      1800
+    ],
+    "size": 1600,
+    "pan": [
+      1000,
+      420
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Amber sand flats",
+    "target": [
+      10400,
+      0,
+      4590
+    ],
+    "size": 1600,
+    "pan": [
+      1100,
+      290
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Oasis water influence",
+    "target": [
+      11702,
+      0,
+      6145
+    ],
+    "size": 800,
+    "pan": [
+      160,
+      -80
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Southern small spring",
+    "target": [
+      9587,
+      0,
+      8487
+    ],
+    "size": 800,
+    "pan": [
+      170,
+      75
+    ],
+    "seconds": 4
+  },
+  {
+    "name": "Southeastern coast",
+    "target": [
+      12400,
+      0,
+      5700
+    ],
+    "size": 1600,
+    "pan": [
+      1100,
+      350
+    ],
+    "seconds": 4
+  }
+]

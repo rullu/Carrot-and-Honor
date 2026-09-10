@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://src/presentation/world_map/astra_terrain_art.gd" id="1_controller"]
+[ext_resource type="Shader" path="res://src/presentation/world_map/astra_terrain_art.gdshader" id="2_shader"]
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_art"]
+shader_override = ExtResource("2_shader")
+shader_override_enabled = true
+world_background = 0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_art"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sea"]
+size = Vector2(50000, 28125)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sea"]
+shading_mode = 0
+albedo_color = Color(0.19, 0.31, 0.35, 1)
+roughness = 1.0
+
+[sub_resource type="Environment" id="Environment_art"]
+background_mode = 1
+background_color = Color(0.19, 0.31, 0.35, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.82, 0.87, 0.94, 1)
+ambient_light_energy = 0.24
+
+[node name="AstraTerrainArtPreview" type="Node3D"]
+script = ExtResource("1_controller")
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+region_size = 128
+vertex_spacing = 12.20703125
+data_directory = "res://assets/world_map/astra/terrain_data"
+material = SubResource("Terrain3DMaterial_art")
+assets = SubResource("Terrain3DAssets_art")
+mesh_lods = 8
+mesh_size = 96
+free_editor_textures = false
+top_level = true
+
+[node name="SeaLevelReference" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.05, 0)
+mesh = SubResource("PlaneMesh_sea")
+material_override = SubResource("StandardMaterial3D_sea")
+
+[node name="InspectionCamera" type="Camera3D" parent="."]
+projection = 1
+size = 34000.0
+near = 10.0
+far = 100000.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_art")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-32, -35, 0)
+light_color = Color(1, 0.956863, 0.870588, 1)
+light_energy = 0.78
+shadow_enabled = false
+
+[node name="InspectionControls" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="PanelContainer" parent="InspectionControls"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 900.0
+offset_bottom = 118.0
+
+[node name="Margin" type="MarginContainer" parent="InspectionControls/Panel"]
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Rows" type="VBoxContainer" parent="InspectionControls/Panel/Margin"]
+
+[node name="Title" type="Label" parent="InspectionControls/Panel/Margin/Rows"]
+theme_override_font_sizes/font_size = 18
+text = "FOR CARROT AND HONOUR | TERRAIN ART"
+
+[node name="View" type="Label" parent="InspectionControls/Panel/Margin/Rows"]
+text = "View: OBLIQUE (north is screen top)"
+
+[node name="Controls" type="Label" parent="InspectionControls/Panel/Margin/Rows"]
+text = "WASD/arrows pan | wheel zoom | V top-down/oblique | F frame whole map | H hide controls"

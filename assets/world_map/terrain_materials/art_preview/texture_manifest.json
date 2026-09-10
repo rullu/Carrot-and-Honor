@@ -1,0 +1,144 @@
+{
+  "version": 2,
+  "description": "Presentation context only; linear RGBA, exact playable frame.",
+  "texture_arrays": {
+    "albedo": "albedo_srgb.tres",
+    "normal_roughness": "normal_roughness.tres",
+    "formats": [
+      "BC1 sRGB colour",
+      "BC3 linear NormalGL RGB / roughness A"
+    ],
+    "resolution": [
+      2048,
+      2048
+    ],
+    "mip_levels": 12
+  },
+  "context_channels": [
+    "macro variety",
+    "meso variety",
+    "signed terrain relief",
+    "local shelter"
+  ],
+  "height_source_sha256": "5a1a895081e2cf24fe1466b2a0cf036b04908afad57dfff01f50b366f63a3dbc",
+  "context_sha256": "486a8b69f2515522cd4f7dc078a71f34c480af163323d70fda7f84e51d1862b7",
+  "size": [
+    4096,
+    2304
+  ],
+  "seed": 796959858,
+  "materials": [
+    {
+      "name": "Grass001",
+      "layer": 0,
+      "albedo": "res://assets/world_map/terrain_materials/Grass001/Grass001_2K-PNG_Color.png",
+      "intermediate_normal_roughness": "Grass001_normal_roughness.png",
+      "production_albedo": "res://assets/world_map/terrain_materials/art_preview/layers/albedo_srgb_0.res",
+      "production_normal_roughness": "res://assets/world_map/terrain_materials/art_preview/layers/normal_roughness_0.res",
+      "sources": {
+        "Grass001_2K-PNG_Color.png": "a798a39e2df2ef3f8be2502ff0c9b02f3858547d9ecfe5ec8f722f2fef8a9e5f",
+        "Grass001_2K-PNG_NormalGL.png": "5e9096e7b1612bbae8d45f1d5e47458650644873269d7493738f5d22f78a3e9f",
+        "Grass001_2K-PNG_Roughness.png": "072b26aec4575ed77b3351e5dc733fd91af755114fc498966a3206ab3e211d2e"
+      },
+      "packed_sha256": "8526596a04bf0254ac1a16025b3f7d4611931d2d1369f81c1d3e5565fbb94e81"
+    },
+    {
+      "name": "sparse_grass",
+      "layer": 1,
+      "albedo": "res://assets/world_map/terrain_materials/sparse_grass/sparse_grass_diff_2k.png",
+      "intermediate_normal_roughness": "sparse_grass_normal_roughness.png",
+      "production_albedo": "res://assets/world_map/terrain_materials/art_preview/layers/albedo_srgb_1.res",
+      "production_normal_roughness": "res://assets/world_map/terrain_materials/art_preview/layers/normal_roughness_1.res",
+      "sources": {
+        "sparse_grass_diff_2k.png": "d24a836c12689f4fda41358251f30ddb865bbad41ccac63bf276b13559d55167",
+        "sparse_grass_nor_gl_2k.png": "3295cf5ca9db4ed1888d94ebf7e69295c1c6607beeb1e3bd5373c7cd20c9318e",
+        "sparse_grass_rough_2k.png": "9f3a47f0705f1c09939c7549194bab8863e2ef74f1eae613cf3307e5bd2e8143"
+      },
+      "packed_sha256": "997fd174066729cf05e16540d83bae04571897cb80500695d86b5676a095cba2"
+    },
+    {
+      "name": "withered_grass",
+      "layer": 2,
+      "albedo": "res://assets/world_map/terrain_materials/withered_grass/withered_grass_diff_2k.png",
+      "intermediate_normal_roughness": "withered_grass_normal_roughness.png",
+      "production_albedo": "res://assets/world_map/terrain_materials/art_preview/layers/albedo_srgb_2.res",
+      "production_normal_roughness": "res://assets/world_map/terrain_materials/art_preview/layers/normal_roughness_2.res",
+      "sources": {
+        "withered_grass_diff_2k.png": "ca1600e92cb82ba4c579d54f9b02a36c5fd1d55174c5732c6031ba5885f8323f",
+        "withered_grass_nor_gl_2k.png": "5b4be863674ec322952cc3e0aa2a33980b194ad65d83ff012e348ae4bd38849f",
+        "withered_grass_rough_2k.png": "a1eb44209deb2d423dc70287fefe836468d95e1bb4b51bf7b3d8f906c9d7a7e4"
+      },
+      "packed_sha256": "d2d8f8d77c9c95b48d22834e02245984907100d4221926640e3c0ef3fa83a4b6"
+    },
+    {
+      "name": "dirt_aerial_03",
+      "layer": 3,
+      "albedo": "res://assets/world_map/terrain_materials/dirt_aerial_03/dirt_aerial_03_diff_2k.png",
+      "intermediate_normal_roughness": "dirt_aerial_03_normal_roughness.png",
+      "production_albedo": "res://assets/world_map/terrain_materials/art_preview/layers/albedo_srgb_3.res",
+      "production_normal_roughness": "res://assets/world_map/terrain_materials/art_preview/layers/normal_roughness_3.res",
+      "sources": {
+        "dirt_aerial_03_diff_2k.png": "b1c7ad01985c1e3a86a19c4832ca3b09c789b7c02cb1978be4f3f27fac3e0760",
+        "dirt_aerial_03_nor_gl_2k.png": "2f111fb1202b15798dc181c002143f9ccba328c4d54209912d6c69bc2f994cef",
+        "dirt_aerial_03_rough_2k.png": "52822a6b66c5e6c3b1a74a2749b894f947e2b8709b6b9f3af352034df66276eb"
+      },
+      "packed_sha256": "a06338aa0a15c28c41d4b97f8792488ec56e422fac724faacefac1670750ed47"
+    },
+    {
+      "name": "sand_03",
+      "layer": 4,
+      "albedo": "res://assets/world_map/terrain_materials/sand_03/sand_03_diff_2k.png",
+      "intermediate_normal_roughness": "sand_03_normal_roughness.png",
+      "production_albedo": "res://assets/world_map/terrain_materials/art_preview/layers/albedo_srgb_4.res",
+      "production_normal_roughness": "res://assets/world_map/terrain_materials/art_preview/layers/normal_roughness_4.res",
+      "sources": {
+        "sand_03_diff_2k.png": "2331f246bf721a93a7c946ef75289060e86d3d67612ec8a25d81c58e96e66ee8",
+        "sand_03_nor_gl_2k.png": "43b8179110e6ac28e230c931216fbdf1923f93f62502df4255c0b68525adf628",
+        "sand_03_rough_2k.png": "21cd98c9317c4ac69a25cd71a69bbc7323180d22964c90b58a61d4d0d670d43e"
+      },
+      "packed_sha256": "0fdefb7b60368eb6a44f8acd8183260716ce9c36f3d511279cbb5c2a817a7422"
+    },
+    {
+      "name": "aerial_rocks_02",
+      "layer": 5,
+      "albedo": "res://assets/world_map/terrain_materials/aerial_rocks_02/aerial_rocks_02_diff_2k.png",
+      "intermediate_normal_roughness": "aerial_rocks_02_normal_roughness.png",
+      "production_albedo": "res://assets/world_map/terrain_materials/art_preview/layers/albedo_srgb_5.res",
+      "production_normal_roughness": "res://assets/world_map/terrain_materials/art_preview/layers/normal_roughness_5.res",
+      "sources": {
+        "aerial_rocks_02_diff_2k.png": "6d0319b0ebc97dae5e7ebeb02fe9252bdc78654b46b276907222a12935c07b18",
+        "aerial_rocks_02_nor_gl_2k.png": "53d4c2cac90801132a99054bd7d6132b230ddf9b12cc20c515caa7da0da6f01a",
+        "aerial_rocks_02_rough_2k.png": "2f5f3f21d17a82378f29ea3501b5f5d5bc827493bc309e5f7ab1c0795880fdb2"
+      },
+      "packed_sha256": "b4ecebef54fcb80f7f3c14487c802f35f6f2cd6ce7d25c78e994ba9040666186"
+    },
+    {
+      "name": "rock_05",
+      "layer": 6,
+      "albedo": "res://assets/world_map/terrain_materials/rock_05/rock_05_diff_2k.png",
+      "intermediate_normal_roughness": "rock_05_normal_roughness.png",
+      "production_albedo": "res://assets/world_map/terrain_materials/art_preview/layers/albedo_srgb_6.res",
+      "production_normal_roughness": "res://assets/world_map/terrain_materials/art_preview/layers/normal_roughness_6.res",
+      "sources": {
+        "rock_05_diff_2k.png": "c55ad6cf0a7e59280d8879b1b58bf110ee6d8ab7a4e61d7b8f5af7621411ef4a",
+        "rock_05_nor_gl_2k.png": "220fa102371cd18f18daba694aa067e1f98e68e0d0af3d5d174be9f74d6a7caf",
+        "rock_05_rough_2k.png": "5894a7149f8b9d97da09f775c9dbc4e4b1b0d51db6aa2be2175746203a9bb289"
+      },
+      "packed_sha256": "499617d2181e2c66d6fce85ea8254a02e0a482cb3cd20f2b49ecd78302ad16b6"
+    },
+    {
+      "name": "aerial_grass_rock",
+      "layer": 7,
+      "albedo": "res://assets/world_map/terrain_materials/aerial_grass_rock/aerial_grass_rock_diff_2k.png",
+      "intermediate_normal_roughness": "aerial_grass_rock_normal_roughness.png",
+      "production_albedo": "res://assets/world_map/terrain_materials/art_preview/layers/albedo_srgb_7.res",
+      "production_normal_roughness": "res://assets/world_map/terrain_materials/art_preview/layers/normal_roughness_7.res",
+      "sources": {
+        "aerial_grass_rock_diff_2k.png": "b88e29903589b8a1a0448e4555f49fb1e0e653c1eae01358ab0666c8180e6e10",
+        "aerial_grass_rock_nor_gl_2k.png": "e78b6f7012c60d50da2ea295c2351427df415cfa1d5ec865b36859c31da211cc",
+        "aerial_grass_rock_rough_2k.png": "3621b27444955dc877f0bf5eea58a70d911d6a17f9dc104137b00b2079a6eabe"
+      },
+      "packed_sha256": "f5d7636d781882facc6a00d5e778f3818c95fc77cf13efedda7351abbcea4ca6"
+    }
+  ]
+}

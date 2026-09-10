@@ -1,0 +1,93 @@
+{
+  "pass": true,
+  "seed": 796959858,
+  "shape": [
+    4096,
+    2304
+  ],
+  "origin_xz": [
+    -25000.0,
+    -14062.5
+  ],
+  "spacing": 12.20703125,
+  "land_pixel_centres": 2605811,
+  "shore_pixel_centre_mismatches": 0,
+  "shore_reconstruction": "Gaussian 0.85 samples, sign constrained at every authority centre; original footprint and all channels remain unchanged.",
+  "inland_water_triangles": 210584,
+  "water_min_max_y": [
+    0.0,
+    94.46595001220703
+  ],
+  "prop_counts": {
+    "0": 8330,
+    "1": 1605,
+    "2": 4052,
+    "3": 5939,
+    "4": 3727,
+    "5": 1264,
+    "6": 3832,
+    "7": 1115,
+    "8": 634,
+    "9": 82,
+    "10": 1551,
+    "11": 237,
+    "12": 1470,
+    "13": 2950,
+    "14": 1,
+    "15": 7,
+    "16": 2,
+    "17": 6,
+    "18": 0,
+    "19": 910
+  },
+  "prop_total": 37714,
+  "source_data_hashes_verified": 12,
+  "source_files": {
+    "FCAH_Features_RGBA.png": "b4d5f3ae4c4eafa53074ad9644df586348b47abcc344c5f57346c92fdd2d61c3",
+    "FCAH_Environment_RGBA.png": "bb964ebad082e281ec218c2d576015a243a0c879c01e4b0ce809600f39a70956",
+    "FCAH_WaterSurface_4096_F32.tif": "821cda73f68dddb265af6fb9100d996b79440b2a7a5d8ee60bb1439ce47f570c",
+    "FCAH_Height_Playable_4096x2304_F32.exr": "5a1a895081e2cf24fe1466b2a0cf036b04908afad57dfff01f50b366f63a3dbc"
+  },
+  "derived_files": {
+    "bank_vertices.bin": {
+      "sha256": "2087b20d5e7c6c04309b6309184a3dbf84bb66d029392d694f93ee9880ebdf86",
+      "bytes": 4811760
+    },
+    "ecology_rgba.png": {
+      "sha256": "29213cc65be23350481100e9cd5b77198472678f8dfa35c0f40ec9f4293bd99b",
+      "bytes": 8983051
+    },
+    "inland_water_vertices.bin": {
+      "sha256": "557009005265969ddbf2d624afa48ad013ad09d51334ca523fd3609b2d6aa090",
+      "bytes": 7581024
+    },
+    "landscape_character_rgba.png": {
+      "sha256": "f0b5d928d976e9feb2b2419d32bf406ad226f15f2d91db2cf61ba2a3ce936c30",
+      "bytes": 6514546
+    },
+    "natural_districts.json": {
+      "sha256": "3e57939109b7f22ca2923f3d5538f8bce8eb59c7b1f613f52e1c5f03b39c178a",
+      "bytes": 2903
+    },
+    "natural_instances.json": {
+      "sha256": "570f6d852d9b6ff0ae6a3694f9dc908a6c426bb16c12f06bdd7b9ff9e06408cc",
+      "bytes": 2119901
+    },
+    "shore_distance.exr": {
+      "sha256": "89920c97ae64b96930ba74bfb7bb95d2430fcd0c5baf221d981f9c02718e54ad",
+      "bytes": 2776246
+    },
+    "surface_context_rgba.png": {
+      "sha256": "d2a3be1dfd57b7a2c2764c08b37fda5d20d19d0c4ae26ba93e6bbbcdfbc770f2",
+      "bytes": 13598568
+    },
+    "water_features_rgba.png": {
+      "sha256": "f071db3770b4c26e756f747f50b76eceebf6d4011f4e7b452e85b684aacc9c25",
+      "bytes": 1002180
+    },
+    "water_optics_rgba.png": {
+      "sha256": "da84da1325e46c4258caa76361928dfed2ca9286ccc86918df9331c8695cc2dd",
+      "bytes": 868659
+    }
+  }
+}

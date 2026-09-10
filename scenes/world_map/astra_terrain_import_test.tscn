@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://src/presentation/world_map/astra_terrain_import_test.gd" id="1_test"]
+[ext_resource type="Shader" path="res://addons/terrain_3d/extras/shaders/minimum.gdshader" id="2_shader"]
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_astra"]
+shader_override = ExtResource("2_shader")
+shader_override_enabled = true
+world_background = 0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_astra"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sea"]
+size = Vector2(50000, 28125)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sea"]
+transparency = 1
+albedo_color = Color(0.105882, 0.258824, 0.352941, 0.84)
+roughness = 1.0
+
+[sub_resource type="Environment" id="Environment_astra"]
+background_mode = 1
+background_color = Color(0.145098, 0.184314, 0.219608, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.760784, 0.815686, 0.862745, 1)
+ambient_light_energy = 0.55
+
+[node name="AstraTerrainImportTest" type="Node3D"]
+script = ExtResource("1_test")
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+region_size = 128
+vertex_spacing = 12.20703125
+data_directory = "res://assets/world_map/astra/terrain_data"
+material = SubResource("Terrain3DMaterial_astra")
+assets = SubResource("Terrain3DAssets_astra")
+mesh_lods = 8
+free_editor_textures = false
+top_level = true
+
+[node name="SeaLevelReference" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_sea")
+material_override = SubResource("StandardMaterial3D_sea")
+
+[node name="InspectionCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.773957, 0.633238, 0, -0.633238, 0.773957, 0, 18000, 22000)
+projection = 1
+size = 34000.0
+near = 10.0
+far = 100000.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_astra")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-58, -35, 0)
+light_color = Color(1, 0.956863, 0.870588, 1)
+light_energy = 1.25
+shadow_enabled = true

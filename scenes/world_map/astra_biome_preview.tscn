@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://src/presentation/world_map/astra_biome_preview.gd" id="1_controller"]
+[ext_resource type="Shader" path="res://src/presentation/world_map/astra_biome_preview.gdshader" id="2_shader"]
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_biome"]
+shader_override = ExtResource("2_shader")
+shader_override_enabled = true
+world_background = 0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_biome"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sea"]
+size = Vector2(50000, 28125)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sea"]
+shading_mode = 0
+albedo_color = Color(0.0352941, 0.247059, 0.521569, 1)
+roughness = 1.0
+
+[sub_resource type="Environment" id="Environment_biome"]
+background_mode = 1
+background_color = Color(0.0156863, 0.027451, 0.0509804, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.82, 0.87, 0.94, 1)
+ambient_light_energy = 0.62
+
+[node name="AstraBiomePreview" type="Node3D"]
+script = ExtResource("1_controller")
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+region_size = 128
+vertex_spacing = 12.20703125
+data_directory = "res://assets/world_map/astra/terrain_data"
+material = SubResource("Terrain3DMaterial_biome")
+assets = SubResource("Terrain3DAssets_biome")
+mesh_lods = 8
+free_editor_textures = false
+top_level = true
+
+[node name="SeaLevelReference" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.05, 0)
+mesh = SubResource("PlaneMesh_sea")
+material_override = SubResource("StandardMaterial3D_sea")
+
+[node name="InspectionCamera" type="Camera3D" parent="."]
+projection = 1
+size = 34000.0
+near = 10.0
+far = 100000.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_biome")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-58, -35, 0)
+light_color = Color(1, 0.956863, 0.870588, 1)
+light_energy = 1.25
+shadow_enabled = true
+
+[node name="DiagnosticsUI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="PanelContainer" parent="DiagnosticsUI"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 900.0
+offset_bottom = 118.0
+
+[node name="Margin" type="MarginContainer" parent="DiagnosticsUI/Panel"]
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Rows" type="VBoxContainer" parent="DiagnosticsUI/Panel/Margin"]
+
+[node name="Title" type="Label" parent="DiagnosticsUI/Panel/Margin/Rows"]
+theme_override_font_sizes/font_size = 18
+text = "ASTRA MATERIAL-WEIGHT BIOME PREVIEW"
+
+[node name="View" type="Label" parent="DiagnosticsUI/Panel/Margin/Rows"]
+text = "View: OBLIQUE (north is screen top)"
+
+[node name="Controls" type="Label" parent="DiagnosticsUI/Panel/Margin/Rows"]
+text = "WASD/arrows pan | wheel zoom | V top-down/oblique | F frame whole map"

@@ -1,0 +1,197 @@
+{
+  "districts": [
+    [
+      "beech_downs",
+      -3100,
+      -2300,
+      2100,
+      1300,
+      "woodland"
+    ],
+    [
+      "western_watermeadows",
+      -5100,
+      -1350,
+      1600,
+      2100,
+      "wetland"
+    ],
+    [
+      "central_green_vales",
+      1100,
+      -3200,
+      2700,
+      1500,
+      "woodland"
+    ],
+    [
+      "sunlit_downs",
+      -2200,
+      300,
+      2000,
+      1500,
+      "meadow"
+    ],
+    [
+      "western_wind_heath",
+      -9500,
+      -3700,
+      2100,
+      1100,
+      "heath"
+    ],
+    [
+      "parmetos_groves",
+      -15800,
+      2500,
+      2400,
+      1600,
+      "olive"
+    ],
+    [
+      "southern_olive_country",
+      -12100,
+      4650,
+      2400,
+      1400,
+      "olive"
+    ],
+    [
+      "chalk_coast",
+      -18200,
+      3600,
+      1700,
+      2000,
+      "chalk"
+    ],
+    [
+      "central_stony_march",
+      6400,
+      300,
+      2300,
+      1900,
+      "rocky"
+    ],
+    [
+      "northern_pine_vales",
+      3200,
+      -7800,
+      2700,
+      1800,
+      "boreal"
+    ],
+    [
+      "northern_silver_heath",
+      6700,
+      -9650,
+      2200,
+      1200,
+      "heath"
+    ],
+    [
+      "waring_pine_shores",
+      12970,
+      -4770,
+      2300,
+      2100,
+      "boreal"
+    ],
+    [
+      "eastern_copper_foothills",
+      11700,
+      2100,
+      2200,
+      1600,
+      "gravel"
+    ],
+    [
+      "amber_sands",
+      10800,
+      4700,
+      2400,
+      1700,
+      "sand"
+    ],
+    [
+      "southeastern_wind_stones",
+      12500,
+      6100,
+      1800,
+      1900,
+      "gravel"
+    ],
+    [
+      "southern_dry_vales",
+      9900,
+      8050,
+      2600,
+      1400,
+      "scrub"
+    ]
+  ],
+  "landmarks": [
+    {
+      "name": "elder_beech",
+      "motif": "elder",
+      "target": [
+        -2795.41015625,
+        20.511077880859375,
+        -2246.09375
+      ]
+    },
+    {
+      "name": "seven_sisters",
+      "motif": "stacks",
+      "target": [
+        -5957.03125,
+        2.420478343963623,
+        -1501.46484375
+      ]
+    },
+    {
+      "name": "parmetos_silent_arch",
+      "motif": "arch",
+      "target": [
+        -16003.41796875,
+        1.0820960998535156,
+        2661.1328125
+      ]
+    },
+    {
+      "name": "heather_stones",
+      "motif": "stones",
+      "target": [
+        4394.53125,
+        38.707000732421875,
+        -8105.46875
+      ]
+    },
+    {
+      "name": "amber_spring",
+      "motif": "oasis",
+      "target": [
+        11999.51171875,
+        11.026670455932617,
+        6555.17578125
+      ]
+    },
+    {
+      "name": "waring_silver_grove",
+      "motif": "silver",
+      "target": [
+        12756.34765625,
+        3.697056293487549,
+        -4846.19140625
+      ]
+    },
+    {
+      "name": "copper_wind_arch",
+      "motif": "wind_arch",
+      "target": [
+        13562.01171875,
+        0.22813701629638672,
+        5590.8203125
+      ]
+    }
+  ]
+}

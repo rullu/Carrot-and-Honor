@@ -1,0 +1,12 @@
+{
+  "size": [
+    512,
+    512,
+    64
+  ],
+  "bytes": 67108864,
+  "period": 24.0,
+  "world_width": 900.0,
+  "seed": 820091,
+  "licence": "Original procedural FCAH wave spectrum; no external assets."
+}

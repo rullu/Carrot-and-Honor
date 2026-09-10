@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "revision": "DEV-020 / 2026-09-10",
+  "scope": "Presentation only. No authoritative geography, heights, province records or source routes are regenerated.",
+  "checkpoint": "06_Astra_Checkpoints/Natural_Beauty_2026-09-09",
+  "provenance": "Original procedural FCAH Fourier waves, finite cloud volumes, projected cloud shadows, shaders and bounded rock/material compositions. No new third-party game assets.",
+  "reference_only": "Knights of Honor II official screenshot gallery, https://knightsofhonor2.thqnordic.com/; studied outside the project, no image or game asset copied into FCAH.",
+  "retained_external_sources": "Existing Quaternius CC0 library and AmbientCG/Poly Haven terrain sets keep their existing license and hash records.",
+  "files": {
+    "shore_finish_rgba.png": {
+      "sha256": "4b1f7b71713d2282ff83d0aa0009250b1d088a2c388406c0f25a24a5f1520809",
+      "bytes": 15359181
+    },
+    "water_edge_style.exr": {
+      "sha256": "dc230618342e48a8532b60ca584e49586cbde09f3b9724f05c69c435080ec37f",
+      "bytes": 2509132
+    },
+    "beauty_composition.json": {
+      "sha256": "3e7171fb699ac9a54b059a2e82d270638e9dca226db9ae1ef35158fa9e958144",
+      "bytes": 489045
+    },
+    "atmosphere/clouds.json": {
+      "sha256": "c87d0157efba0556ca95d41ccdb630418d2e08d6963ffbf83348cc30e7cb777e",
+      "bytes": 2379
+    },
+    "atmosphere/cloud_shadow.png": {
+      "sha256": "69fd19379dc1a389af9782256e1c107e0d245d6fee56c84ec47fbf3cfbca0d3a",
+      "bytes": 22731
+    },
+    "atmosphere/ocean_spectrum.json": {
+      "sha256": "c3c1914c6af5a2d3e6bbb6e4ca20f8dbb7e971bf283b68e82a287643e7a6e344",
+      "bytes": 214
+    },
+    "atmosphere/ocean_spectrum.deflate": {
+      "sha256": "b97db31899f17ad6bc24e2a593128f66d655b3e4844d493d54f528c4bb640d5b",
+      "bytes": 60356059
+    },
+    "atmosphere/cumulus_volume_0.rgba8": {
+      "sha256": "44d8f0fadc7bc3564b09fb7194321da42ed0da9053c33975a14845a4ff028feb",
+      "bytes": 1572864
+    },
+    "atmosphere/cumulus_volume_1.rgba8": {
+      "sha256": "0d02387da99a362d93803f3294c5651eca7dcced947cee85d72d68bdf367075c",
+      "bytes": 1572864
+    },
+    "atmosphere/cumulus_volume_2.rgba8": {
+      "sha256": "029dbcb5732265fef32e3740d37805b2643a2fa7110b9bfd8efc8399421adda7",
+      "bytes": 1572864
+    }
+  },
+  "rebuild_tools": [
+    "prepare_astra_clouds.py",
+    "prepare_astra_ocean.py",
+    "prepare_astra_beauty_context.py"
+  ]
+}
