@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/gameplay/world_gameplay.gd" id="1_gameplay"]
+[ext_resource type="PackedScene" path="res://scenes/world_map/astra_natural_world_final.tscn" id="2_natural_world"]
+[ext_resource type="Script" path="res://src/gameplay/province_interaction.gd" id="3_interaction"]
+[ext_resource type="Script" path="res://src/presentation/world_map/province_presentation.gd" id="4_presentation"]
+[ext_resource type="Script" path="res://src/ui/province_debug_panel.gd" id="5_debug_panel"]
+
+[node name="WorldGameplay" type="Node3D"]
+script = ExtResource("1_gameplay")
+
+[node name="NaturalWorld" parent="." instance=ExtResource("2_natural_world")]
+
+[node name="ProvinceInteraction" type="Node" parent="."]
+script = ExtResource("3_interaction")
+
+[node name="ProvincePresentation" type="Node3D" parent="."]
+script = ExtResource("4_presentation")
+
+[node name="GameplayUI" type="CanvasLayer" parent="."]
+
+[node name="ProvinceDebugPanel" type="PanelContainer" parent="GameplayUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -354.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = 306.0
+grow_horizontal = 0
+mouse_filter = 0
+script = ExtResource("5_debug_panel")
+
+[node name="Margin" type="MarginContainer" parent="GameplayUI/ProvinceDebugPanel"]
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="Rows" type="VBoxContainer" parent="GameplayUI/ProvinceDebugPanel/Margin"]
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="GameplayUI/ProvinceDebugPanel/Margin/Rows"]
+theme_override_font_sizes/font_size = 20
+text = "No province selected"
+
+[node name="Divider" type="HSeparator" parent="GameplayUI/ProvinceDebugPanel/Margin/Rows"]
+
+[node name="Details" type="Label" parent="GameplayUI/ProvinceDebugPanel/Margin/Rows"]
+text = "Hover a province to inspect its border.\nLeft click selects. Escape clears selection."
+autowrap_mode = 2

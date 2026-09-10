@@ -1,6 +1,17 @@
 # Code Map
 
-The project contains verified pure-data foundation types and directly executable headless tests. There is no runtime gameplay or main scene.
+The project contains verified pure-data foundations, a narrow province-interaction gameplay wrapper and directly executable headless tests. `project.godot` still has no configured main scene.
+
+## Gameplay 001
+
+- `scenes/gameplay/world_gameplay.tscn` instances the locked NaturalWorld as the gameplay entry point.
+- `src/gameplay/province_geography.gd` loads authoritative geometry and performs bounds-filtered point-in-polygon lookup with hole and multipart support.
+- `src/gameplay/province_interaction.gd` owns cursor-to-terrain lookup, hover and selection.
+- `src/gameplay/world_gameplay.gd` coordinates geography, prototype state, presentation and UI.
+- `src/simulation/province_state.gd`, `realm_state.gd` and `prototype_world_state.gd` keep permanent province identity separate from political realm identity and from `ProvinceCapabilityState`.
+- `src/presentation/world_map/province_presentation.gd` renders presentation-only province borders from interaction IDs.
+- `src/ui/province_debug_panel.gd` displays the selected geographic, province-state and realm-state data.
+- The three `province_geography_query`, `province_realm_state` and `world_gameplay_scene` tests verify lookup, state separation, scene composition and preservation locks.
 
 ## Root
 

@@ -70,6 +70,8 @@ When sources disagree:
 
 ## Current phase boundary
 
+Gameplay 001 now instances the locked NaturalWorld and adds province lookup, hover, selection, permanent-border presentation, separate province/realm prototype state and a debug panel. DEV-021 records this narrow interaction gate. Visual testing accepted the interaction architecture while exposing defects in the authoritative geography; correction remains a separate task.
+
 Stage 1 foundation work is implemented. The explicit September 2026 Astra tasks have delivered full-continent Terrain3D data, aligned mask QA, all 82 provinces as data, a diagnostic biome preview and a separate textured surface preview. The older static-map brief and six-province restriction do not describe this authorized terrain work; DEV-016 records that scoped reconciliation. The subsequent final-natural-world assignment explicitly authorizes natural decoration, water, lighting and surface completion; DEV-017 records this extension. Province rendering, gameplay expansion and interaction-gate Pass remain separate.
 
 September 8 art-polish revision: DEV-018 supersedes the first natural-world art handoff. The same final scene now uses the curated botanical library, composed districts/discoveries, lit connected water and a selected 40° / 800–3,600 gameplay camera. Current evidence lives in `08_Final_Terrain/QA/Natural_World_Polish/`, with an HTML review, matched before/after views, motion and preservation/performance records. Earlier `Godot_Natural_World/final` images remain historical.

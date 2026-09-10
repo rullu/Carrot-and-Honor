@@ -2,6 +2,12 @@
 
 For Carrot and Honour is a real-time, pausable medieval-fantasy strategy game about ruling a bunny kingdom across one fixed, handcrafted continent. The interactive world map is intended to be the primary playing field, with province management available through panels. The project is built with Godot 4 and typed GDScript.
 
+## Current gameplay scene
+
+Open **[`scenes/gameplay/world_gameplay.tscn`](scenes/gameplay/world_gameplay.tscn)** and press **F6**. Gameplay 001 instances the completed NaturalWorld, provides geographic hover and persistent click selection for all 82 provinces, and displays separate prototype province and realm state in a plain debug panel. Left click selects, Escape clears selection, WASD or middle drag pans, and the wheel zooms.
+
+The province geometry audit following visual acceptance is analysis only. `data/world_map/astra_provinces.json` remains unchanged pending a separately approved correction pass.
+
 ## Current natural-world inspection scene
 
 Open **[`scenes/world_map/astra_natural_world_final.tscn`](scenes/world_map/astra_natural_world_final.tscn)** in Godot 4.7.1 and press **F6**. The atmospheric finish replaces the water rendering with animated ocean waves, reflected light, shoaling crests and selected obstacle foam. Sparse visible cloud volumes cast matching moving shadows. Reworked sunlight, canopy response, ground materials and mountain shading give the same accepted world a more cohesive presentation. Default camera: **40° / 1,600 units**, current gameplay envelope **800–3,600**; eventual player zoom limits remain open.
@@ -116,6 +122,9 @@ godot --headless --path . --script res://tests/world_map_integration_proof_test.
 godot --headless --path . --script res://tests/astra_province_data_test.gd
 godot --headless --path . --script res://tests/astra_biome_preview_test.gd
 godot --headless --path . --script res://tests/astra_terrain_art_assets_test.gd
+godot --headless --path . --script res://tests/province_geography_query_test.gd
+godot --headless --path . --script res://tests/province_realm_state_test.gd
+godot --headless --path . --script res://tests/world_gameplay_scene_test.gd
 ```
 
 Exit code `0` means a test passed. A non-zero exit code means it failed.

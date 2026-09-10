@@ -279,3 +279,16 @@ Reject rectangular cloud wisps, repetitive sine-wave water, oversized highlights
 Evidence includes fresh pre-change matching captures, a 108-view regional/site sweep, full-resolution inspections, sampled in-engine motion frames, final installed renders, regression tests and hash verification. All 82 provinces, 576 regions, 12 export authorities, source heights/masks/routes and original vegetation compositions remain intact. New assets are original procedural project resources; existing CC0 provenance remains. The prior complete project is recoverable from `Natural_Beauty_2026-09-09`.
 
 **Consequence:** build the next separately scoped gameplay/province interaction task on `astra_natural_world_final.tscn`. The natural-world phase is complete. Decorative fields, clouds, foam and miniature props do not own geography or simulation. This does not establish an interaction-gate Pass.
+
+---
+
+## DEV-021 - Province Interaction Gate
+
+**Date:** 2026-09-10
+**Status:** Implemented and visually accepted
+
+Gameplay 001 uses a separate `world_gameplay.tscn` wrapper that instances the locked NaturalWorld. Cursor rays query Terrain3D for world X/Z, then use bounds-filtered polygon tests against the unchanged 82-province JSON. Province presentation consumes IDs from interaction and renders independent terrain-following border ribbons.
+
+Geographic `ProvinceState` references a separate `RealmState` through `realm_id`; it does not replace `ProvinceCapabilityState` and does not equate a province with a realm. Fixed fixtures prove one- and multi-province realms without simulation, politics or realm formation.
+
+**Consequence:** hover, persistent selection and plain province/realm inspection are available while terrain, camera and province geography remain unchanged. Human review found coverage gaps, inland water holes and potentially impractical province shapes. Those data defects require a separate geography correction pass.

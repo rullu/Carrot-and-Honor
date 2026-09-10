@@ -107,6 +107,19 @@ The later six-province proof must be reviewed for:
 
 Full-continent work and further simulation expansion remain blocked until the six-province proof receives a **Pass** decision. Detailed province close-up scenes remain deferred beyond the prototype.
 
+## Gameplay 001 — Province Interaction Gate
+
+**Status: COMPLETE; visually accepted.**
+
+- [x] Instance the locked NaturalWorld in a separate gameplay wrapper.
+- [x] Load and query all 82 authoritative province polygons without regeneration.
+- [x] Add subtle permanent borders, hover feedback and persistent selection.
+- [x] Keep ProvinceState and RealmState independent, including one- and multi-province realm fixtures.
+- [x] Preserve camera behaviour and block UI click-through.
+- [x] Pass the complete 13-test direct suite and human interaction review.
+
+Visual review found authoritative coverage, inland-hole and small-shape problems. Geography correction requires a separate approved pass.
+
 ## Phase 2 — One-province greybox
 
 Not authorised yet.
