@@ -1,0 +1,601 @@
+{
+  "schema_version": 1,
+  "status": "accepted_starting_realm_ownership_v1",
+  "accepted_at": "2026-09-12T20:58:50+02:00",
+  "project": "For Carrot and Honour",
+  "source_authoritative_provinces": "data/world_map/astra_provinces.json",
+  "source_visual_reference": "FCAH_starting_realm_ownership_draft_v5_reassigned.png",
+  "province_count": 100,
+  "realm_count": 43,
+  "design_scope": {
+    "fixed_at_campaign_start": [
+      "realm roster",
+      "starting province ownership",
+      "realm geographic footprint"
+    ],
+    "not_defined_yet": [
+      "realm names",
+      "capitals",
+      "cultures",
+      "faiths",
+      "governments",
+      "rulers/dynasties",
+      "realm traits",
+      "history",
+      "claims",
+      "starting economic/military conditions"
+    ],
+    "dynamic_per_new_campaign_later": [
+      "current wars",
+      "alliances",
+      "truces",
+      "current diplomatic hostility/friendship",
+      "temporary guarantees/coalitions and similar campaign-start diplomacy"
+    ],
+    "principle": "History and identity may create diplomatic biases and pressures, but do not force the same present-day diplomacy every campaign."
+  },
+  "regional_intent": {
+    "far_west": "Highly fragmented medieval-European-inspired political landscape; mostly one-province realms with one visibly larger regional kingdom.",
+    "south_west": "Calmer and more isolated; comparatively consolidated and suitable for easier starting positions.",
+    "north": "Colder region with fewer, more established multi-province kingdoms.",
+    "central": "Culturally and politically mixed collision zone with medium-sized established realms.",
+    "east": "More consolidated than the west, with generally larger realms, while avoiding oversized monolithic blocs."
+  },
+  "accepted_specific_changes_from_v4": [
+    {
+      "description": "Create the larger western regional kingdom.",
+      "province_ids": [
+        36,
+        24,
+        33,
+        29
+      ]
+    },
+    {
+      "description": "Create a new central kingdom from provinces formerly belonging to two separate central realms.",
+      "province_ids": [
+        48,
+        17
+      ]
+    }
+  ],
+  "validation": {
+    "active_province_ids_match_authoritative_source": true,
+    "every_active_province_assigned_exactly_once": true,
+    "duplicate_province_ids": [],
+    "missing_active_province_ids": [],
+    "unknown_province_ids": []
+  },
+  "realms": [
+    {
+      "realm_id": "R001",
+      "planning_code": "W01",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        106
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R002",
+      "planning_code": "W02",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        37
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R003",
+      "planning_code": "W03",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        107
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R004",
+      "planning_code": "W04",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        38,
+        39,
+        40,
+        41
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R005",
+      "planning_code": "W05",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        66
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R006",
+      "planning_code": "W06",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        70
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R007",
+      "planning_code": "W07",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        54
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R008",
+      "planning_code": "W08",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        51
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R009",
+      "planning_code": "W09",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        32
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R010",
+      "planning_code": "W10",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        36,
+        24,
+        33,
+        29
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R011",
+      "planning_code": "W11",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        25
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R012",
+      "planning_code": "W12",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        53
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R013",
+      "planning_code": "W13",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        52
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R014",
+      "planning_code": "W14",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        27
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R015",
+      "planning_code": "W15",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        34
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R016",
+      "planning_code": "W16",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        26
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R017",
+      "planning_code": "W17",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        50
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R018",
+      "planning_code": "W18",
+      "region": "far_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        49
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R019",
+      "planning_code": "SW01",
+      "region": "south_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        73,
+        67,
+        71,
+        75
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R020",
+      "planning_code": "SW02",
+      "region": "south_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        69,
+        72,
+        74
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R021",
+      "planning_code": "SW03",
+      "region": "south_west",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        35,
+        28
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R022",
+      "planning_code": "N01",
+      "region": "north",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        64,
+        103,
+        104
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R023",
+      "planning_code": "N02",
+      "region": "north",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        105,
+        65
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R024",
+      "planning_code": "N03",
+      "region": "north",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        18,
+        21,
+        23
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R025",
+      "planning_code": "N04",
+      "region": "north",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        83,
+        22,
+        102
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R026",
+      "planning_code": "N05",
+      "region": "north",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        91,
+        92,
+        84
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R027",
+      "planning_code": "C01",
+      "region": "central",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        1,
+        3,
+        4,
+        2,
+        59
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R028",
+      "planning_code": "C02",
+      "region": "central",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        30,
+        16,
+        20,
+        19
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R029",
+      "planning_code": "C03",
+      "region": "central",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        45,
+        46,
+        42
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R030",
+      "planning_code": "C04",
+      "region": "central",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        47,
+        43,
+        44,
+        55,
+        58
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R031",
+      "planning_code": "C05",
+      "region": "central",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        60,
+        62,
+        61,
+        56
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R032",
+      "planning_code": "C06",
+      "region": "central",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        13,
+        15
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R033",
+      "planning_code": "C07",
+      "region": "central",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        76,
+        77,
+        78,
+        79
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R034",
+      "planning_code": "C08",
+      "region": "central",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        48,
+        17
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R035",
+      "planning_code": "E01",
+      "region": "east",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        93,
+        86,
+        97,
+        94
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R036",
+      "planning_code": "E02",
+      "region": "east",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        96,
+        80
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R037",
+      "planning_code": "E03",
+      "region": "east",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        85,
+        101,
+        98
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R038",
+      "planning_code": "E04",
+      "region": "east",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        95,
+        88,
+        99
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R039",
+      "planning_code": "E05",
+      "region": "east",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        89,
+        87
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R040",
+      "planning_code": "E06",
+      "region": "east",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        10,
+        100
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R041",
+      "planning_code": "E07",
+      "region": "east",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        5
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R042",
+      "planning_code": "E08",
+      "region": "east",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        7,
+        14
+      ],
+      "identity_status": "unassigned"
+    },
+    {
+      "realm_id": "R043",
+      "planning_code": "E09",
+      "region": "east",
+      "name": null,
+      "capital_province_id": null,
+      "province_ids": [
+        6,
+        90,
+        11,
+        12,
+        9
+      ],
+      "identity_status": "unassigned"
+    }
+  ]
+}

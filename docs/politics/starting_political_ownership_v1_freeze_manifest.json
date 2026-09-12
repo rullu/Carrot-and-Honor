@@ -1,0 +1,42 @@
+{
+  "project": "For Carrot and Honour",
+  "freeze_name": "Starting Political Ownership Baseline v1",
+  "frozen_at": "2026-09-12T21:18:13+02:00",
+  "status": "ACCEPTED_AND_FROZEN",
+  "scope": "Political Landscape Step 1 - starting realm roster and province ownership",
+  "canonical_truth": "starting_realm_ownership_v1.json",
+  "accepted_visualization": "FCAH_starting_realm_ownership_v6_clean.png",
+  "authoritative_geometry": "astra_provinces.json",
+  "immutable_visual_base": "astra_provinces_corrected_overview(2).png",
+  "counts": {
+    "realms": 43,
+    "active_provinces": 100,
+    "assigned_exactly_once": true,
+    "duplicate_assignments": 0,
+    "missing_assignments": 0
+  },
+  "rules": [
+    "Ownership data in starting_realm_ownership_v1.json is the source of truth.",
+    "The PNG is a visualization only and must never become the ownership authority.",
+    "Future ownership edits must be made in canonical data first, then visualizations regenerated deterministically.",
+    "Do not reconstruct ownership by reading colors from raster images.",
+    "Do not use image generation for authoritative political-map overlays.",
+    "Realm identity, names, capitals, culture, faith, governments, rulers, history and campaign-start diplomacy are outside this freeze."
+  ],
+  "rejected_superseded_visuals": [
+    {
+      "file": "FCAH_starting_realm_ownership_draft_v5_reassigned.png",
+      "reason": "Not authoritative; reconstruction method incorrectly produced 46 realm groups and quality degraded."
+    },
+    {
+      "description": "Any image-generated political-map rendition produced during this phase",
+      "reason": "Image generation altered authoritative geography and cannot be used for deterministic cartographic output."
+    }
+  ],
+  "sha256": {
+    "FCAH_starting_realm_ownership_v6_clean.png": "070981e679afcd9d2f9b12f884cc8597e37a0d728feeabb8b3501f5d71206700",
+    "starting_realm_ownership_v1.json": "0065fcf86faec23e4e7ae6e9e45101af8aefd1f432031e48031cda349c131261",
+    "astra_provinces.json": "c5ccc4f9d5afb4b3988dcb418402ffeccbab08d70cef8c48a9c57df08f993d7e",
+    "astra_provinces_corrected_overview(2).png": "70492c43d64fe8d3e90a1bea775ea3a930e5b76200c0c4b27a0922c7031f8138"
+  }
+}
