@@ -864,3 +864,11 @@ Do not reopen starting ownership unless an explicit design decision requires it.
 
 FINAL DECISION
 Political Landscape Step 1 is CLOSED and FROZEN.
+
+ARCHIVAL COMPLETION NOTE - 2026-09-12
+The exact corrected province overview used to produce the accepted v6 political
+map is now archived at
+docs/politics/source/astra_provinces_corrected_overview_v6_base.png. Its SHA-256
+matches the freeze manifest. The older corrected overview already tracked in the
+repository is a different file and was deliberately left untouched. Political
+Landscape Step 1 is now fully reproducible from repository contents.
