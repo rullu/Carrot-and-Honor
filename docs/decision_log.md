@@ -292,3 +292,24 @@ Gameplay 001 uses a separate `world_gameplay.tscn` wrapper that instances the lo
 Geographic `ProvinceState` references a separate `RealmState` through `realm_id`; it does not replace `ProvinceCapabilityState` and does not equate a province with a realm. Fixed fixtures prove one- and multi-province realms without simulation, politics or realm formation.
 
 **Consequence:** hover, persistent selection and plain province/realm inspection are available while terrain, camera and province geography remain unchanged. Human review found coverage gaps, inland water holes and potentially impractical province shapes. Those data defects require a separate geography correction pass.
+
+---
+
+## DEV-022 - Correct province geography through a non-destructive manifest
+
+**Date:** 2026-09-10
+**Status:** Accepted
+
+Keep the Azgaar Full JSON immutable. Store reviewed changes in `astra_province_corrections.json`, then require the importer to apply that manifest before dissolving cells into runtime rings. Province IDs are stable opaque identifiers: merge 31 into 28, 63 into 62, 68 into 67, 81 into 65 and 82 into 56; retire the absorbed IDs permanently. Allocate provisional IDs 83-89 for coherent northern and eastern wilderness/desert divisions rather than stretching distant existing provinces across the 42.75383% coverage gap.
+
+The accepted topology review additionally merges 8 into 9 and 57 into 56, divides the reviewed oversized and awkward regions through fresh IDs 90-107, and reserves 108 as the next new ID. The resulting authoritative layer contains exactly 100 active provinces and seven permanently retired IDs.
+
+Assign the western unowned cells by deterministic graph distance to adjacent provinces 37, 54, 70 and 73, and assign the western Miland-source area to adjacent 37. Repair unrelated fragments by transferring one component of 38 to 41, two components of 39 to 32 and 21, three components of 49 to 76, and one component of 32 to 64. Retain multipart components where they are physical islands, coastal islets or coast-separated possessions.
+
+Politically assign all eleven audited enclosed lakes and the land defect inside 22. The corrected northern/eastern coverage encloses three additional source lakes, which are assigned to 83, 84 and 87. This changes province lookup only; terrain, lakes, rivers, water rendering and NaturalWorld remain unchanged.
+
+Require deterministic validation against the accepted 4096 x 2304 land mask and immutable source cells. Active provinces must contain land; meaningful and raw playable-land gaps, positive-area overlaps, political holes, external-ocean assignment, invalid anchors, asymmetric neighbors and retired-ID ownership must all be zero.
+
+Render shared internal land borders as a presentation-only dual-sided political ribbon. Each half-band uses its owning province's deterministic prototype color, meets the other half at the authoritative center seam, fades inward and receives restrained pigment texture. Coastlines remain suppressed, hover and selection remain visual no-ops, and a palette-texture interface permits later realm colors without rebuilding geometry. The earlier subtle single-line treatment remains available behind a fallback constant.
+
+**Consequence:** the runtime geography has 100 active, non-contiguous IDs and 25 provisional names. Province/realm separation is unchanged. Terrain, NaturalWorld, water, camera behavior, authoritative polygons and picking geometry are unchanged. Human review accepted both the topology and political-border presentation on 2026-09-12.

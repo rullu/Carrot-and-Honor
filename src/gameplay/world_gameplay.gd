@@ -18,8 +18,8 @@ var _world_state: PrototypeWorldState
 func _ready() -> void:
     await get_tree().process_frame
     _geography = ProvinceGeography.load_from_path(PROVINCE_DATA_PATH)
-    if _geography == null or _geography.get_province_count() != 82:
-        push_error("Gameplay 001 requires the authoritative 82-province data.")
+    if _geography == null or _geography.get_province_count() == 0:
+        push_error("Gameplay 001 requires non-empty authoritative province data.")
         return
     _world_state = PrototypeWorldState.create(_geography.get_province_ids())
     if _world_state == null:
@@ -31,13 +31,16 @@ func _ready() -> void:
     var inspection_controls: CanvasLayer = natural_world.get_node("InspectionControls") as CanvasLayer
     inspection_controls.visible = false
 
-    presentation.configure(_geography, terrain)
+    presentation.configure(_geography, terrain, camera)
     interaction.hovered_province_changed.connect(presentation.set_hovered_province_id)
     interaction.selected_province_changed.connect(presentation.set_selected_province_id)
     interaction.selected_province_changed.connect(_on_selected_province_changed)
     interaction.configure(_geography, camera, terrain)
     debug_panel.clear_selection()
-    print("GAMEPLAY_001_READY: 82 provinces; province and realm state separated")
+    print(
+        "GAMEPLAY_001_READY: %d active provinces; province and realm state separated"
+        % _geography.get_province_count()
+    )
 
 
 func _on_selected_province_changed(province_id: int) -> void:

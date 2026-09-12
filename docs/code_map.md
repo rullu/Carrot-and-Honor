@@ -5,13 +5,13 @@ The project contains verified pure-data foundations, a narrow province-interacti
 ## Gameplay 001
 
 - `scenes/gameplay/world_gameplay.tscn` instances the locked NaturalWorld as the gameplay entry point.
-- `src/gameplay/province_geography.gd` loads authoritative geometry and performs bounds-filtered point-in-polygon lookup with hole and multipart support.
+- `src/gameplay/province_geography.gd` loads authoritative geometry and performs bounds-filtered point-in-polygon lookup with multipart support. Corrected political geography contains no inland-water holes.
 - `src/gameplay/province_interaction.gd` owns cursor-to-terrain lookup, hover and selection.
 - `src/gameplay/world_gameplay.gd` coordinates geography, prototype state, presentation and UI.
 - `src/simulation/province_state.gd`, `realm_state.gd` and `prototype_world_state.gd` keep permanent province identity separate from political realm identity and from `ProvinceCapabilityState`.
 - `src/presentation/world_map/province_presentation.gd` renders presentation-only province borders from interaction IDs.
 - `src/ui/province_debug_panel.gd` displays the selected geographic, province-state and realm-state data.
-- The three `province_geography_query`, `province_realm_state` and `world_gameplay_scene` tests verify lookup, state separation, scene composition and preservation locks.
+- The `province_geography_query`, `province_realm_state`, `world_gameplay_scene` and `astra_province_coverage` tests verify lookup, state separation, scene composition, preservation locks and complete accepted-land coverage.
 
 ## Root
 
@@ -33,7 +33,7 @@ Detailed authority for planned Stage 1.5 world-map visuals, interactions, proof 
 
 ### `docs/world_map/astra_province_data.md`
 
-Authority for the generated 82-province data schema, reproducible import command, exact coordinate contract, validation scope and next data-only step.
+Authority for the corrected non-contiguous province-ID schema, correction manifest, reproducible import command, exact coordinate contract and coverage validation.
 
 ### `docs/world_map/astra_biome_preview.md`
 
@@ -173,7 +173,27 @@ Owns stable generated province and future map-related runtime data.
 
 ### `data/world_map/astra_provinces.json`
 
-Generated authoritative data for all 82 production provinces. Each record retains precise Azgaar and converted Godot X/Z boundary rings, selection and label points, bounds, source and derived area, and sorted neighbor IDs. It contains no rendering, ownership or gameplay state.
+Generated authoritative data for 100 active production provinces. Each record retains precise Azgaar and converted Godot X/Z boundary rings, selection and label points, bounds, source and derived area, and sorted neighbor IDs. It contains no realm ownership or simulation state.
+
+### `data/world_map/astra_province_corrections.json`
+
+Version-controlled correction authority over the immutable Azgaar source. It records stable merges and retired IDs, explicit cell assignments, inland-water ownership, new province definitions, anchor corrections and reserved future operation types.
+
+### `data/world_map/astra_province_coverage_report.json`
+
+Generated validation evidence tied by hash to the runtime geography, correction manifest, immutable source and accepted land mask.
+
+### `tools/world_map/build_astra_province_corrections.py`
+
+Deterministically translates the approved high-level merge, gap, island and fragmentation decisions into explicit correction-manifest cell assignments. It reads but never changes the immutable Azgaar source.
+
+### `tools/world_map/import_astra_provinces.gd`
+
+Applies the correction manifest to immutable source cells, dissolves corrected cells into runtime rings, and recalculates areas, bounds, neighbors and anchors.
+
+### `tools/world_map/validate_astra_province_geography.py`
+
+Checks source-cell ownership, accepted-mask coverage, political holes, anchors, symmetric neighbors, retired IDs, external ocean and positive-area overlaps. It emits the coverage report and both QA maps.
 
 ## `scenes/`
 
@@ -321,7 +341,11 @@ Directly executable `SceneTree` integration test for the disposable Stage 1.5 pr
 
 ### `tests/astra_province_data_test.gd`
 
-Directly executable province-data validation. It verifies exactly 82 unique IDs covering 1-82, geometry closure and footprint bounds, point-by-point coordinate conversion, bounding boxes, derived areas, symmetric neighbors, fixed orientation and all eight manifest anchors.
+Directly executable province-data validation. It verifies the exact 100 active stable IDs and seven retired IDs, geometry closure and footprint bounds, point-by-point coordinate conversion, bounding boxes, derived areas, symmetric neighbors, fixed orientation, no political holes and all eight historical alignment anchors.
+
+### `tests/astra_province_coverage_test.gd`
+
+Checks that the generated coverage report matches current file hashes and the accepted land-mask/source authorities, with zero meaningful gaps, overlaps, political holes, external-ocean assignments or retired source-cell ownership.
 
 ### `tests/astra_province_data_test.gd.uid`
 

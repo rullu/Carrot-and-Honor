@@ -2,7 +2,7 @@ extends SceneTree
 
 
 const EXPECTED_SOURCE_SHA256: String = "9c36b97b340c1fb5827b897db4f3798d16b017ce0e9906c26426ff295efaaa90"
-const EXPECTED_PROVINCE_COUNT: int = 82
+const HISTORICAL_MAX_PROVINCE_ID: int = 82
 const EXPECTED_CANVAS_SIZE: Vector2 = Vector2(2560.0, 1440.0)
 const SOURCE_TO_PLAYABLE_SCALE: float = 1.6
 const VERTEX_SPACING: float = 12.20703125
@@ -12,10 +12,16 @@ const PLAYABLE_BOUNDS: Rect2 = Rect2(-25000.0, -14062.5, 50000.0, 28125.0)
 
 func _initialize() -> void:
     var arguments: Dictionary = _parse_arguments(OS.get_cmdline_user_args())
-    if not arguments.has("source") or not arguments.has("manifest") or not arguments.has("output"):
+    if (
+        not arguments.has("source")
+        or not arguments.has("manifest")
+        or not arguments.has("corrections")
+        or not arguments.has("output")
+    ):
         push_error(
             "Usage: godot --headless --path <project> --script res://tools/world_map/"
             + "import_astra_provinces.gd -- --source=<Full.json> --manifest=<EXPORT_MANIFEST.json> "
+            + "--corrections=res://data/world_map/astra_province_corrections.json "
             + "--output=res://data/world_map/astra_provinces.json"
         )
         quit(1)
@@ -23,8 +29,9 @@ func _initialize() -> void:
 
     var source_path: String = _global_path(arguments["source"])
     var manifest_path: String = _global_path(arguments["manifest"])
+    var corrections_path: String = _global_path(arguments["corrections"])
     var output_path: String = _global_path(arguments["output"])
-    var result: Dictionary = _convert(source_path, manifest_path)
+    var result: Dictionary = _convert(source_path, manifest_path, corrections_path)
     if result.is_empty():
         quit(2)
         return
@@ -48,7 +55,7 @@ func _initialize() -> void:
     quit(0)
 
 
-func _convert(source_path: String, manifest_path: String) -> Dictionary:
+func _convert(source_path: String, manifest_path: String, corrections_path: String) -> Dictionary:
     if FileAccess.get_sha256(source_path) != EXPECTED_SOURCE_SHA256:
         push_error("The Azgaar Full JSON does not match the authoritative SHA-256.")
         return {}
@@ -61,59 +68,75 @@ func _convert(source_path: String, manifest_path: String) -> Dictionary:
     )
     var source: Variant = JSON.parse_string(source_text)
     var manifest: Variant = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
-    if not source is Dictionary or not manifest is Dictionary:
-        push_error("Could not parse the Azgaar source or Astra manifest as JSON objects.")
+    var corrections: Variant = JSON.parse_string(FileAccess.get_file_as_string(corrections_path))
+    if not source is Dictionary or not manifest is Dictionary or not corrections is Dictionary:
+        push_error("Could not parse the Azgaar source, Astra manifest, or corrections as JSON objects.")
         return {}
     if not _validate_authorities(source, manifest):
+        return {}
+    if not _validate_corrections(corrections, source_path):
         return {}
 
     var pack: Dictionary = source["pack"]
     var cells: Array = pack["cells"]
     var vertices: Array = pack["vertices"]
     var province_definitions: Array = pack["provinces"]
-    var cell_ids_by_province: Dictionary = {}
-    for province_id: int in range(1, EXPECTED_PROVINCE_COUNT + 1):
-        cell_ids_by_province[province_id] = []
+    var cell_province_ids: PackedInt32Array = []
+    cell_province_ids.resize(cells.size())
     for cell_index: int in cells.size():
         var cell: Dictionary = cells[cell_index]
         if int(cell["i"]) != cell_index:
             push_error("Azgaar cell index mismatch at array position %d." % cell_index)
             return {}
         var province_id: int = int(cell.get("province", 0))
-        if province_id > 0:
-            if not cell_ids_by_province.has(province_id):
-                push_error("Cell %d references unexpected province %d." % [cell_index, province_id])
-                return {}
-            cell_ids_by_province[province_id].append(cell_index)
+        if province_id < 0 or province_id > HISTORICAL_MAX_PROVINCE_ID:
+            push_error("Cell %d references unexpected province %d." % [cell_index, province_id])
+            return {}
+        cell_province_ids[cell_index] = province_id
     for vertex_index: int in vertices.size():
         if int(vertices[vertex_index]["i"]) != vertex_index:
             push_error("Azgaar vertex index mismatch at array position %d." % vertex_index)
             return {}
 
+    if not _apply_corrections(corrections, cells, cell_province_ids):
+        return {}
+    var active_ids: Array = corrections["id_policy"]["active_ids"].duplicate()
+    active_ids.sort()
+    var definitions_by_id: Dictionary = _build_active_definitions(
+        province_definitions, corrections, cells
+    )
+    if definitions_by_id.is_empty():
+        return {}
+    var cell_ids_by_province: Dictionary = {}
+    for province_id: int in active_ids:
+        cell_ids_by_province[province_id] = []
+    for cell_index: int in cell_province_ids.size():
+        var province_id: int = cell_province_ids[cell_index]
+        if province_id > 0:
+            if not cell_ids_by_province.has(province_id):
+                push_error("Corrected cell %d references inactive province %d." % [cell_index, province_id])
+                return {}
+            cell_ids_by_province[province_id].append(cell_index)
+
     var provinces: Array = []
-    for province_id: int in range(1, EXPECTED_PROVINCE_COUNT + 1):
-        if province_id >= province_definitions.size():
-            push_error("Missing Azgaar province definition %d." % province_id)
-            return {}
-        var definition: Variant = province_definitions[province_id]
-        if not definition is Dictionary or int(definition.get("i", 0)) != province_id:
-            push_error("Invalid Azgaar province definition at index %d." % province_id)
-            return {}
+    for province_id: int in active_ids:
+        var definition: Dictionary = definitions_by_id[province_id]
         var province: Dictionary = _build_province(
             definition,
             cell_ids_by_province[province_id],
             cells,
-            vertices
+            vertices,
+            cell_province_ids
         )
         if province.is_empty():
             return {}
         provinces.append(province)
 
-    var anchors: Array = _build_and_validate_anchors(manifest, provinces)
+    var anchors: Array = _build_and_validate_anchors(manifest, provinces, corrections)
     if anchors.is_empty():
         return {}
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "source": {
             "kind": "Azgaar Full JSON",
             "file_name": source_path.get_file(),
@@ -122,6 +145,13 @@ func _convert(source_path: String, manifest_path: String) -> Dictionary:
             "map_version": source["info"]["version"],
             "seed": source["info"]["seed"],
             "canvas_size": [EXPECTED_CANVAS_SIZE.x, EXPECTED_CANVAS_SIZE.y],
+        },
+        "corrections": {
+            "file_name": corrections_path.get_file(),
+            "sha256": FileAccess.get_sha256(corrections_path),
+            "historical_max_province_id": HISTORICAL_MAX_PROVINCE_ID,
+            "active_province_ids": active_ids,
+            "retired_province_ids": corrections["id_policy"]["retired_ids"],
         },
         "coordinate_mapping": {
             "orientation": "north=-Z;south=+Z;west=-X;east=+X;no_flip_rotation_or_recentering",
@@ -172,17 +202,165 @@ func _validate_authorities(source: Dictionary, manifest: Dictionary) -> bool:
         push_error("Astra manifest coordinate mapping is not the expected authority.")
         return false
     var province_definitions: Array = source["pack"].get("provinces", [])
-    if province_definitions.size() != EXPECTED_PROVINCE_COUNT + 1:
+    if province_definitions.size() != HISTORICAL_MAX_PROVINCE_ID + 1:
         push_error("Expected the Azgaar leading zero plus exactly 82 province definitions.")
         return false
     return true
+
+
+func _validate_corrections(corrections: Dictionary, source_path: String) -> bool:
+    if int(corrections.get("schema_version", 0)) != 1:
+        push_error("Unsupported province correction schema.")
+        return false
+    var correction_source: Dictionary = corrections.get("source", {})
+    if (
+        correction_source.get("sha256", "") != FileAccess.get_sha256(source_path)
+        or int(correction_source.get("historical_max_province_id", 0))
+        != HISTORICAL_MAX_PROVINCE_ID
+    ):
+        push_error("Province corrections do not match the immutable Azgaar source.")
+        return false
+    var id_policy: Dictionary = corrections.get("id_policy", {})
+    var active_ids: Array = id_policy.get("active_ids", [])
+    var retired_ids: Array = id_policy.get("retired_ids", [])
+    if active_ids.is_empty() or not bool(id_policy.get("never_reuse_retired_ids", false)):
+        push_error("Province correction ID policy is incomplete.")
+        return false
+    var seen_ids: Dictionary = {}
+    for province_id_value: Variant in active_ids:
+        var province_id: int = int(province_id_value)
+        if province_id <= 0 or seen_ids.has(province_id) or province_id in retired_ids:
+            push_error("Province correction active IDs are invalid or duplicated.")
+            return false
+        seen_ids[province_id] = true
+    for retired_id_value: Variant in retired_ids:
+        var retired_id: int = int(retired_id_value)
+        if retired_id <= 0 or seen_ids.has(retired_id):
+            push_error("Retired province IDs conflict with active IDs.")
+            return false
+    var supported_operations: Array = corrections.get("supported_operations", [])
+    if not "targeted_split_or_reshape_by_source_cell_assignment" in supported_operations:
+        push_error("Province corrections do not declare deterministic targeted reshape support.")
+        return false
+    return true
+
+
+func _apply_corrections(
+    corrections: Dictionary,
+    cells: Array,
+    cell_province_ids: PackedInt32Array
+) -> bool:
+    for merge_value: Variant in corrections.get("merges", []):
+        var merge: Dictionary = merge_value
+        var retained_id: int = int(merge["retained_id"])
+        for retired_id_value: Variant in merge["retired_ids"]:
+            var retired_id: int = int(retired_id_value)
+            for cell_id: int in cell_province_ids.size():
+                if cell_province_ids[cell_id] == retired_id:
+                    cell_province_ids[cell_id] = retained_id
+
+    var explicitly_assigned: Dictionary = {}
+    for assignment_value: Variant in corrections.get("cell_assignments", []):
+        var assignment: Dictionary = assignment_value
+        var province_id: int = int(assignment["province_id"])
+        for cell_id_value: Variant in assignment["cell_ids"]:
+            var cell_id: int = int(cell_id_value)
+            if cell_id < 0 or cell_id >= cells.size() or explicitly_assigned.has(cell_id):
+                push_error("Invalid or duplicate explicit province correction cell %d." % cell_id)
+                return false
+            explicitly_assigned[cell_id] = true
+            cell_province_ids[cell_id] = province_id
+
+    var assigned_features: Dictionary = {}
+    for assignment_value: Variant in corrections.get("inland_water_assignments", []):
+        var assignment: Dictionary = assignment_value
+        var province_id: int = int(assignment["province_id"])
+        for feature_id_value: Variant in assignment["feature_ids"]:
+            var feature_id: int = int(feature_id_value)
+            if assigned_features.has(feature_id):
+                push_error("Inland-water feature %d is assigned more than once." % feature_id)
+                return false
+            assigned_features[feature_id] = true
+            var matched_cells: int = 0
+            for cell_id: int in cells.size():
+                if int(cells[cell_id].get("f", 0)) == feature_id:
+                    if int(cells[cell_id].get("h", 0)) >= 20:
+                        push_error("Inland-water feature %d unexpectedly contains land." % feature_id)
+                        return false
+                    if cell_province_ids[cell_id] not in [0, province_id]:
+                        push_error(
+                            "Inland-water feature %d would overwrite province %d."
+                            % [feature_id, cell_province_ids[cell_id]]
+                        )
+                        return false
+                    cell_province_ids[cell_id] = province_id
+                    matched_cells += 1
+            if matched_cells == 0:
+                push_error("Inland-water feature %d has no source cells." % feature_id)
+                return false
+    return true
+
+
+func _build_active_definitions(
+    province_definitions: Array,
+    corrections: Dictionary,
+    cells: Array
+) -> Dictionary:
+    var definitions: Dictionary = {}
+    for province_id_value: Variant in corrections["id_policy"]["active_ids"]:
+        var province_id: int = int(province_id_value)
+        if province_id <= HISTORICAL_MAX_PROVINCE_ID:
+            if province_id >= province_definitions.size():
+                push_error("Missing historical province definition %d." % province_id)
+                return {}
+            var definition: Variant = province_definitions[province_id]
+            if not definition is Dictionary or int(definition.get("i", 0)) != province_id:
+                push_error("Invalid historical province definition %d." % province_id)
+                return {}
+            definitions[province_id] = definition.duplicate(true)
+    for new_value: Variant in corrections.get("new_provinces", []):
+        var new_definition: Dictionary = new_value
+        var province_id: int = int(new_definition["id"])
+        var center_cell_id: int = int(new_definition["selection_cell_id"])
+        if (
+            province_id <= HISTORICAL_MAX_PROVINCE_ID
+            or definitions.has(province_id)
+            or center_cell_id < 0
+            or center_cell_id >= cells.size()
+        ):
+            push_error("Invalid new province definition %d." % province_id)
+            return {}
+        definitions[province_id] = {
+            "i": province_id,
+            "name": new_definition["name"],
+            "fullName": new_definition["full_name"],
+            "center": center_cell_id,
+            "pole": new_definition["label_point_source_xy"],
+            "provisional_name": bool(new_definition.get("provisional_name", false)),
+        }
+    for override_value: Variant in corrections.get("anchor_overrides", []):
+        var anchor_override: Dictionary = override_value
+        var province_id: int = int(anchor_override["province_id"])
+        if not definitions.has(province_id):
+            push_error("Anchor override references inactive province %d." % province_id)
+            return {}
+        var definition: Dictionary = definitions[province_id]
+        if anchor_override.has("selection_cell_id"):
+            definition["center"] = int(anchor_override["selection_cell_id"])
+        if anchor_override.has("label_point_source_xy"):
+            definition["pole"] = anchor_override["label_point_source_xy"]
+    if definitions.size() != corrections["id_policy"]["active_ids"].size():
+        push_error("Active province definitions are incomplete.")
+        return {}
+    return definitions
 
 
 func _build_province(
     definition: Dictionary,
     province_cell_ids: Array,
     cells: Array,
-    vertices: Array
+    vertices: Array,
+    cell_province_ids: PackedInt32Array
 ) -> Dictionary:
     var province_id: int = int(definition["i"])
     if province_cell_ids.is_empty():
@@ -209,7 +387,7 @@ func _build_province(
             var neighbor_cell_id: int = int(neighbor_cell_id_value)
             if neighbor_cell_id < 0 or neighbor_cell_id >= cells.size():
                 continue
-            var neighbor_id: int = int(cells[neighbor_cell_id].get("province", 0))
+            var neighbor_id: int = cell_province_ids[neighbor_cell_id]
             if neighbor_id > 0 and neighbor_id != province_id:
                 neighbors[neighbor_id] = true
 
@@ -260,6 +438,7 @@ func _build_province(
         "id": province_id,
         "name": definition["name"],
         "full_name": definition.get("fullName", definition["name"]),
+        "provisional_name": bool(definition.get("provisional_name", false)),
         "selection_point_source_xy": selection_source,
         "selection_point_xz": _azgaar_point_to_godot(selection_source),
         "label_point_source_xy": label_source,
@@ -308,7 +487,11 @@ func _stitch_boundary_rings(boundary_edges: Array, province_id: int) -> Array:
     return rings
 
 
-func _build_and_validate_anchors(manifest: Dictionary, provinces: Array) -> Array:
+func _build_and_validate_anchors(
+    manifest: Dictionary,
+    provinces: Array,
+    corrections: Dictionary
+) -> Array:
     var anchors: Array = manifest.get("anchors", [])
     if anchors.size() != 8:
         push_error("Expected exactly eight Astra manifest anchors.")
@@ -316,29 +499,44 @@ func _build_and_validate_anchors(manifest: Dictionary, provinces: Array) -> Arra
     var province_by_id: Dictionary = {}
     for province: Dictionary in provinces:
         province_by_id[province["id"]] = province
+    var retained_by_retired: Dictionary = {}
+    for merge_value: Variant in corrections.get("merges", []):
+        var merge: Dictionary = merge_value
+        for retired_id_value: Variant in merge["retired_ids"]:
+            retained_by_retired[int(retired_id_value)] = int(merge["retained_id"])
     var converted: Array = []
     for anchor: Dictionary in anchors:
-        var province_id: int = int(anchor["province"])
-        if not province_by_id.has(province_id):
-            push_error("Manifest anchor references missing province %d." % province_id)
+        var historical_province_id: int = int(anchor["province"])
+        var active_province_id: int = int(
+            retained_by_retired.get(historical_province_id, historical_province_id)
+        )
+        if not province_by_id.has(active_province_id):
+            push_error("Manifest anchor references missing active province %d." % active_province_id)
             return []
         var source_point: Vector2 = _array_to_vector2(anchor["azgaar_xy"])
-        var province: Dictionary = province_by_id[province_id]
-        if (
+        var province: Dictionary = province_by_id[active_province_id]
+        if active_province_id == historical_province_id and (
             province["name"] != anchor["name"]
             or not _array_to_vector2(province["selection_point_source_xy"]).is_equal_approx(source_point)
         ):
-            push_error("Manifest anchor %d does not match its Azgaar province center." % province_id)
+            push_error(
+                "Manifest anchor %d does not match its active Azgaar province center."
+                % historical_province_id
+            )
             return []
         var sample_point: Vector2 = source_point * SOURCE_TO_PLAYABLE_SCALE - Vector2(0.5, 0.5)
         var expected_sample: Vector2 = _array_to_vector2(anchor["playable_sample_xy"])
         var world_point: Vector2 = TERRAIN_ORIGIN_XZ + (sample_point + Vector2(0.5, 0.5)) * VERTEX_SPACING
         var expected_world_units: Vector2 = _array_to_vector2(anchor["world_xz_metres"]) * 0.1
         if not sample_point.is_equal_approx(expected_sample) or not world_point.is_equal_approx(expected_world_units):
-            push_error("Manifest anchor %d fails the documented Godot mapping." % province_id)
+            push_error(
+                "Manifest anchor %d fails the documented Godot mapping."
+                % historical_province_id
+            )
             return []
         converted.append({
-            "province_id": province_id,
+            "historical_province_id": historical_province_id,
+            "active_province_id": active_province_id,
             "name": anchor["name"],
             "source_xy": [source_point.x, source_point.y],
             "playable_sample_xy": [sample_point.x, sample_point.y],

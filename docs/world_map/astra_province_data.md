@@ -2,26 +2,39 @@
 
 ## Status and boundary
 
-The first authoritative Godot-side province data layer is complete. It contains all 82 production provinces from the Azgaar Full JSON and does not render borders, labels, selection, ownership colours or UI. It does not modify Terrain3D, terrain assets, masks, rivers, materials or simulation rules.
+The accepted corrected province layer is authoritative and has completed final human visual review. It contains 100 active provinces with stable, non-contiguous IDs. Province geography remains independent of Realm ownership. The pipeline does not modify Terrain3D, heightmaps, masks, rivers, lakes, coastline, NaturalWorld or camera behaviour.
 
 ## Authorities
 
 - Source: `C:\Projects\FCAH_ASTRA_WORKSPACE\02_Azgaar_Master\FCAH_Azgaar_Master_01 Full 2026-08-07-21-09.json`
 - Expected source SHA-256: `9c36b97b340c1fb5827b897db4f3798d16b017ce0e9906c26426ff295efaaa90`
 - Alignment manifest: `C:\Projects\FCAH_ASTRA_WORKSPACE\08_Final_Terrain\EXPORT_MANIFEST.json`
+- Accepted land mask: `C:\Projects\FCAH_ASTRA_WORKSPACE\08_Final_Terrain\Data\FCAH_Features_RGBA.png`
+- Correction authority: `data/world_map/astra_province_corrections.json`
 - Generated Godot data: `data/world_map/astra_provinces.json`
+- Generated coverage evidence: `data/world_map/astra_province_coverage_report.json`
 
-The Full export includes invalid unpaired UTF-16 surrogate escapes in unrelated legacy name-base strings. The importer replaces only those invalid escapes in memory after verifying the complete source-file hash. Province definitions, cells, vertices and their numeric precision are not rewritten before conversion.
+The Azgaar export remains untouched. `build_astra_province_corrections.py` turns approved high-level decisions into explicit cell assignments. The Full export includes invalid unpaired UTF-16 surrogate escapes in unrelated legacy name-base strings; the importer replaces only those invalid escapes in memory after verifying the complete source-file hash.
+
+## Stable ID policy
+
+IDs are opaque identifiers, not array positions or counts. IDs 8, 31, 57, 63, 68, 81 and 82 are permanently retired. IDs 83-107 were allocated above the historical maximum, including the accepted targeted topology IDs 90-107. The active count is 100 and the next permitted new ID is 108. Retired IDs must never be reused or appear in active records, neighbors, source-cell ownership or prototype state.
 
 ## Rebuilding
 
-From PowerShell, run:
+From PowerShell, first build the correction manifest:
 
 ```powershell
-godot --headless --path C:\Projects\For-Carrot-and-Honour --script res://tools/world_map/import_astra_provinces.gd -- '--source=C:\Projects\FCAH_ASTRA_WORKSPACE\02_Azgaar_Master\FCAH_Azgaar_Master_01 Full 2026-08-07-21-09.json' --manifest=C:\Projects\FCAH_ASTRA_WORKSPACE\08_Final_Terrain\EXPORT_MANIFEST.json --output=res://data/world_map/astra_provinces.json
+C:\Projects\FCAH_ASTRA_WORKSPACE\07_Astra_Work\.venv\Scripts\python.exe tools/world_map/build_astra_province_corrections.py --source "C:\Projects\FCAH_ASTRA_WORKSPACE\02_Azgaar_Master\FCAH_Azgaar_Master_01 Full 2026-08-07-21-09.json" --output data/world_map/astra_province_corrections.json
 ```
 
-The importer verifies the source hash, map fingerprint, 2560 x 1440 canvas, manifest formulas, leading scalar zero and IDs 1-82. It dissolves province cells by cancelling shared Voronoi edges, stitches the remaining edges into closed rings, classifies holes from source winding, and derives neighbors from cross-province cell adjacency. A second run produces byte-identical JSON; the validated artifact SHA-256 is `884f103f49a68da9116a9dbbd13e3403918c234ed38a8603f222f29390ab3d37`.
+Then generate runtime geography:
+
+```powershell
+godot --headless --path . --script res://tools/world_map/import_astra_provinces.gd -- --source="C:\Projects\FCAH_ASTRA_WORKSPACE\02_Azgaar_Master\FCAH_Azgaar_Master_01 Full 2026-08-07-21-09.json" --manifest="C:\Projects\FCAH_ASTRA_WORKSPACE\08_Final_Terrain\EXPORT_MANIFEST.json" --corrections=res://data/world_map/astra_province_corrections.json --output=res://data/world_map/astra_provinces.json
+```
+
+The importer verifies all source fingerprints, applies merges, explicit cell reassignments and inland-water ownership, dissolves cells by cancelling shared Voronoi edges, stitches closed rings, and recalculates bounds, areas, neighbors and anchors. Repeated builder/importer runs must produce byte-identical files.
 
 ## Data contract
 
@@ -35,7 +48,7 @@ Every province record retains:
 - summed Azgaar exported cell area and polygon-derived Godot-unit area;
 - sorted neighboring province IDs.
 
-The file contains 82 provinces, 135 closed rings including 12 holes, and 8,081 closed-ring points. Source coordinates are retained alongside converted coordinates so later consumers can audit every point without reconstructing it from rounded display data.
+The file contains 100 active provinces and no political holes. Runtime metadata records the correction-manifest hash, exact active and retired ID sets and historical maximum. Source coordinates remain alongside converted coordinates so later consumers can audit every point without reconstructing it from rounded display data.
 
 ## Coordinate contract
 
@@ -56,10 +69,14 @@ Run:
 
 ```powershell
 godot --headless --path C:\Projects\For-Carrot-and-Honour --script res://tests/astra_province_data_test.gd
+godot --headless --path C:\Projects\For-Carrot-and-Honour --script res://tests/astra_province_coverage_test.gd
+godot --headless --path C:\Projects\For-Carrot-and-Honour --script res://tests/province_geography_query_test.gd
 ```
 
-The test checks exactly 82 unique IDs, complete ID coverage 1-82, closed geometry, point-by-point source-to-Godot conversion, playable-footprint bounds, stored bounding boxes, positive and reproducible polygon area, sorted valid symmetric neighbors, the fixed orientation and origin, and all eight manifest anchors.
+The tests check the exact stable active/retired ID sets, closed geometry, point-by-point conversion, bounds, area, symmetric neighbors, valid anchors, all politically filled inland lakes and current coverage-report hashes.
+
+Run `validate_astra_province_geography.py` with the authorities above to regenerate `astra_province_coverage_report.json` and the two QA maps under `docs/world_map/qa/`. It checks source-cell ownership, accepted-mask coverage, positive-area overlap, political holes, external sea assignment, anchors, neighbors and retired IDs. The current result is zero raw and meaningful unassigned playable-land pixels, zero overlap pairs and zero political holes.
 
 ## Exact next recommended step
 
-Add a small pure-data runtime loader/query type for `astra_provinces.json`, with strict schema validation and immutable lookup by province ID. Keep rendering, hit testing, selection, labels, ownership colours and gameplay integration out of that next step.
+The project owner completed human scalpel review of the corrected province shapes, numbered QA overview and dual-sided political borders on 2026-09-12. This accepted layer is the authoritative 100-province baseline.

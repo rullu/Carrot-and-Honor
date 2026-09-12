@@ -112,13 +112,27 @@ Full-continent work and further simulation expansion remain blocked until the si
 **Status: COMPLETE; visually accepted.**
 
 - [x] Instance the locked NaturalWorld in a separate gameplay wrapper.
-- [x] Load and query all 82 authoritative province polygons without regeneration.
-- [x] Add subtle permanent borders, hover feedback and persistent selection.
+- [x] Load and query the authoritative active province polygons without runtime regeneration.
+- [x] Add permanent border presentation, hover feedback and persistent selection.
 - [x] Keep ProvinceState and RealmState independent, including one- and multi-province realm fixtures.
 - [x] Preserve camera behaviour and block UI click-through.
 - [x] Pass the complete 13-test direct suite and human interaction review.
 
-Visual review found authoritative coverage, inland-hole and small-shape problems. Geography correction requires a separate approved pass.
+Visual review found authoritative coverage, inland-hole and small-shape problems.
+
+## Province Geography Correction Pass
+
+**Status: COMPLETE; manually accepted.**
+
+- [x] Add a version-controlled correction manifest over the immutable Azgaar source.
+- [x] Assign all meaningful playable land without changing terrain or coastline.
+- [x] Fill the 11 audited enclosed lakes and the province 22 land defect politically; also fill three lakes newly enclosed by corrected eastern/northern territory.
+- [x] Retire IDs 8, 31, 57, 63, 68, 81 and 82 through stable-ID merges; preserve IDs 83-89 and add accepted IDs 90-107 above the historical maximum.
+- [x] Reassign unrelated fragments of provinces 32, 38, 39 and 49 while retaining legitimate islands and coastal components.
+- [x] Recalculate rings, bounds, area, neighbors and corrected anchors deterministically.
+- [x] Add accepted-mask coverage validation and full-map QA images.
+- [x] Add and validate the dual-sided medieval political border ribbon without changing authoritative geometry.
+- [x] Complete human scalpel review of the corrected strategic shapes and political borders.
 
 ## Phase 2 — One-province greybox
 

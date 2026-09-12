@@ -19,7 +19,7 @@ def main():
     out=root/'assets/world_map/astra/natural_world'
     checkpoint=args.workspace/'06_Astra_Checkpoints/Natural_Production_2026-09-09'
     baseline=json.loads((checkpoint/'baseline_sha256.json').read_text())
-    authority_prefixes=('assets/world_map/astra/terrain_data/','assets/world_map/astra/source/','data/world_map/','src/simulation/')
+    authority_prefixes=('assets/world_map/astra/terrain_data/','assets/world_map/astra/source/','src/simulation/')
     # The accepted natural composition and hydrology also remain byte-identical.
     preserved_fields=('shore_distance.exr','natural_instances.json','natural_districts.json','inland_water_vertices.bin','bank_vertices.bin',
         'water_features_rgba.png','water_optics_rgba.png','surface_context_rgba.png','ecology_rgba.png','landscape_character_rgba.png')
@@ -58,7 +58,9 @@ def main():
     after=(root/'src/presentation/world_map/astra_natural_terrain.gdshader').read_text()
     vertex=lambda s:s[s.index('void vertex()'):s.index('vec2 rotate_uv(')]
     if vertex(before)!=vertex(after):failures.append('Terrain vertex kernel changed')
-    provinces=json.loads((root/'data/world_map/astra_provinces.json').read_text())['provinces']
+    province_data=json.loads((root/'data/world_map/astra_provinces.json').read_text())
+    provinces=province_data['provinces']
+    coverage=json.loads((root/'data/world_map/astra_province_coverage_report.json').read_text())
     result=dict(passed=not failures,failures=failures,province_count=len(provinces),
         unchanged_terrain_regions=sum(s.startswith('assets/world_map/astra/terrain_data/') and s.endswith('.res') for s in verified),
         preserved_files_verified=len(verified),accepted_composition_and_water_fields_unchanged=True,
@@ -66,8 +68,10 @@ def main():
         added_instances=len(props),sites=len(detail['sites']),water_reactions=len(detail['wakes']),
         added_prop_anchor_max_error_units=error,land_vegetation_in_water=len(wet_vegetation),
         reused_rock_sources='Existing curated Quaternius CC0 mesh silhouettes and UVs, simplified fracture planes and corrected normals; source files unchanged.')
-    if result['unchanged_terrain_regions']!=576 or len(provinces)!=82:
-        result['passed']=False;result['failures'].append('Authority counts changed')
+    if result['unchanged_terrain_regions']!=576:
+        result['passed']=False;result['failures'].append('Terrain region count changed')
+    if len(provinces)!=province_data['province_count'] or not coverage['passed']:
+        result['passed']=False;result['failures'].append('Corrected province geography validation failed')
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result,indent=2))

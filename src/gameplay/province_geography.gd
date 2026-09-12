@@ -8,7 +8,6 @@ const EDGE_EPSILON: float = 0.0001
 
 var _province_ids: PackedInt32Array = []
 var _provinces_by_id: Dictionary[int, Dictionary] = {}
-var _reference_point_ids: Dictionary[Vector2, int] = {}
 
 
 static func load_from_path(path: String) -> ProvinceGeography:
@@ -40,15 +39,6 @@ static func create_from_data(data: Dictionary) -> ProvinceGeography:
             return null
         geography._provinces_by_id[province_id] = record
         geography._province_ids.append(province_id)
-        for point_key: String in ["selection_point", "label_point"]:
-            var reference_point: Vector2 = record[point_key]
-            if (
-                geography._reference_point_ids.has(reference_point)
-                and geography._reference_point_ids[reference_point] != province_id
-            ):
-                return null
-            geography._reference_point_ids[reference_point] = province_id
-
     geography._province_ids.sort()
     return geography
 
@@ -160,11 +150,6 @@ func get_province_record(province_id: int) -> Dictionary:
 
 
 func find_province_id(point_xz: Vector2, use_bounds_filter: bool = true) -> int:
-    # Azgaar label positions are declared province references, but a few sit
-    # outside their polygon for cartographic readability. Exact reference-point
-    # queries retain that identity; ordinary cursor coordinates use geometry.
-    if _reference_point_ids.has(point_xz):
-        return _reference_point_ids[point_xz]
     for province_id: int in _province_ids:
         var record: Dictionary = _provinces_by_id[province_id]
         if use_bounds_filter and not _bounds_contain(record, point_xz):

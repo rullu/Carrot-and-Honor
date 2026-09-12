@@ -4,7 +4,7 @@ extends SceneTree
 const GAMEPLAY_SCENE_PATH: String = "res://scenes/gameplay/world_gameplay.tscn"
 const NATURAL_WORLD_SCENE_PATH: String = "res://scenes/world_map/astra_natural_world_final.tscn"
 const NATURAL_WORLD_SCENE_SHA256: String = "0f5450a6488b3ae7e1789c1bf7bddb69594efb225cd45da3b8d2c52edb7dc90a"
-const PROVINCE_DATA_SHA256: String = "884f103f49a68da9116a9dbbd13e3403918c234ed38a8603f222f29390ab3d37"
+const PROVINCE_DATA_SHA256: String = "c5ccc4f9d5afb4b3988dcb418402ffeccbab08d70cef8c48a9c57df08f993d7e"
 const NATURAL_WORLD_CONTROLLER_SHA256: String = "eb9e433f559f741d07ac1327da1b954228f90e721c96f426c7038420095a4a6e"
 
 
@@ -18,7 +18,7 @@ func _initialize() -> void:
     )
     _check(
         FileAccess.get_sha256("res://data/world_map/astra_provinces.json") == PROVINCE_DATA_SHA256,
-        "authoritative province geography remains unchanged"
+        "corrected authoritative province geography matches its reviewed artifact"
     )
     _check(
         FileAccess.get_sha256("res://src/presentation/world_map/astra_natural_world.gd")

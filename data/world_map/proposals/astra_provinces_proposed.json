@@ -258,7 +258,7 @@
       106.0,
       107.0
     ],
-    "file_name": "astra_province_corrections.json",
+    "file_name": "astra_province_topology_proposal.json",
     "historical_max_province_id": 82,
     "retired_province_ids": [
       8.0,
@@ -269,7 +269,7 @@
       81.0,
       82.0
     ],
-    "sha256": "5cbdd1212115f3e986f5e521671290c3d6d7f5ddaefa3f05aa2fa5c52d445444"
+    "sha256": "1dfd4cd8c3e4492eb8816b9143ec42bc9f8dfc8e1acd61d885788858d30dea03"
   },
   "province_count": 100,
   "provinces": [

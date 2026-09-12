@@ -17,7 +17,7 @@ def main():
     checkpoint=args.workspace/'06_Astra_Checkpoints/Natural_Beauty_2026-09-09'
     baseline=json.loads((checkpoint/'baseline_sha256.json').read_text())
     root=args.project; natural=root/'assets/world_map/astra/natural_world'
-    prefixes=('assets/world_map/astra/terrain_data/','assets/world_map/astra/source/','data/world_map/','src/simulation/')
+    prefixes=('assets/world_map/astra/terrain_data/','assets/world_map/astra/source/','src/simulation/')
     fields=('shore_distance.exr','natural_instances.json','natural_districts.json','inland_water_vertices.bin','bank_vertices.bin',
             'water_features_rgba.png','water_optics_rgba.png','river_motion_rgba.png','surface_context_rgba.png','ecology_rgba.png','landscape_character_rgba.png')
     field_paths={'assets/world_map/astra/natural_world/'+x for x in fields}
@@ -37,8 +37,12 @@ def main():
     kernel=lambda s:s[s.index('void vertex()'):s.index('vec2 rotate_uv(')]
     if kernel(before)!=kernel(after):failures.append('Terrain3D vertex kernel changed')
     count_regions=sum(p.startswith(prefixes[0]) and p.endswith('.res') for p in verified)
-    count_provinces=len(json.loads((root/'data/world_map/astra_provinces.json').read_text())['provinces'])
-    if count_regions!=576 or count_provinces!=82:failures.append('Authority counts changed')
+    province_data=json.loads((root/'data/world_map/astra_provinces.json').read_text())
+    count_provinces=len(province_data['provinces'])
+    coverage=json.loads((root/'data/world_map/astra_province_coverage_report.json').read_text())
+    if count_regions!=576:failures.append('Terrain region count changed')
+    if count_provinces!=province_data['province_count'] or not coverage['passed']:
+        failures.append('Corrected province geography validation failed')
     composition=json.loads((natural/'beauty_composition.json').read_text())
     props=np.array(composition['instances'])
     with OpenEXR.File(str(args.workspace/'08_Final_Terrain/Data/FCAH_Height_Playable_4096x2304_F32.exr')) as f:

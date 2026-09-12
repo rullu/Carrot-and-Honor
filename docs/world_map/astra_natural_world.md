@@ -36,7 +36,7 @@ This controller is an inspection helper. Province selection, ownership, roads, s
 
 ## Preservation boundary
 
-All **82 provinces, 576 Terrain3D regions and 12 authoritative exports** are hash-verified. Heights/topology, material and Features masks, strategic river routes, water/bank vertices, original vegetation composition, continent crop, orientation and scale are unchanged. The Terrain3D vertex kernel is byte-identical to the checkpoint. Origin X/Z `(-25000,-14062.5)`, spacing `12.20703125`, north `-Z`, one unit = ten authored metres, height range `-6 .. 216.9871`.
+All **576 Terrain3D regions and 12 authoritative exports** are hash-verified. Heights/topology, material and Features masks, strategic river routes, water/bank vertices, original vegetation composition, continent crop, orientation and scale are unchanged. The Terrain3D vertex kernel is byte-identical to the checkpoint. The later DEV-022 province correction changes political geography data only and is validated separately. Origin X/Z `(-25000,-14062.5)`, spacing `12.20703125`, north `-Z`, one unit = ten authored metres, height range `-6 .. 216.9871`.
 
 | Resource | Ownership |
 | --- | --- |

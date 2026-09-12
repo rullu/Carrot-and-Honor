@@ -12,7 +12,7 @@ Read these files before changing code:
 4. `docs/implementation_plan.md`
 5. `docs/decision_log.md`
 
-Current phase: **pure-data province capability foundations**. The workspace gate is complete, and work has moved beyond workspace establishment.
+Current phase: **accepted 100-province geography and political borders after Gameplay 001**. Terrain and NaturalWorld are locked.
 
 Design and implementation authority:
 
@@ -21,7 +21,7 @@ Design and implementation authority:
 - Gameplay Direction Change Register v0.1 is reconciliation history.
 - Repository documentation and tests remain authoritative for implemented reality.
 
-Do not implement runtime gameplay, create a main scene or invent systems until a separate implementation task explicitly authorises that work.
+Do not expand beyond the explicitly authorised gameplay milestone or create a project main scene without a separate task.
 
 ## 2. Language and Godot rules
 

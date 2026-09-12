@@ -26,7 +26,7 @@ func _initialize() -> void:
         _finish()
         return
 
-    _check(world_state.get_province_count() == 82, "all provinces receive runtime state")
+    _check(world_state.get_province_count() == geography.get_province_count(), "all active provinces receive runtime state")
     for province_id: int in geography.get_province_ids():
         var state: ProvinceState = world_state.get_province_state(province_id)
         _check(state != null, "province %d has runtime state" % province_id)

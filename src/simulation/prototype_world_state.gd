@@ -10,7 +10,7 @@ const DISTINCTIVE_VALUES: Dictionary = {
     12: {"population": 2700, "food": 64, "carrots": 88, "development": 2},
     27: {"population": 8400, "food": 100, "carrots": 50, "development": 1},
     42: {"population": 4900, "food": 76, "carrots": 31, "development": 3},
-    82: {"population": 7300, "food": 93, "carrots": 61, "development": 2},
+    83: {"population": 7300, "food": 93, "carrots": 61, "development": 2},
 }
 
 

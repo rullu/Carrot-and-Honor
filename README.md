@@ -4,9 +4,9 @@ For Carrot and Honour is a real-time, pausable medieval-fantasy strategy game ab
 
 ## Current gameplay scene
 
-Open **[`scenes/gameplay/world_gameplay.tscn`](scenes/gameplay/world_gameplay.tscn)** and press **F6**. Gameplay 001 instances the completed NaturalWorld, provides geographic hover and persistent click selection for all 82 provinces, and displays separate prototype province and realm state in a plain debug panel. Left click selects, Escape clears selection, WASD or middle drag pans, and the wheel zooms.
+Open **[`scenes/gameplay/world_gameplay.tscn`](scenes/gameplay/world_gameplay.tscn)** and press **F6**. Gameplay 001 instances the completed NaturalWorld, provides geographic hover and persistent click selection for all 100 active provinces, and displays separate prototype province and realm state in a plain debug panel. Left click selects, Escape clears selection, WASD or middle drag pans, and the wheel zooms.
 
-The province geometry audit following visual acceptance is analysis only. `data/world_map/astra_provinces.json` remains unchanged pending a separately approved correction pass.
+The corrected geography is generated from the immutable Azgaar source plus `data/world_map/astra_province_corrections.json`. Seven IDs are retired without reuse; the accepted targeted topology adds IDs 90-107 and reserves 108 as the next fresh ID. The 100-province topology and dual-sided political border presentation are manually accepted.
 
 ## Current natural-world inspection scene
 
@@ -14,11 +14,11 @@ Open **[`scenes/world_map/astra_natural_world_final.tscn`](scenes/world_map/astr
 
 WASD/middle drag pan; wheel zooms; Home resets; 1–9 visit regions; 0 cycles discoveries; V toggles top-down; F frames the continent; P hides natural props; H hides inspection controls. The scene initializes its materials and batches at runtime.
 
-See [`docs/world_map/astra_natural_world.md`](docs/world_map/astra_natural_world.md) for provenance, review and implementation boundaries. DEV-020 supersedes the previous conservative artistic handoff. All **82 provinces, 576 terrain regions, authoritative heights, masks and river routes** remain intact. The concise handoff is `C:\Projects\FCAH_ASTRA_WORKSPACE\ASTRA_FINAL_BEAUTY_HANDOFF.md`; the recoverable prior project is in `06_Astra_Checkpoints/Natural_Beauty_2026-09-09/` in that workspace. Gameplay remains a separate task.
+See [`docs/world_map/astra_natural_world.md`](docs/world_map/astra_natural_world.md) for provenance, review and implementation boundaries. DEV-020 supersedes the previous conservative artistic handoff. All **576 terrain regions, authoritative heights, masks and river routes** remain intact; province geography was corrected later through DEV-022 without changing the world. The concise handoff is `C:\Projects\FCAH_ASTRA_WORKSPACE\ASTRA_FINAL_BEAUTY_HANDOFF.md`; the recoverable prior project is in `06_Astra_Checkpoints/Natural_Beauty_2026-09-09/` in that workspace.
 
 ## Current phase
 
-**Terrain / natural-world production: COMPLETE. Gameplay is next.** The interaction proof remains separately scoped; this terrain handoff does not mark that gate passed.
+**Terrain / natural-world production: COMPLETE. Gameplay 001: COMPLETE. Corrected 100-province geography and political borders: ACCEPTED.**
 
 Stage 1 simulation and content-model foundations are complete. Further simulation expansion is paused until the world-map proof passes.
 
@@ -26,7 +26,7 @@ The repository now includes a minimal full-continent terrain import test built f
 
 The matching Astra Features RGBA image now has an exact 4096 x 2304 playable crop. A dedicated QA scene reads that crop as raw linear RGBA8 data and overlays only its authoritative R-channel land coverage on the unchanged Terrain3D baseline. Numerical offset testing and GPU renders verify that the two sample grids coincide.
 
-The first authoritative province data layer is also complete. A reproducible typed-GDScript importer converts all 82 Azgaar provinces into full-precision closed boundary rings, selection and label points, bounds, areas and neighbor IDs in the validated Godot X/Z frame. This is data only; province rendering and interaction remain deferred. See [`docs/world_map/astra_province_data.md`](docs/world_map/astra_province_data.md).
+The authoritative province data layer is reproducible. A correction manifest assigns previous gaps and inland water, retires absorbed tiny IDs, repairs fragmentation and adds coherent eastern wilderness provinces before the typed-GDScript importer emits full-precision rings, anchors, bounds, areas and neighbors. See [`docs/world_map/astra_province_data.md`](docs/world_map/astra_province_data.md).
 
 The disposable [`astra_biome_preview.tscn`](scenes/world_map/astra_biome_preview.tscn) now provides the first useful Terrain3D material-weight view. It blends Astra's temperate, Mediterranean/dry, desert/arid and exposed-rock channels through diagnostic colours without changing terrain data or beginning production PBR work.
 
@@ -36,20 +36,20 @@ The preserved first-pass [`astra_terrain_art_preview.tscn`](scenes/world_map/ast
 
 The repository currently contains:
 
-- a minimal Godot 4 project with no main gameplay scene;
+- a Godot 4 project with no configured project main scene and a directly launchable Gameplay 001 wrapper;
 - binding repository rules and technical documentation;
 - a deterministic pure-data simulation clock;
 - clock state round-trip support;
 - validated good and building definitions;
 - a prototype capability catalogue;
 - an immutable `ProvinceCapabilityState`;
-- authoritative generated data for all 82 production provinces;
+- authoritative generated data for 100 active production provinces using non-contiguous stable IDs;
 - a directly launchable Astra terrain import test scene;
 - a directly launchable Astra land-mask alignment inspection scene;
 - a directly launchable Astra material-weight biome preview scene;
 - direct typed-GDScript headless tests.
 
-There is no runtime gameplay yet.
+Runtime gameplay remains limited to the Province Interaction Gate.
 
 ## Inspecting the Astra terrain import
 
@@ -120,6 +120,7 @@ godot --headless --path . --script res://tests/prototype_content_catalogue_test.
 godot --headless --path . --script res://tests/province_capability_state_test.gd
 godot --headless --path . --script res://tests/world_map_integration_proof_test.gd
 godot --headless --path . --script res://tests/astra_province_data_test.gd
+godot --headless --path . --script res://tests/astra_province_coverage_test.gd
 godot --headless --path . --script res://tests/astra_biome_preview_test.gd
 godot --headless --path . --script res://tests/astra_terrain_art_assets_test.gd
 godot --headless --path . --script res://tests/province_geography_query_test.gd
