@@ -12,3 +12,6 @@
 *.dylib filter=lfs diff=lfs merge=lfs -text
 *.wasm filter=lfs diff=lfs merge=lfs -text
 addons/terrain_3d/bin/libterrain.macos.*.framework/libterrain.macos.* filter=lfs diff=lfs merge=lfs -text
+
+# Canonical text authorities with byte-stable source fingerprints
+data/world_identity/world_identity_master_canon.json text eol=lf

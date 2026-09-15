@@ -120,6 +120,22 @@ Full-continent work and further simulation expansion remain blocked until the si
 
 Visual review found authoritative coverage, inland-hole and small-shape problems.
 
+## World Identity Integration
+
+**Status: COMPLETE.**
+
+- [x] Install the locked master JSON byte-for-byte in a canonical data location.
+- [x] Add a centralized pure-data Godot catalogue with defensive province, realm, formable and special-system queries.
+- [x] Validate 100 unique provinces and 43 unique starting realms against active geography and frozen political ownership.
+- [x] Validate exact starting owners, realm footprints, realm identity summaries and all explicit formable references.
+- [x] Preserve Province 30 Hasenmark/R028 mixed identity and R008 `holy_state` with its ceremonial title deferred.
+- [x] Add direct headless inspection plus targeted rejection, UTF-8 and special-case tests.
+- [x] Keep all modifiers, conversion, unrest, diplomacy, rebellion, formation and special-system execution deferred.
+
+This milestone changes no terrain, NaturalWorld, topology, border geometry or
+frozen ownership data. See `docs/world_identity/world_identity_runtime.md` and
+DEV-024.
+
 ## Province Geography Correction Pass
 
 **Status: COMPLETE; manually accepted.**

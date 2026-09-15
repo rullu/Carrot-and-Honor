@@ -1,0 +1,3980 @@
+{
+  "schema_version": 1,
+  "canon_id": "FCAH_WORLD_IDENTITY_MASTER_CANON",
+  "canon_status": "LOCKED_ACCEPTED",
+  "purpose": "Single normalized implementation-facing source of truth for all 100 starting provinces, all 43 starting realms, and all currently locked regional formables/special identity systems.",
+  "authority": "This master is compiled from the five locked regional identity canons plus frozen starting ownership. If a later regional canon is intentionally revised, regenerate this master rather than manually patching conflicting copies.",
+  "source_files_sha256": {
+    "FCAH_Western_Realm_Identity_Canon.json": "b9f88620d408775f0af967bea8d2734ed18afcaaf2ad8ea8ebcb8fe51910ce7a",
+    "FCAH_Northern_Realm_Identity_Canon.json": "5dfbccfd2953d7ca98f74d3a0f0be0a093501f1116719da675a1591ff1451ebb",
+    "FCAH_Mediterranean_Realm_Identity_Canon.json": "490e0016629bbdda772aa73ce7eaf3ce0956c5cf57860ba3309e1c3fa45d5e8f",
+    "FCAH_Central_Realm_Identity_Canon.json": "421071d9abde4c1e66c4107f5894ff74f3cdaede9f79f858981a9c93bd0cdf70",
+    "FCAH_Eastern_Realm_Identity_Canon.json": "9a2fc57218f93ba8fecb7cc80a832f12b47d0c95d056912c52be1341eed61326",
+    "starting_realm_ownership_v1.json": "0065fcf86faec23e4e7ae6e9e45101af8aefd1f432031e48031cda349c131261"
+  },
+  "global_rules": {
+    "internal_generic_political_term": "Realm",
+    "realm_style_is_not_size_ladder": true,
+    "ordinary_expansion_does_not_auto_rename": true,
+    "ordinary_expansion_does_not_auto_promote_style": true,
+    "province_identity_is_separate_from_political_ownership": true,
+    "legacy_ownership_region_metadata_is_non_authoritative_for_identity": true,
+    "formables_are_data_driven": true,
+    "exact_modifier_values_are_not_locked_here": true,
+    "exact_deferred_formation_thresholds_remain_deferred": true
+  },
+  "provinces": [
+    {
+      "province_id": 1,
+      "province_name": "Avelor",
+      "identity_region": "central",
+      "culture": "Selvaran",
+      "starting_realm_id": "R027",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 2,
+      "province_name": "Marovar",
+      "identity_region": "central",
+      "culture": "Selvaran",
+      "starting_realm_id": "R027",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 3,
+      "province_name": "Merovan",
+      "identity_region": "central",
+      "culture": "Selvaran",
+      "starting_realm_id": "R027",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 4,
+      "province_name": "Selcar",
+      "identity_region": "central",
+      "culture": "Selvaran",
+      "starting_realm_id": "R027",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 5,
+      "province_name": "Meyru",
+      "identity_region": "eastern",
+      "culture": "Averi",
+      "starting_realm_id": "R041",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Living Garden"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 6,
+      "province_name": "Samera",
+      "identity_region": "eastern",
+      "culture": "Averi",
+      "starting_realm_id": "R043",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Living Garden"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 7,
+      "province_name": "Oshkar",
+      "identity_region": "eastern",
+      "culture": "Tazhari",
+      "starting_realm_id": "R042",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Veiled Spring"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 9,
+      "province_name": "Narevi",
+      "identity_region": "eastern",
+      "culture": "Averi",
+      "starting_realm_id": "R043",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Living Garden"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 10,
+      "province_name": "Lumaya",
+      "identity_region": "eastern",
+      "culture": "Averi",
+      "starting_realm_id": "R040",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Living Garden"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 11,
+      "province_name": "Ishara",
+      "identity_region": "eastern",
+      "culture": "Averi",
+      "starting_realm_id": "R043",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Living Garden"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 12,
+      "province_name": "Oramei",
+      "identity_region": "eastern",
+      "culture": "Averi",
+      "starting_realm_id": "R043",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Living Garden"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 13,
+      "province_name": "Serekh",
+      "identity_region": "central",
+      "culture": "Drevanic",
+      "starting_realm_id": "R032",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Woven Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 14,
+      "province_name": "Ramekh",
+      "identity_region": "eastern",
+      "culture": "Tazhari",
+      "starting_realm_id": "R042",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Veiled Spring"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 15,
+      "province_name": "Damor",
+      "identity_region": "central",
+      "culture": "Drevanic",
+      "starting_realm_id": "R032",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Woven Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 16,
+      "province_name": "Azharion Vel-Kareth",
+      "identity_region": "central",
+      "culture": "Vaskari",
+      "starting_realm_id": "R028",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Woven Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 17,
+      "province_name": "Aradon Merekh",
+      "identity_region": "central",
+      "culture": "Drevanic",
+      "starting_realm_id": "R034",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 18,
+      "province_name": "Varnskar",
+      "identity_region": "northern",
+      "culture": "Vaarnic",
+      "starting_realm_id": "R024",
+      "religion": {
+        "broad_faith": "Hearthbound Faith",
+        "grand_tradition": "The Covenant of Root and Hearth",
+        "communion": null,
+        "institution_or_tradition": "Hearth Oaths",
+        "rite_or_belief": "Rite of the Buried Ember"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 19,
+      "province_name": "Varzakar",
+      "identity_region": "central",
+      "culture": "Vaskari",
+      "starting_realm_id": "R028",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Woven Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 20,
+      "province_name": "Kalyros",
+      "identity_region": "central",
+      "culture": "Vaskari",
+      "starting_realm_id": "R028",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Woven Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 21,
+      "province_name": "Eldhaug",
+      "identity_region": "northern",
+      "culture": "Vaarnic",
+      "starting_realm_id": "R024",
+      "religion": {
+        "broad_faith": "Hearthbound Faith",
+        "grand_tradition": "The Covenant of Root and Hearth",
+        "communion": null,
+        "institution_or_tradition": "Hearth Oaths",
+        "rite_or_belief": "Rite of the Buried Ember"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 22,
+      "province_name": "Namaruun",
+      "identity_region": "central",
+      "culture": "Kharven",
+      "starting_realm_id": "R025",
+      "religion": {
+        "broad_faith": "The Old Sky",
+        "grand_tradition": null,
+        "communion": null,
+        "institution_or_tradition": null,
+        "rite_or_belief": "The Old Sky"
+      },
+      "special_flags": [
+        "non_rethic_belief_identity",
+        "decentralized_ancestral_sky_tradition"
+      ],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 23,
+      "province_name": "Raukvald",
+      "identity_region": "northern",
+      "culture": "Vaarnic",
+      "starting_realm_id": "R024",
+      "religion": {
+        "broad_faith": "Hearthbound Faith",
+        "grand_tradition": "The Covenant of Root and Hearth",
+        "communion": null,
+        "institution_or_tradition": "Hearth Oaths",
+        "rite_or_belief": "Rite of the Buried Ember"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 24,
+      "province_name": "Arkenfeld",
+      "identity_region": "western",
+      "culture": "Carthen",
+      "starting_realm_id": "R010",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 25,
+      "province_name": "Haselwick",
+      "identity_region": "western",
+      "culture": "Carthen",
+      "starting_realm_id": "R011",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 26,
+      "province_name": "Dornwacht",
+      "identity_region": "western",
+      "culture": "Carthen",
+      "starting_realm_id": "R016",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 27,
+      "province_name": "Bellaro",
+      "identity_region": "mediterranean",
+      "culture": "Varethi",
+      "starting_realm_id": "R014",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 28,
+      "province_name": "Terenza",
+      "identity_region": "mediterranean",
+      "culture": "Varethi",
+      "starting_realm_id": "R021",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 29,
+      "province_name": "Belmaren",
+      "identity_region": "western",
+      "culture": "Carthen",
+      "starting_realm_id": "R010",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 30,
+      "province_name": "Hasenmark",
+      "identity_region": "western",
+      "culture": "Carthen",
+      "starting_realm_id": "R028",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [
+        "western_identity_inside_mixed_central_realm",
+        "realm_identity_defined_with_central"
+      ],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 32,
+      "province_name": "Eldsund",
+      "identity_region": "northern",
+      "culture": "Eldskar",
+      "starting_realm_id": "R009",
+      "religion": {
+        "broad_faith": "Hearthbound Faith",
+        "grand_tradition": "The Covenant of Root and Hearth",
+        "communion": null,
+        "institution_or_tradition": "Hearth Oaths",
+        "rite_or_belief": "Rite of the Buried Ember"
+      },
+      "special_flags": [
+        "northern_gateway_to_west",
+        "heavier_western_contact",
+        "ownership_planning_region_must_not_define_culture_or_faith"
+      ],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 33,
+      "province_name": "Rethen",
+      "identity_region": "western",
+      "culture": "Carthen",
+      "starting_realm_id": "R010",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 34,
+      "province_name": "Ravessa",
+      "identity_region": "mediterranean",
+      "culture": "Varethi",
+      "starting_realm_id": "R015",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 35,
+      "province_name": "Varezza",
+      "identity_region": "mediterranean",
+      "culture": "Varethi",
+      "starting_realm_id": "R021",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 36,
+      "province_name": "Dravenfels",
+      "identity_region": "western",
+      "culture": "Carthen",
+      "starting_realm_id": "R010",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 37,
+      "province_name": "Cormere",
+      "identity_region": "western",
+      "culture": "Brevane",
+      "starting_realm_id": "R002",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 38,
+      "province_name": "Harenwacht",
+      "identity_region": "western",
+      "culture": "Haldren",
+      "starting_realm_id": "R004",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 39,
+      "province_name": "Dornried",
+      "identity_region": "western",
+      "culture": "Haldren",
+      "starting_realm_id": "R004",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 40,
+      "province_name": "Eisenbruck",
+      "identity_region": "western",
+      "culture": "Haldren",
+      "starting_realm_id": "R004",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 41,
+      "province_name": "Lindenhagen",
+      "identity_region": "western",
+      "culture": "Haldren",
+      "starting_realm_id": "R004",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 42,
+      "province_name": "Tavoren",
+      "identity_region": "central",
+      "culture": "Drevanic",
+      "starting_realm_id": "R029",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 43,
+      "province_name": "Kyradros",
+      "identity_region": "central",
+      "culture": "Orthean",
+      "starting_realm_id": "R030",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Hidden Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 44,
+      "province_name": "Thalmyron",
+      "identity_region": "central",
+      "culture": "Orthean",
+      "starting_realm_id": "R030",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Hidden Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 45,
+      "province_name": "Jereth",
+      "identity_region": "central",
+      "culture": "Drevanic",
+      "starting_realm_id": "R029",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 46,
+      "province_name": "Karsad al-Vor",
+      "identity_region": "central",
+      "culture": "Drevanic",
+      "starting_realm_id": "R029",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 47,
+      "province_name": "Vorthyrion",
+      "identity_region": "central",
+      "culture": "Orthean",
+      "starting_realm_id": "R030",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Hidden Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 48,
+      "province_name": "Velesh",
+      "identity_region": "central",
+      "culture": "Drevanic",
+      "starting_realm_id": "R034",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 49,
+      "province_name": "Maravela",
+      "identity_region": "mediterranean",
+      "culture": "Corassi",
+      "starting_realm_id": "R018",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 50,
+      "province_name": "Corvessa",
+      "identity_region": "mediterranean",
+      "culture": "Corassi",
+      "starting_realm_id": "R017",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 51,
+      "province_name": "Seravelle",
+      "identity_region": "western",
+      "culture": "Velaine",
+      "starting_realm_id": "R008",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [
+        "crowned_communion_holy_state_province"
+      ],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 52,
+      "province_name": "Harenne",
+      "identity_region": "western",
+      "culture": "Velaine",
+      "starting_realm_id": "R013",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 53,
+      "province_name": "Conejolandia",
+      "identity_region": "mediterranean",
+      "culture": "Saleran",
+      "starting_realm_id": "R012",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [
+        "intentionally_distinctive_fca_hare_romance_name",
+        "conejolandia_is_canon_not_dev_slang"
+      ],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 54,
+      "province_name": "Valecour",
+      "identity_region": "western",
+      "culture": "Velaine",
+      "starting_realm_id": "R007",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 55,
+      "province_name": "Rethyron",
+      "identity_region": "central",
+      "culture": "Orthean",
+      "starting_realm_id": "R030",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Hidden Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 56,
+      "province_name": "Dravos",
+      "identity_region": "central",
+      "culture": "Selvaran",
+      "starting_realm_id": "R031",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 58,
+      "province_name": "Dromekar",
+      "identity_region": "central",
+      "culture": "Orthean",
+      "starting_realm_id": "R030",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Hidden Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 59,
+      "province_name": "Thesara",
+      "identity_region": "central",
+      "culture": "Selvaran",
+      "starting_realm_id": "R027",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 60,
+      "province_name": "Lusara",
+      "identity_region": "central",
+      "culture": "Selvaran",
+      "starting_realm_id": "R031",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 61,
+      "province_name": "Sorelion",
+      "identity_region": "central",
+      "culture": "Selvaran",
+      "starting_realm_id": "R031",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 62,
+      "province_name": "Varnek",
+      "identity_region": "central",
+      "culture": "Selvaran",
+      "starting_realm_id": "R031",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Open Furrow"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 64,
+      "province_name": "Haugard",
+      "identity_region": "northern",
+      "culture": "Skeldren",
+      "starting_realm_id": "R022",
+      "religion": {
+        "broad_faith": "Hearthbound Faith",
+        "grand_tradition": "The Covenant of Root and Hearth",
+        "communion": null,
+        "institution_or_tradition": "Hearth Oaths",
+        "rite_or_belief": "Rite of the Buried Ember"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 65,
+      "province_name": "Harenlund",
+      "identity_region": "northern",
+      "culture": "Skeldren",
+      "starting_realm_id": "R023",
+      "religion": {
+        "broad_faith": "Hearthbound Faith",
+        "grand_tradition": "The Covenant of Root and Hearth",
+        "communion": null,
+        "institution_or_tradition": "Hearth Oaths",
+        "rite_or_belief": "Rite of the Buried Ember"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 66,
+      "province_name": "Harthmark",
+      "identity_region": "western",
+      "culture": "Haldren",
+      "starting_realm_id": "R005",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 67,
+      "province_name": "Ardelena",
+      "identity_region": "mediterranean",
+      "culture": "Saleran",
+      "starting_realm_id": "R019",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 69,
+      "province_name": "Orellan",
+      "identity_region": "mediterranean",
+      "culture": "Saleran",
+      "starting_realm_id": "R020",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 70,
+      "province_name": "Werrenfeld",
+      "identity_region": "western",
+      "culture": "Haldren",
+      "starting_realm_id": "R006",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 71,
+      "province_name": "Calverra",
+      "identity_region": "mediterranean",
+      "culture": "Saleran",
+      "starting_realm_id": "R019",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 72,
+      "province_name": "Seravara",
+      "identity_region": "mediterranean",
+      "culture": "Saleran",
+      "starting_realm_id": "R020",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 73,
+      "province_name": "Solvarra",
+      "identity_region": "mediterranean",
+      "culture": "Saleran",
+      "starting_realm_id": "R019",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 74,
+      "province_name": "Cunera",
+      "identity_region": "mediterranean",
+      "culture": "Saleran",
+      "starting_realm_id": "R020",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 75,
+      "province_name": "Montavera",
+      "identity_region": "mediterranean",
+      "culture": "Saleran",
+      "starting_realm_id": "R019",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 76,
+      "province_name": "Santavera",
+      "identity_region": "mediterranean",
+      "culture": "Corassi",
+      "starting_realm_id": "R033",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 77,
+      "province_name": "Velcora",
+      "identity_region": "mediterranean",
+      "culture": "Corassi",
+      "starting_realm_id": "R033",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 78,
+      "province_name": "Arenza",
+      "identity_region": "mediterranean",
+      "culture": "Corassi",
+      "starting_realm_id": "R033",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 79,
+      "province_name": "Portavara",
+      "identity_region": "mediterranean",
+      "culture": "Corassi",
+      "starting_realm_id": "R033",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of First Light"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 80,
+      "province_name": "Mino",
+      "identity_region": "central",
+      "culture": "Kharven",
+      "starting_realm_id": "R036",
+      "religion": {
+        "broad_faith": "The Old Sky",
+        "grand_tradition": null,
+        "communion": null,
+        "institution_or_tradition": null,
+        "rite_or_belief": "The Old Sky"
+      },
+      "special_flags": [
+        "non_rethic_belief_identity",
+        "decentralized_ancestral_sky_tradition"
+      ],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 83,
+      "province_name": "Aramyr",
+      "identity_region": "central",
+      "culture": "Kharven",
+      "starting_realm_id": "R025",
+      "religion": {
+        "broad_faith": "The Old Sky",
+        "grand_tradition": null,
+        "communion": null,
+        "institution_or_tradition": null,
+        "rite_or_belief": "The Old Sky"
+      },
+      "special_flags": [
+        "non_rethic_belief_identity",
+        "decentralized_ancestral_sky_tradition"
+      ],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 84,
+      "province_name": "Dorenai",
+      "identity_region": "central",
+      "culture": "Kharven",
+      "starting_realm_id": "R026",
+      "religion": {
+        "broad_faith": "The Old Sky",
+        "grand_tradition": null,
+        "communion": null,
+        "institution_or_tradition": null,
+        "rite_or_belief": "The Old Sky"
+      },
+      "special_flags": [
+        "non_rethic_belief_identity",
+        "decentralized_ancestral_sky_tradition"
+      ],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 85,
+      "province_name": "Tarsadon Miravel",
+      "identity_region": "central",
+      "culture": "Vaskari",
+      "starting_realm_id": "R037",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Woven Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 86,
+      "province_name": "Orun",
+      "identity_region": "eastern",
+      "culture": "Qasren",
+      "starting_realm_id": "R035",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Veiled Spring"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 87,
+      "province_name": "Tavir",
+      "identity_region": "eastern",
+      "culture": "Tazhari",
+      "starting_realm_id": "R039",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Living Garden"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 88,
+      "province_name": "Urdan",
+      "identity_region": "eastern",
+      "culture": "Qasren",
+      "starting_realm_id": "R038",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Veiled Spring"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 89,
+      "province_name": "Zarvan",
+      "identity_region": "eastern",
+      "culture": "Tazhari",
+      "starting_realm_id": "R039",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Living Garden"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 90,
+      "province_name": "Navai",
+      "identity_region": "eastern",
+      "culture": "Averi",
+      "starting_realm_id": "R043",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Living Garden"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 91,
+      "province_name": "Seylan",
+      "identity_region": "central",
+      "culture": "Kharven",
+      "starting_realm_id": "R026",
+      "religion": {
+        "broad_faith": "The Old Sky",
+        "grand_tradition": null,
+        "communion": null,
+        "institution_or_tradition": null,
+        "rite_or_belief": "The Old Sky"
+      },
+      "special_flags": [
+        "non_rethic_belief_identity",
+        "decentralized_ancestral_sky_tradition"
+      ],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 92,
+      "province_name": "Talmir",
+      "identity_region": "central",
+      "culture": "Kharven",
+      "starting_realm_id": "R026",
+      "religion": {
+        "broad_faith": "The Old Sky",
+        "grand_tradition": null,
+        "communion": null,
+        "institution_or_tradition": null,
+        "rite_or_belief": "The Old Sky"
+      },
+      "special_flags": [
+        "non_rethic_belief_identity",
+        "decentralized_ancestral_sky_tradition"
+      ],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 93,
+      "province_name": "Sarqai",
+      "identity_region": "eastern",
+      "culture": "Qasren",
+      "starting_realm_id": "R035",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Veiled Spring"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 94,
+      "province_name": "Ruun",
+      "identity_region": "eastern",
+      "culture": "Qasren",
+      "starting_realm_id": "R035",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Veiled Spring"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 95,
+      "province_name": "Qadrel",
+      "identity_region": "eastern",
+      "culture": "Qasren",
+      "starting_realm_id": "R038",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Veiled Spring"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 96,
+      "province_name": "Veluun",
+      "identity_region": "central",
+      "culture": "Kharven",
+      "starting_realm_id": "R036",
+      "religion": {
+        "broad_faith": "The Old Sky",
+        "grand_tradition": null,
+        "communion": null,
+        "institution_or_tradition": null,
+        "rite_or_belief": "The Old Sky"
+      },
+      "special_flags": [
+        "non_rethic_belief_identity",
+        "decentralized_ancestral_sky_tradition"
+      ],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 97,
+      "province_name": "Karem",
+      "identity_region": "eastern",
+      "culture": "Qasren",
+      "starting_realm_id": "R035",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Veiled Spring"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 98,
+      "province_name": "Sarqeth",
+      "identity_region": "central",
+      "culture": "Vaskari",
+      "starting_realm_id": "R037",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Woven Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 99,
+      "province_name": "Zahraim Darun",
+      "identity_region": "eastern",
+      "culture": "Qasren",
+      "starting_realm_id": "R038",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Veiled Spring"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 100,
+      "province_name": "Veyran",
+      "identity_region": "eastern",
+      "culture": "Averi",
+      "starting_realm_id": "R040",
+      "religion": {
+        "broad_faith": "Way of Aven",
+        "grand_tradition": "The Wellspring Testament",
+        "communion": null,
+        "institution_or_tradition": "The Concord of Aven",
+        "rite_or_belief": "Rite of the Living Garden"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 101,
+      "province_name": "Belisara",
+      "identity_region": "central",
+      "culture": "Vaskari",
+      "starting_realm_id": "R037",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Elder Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Woven Root"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 102,
+      "province_name": "Koruma",
+      "identity_region": "central",
+      "culture": "Kharven",
+      "starting_realm_id": "R025",
+      "religion": {
+        "broad_faith": "The Old Sky",
+        "grand_tradition": null,
+        "communion": null,
+        "institution_or_tradition": null,
+        "rite_or_belief": "The Old Sky"
+      },
+      "special_flags": [
+        "non_rethic_belief_identity",
+        "decentralized_ancestral_sky_tradition"
+      ],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 103,
+      "province_name": "Keldren",
+      "identity_region": "northern",
+      "culture": "Skeldren",
+      "starting_realm_id": "R022",
+      "religion": {
+        "broad_faith": "Hearthbound Faith",
+        "grand_tradition": "The Covenant of Root and Hearth",
+        "communion": null,
+        "institution_or_tradition": "Hearth Oaths",
+        "rite_or_belief": "Rite of the Buried Ember"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 104,
+      "province_name": "Brannvik",
+      "identity_region": "northern",
+      "culture": "Skeldren",
+      "starting_realm_id": "R022",
+      "religion": {
+        "broad_faith": "Hearthbound Faith",
+        "grand_tradition": "The Covenant of Root and Hearth",
+        "communion": null,
+        "institution_or_tradition": "Hearth Oaths",
+        "rite_or_belief": "Rite of the Buried Ember"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 105,
+      "province_name": "Eydvard",
+      "identity_region": "northern",
+      "culture": "Skeldren",
+      "starting_realm_id": "R023",
+      "religion": {
+        "broad_faith": "Hearthbound Faith",
+        "grand_tradition": "The Covenant of Root and Hearth",
+        "communion": null,
+        "institution_or_tradition": "Hearth Oaths",
+        "rite_or_belief": "Rite of the Buried Ember"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 106,
+      "province_name": "Avelmere",
+      "identity_region": "western",
+      "culture": "Brevane",
+      "starting_realm_id": "R001",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "province_id": 107,
+      "province_name": "Bramblewick",
+      "identity_region": "western",
+      "culture": "Brevane",
+      "starting_realm_id": "R003",
+      "religion": {
+        "broad_faith": "Rethic Faith",
+        "grand_tradition": "The Inheritance of Reth",
+        "communion": "Crowned Communion",
+        "institution_or_tradition": null,
+        "rite_or_belief": "Rite of the Living Crown"
+      },
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    }
+  ],
+  "starting_realms": [
+    {
+      "realm_id": "R001",
+      "realm_name": "Avelmere",
+      "realm_style": "Principality",
+      "realm_type": "secular",
+      "display_name": "Principality of Avelmere",
+      "identity_region": "western",
+      "primary_culture": "Brevane",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        106
+      ],
+      "starting_cultures": [
+        "Brevane"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R002",
+      "realm_name": "Cormere",
+      "realm_style": "County",
+      "realm_type": "secular",
+      "display_name": "County of Cormere",
+      "identity_region": "western",
+      "primary_culture": "Brevane",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        37
+      ],
+      "starting_cultures": [
+        "Brevane"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R003",
+      "realm_name": "Bramblewick",
+      "realm_style": "Lordship",
+      "realm_type": "secular",
+      "display_name": "Lordship of Bramblewick",
+      "identity_region": "western",
+      "primary_culture": "Brevane",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        107
+      ],
+      "starting_cultures": [
+        "Brevane"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R004",
+      "realm_name": "Harenhold",
+      "realm_style": "Kingdom",
+      "realm_type": "secular",
+      "display_name": "Kingdom of Harenhold",
+      "identity_region": "western",
+      "primary_culture": "Haldren",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        38,
+        39,
+        40,
+        41
+      ],
+      "starting_cultures": [
+        "Haldren"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R005",
+      "realm_name": "Harthmark",
+      "realm_style": "Margraviate",
+      "realm_type": "secular",
+      "display_name": "Margraviate of Harthmark",
+      "identity_region": "western",
+      "primary_culture": "Haldren",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        66
+      ],
+      "starting_cultures": [
+        "Haldren"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R006",
+      "realm_name": "Werrenfeld",
+      "realm_style": "County",
+      "realm_type": "secular",
+      "display_name": "County of Werrenfeld",
+      "identity_region": "western",
+      "primary_culture": "Haldren",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        70
+      ],
+      "starting_cultures": [
+        "Haldren"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R007",
+      "realm_name": "Valecour",
+      "realm_style": "Principality",
+      "realm_type": "secular",
+      "display_name": "Principality of Valecour",
+      "identity_region": "western",
+      "primary_culture": "Velaine",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        54
+      ],
+      "starting_cultures": [
+        "Velaine"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R008",
+      "realm_name": "Seravelle",
+      "realm_style": null,
+      "realm_type": "holy_state",
+      "display_name": null,
+      "identity_region": "western",
+      "primary_culture": "Velaine",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        51
+      ],
+      "starting_cultures": [
+        "Velaine"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      },
+      "source_specific": {
+        "working_reference": "Holy State of Seravelle",
+        "ceremonial_title_status": "deferred",
+        "normally_playable": false,
+        "supreme_office_selection": "elected"
+      }
+    },
+    {
+      "realm_id": "R009",
+      "realm_name": "Eldsund",
+      "realm_style": "Earldom",
+      "realm_type": "secular",
+      "display_name": "Earldom of Eldsund",
+      "identity_region": "northern",
+      "primary_culture": "Eldskar",
+      "primary_religious_identity": "Rite of the Buried Ember",
+      "starting_province_ids": [
+        32
+      ],
+      "starting_cultures": [
+        "Eldskar"
+      ],
+      "starting_broad_faiths": [
+        "Hearthbound Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Buried Ember"
+      ],
+      "special_flags": [
+        "northern_gateway_to_west"
+      ],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R010",
+      "realm_name": "Aldenreach",
+      "realm_style": "Kingdom",
+      "realm_type": "secular",
+      "display_name": "Kingdom of Aldenreach",
+      "identity_region": "western",
+      "primary_culture": "Carthen",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        36,
+        24,
+        33,
+        29
+      ],
+      "starting_cultures": [
+        "Carthen"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R011",
+      "realm_name": "Haselwick",
+      "realm_style": "County",
+      "realm_type": "secular",
+      "display_name": "County of Haselwick",
+      "identity_region": "western",
+      "primary_culture": "Carthen",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        25
+      ],
+      "starting_cultures": [
+        "Carthen"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R012",
+      "realm_name": "Conejolandia",
+      "realm_style": "Principality",
+      "realm_type": "secular",
+      "display_name": "Principality of Conejolandia",
+      "identity_region": "mediterranean",
+      "primary_culture": "Saleran",
+      "primary_religious_identity": "Rite of First Light",
+      "starting_province_ids": [
+        53
+      ],
+      "starting_cultures": [
+        "Saleran"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of First Light"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R013",
+      "realm_name": "Harenne",
+      "realm_style": "Duchy",
+      "realm_type": "secular",
+      "display_name": "Duchy of Harenne",
+      "identity_region": "western",
+      "primary_culture": "Velaine",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        52
+      ],
+      "starting_cultures": [
+        "Velaine"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R014",
+      "realm_name": "Bellaro",
+      "realm_style": "County",
+      "realm_type": "secular",
+      "display_name": "County of Bellaro",
+      "identity_region": "mediterranean",
+      "primary_culture": "Varethi",
+      "primary_religious_identity": "Rite of First Light",
+      "starting_province_ids": [
+        27
+      ],
+      "starting_cultures": [
+        "Varethi"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of First Light"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R015",
+      "realm_name": "Ravessa",
+      "realm_style": "Marquisate",
+      "realm_type": "secular",
+      "display_name": "Marquisate of Ravessa",
+      "identity_region": "mediterranean",
+      "primary_culture": "Varethi",
+      "primary_religious_identity": "Rite of First Light",
+      "starting_province_ids": [
+        34
+      ],
+      "starting_cultures": [
+        "Varethi"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of First Light"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R016",
+      "realm_name": "Dornwacht",
+      "realm_style": "March",
+      "realm_type": "secular",
+      "display_name": "March of Dornwacht",
+      "identity_region": "western",
+      "primary_culture": "Carthen",
+      "primary_religious_identity": "Rite of the Living Crown",
+      "starting_province_ids": [
+        26
+      ],
+      "starting_cultures": [
+        "Carthen"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "western",
+        "file": "FCAH_Western_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R017",
+      "realm_name": "Corvessa",
+      "realm_style": "Duchy",
+      "realm_type": "secular",
+      "display_name": "Duchy of Corvessa",
+      "identity_region": "mediterranean",
+      "primary_culture": "Corassi",
+      "primary_religious_identity": "Rite of First Light",
+      "starting_province_ids": [
+        50
+      ],
+      "starting_cultures": [
+        "Corassi"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of First Light"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R018",
+      "realm_name": "Maravela",
+      "realm_style": "Lordship",
+      "realm_type": "secular",
+      "display_name": "Lordship of Maravela",
+      "identity_region": "mediterranean",
+      "primary_culture": "Corassi",
+      "primary_religious_identity": "Rite of First Light",
+      "starting_province_ids": [
+        49
+      ],
+      "starting_cultures": [
+        "Corassi"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of First Light"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R019",
+      "realm_name": "Solvarra",
+      "realm_style": "Kingdom",
+      "realm_type": "secular",
+      "display_name": "Kingdom of Solvarra",
+      "identity_region": "mediterranean",
+      "primary_culture": "Saleran",
+      "primary_religious_identity": "Rite of First Light",
+      "starting_province_ids": [
+        73,
+        67,
+        71,
+        75
+      ],
+      "starting_cultures": [
+        "Saleran"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of First Light"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R020",
+      "realm_name": "Orellan",
+      "realm_style": "Duchy",
+      "realm_type": "secular",
+      "display_name": "Duchy of Orellan",
+      "identity_region": "mediterranean",
+      "primary_culture": "Saleran",
+      "primary_religious_identity": "Rite of First Light",
+      "starting_province_ids": [
+        69,
+        72,
+        74
+      ],
+      "starting_cultures": [
+        "Saleran"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of First Light"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R021",
+      "realm_name": "Varellon",
+      "realm_style": "Principality",
+      "realm_type": "secular",
+      "display_name": "Principality of Varellon",
+      "identity_region": "mediterranean",
+      "primary_culture": "Varethi",
+      "primary_religious_identity": "Rite of First Light",
+      "starting_province_ids": [
+        35,
+        28
+      ],
+      "starting_cultures": [
+        "Varethi"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of First Light"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      },
+      "source_specific": {
+        "note": "Varellon is an established realm name distinct from its province names."
+      }
+    },
+    {
+      "realm_id": "R022",
+      "realm_name": "Skeldmark",
+      "realm_style": "Jarldom",
+      "realm_type": "secular",
+      "display_name": "Jarldom of Skeldmark",
+      "identity_region": "northern",
+      "primary_culture": "Skeldren",
+      "primary_religious_identity": "Rite of the Buried Ember",
+      "starting_province_ids": [
+        64,
+        103,
+        104
+      ],
+      "starting_cultures": [
+        "Skeldren"
+      ],
+      "starting_broad_faiths": [
+        "Hearthbound Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Buried Ember"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R023",
+      "realm_name": "Eydvard",
+      "realm_style": "March",
+      "realm_type": "secular",
+      "display_name": "March of Eydvard",
+      "identity_region": "northern",
+      "primary_culture": "Skeldren",
+      "primary_religious_identity": "Rite of the Buried Ember",
+      "starting_province_ids": [
+        105,
+        65
+      ],
+      "starting_cultures": [
+        "Skeldren"
+      ],
+      "starting_broad_faiths": [
+        "Hearthbound Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Buried Ember"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R024",
+      "realm_name": "Varnhald",
+      "realm_style": "Kingdom",
+      "realm_type": "secular",
+      "display_name": "Kingdom of Varnhald",
+      "identity_region": "northern",
+      "primary_culture": "Vaarnic",
+      "primary_religious_identity": "Rite of the Buried Ember",
+      "starting_province_ids": [
+        18,
+        21,
+        23
+      ],
+      "starting_cultures": [
+        "Vaarnic"
+      ],
+      "starting_broad_faiths": [
+        "Hearthbound Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Buried Ember"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "northern",
+        "file": "FCAH_Northern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R025",
+      "realm_name": "Namaruun",
+      "realm_style": "Khanate",
+      "realm_type": "secular",
+      "display_name": "Khanate of Namaruun",
+      "identity_region": "central",
+      "primary_culture": "Kharven",
+      "primary_religious_identity": "The Old Sky",
+      "starting_province_ids": [
+        83,
+        22,
+        102
+      ],
+      "starting_cultures": [
+        "Kharven"
+      ],
+      "starting_broad_faiths": [
+        "The Old Sky"
+      ],
+      "starting_rites_or_beliefs": [
+        "The Old Sky"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R026",
+      "realm_name": "Talmir",
+      "realm_style": "Confederacy",
+      "realm_type": "secular",
+      "display_name": "Talmir Confederacy",
+      "identity_region": "central",
+      "primary_culture": "Kharven",
+      "primary_religious_identity": "The Old Sky",
+      "starting_province_ids": [
+        91,
+        92,
+        84
+      ],
+      "starting_cultures": [
+        "Kharven"
+      ],
+      "starting_broad_faiths": [
+        "The Old Sky"
+      ],
+      "starting_rites_or_beliefs": [
+        "The Old Sky"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R027",
+      "realm_name": "Avelor",
+      "realm_style": "Kingdom",
+      "realm_type": "secular",
+      "display_name": "Kingdom of Avelor",
+      "identity_region": "central",
+      "primary_culture": "Selvaran",
+      "primary_religious_identity": "Rite of the Open Furrow",
+      "starting_province_ids": [
+        1,
+        3,
+        4,
+        2,
+        59
+      ],
+      "starting_cultures": [
+        "Selvaran"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Open Furrow"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R028",
+      "realm_name": "Vel-Kareth",
+      "realm_style": "Banate",
+      "realm_type": "secular",
+      "display_name": "Banate of Vel-Kareth",
+      "identity_region": "central",
+      "primary_culture": "Vaskari",
+      "primary_religious_identity": "Rite of the Woven Root",
+      "starting_province_ids": [
+        30,
+        16,
+        20,
+        19
+      ],
+      "starting_cultures": [
+        "Carthen",
+        "Vaskari"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Crown",
+        "Rite of the Woven Root"
+      ],
+      "special_flags": [
+        "mixed_culture_religion_realm",
+        "contains_western_living_crown_enclave"
+      ],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      },
+      "source_specific": {
+        "mixed_identity_detail": {
+          "western_enclave_province_id": 30,
+          "western_enclave_name": "Hasenmark",
+          "western_enclave_culture": "Carthen",
+          "western_enclave_religious_identity": "Rite of the Living Crown",
+          "vaskari_woven_root_province_ids": [
+            16,
+            20,
+            19
+          ]
+        }
+      }
+    },
+    {
+      "realm_id": "R029",
+      "realm_name": "Jereth",
+      "realm_style": "Grand Principality",
+      "realm_type": "secular",
+      "display_name": "Grand Principality of Jereth",
+      "identity_region": "central",
+      "primary_culture": "Drevanic",
+      "primary_religious_identity": "Rite of the Open Furrow",
+      "starting_province_ids": [
+        45,
+        46,
+        42
+      ],
+      "starting_cultures": [
+        "Drevanic"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Open Furrow"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R030",
+      "realm_name": "Vorthyrion",
+      "realm_style": "Empire",
+      "realm_type": "secular",
+      "display_name": "Empire of Vorthyrion",
+      "identity_region": "central",
+      "primary_culture": "Orthean",
+      "primary_religious_identity": "Rite of the Hidden Root",
+      "starting_province_ids": [
+        47,
+        43,
+        44,
+        55,
+        58
+      ],
+      "starting_cultures": [
+        "Orthean"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Hidden Root"
+      ],
+      "special_flags": [
+        "old_imperial_heartland",
+        "claims_authentic_imperial_continuity",
+        "higher_starting_development",
+        "more_aggressive_than_average",
+        "multifront_isolation_risk"
+      ],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R031",
+      "realm_name": "Sorelion",
+      "realm_style": "Principality",
+      "realm_type": "secular",
+      "display_name": "Principality of Sorelion",
+      "identity_region": "central",
+      "primary_culture": "Selvaran",
+      "primary_religious_identity": "Rite of the Open Furrow",
+      "starting_province_ids": [
+        60,
+        62,
+        61,
+        56
+      ],
+      "starting_cultures": [
+        "Selvaran"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Open Furrow"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R032",
+      "realm_name": "Damor",
+      "realm_style": "Duchy",
+      "realm_type": "secular",
+      "display_name": "Duchy of Damor",
+      "identity_region": "central",
+      "primary_culture": "Drevanic",
+      "primary_religious_identity": "Rite of the Woven Root",
+      "starting_province_ids": [
+        13,
+        15
+      ],
+      "starting_cultures": [
+        "Drevanic"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Woven Root"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R033",
+      "realm_name": "Corassara",
+      "realm_style": "Despotate",
+      "realm_type": "secular",
+      "display_name": "Despotate of Corassara",
+      "identity_region": "mediterranean",
+      "primary_culture": "Corassi",
+      "primary_religious_identity": "Rite of First Light",
+      "starting_province_ids": [
+        76,
+        77,
+        78,
+        79
+      ],
+      "starting_cultures": [
+        "Corassi"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of First Light"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "mediterranean",
+        "file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+      },
+      "source_specific": {
+        "note": "The Despotate style reinforces the eastern Corassi / old-Imperial-adjacent flavour."
+      }
+    },
+    {
+      "realm_id": "R034",
+      "realm_name": "Merekh",
+      "realm_style": "March",
+      "realm_type": "secular",
+      "display_name": "March of Merekh",
+      "identity_region": "central",
+      "primary_culture": "Drevanic",
+      "primary_religious_identity": "Rite of the Open Furrow",
+      "starting_province_ids": [
+        48,
+        17
+      ],
+      "starting_cultures": [
+        "Drevanic"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Open Furrow"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      },
+      "source_specific": {
+        "note": "Realm name derives from Aradon Merekh rather than matching a full province name."
+      }
+    },
+    {
+      "realm_id": "R035",
+      "realm_name": "Qasrûn",
+      "realm_style": "Kingdom",
+      "realm_type": "secular",
+      "display_name": "Kingdom of Qasrûn",
+      "identity_region": "eastern",
+      "primary_culture": "Qasren",
+      "primary_religious_identity": "Rite of the Veiled Spring",
+      "starting_province_ids": [
+        93,
+        86,
+        97,
+        94
+      ],
+      "starting_cultures": [
+        "Qasren"
+      ],
+      "starting_broad_faiths": [
+        "Way of Aven"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Veiled Spring"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      },
+      "source_specific": {
+        "note": "Qasrûn is an established realm name derived from the broader Qasren cultural world rather than any single province."
+      }
+    },
+    {
+      "realm_id": "R036",
+      "realm_name": "Mino",
+      "realm_style": "Principality",
+      "realm_type": "secular",
+      "display_name": "Principality of Mino",
+      "identity_region": "central",
+      "primary_culture": "Kharven",
+      "primary_religious_identity": "The Old Sky",
+      "starting_province_ids": [
+        96,
+        80
+      ],
+      "starting_cultures": [
+        "Kharven"
+      ],
+      "starting_broad_faiths": [
+        "The Old Sky"
+      ],
+      "starting_rites_or_beliefs": [
+        "The Old Sky"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R037",
+      "realm_name": "Belisara",
+      "realm_style": "Voivodate",
+      "realm_type": "secular",
+      "display_name": "Voivodate of Belisara",
+      "identity_region": "central",
+      "primary_culture": "Vaskari",
+      "primary_religious_identity": "Rite of the Woven Root",
+      "starting_province_ids": [
+        85,
+        101,
+        98
+      ],
+      "starting_cultures": [
+        "Vaskari"
+      ],
+      "starting_broad_faiths": [
+        "Rethic Faith"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Woven Root"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "central",
+        "file": "FCAH_Central_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R038",
+      "realm_name": "Darun",
+      "realm_style": "Sultanate",
+      "realm_type": "secular",
+      "display_name": "Sultanate of Darun",
+      "identity_region": "eastern",
+      "primary_culture": "Qasren",
+      "primary_religious_identity": "Rite of the Veiled Spring",
+      "starting_province_ids": [
+        95,
+        88,
+        99
+      ],
+      "starting_cultures": [
+        "Qasren"
+      ],
+      "starting_broad_faiths": [
+        "Way of Aven"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Veiled Spring"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      },
+      "source_specific": {
+        "note": "Darun is an established realm name derived from Province 99 Zahraim Darun rather than a standalone province name."
+      }
+    },
+    {
+      "realm_id": "R039",
+      "realm_name": "Zarvan",
+      "realm_style": "Atabegate",
+      "realm_type": "secular",
+      "display_name": "Atabegate of Zarvan",
+      "identity_region": "eastern",
+      "primary_culture": "Tazhari",
+      "primary_religious_identity": "Rite of the Living Garden",
+      "starting_province_ids": [
+        89,
+        87
+      ],
+      "starting_cultures": [
+        "Tazhari"
+      ],
+      "starting_broad_faiths": [
+        "Way of Aven"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Garden"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R040",
+      "realm_name": "Veyran",
+      "realm_style": "Emirate",
+      "realm_type": "secular",
+      "display_name": "Emirate of Veyran",
+      "identity_region": "eastern",
+      "primary_culture": "Averi",
+      "primary_religious_identity": "Rite of the Living Garden",
+      "starting_province_ids": [
+        10,
+        100
+      ],
+      "starting_cultures": [
+        "Averi"
+      ],
+      "starting_broad_faiths": [
+        "Way of Aven"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Garden"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R041",
+      "realm_name": "Meyru",
+      "realm_style": "Beylik",
+      "realm_type": "secular",
+      "display_name": "Beylik of Meyru",
+      "identity_region": "eastern",
+      "primary_culture": "Averi",
+      "primary_religious_identity": "Rite of the Living Garden",
+      "starting_province_ids": [
+        5
+      ],
+      "starting_cultures": [
+        "Averi"
+      ],
+      "starting_broad_faiths": [
+        "Way of Aven"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Garden"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R042",
+      "realm_name": "Ramekh",
+      "realm_style": "Emirate",
+      "realm_type": "secular",
+      "display_name": "Emirate of Ramekh",
+      "identity_region": "eastern",
+      "primary_culture": "Tazhari",
+      "primary_religious_identity": "Rite of the Veiled Spring",
+      "starting_province_ids": [
+        7,
+        14
+      ],
+      "starting_cultures": [
+        "Tazhari"
+      ],
+      "starting_broad_faiths": [
+        "Way of Aven"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Veiled Spring"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    },
+    {
+      "realm_id": "R043",
+      "realm_name": "Samera",
+      "realm_style": "Sultanate",
+      "realm_type": "secular",
+      "display_name": "Sultanate of Samera",
+      "identity_region": "eastern",
+      "primary_culture": "Averi",
+      "primary_religious_identity": "Rite of the Living Garden",
+      "starting_province_ids": [
+        6,
+        90,
+        11,
+        12,
+        9
+      ],
+      "starting_cultures": [
+        "Averi"
+      ],
+      "starting_broad_faiths": [
+        "Way of Aven"
+      ],
+      "starting_rites_or_beliefs": [
+        "Rite of the Living Garden"
+      ],
+      "special_flags": [],
+      "source_canon": {
+        "region": "eastern",
+        "file": "FCAH_Eastern_Realm_Identity_Canon.json"
+      }
+    }
+  ],
+  "formables": [
+    {
+      "formable_id": "CENTRAL_DREVANIC_DREVANOR",
+      "formable_name": "Drevanor",
+      "formation_scope": "regional_drevanic",
+      "eligible_origin_realm_ids": [
+        "R029",
+        "R034",
+        "R032"
+      ],
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Any of the three fragmented Drevanic realms may establish a new broader Drevanic political identity by unifying the Drevanic homeland strongly enough.",
+      "special_rules": [
+        "The eligible origins span both Open Furrow and Woven Root Drevanic realms.",
+        "Drevanor therefore must not assume one rite automatically replaces the other."
+      ],
+      "identity_region": "central",
+      "source_canon_file": "FCAH_Central_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "CENTRAL_KHARVEN_KHARUUN",
+      "formable_name": "Kharuun",
+      "display_name": "Khaganate of Kharuun",
+      "formation_scope": "regional_kharven",
+      "eligible_origin_realm_ids": [
+        "R025",
+        "R026",
+        "R036"
+      ],
+      "result_style": "Khaganate",
+      "result_style_status": "locked",
+      "required_cultural_core_province_ids": [
+        22,
+        80,
+        83,
+        84,
+        91,
+        92,
+        96,
+        102
+      ],
+      "exact_condition_status": "core_cultural_unification_locked_other_details_deferred",
+      "conceptual_condition": "Any of the three Kharven starting realms unites all eight Kharven provinces and proclaims a new pan-Kharven Khaganate-level political identity.",
+      "special_rules": [
+        "This is the intentional highland/steppe unifier path inspired by the creation of a much larger political order from fragmented realms.",
+        "Kharuun is a new political identity, not merely an automatic rank-up of Namaruun, Talmir or Mino."
+      ],
+      "identity_region": "central",
+      "source_canon_file": "FCAH_Central_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "CENTRAL_SELVARAN_SELVARON",
+      "formable_name": "Selvaron",
+      "formation_scope": "regional_selvaran",
+      "eligible_origin_realm_ids": [
+        "R031"
+      ],
+      "established_realm_not_required_to_rename": "R027",
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Sorelion overturns the larger Kingdom of Avelor and reunites enough/most/all of the Selvaran homeland to justify a broader challenger identity.",
+      "special_rules": [
+        "R027 Avelor may complete Selvaran unification and simply remain the Kingdom of Avelor.",
+        "Selvaron is a rare challenger formation, not an automatic culture-unification rename."
+      ],
+      "identity_region": "central",
+      "source_canon_file": "FCAH_Central_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "CENTRAL_VASKARI_VASKARA",
+      "formable_name": "Vaskara",
+      "formation_scope": "regional_vaskari",
+      "eligible_origin_realm_ids": [
+        "R037"
+      ],
+      "established_realm_not_required_to_rename": "R028",
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Belisara overturns/supplants the mixed Banate of Vel-Kareth and gathers enough/most/all of the Vaskari homeland to establish a dedicated greater Vaskari state.",
+      "special_rules": [
+        "R028 Vel-Kareth may expand through Vaskari territory and simply remain the Banate of Vel-Kareth.",
+        "The treatment of Western Province 30 Hasenmark in any exact Vaskara threshold is deliberately deferred."
+      ],
+      "identity_region": "central",
+      "source_canon_file": "FCAH_Central_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "EAST_AVERI_AVERASH",
+      "formable_name": "Averash",
+      "formation_scope": "regional_averi",
+      "eligible_origin_realm_ids": [
+        "R040",
+        "R041"
+      ],
+      "established_realm_not_required_to_rename": "R043",
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Veyran or Meyru overturns the dominant Sultanate of Samera and unifies enough/most/all of the Averi homeland to justify a new broader Averi identity.",
+      "special_rules": [
+        "R043 Samera may complete Averi unification and simply remain the Sultanate of Samera.",
+        "Averash is a challenger formation, not an automatic culture-unification rename."
+      ],
+      "identity_region": "eastern",
+      "source_canon_file": "FCAH_Eastern_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "EAST_QASREN_QASRAYA",
+      "formable_name": "Qasraya",
+      "formation_scope": "regional_qasren",
+      "eligible_origin_realm_ids": [
+        "R038"
+      ],
+      "established_realm_not_required_to_rename": "R035",
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "The Sultanate of Darun overturns the larger Kingdom of Qasrûn and unifies enough/most/all of the Qasren homeland to establish the broader Qasraya identity.",
+      "special_rules": [
+        "R035 Qasrûn may complete Qasren unification and simply remain the Kingdom of Qasrûn.",
+        "Qasraya is a challenger formation rather than a mandatory Qasren-unification rename."
+      ],
+      "identity_region": "eastern",
+      "source_canon_file": "FCAH_Eastern_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "EAST_TAZHARI_TAZHARA",
+      "formable_name": "Tazhara",
+      "formation_scope": "regional_tazhari",
+      "eligible_origin_realm_ids": [
+        "R039",
+        "R042"
+      ],
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Either Tazhari starting realm may unify the four-province Tazhari homeland and establish the broader Tazhara identity.",
+      "special_rules": [
+        "R039 begins Living Garden; R042 begins Veiled Spring.",
+        "Forming Tazhara does NOT convert the other rite or erase the rite-influence system.",
+        "The unifier inherits the need to govern a culturally unified but religiously mixed Tazhari homeland."
+      ],
+      "identity_region": "eastern",
+      "source_canon_file": "FCAH_Eastern_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "EAST_TOTAL_AVENUR",
+      "formable_name": "Avenur",
+      "formation_scope": "civilizational_avenic",
+      "eligible_origin_realm_ids": "ANY_REALM",
+      "required_province_ids": [
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        86,
+        87,
+        88,
+        89,
+        90,
+        93,
+        94,
+        95,
+        97,
+        99,
+        100
+      ],
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "core_condition_locked_other_details_deferred",
+      "conceptual_condition": "One realm controls all 19 Avenic provinces and deliberately proclaims the pan-Avenic political identity Avenur.",
+      "automatic_on_condition": false,
+      "requires_proclamation": true,
+      "special_rules": [
+        "Avenur does NOT automatically become exclusively Living Garden or Veiled Spring.",
+        "Both normal Avenic rites remain legitimate inside the unified realm.",
+        "Political unification does not make the ruler head of the Concord of Aven.",
+        "Wellspring Summons remain a separate religious mechanism."
+      ],
+      "identity_region": "eastern",
+      "source_canon_file": "FCAH_Eastern_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "MED_CORASSI_CORAVESSA",
+      "formable_name": "Coravessa",
+      "formation_scope": "regional_corassi",
+      "eligible_origin_realm_ids": [
+        "R017",
+        "R018"
+      ],
+      "established_realm_not_required_to_rename": "R033",
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Corvessa or Maravela overturns the dominant Despotate of Corassara and unifies enough/most/all of the Corassi homeland to justify a new broader Corassi identity.",
+      "special_rules": [
+        "R033 Corassara may absorb the other Corassi lands and simply remain the Despotate of Corassara.",
+        "Coravessa is a challenger formation rather than a mandatory rename for Corassi unification."
+      ],
+      "identity_region": "mediterranean",
+      "source_canon_file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "MED_SALERAN_SALERRA",
+      "formable_name": "Salerra",
+      "formation_scope": "regional_saleran",
+      "eligible_origin_realm_ids": [
+        "R012",
+        "R020"
+      ],
+      "established_realm_not_required_to_rename": "R019",
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Conejolandia or Orellan overturns the established Kingdom of Solvarra and unifies enough/most/all of the Saleran homeland to justify a new broader Saleran identity.",
+      "special_rules": [
+        "R019 Solvarra may unite the Saleran homeland and simply remain the Kingdom of Solvarra.",
+        "Salerra is a rare challenger transformation, not an automatic culture-unification rename."
+      ],
+      "identity_region": "mediterranean",
+      "source_canon_file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "MED_TOTAL_CONEJARIA",
+      "formable_name": "Conejaria",
+      "formation_scope": "civilizational_mediterranean",
+      "eligible_origin_realm_ids": "ANY_REALM",
+      "required_province_ids": [
+        27,
+        28,
+        34,
+        35,
+        49,
+        50,
+        53,
+        67,
+        69,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "core_condition_locked_other_details_deferred",
+      "conceptual_condition": "One realm controls all 18 core Mediterranean-culture provinces and deliberately proclaims Conejaria.",
+      "automatic_on_condition": false,
+      "requires_proclamation": true,
+      "special_rules": [
+        "Conejaria is the pan-Mediterranean political identity; it is not a religious title.",
+        "The strongly rabbit-Iberian linguistic flavour is intentional and must be treated seriously in-world.",
+        "Central Selvaran transition realms with strong Mediterranean influence are not part of the 18-province core condition."
+      ],
+      "identity_region": "mediterranean",
+      "source_canon_file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "MED_VARETHI_VARETHIA",
+      "formable_name": "Varethia",
+      "formation_scope": "regional_varethi",
+      "eligible_origin_realm_ids": [
+        "R021",
+        "R014",
+        "R015"
+      ],
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "A Varethi realm unites the fragmented Varethi heartland strongly enough to establish a new shared Varethi political identity.",
+      "special_rules": [
+        "Unlike Saleran and Corassi, no single starting Varethi realm is treated as the unquestioned established crown."
+      ],
+      "identity_region": "mediterranean",
+      "source_canon_file": "FCAH_Mediterranean_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "NORTH_SKELDREN_SKELDHARTH",
+      "formable_name": "Skeldharth",
+      "formation_scope": "regional_skeldren",
+      "eligible_origin_realm_ids": [
+        "R023"
+      ],
+      "required_cultural_core_province_ids": [
+        64,
+        65,
+        103,
+        104,
+        105
+      ],
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "The March of Eydvard overturns the established Skeldren order and unifies enough/all of the five Skeldren homeland provinces to justify a broader political identity.",
+      "special_rules": [
+        "R022 Skeldmark is the established Skeldren power and does not need to rename when it completes Skeldren unification.",
+        "Under the current locked concept, Skeldharth is the exceptional challenger formation for R023 rather than a routine unification rename."
+      ],
+      "identity_region": "northern",
+      "source_canon_file": "FCAH_Northern_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "NORTH_TOTAL_OATH_CROWN",
+      "formable_name": "The Oath-Crown of the North",
+      "short_names": [
+        "The Oath-Crown",
+        "The Northern Crown"
+      ],
+      "formation_scope": "civilizational_northern",
+      "eligible_origin_realm_ids": "ANY_REALM",
+      "required_province_ids": [
+        18,
+        21,
+        23,
+        32,
+        64,
+        65,
+        103,
+        104,
+        105
+      ],
+      "result_style": "Oath-Crown",
+      "exact_condition_status": "core_condition_locked_other_details_deferred",
+      "conceptual_condition": "One realm controls all nine Northern-culture provinces and deliberately proclaims a unified Northern crown.",
+      "automatic_on_condition": false,
+      "requires_proclamation": true,
+      "identity_region": "northern",
+      "source_canon_file": "FCAH_Northern_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "WEST_BREVANE_BREVARENNE",
+      "formable_name": "Brevarenne",
+      "formation_scope": "regional_brevane",
+      "eligible_origin_realm_ids": [
+        "R001",
+        "R002"
+      ],
+      "excluded_origin_realm_ids": [
+        "R003"
+      ],
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Unite the Brevane lands strongly enough to proclaim a broader Brevane political identity.",
+      "identity_region": "western",
+      "source_canon_file": "FCAH_Western_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "WEST_CARTHEN_CARTHENGARD",
+      "formable_name": "Carthengard",
+      "formation_scope": "regional_carthen",
+      "eligible_origin_realm_ids": [
+        "R011",
+        "R016"
+      ],
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Dominate enough of the Carthen homeland to rival/supplant Aldenreach.",
+      "special_rules": [
+        "R010 Aldenreach does not need to rename when completing Carthen unification.",
+        "Exact role of Province 30 Hasenmark in the regional threshold is deferred."
+      ],
+      "identity_region": "western",
+      "source_canon_file": "FCAH_Western_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "WEST_HALDREN_WERRENHALD",
+      "formable_name": "Werrenhald",
+      "formation_scope": "regional_haldren",
+      "eligible_origin_realm_ids": [
+        "R005",
+        "R006"
+      ],
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Dominate/unify the Haldren homeland strongly enough to justify a new broader Haldren identity.",
+      "special_rules": [
+        "R004 Harenhold does not need to rename when completing Haldren unification."
+      ],
+      "identity_region": "western",
+      "source_canon_file": "FCAH_Western_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "WEST_TOTAL_HIGH_CROWN",
+      "formable_name": "The High Crown of the Western Warrens",
+      "short_names": [
+        "The Western Crown",
+        "The High Crown"
+      ],
+      "formation_scope": "civilizational_western",
+      "eligible_origin_realm_ids": "ANY_REALM",
+      "required_province_ids": [
+        24,
+        25,
+        26,
+        29,
+        30,
+        33,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        51,
+        52,
+        54,
+        66,
+        70,
+        106,
+        107
+      ],
+      "result_style": "High Crown",
+      "exact_condition_status": "core_condition_locked_other_details_deferred",
+      "conceptual_condition": "One realm controls all 19 Western-culture provinces, including Province 30 Hasenmark.",
+      "automatic_on_condition": false,
+      "requires_proclamation": true,
+      "identity_region": "western",
+      "source_canon_file": "FCAH_Western_Realm_Identity_Canon.json"
+    },
+    {
+      "formable_id": "WEST_VELAINE_VELORAINE",
+      "formable_name": "Veloraine",
+      "formation_scope": "regional_velaine",
+      "eligible_origin_realm_ids": [
+        "R007",
+        "R013"
+      ],
+      "excluded_origin_realm_ids": [
+        "R008"
+      ],
+      "result_style": null,
+      "result_style_status": "deferred",
+      "exact_condition_status": "deferred",
+      "conceptual_condition": "Unite the secular Velaine heartlands and reach sufficient regional power.",
+      "special_rules": [
+        "Seravelle is not an eligible secular formation nucleus.",
+        "Formation must not inherently require conquest of Seravelle."
+      ],
+      "identity_region": "western",
+      "source_canon_file": "FCAH_Western_Realm_Identity_Canon.json"
+    }
+  ],
+  "regional_title_rules": {
+    "western": {
+      "internal_generic_term": "Realm",
+      "style_is_size_ladder": false,
+      "ordinary_expansion_changes_style_automatically": false,
+      "ordinary_expansion_changes_name_automatically": false,
+      "special_formables_are_rare": true,
+      "grand_duchy_in_current_western_pool": false,
+      "allowed_style_pool": [
+        "Lordship",
+        "County",
+        "March",
+        "Margraviate",
+        "Principality",
+        "Duchy",
+        "Kingdom",
+        "Crown",
+        "High Crown"
+      ]
+    },
+    "northern": {
+      "internal_generic_term": "Realm",
+      "style_is_size_ladder": false,
+      "ordinary_expansion_changes_style_automatically": false,
+      "ordinary_expansion_changes_name_automatically": false,
+      "starting_style_pool_used": [
+        "Jarldom",
+        "March",
+        "Kingdom",
+        "Earldom"
+      ],
+      "note": "Jarldom/Earldom/March/Kingdom are historical player-facing identities, not province-count ranks."
+    },
+    "mediterranean": {
+      "internal_generic_term": "Realm",
+      "style_is_size_ladder": false,
+      "ordinary_expansion_changes_style_automatically": false,
+      "ordinary_expansion_changes_name_automatically": false,
+      "starting_style_pool_used": [
+        "Principality",
+        "Kingdom",
+        "Duchy",
+        "County",
+        "Marquisate",
+        "Lordship",
+        "Despotate"
+      ],
+      "note": "Titles are historical/political identities. A Duchy, County, Despotate, etc. can grow large without automatic promotion."
+    },
+    "central": {
+      "internal_generic_term": "Realm",
+      "style_is_size_ladder": false,
+      "ordinary_expansion_changes_style_automatically": false,
+      "ordinary_expansion_changes_name_automatically": false,
+      "starting_style_pool_used": [
+        "Empire",
+        "Kingdom",
+        "Principality",
+        "Grand Principality",
+        "March",
+        "Duchy",
+        "Banate",
+        "Voivodate",
+        "Khanate",
+        "Confederacy"
+      ],
+      "note": "Central deliberately uses the broadest political vocabulary so far because it is a fractured imperial/cultural collision zone. Styles are historical identities, not province-count ranks."
+    },
+    "eastern": {
+      "internal_generic_term": "Realm",
+      "style_is_size_ladder": false,
+      "ordinary_expansion_changes_style_automatically": false,
+      "ordinary_expansion_changes_name_automatically": false,
+      "starting_style_pool_used": [
+        "Sultanate",
+        "Emirate",
+        "Beylik",
+        "Atabegate",
+        "Kingdom"
+      ],
+      "note": "Eastern player-facing titles are intentionally regionally distinctive. They are historical/political identities, not automatic province-count ranks."
+    }
+  },
+  "special_systems": {
+    "central": {
+      "imperial_restoration": {
+        "status": "LOCKED_CONCEPT_NAME_DEFERRED",
+        "final_restored_empire_name": null,
+        "name_status": "deliberately_deferred_until_old_imperial_history_is_defined",
+        "eligible_identity_scope": "Rethic Central successor realms belonging to the Elder Communion, excluding the existing Empire of Vorthyrion; exact realm-by-realm eligibility remains deferred.",
+        "concept": "A non-Vorthyrion Rethic Central successor may eventually challenge Vorthyrion's claim to authentic imperial continuity by controlling the old Imperial heartland, substantial old-Imperial territory, and sufficient legitimacy/claim authority.",
+        "vorthyrion_rule": "The Empire of Vorthyrion never needs to form a separate restoration identity. It already claims to be the authentic surviving Empire; reconquest is restoration of what it regards as rightful territory.",
+        "guardrails": [
+          "Do not use 'Empire of Rethar' as the locked political name. Rethar is already the imperial ecclesiastical language name and should not be overloaded without a later explicit decision.",
+          "Exact territorial requirements, legitimacy rules, eligible successor list, final empire name and effects are deferred.",
+          "Old Sky Kharven realms are not part of this Rethic imperial-restoration path."
+        ]
+      },
+      "dormant_restoration_identities": {
+        "status": "LOCKED_CONCEPT_CONTENT_DEFERRED",
+        "concept": "Some territories swallowed by Vorthyrion during its rise may later prove to contain dormant pre-Imperial political identities that can re-emerge under suitable conditions.",
+        "possible_triggers": [
+          "rebellion",
+          "liberation",
+          "civil war",
+          "deliberate release",
+          "outside intervention"
+        ],
+        "guardrails": [
+          "Do not assume one dormant realm per current Vorthyrion province.",
+          "Do not assume all five Orthean provinces contain restoration identities.",
+          "A former realm may have spanned multiple present provinces.",
+          "The identities and their geography are created only when Central history justifies them.",
+          "Weakening Vorthyrion must not automatically shatter it into restoration states.",
+          "Restoration should require historically grounded conditions and legitimacy."
+        ]
+      },
+      "all_central_unification": {
+        "status": "EXPLICITLY_NO_GENERIC_FORMABLE",
+        "rule": "There is no generic formable for conquering all 36 provinces of the Central political sphere.",
+        "reason": "Central is a collision zone containing multiple Rethic successor cultures and rites, Kharven Old Sky lands, and the Western Carthen/Living Crown enclave Hasenmark. It is not one latent nation waiting to be formed.",
+        "example": "A gigantic Mino or Kharuun conquest of the whole Central sphere remains that historical realm/identity rather than transforming into a synthetic 'Central' state."
+      }
+    },
+    "eastern": {
+      "rite_influence_system": {
+        "status": "LOCKED_HIGH_LEVEL",
+        "rules": [
+          "Starting rite is heavily dominant/stable in each province.",
+          "Rite influence may shift slowly through institutions/buildings, local happiness, ruler policy, neighbours, conquest and events.",
+          "The system must not create constant religious babysitting.",
+          "Substantial rite change may create meaningful unrest under bad conditions, but severe breakaways are rare.",
+          "Political formables do not automatically convert conquered provinces."
+        ]
+      },
+      "deep_wells": {
+        "status": "NOT_A_NORMAL_FORMABLE",
+        "starting_presence": "NONE",
+        "concept": "The Rite of the Deep Wells is a latent/emergent Avenic tradition that may reappear through rare religious upheaval, especially a historically plausible breakaway realm.",
+        "guardrails": [
+          "No 'Form Deep Wells Kingdom' button.",
+          "Deep Wells requires actual religious influence/history/instability conditions.",
+          "Its future realm name/style depends on where and how it emerges.",
+          "It must remain rare and narratively weighty."
+        ]
+      },
+      "wellspring_summons": {
+        "status": "SEPARATE_FROM_POLITICAL_UNIFICATION",
+        "concept": "Rare defensive/restorative collective sacred-war mechanism supported by influential scholars, institutions and respected Concord figures.",
+        "guardrails": [
+          "Avenur does not gain automatic ownership/control of the Wellspring Summons.",
+          "No single political ruler becomes the Avenic pope-equivalent.",
+          "The mechanism remains rare, voluntary and threat-driven."
+        ]
+      },
+      "concord_of_aven": {
+        "status": "RELIGIOUS_INSTITUTION_NOT_POLITICAL_CROWN",
+        "rule": "No Avenic ruler automatically becomes head of the Concord of Aven through conquest, realm formation or Avenur unification."
+      }
+    }
+  },
+  "validation": {
+    "status": "PASS",
+    "checks": [
+      {
+        "check": "province_count",
+        "status": "PASS",
+        "detail": "100 provinces"
+      },
+      {
+        "check": "realm_count",
+        "status": "PASS",
+        "detail": "43 realms"
+      },
+      {
+        "check": "province_id_coverage",
+        "status": "PASS",
+        "detail": "missing=[], extra=[]"
+      },
+      {
+        "check": "realm_id_coverage",
+        "status": "PASS",
+        "detail": "missing=[], extra=[]"
+      },
+      {
+        "check": "province_starting_owner_match",
+        "status": "PASS",
+        "detail": "mismatches=[]"
+      },
+      {
+        "check": "realm_footprint_match",
+        "status": "PASS",
+        "detail": "mismatches=[]"
+      },
+      {
+        "check": "unique_province_names",
+        "status": "PASS",
+        "detail": "duplicates=[]"
+      },
+      {
+        "check": "unique_formable_ids",
+        "status": "PASS",
+        "detail": "duplicates=[]"
+      },
+      {
+        "check": "province_appears_once_in_realm_footprints",
+        "status": "PASS",
+        "detail": "bad_counts={}, missing=[]"
+      },
+      {
+        "check": "identity_region_counts",
+        "status": "PASS",
+        "detail": "actual={'central': 35, 'eastern': 19, 'northern': 9, 'western': 19, 'mediterranean': 18} expected={'western': 19, 'northern': 9, 'mediterranean': 18, 'central': 35, 'eastern': 19}"
+      },
+      {
+        "check": "realm_region_counts",
+        "status": "PASS",
+        "detail": "actual={'western': 12, 'northern': 4, 'mediterranean': 9, 'central': 11, 'eastern': 7} expected={'western': 12, 'northern': 4, 'mediterranean': 9, 'central': 11, 'eastern': 7}"
+      },
+      {
+        "check": "hasenmark_identity_separation",
+        "status": "PASS",
+        "detail": "province30={'province_id': 30, 'province_name': 'Hasenmark', 'identity_region': 'western', 'culture': 'Carthen', 'starting_realm_id': 'R028', 'religion': {'broad_faith': 'Rethic Faith', 'grand_tradition': 'The Inheritance of Reth', 'communion': 'Crowned Communion', 'institution_or_tradition': None, 'rite_or_belief': 'Rite of the Living Crown'}, 'special_flags': ['western_identity_inside_mixed_central_realm', 'realm_identity_defined_with_central'], 'source_canon': {'region': 'western', 'file': 'FCAH_Western_Realm_Identity_Canon.json'}}, realmR028 cultures=['Carthen', 'Vaskari'] rites=['Rite of the Living Crown', 'Rite of the Woven Root']"
+      },
+      {
+        "check": "formable_realm_references",
+        "status": "PASS",
+        "detail": "missing_refs=[]"
+      },
+      {
+        "check": "formable_province_references",
+        "status": "PASS",
+        "detail": "missing_refs=[]"
+      }
+    ],
+    "world_counts": {
+      "provinces": 100,
+      "starting_realms": 43,
+      "formables": 19
+    },
+    "identity_region_counts": {
+      "central": 35,
+      "eastern": 19,
+      "northern": 9,
+      "western": 19,
+      "mediterranean": 18
+    },
+    "realm_region_counts": {
+      "western": 12,
+      "northern": 4,
+      "mediterranean": 9,
+      "central": 11,
+      "eastern": 7
+    },
+    "culture_counts": {
+      "Averi": 8,
+      "Brevane": 3,
+      "Carthen": 7,
+      "Corassi": 6,
+      "Drevanic": 7,
+      "Eldskar": 1,
+      "Haldren": 6,
+      "Kharven": 8,
+      "Orthean": 5,
+      "Qasren": 7,
+      "Saleran": 8,
+      "Selvaran": 9,
+      "Skeldren": 5,
+      "Tazhari": 4,
+      "Vaarnic": 3,
+      "Varethi": 4,
+      "Vaskari": 6,
+      "Velaine": 3
+    },
+    "rite_or_belief_counts": {
+      "Rite of First Light": 18,
+      "Rite of the Buried Ember": 9,
+      "Rite of the Hidden Root": 5,
+      "Rite of the Living Crown": 19,
+      "Rite of the Living Garden": 10,
+      "Rite of the Open Furrow": 14,
+      "Rite of the Veiled Spring": 9,
+      "Rite of the Woven Root": 8,
+      "The Old Sky": 8
+    },
+    "special_cases": {
+      "province_30_hasenmark": "PASS — Western Carthen/Living Crown identity inside Central R028",
+      "r008_seravelle_holy_state": "PASS — holy_state realm retained; final ceremonial title remains deferred",
+      "central_generic_total_formable": "ABSENT BY DESIGN",
+      "deep_wells_normal_formable": "ABSENT BY DESIGN"
+    }
+  }
+}

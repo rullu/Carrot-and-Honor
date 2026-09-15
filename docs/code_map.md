@@ -2,6 +2,14 @@
 
 The project contains verified pure-data foundations, a narrow province-interaction gameplay wrapper and directly executable headless tests. `project.godot` still has no configured main scene.
 
+## World identity
+
+- `data/world_identity/world_identity_master_canon.json` is the byte-identical locked implementation-facing identity authority for 100 provinces, 43 starting realms, formables, title rules and special-system metadata.
+- `src/simulation/world_identity_catalogue.gd` loads that data and validates it independently against frozen ownership and active geography before exposing defensive queries.
+- `tools/world_identity/inspect_world_identity.gd` is the dedicated developer inspection path; it adds no player-facing UI or gameplay behaviour.
+- `tests/world_identity_catalogue_test.gd` verifies counts, ownership/footprints, required samples, UTF-8, mixed identity, formables, special metadata and loud rejection paths.
+- `docs/world_identity/world_identity_runtime.md` records provenance, commands, validation and scope boundaries.
+
 ## Gameplay 001
 
 - `scenes/gameplay/world_gameplay.tscn` instances the locked NaturalWorld as the gameplay entry point.

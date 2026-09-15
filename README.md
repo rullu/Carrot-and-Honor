@@ -126,9 +126,19 @@ godot --headless --path . --script res://tests/astra_terrain_art_assets_test.gd
 godot --headless --path . --script res://tests/province_geography_query_test.gd
 godot --headless --path . --script res://tests/province_realm_state_test.gd
 godot --headless --path . --script res://tests/world_gameplay_scene_test.gd
+godot --headless --path . --script res://tests/world_identity_catalogue_test.gd
 ```
 
 Exit code `0` means a test passed. A non-zero exit code means it failed.
+
+The locked world-identity layer can also be inspected without player-facing UI:
+
+```powershell
+godot --headless --path . --script res://tools/world_identity/inspect_world_identity.gd
+```
+
+Pass `-- --province=30`, `-- --realm=R028` or `-- --all` for targeted or full
+catalogue output. See [`docs/world_identity/world_identity_runtime.md`](docs/world_identity/world_identity_runtime.md).
 
 ## Current stop condition
 

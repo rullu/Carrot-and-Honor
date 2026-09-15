@@ -58,6 +58,10 @@ Owns the standalone textured-surface preview entry point, controls, resource reb
 
 Owns the final natural-world scene, inspection controls, presentation data semantics, provenance, rebuilding and verification. Supersedes the first textured preview as the current art entry point. Current final handoff: `C:\Projects\FCAH_ASTRA_WORKSPACE\ASTRA_FINAL_BEAUTY_HANDOFF.md`. `ASTRA_NATURAL_WORLD_REPORT.md` remains the September 8 historical report.
 
+### [`docs/world_identity/world_identity_runtime.md`](world_identity/world_identity_runtime.md)
+
+Owns the implementation-facing world-identity runtime contract, source fingerprint, authority boundaries, inspection commands, validation coverage and deliberately deferred gameplay behaviour.
+
 ## Source hierarchy
 
 When sources disagree:
@@ -69,6 +73,11 @@ When sources disagree:
 5. Any unresolved conflict must be logged before coding continues.
 
 ## Current phase boundary
+
+The locked world-identity master is now installed as a pure-data runtime layer.
+It validates 100 province identities and 43 starting realms against the frozen
+political ownership and active geography without deriving identity from legacy
+planning metadata or applying gameplay effects. DEV-024 records the boundary.
 
 Gameplay 001 now instances the locked NaturalWorld and adds province lookup, hover, selection, permanent-border presentation, separate province/realm prototype state and a debug panel. DEV-021 records this narrow interaction gate. Visual testing accepted the interaction architecture while exposing defects in the authoritative geography; DEV-022 addresses them through the separately approved correction pass.
 

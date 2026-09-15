@@ -313,3 +313,29 @@ Require deterministic validation against the accepted 4096 x 2304 land mask and 
 Render shared internal land borders as a presentation-only dual-sided political ribbon. Each half-band uses its owning province's deterministic prototype color, meets the other half at the authoritative center seam, fades inward and receives restrained pigment texture. Coastlines remain suppressed, hover and selection remain visual no-ops, and a palette-texture interface permits later realm colors without rebuilding geometry. The earlier subtle single-line treatment remains available behind a fallback constant.
 
 **Consequence:** the runtime geography has 100 active, non-contiguous IDs and 25 provisional names. Province/realm separation is unchanged. Terrain, NaturalWorld, water, camera behavior, authoritative polygons and picking geometry are unchanged. Human review accepted both the topology and political-border presentation on 2026-09-12.
+
+---
+
+## DEV-024 - Validated world-identity catalogue
+
+**Date:** 2026-09-16
+**Status:** Implemented
+
+Install the locked world-identity master JSON byte-for-byte under
+`data/world_identity/` and load it through a focused pure-data catalogue in the
+simulation layer. Validate the identity data independently against both the
+frozen starting ownership file and active province-geography IDs rather than
+trusting embedded PASS metadata.
+
+Keep identity definitions separate from mutable province/realm state and from
+geography. Preserve optional/null religious fields, mixed-identity metadata,
+formables, regional title rules and special-system metadata as data. Expose a
+dedicated headless inspection command instead of adding player-facing UI for
+this data-only milestone.
+
+**Consequence:** Godot can query and inspect all 100 province identities and 43
+starting realms with strict duplicate, missing-field, ownership, footprint,
+summary and reference validation. Province 30 remains Western Carthen/Crowned
+Communion inside R028, and R008 remains the unique `holy_state`. No modifiers,
+formation behaviour, unrest, diplomacy, conversion, rebellions or special
+systems are implemented.
