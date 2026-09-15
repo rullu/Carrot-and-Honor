@@ -136,6 +136,19 @@ This milestone changes no terrain, NaturalWorld, topology, border geometry or
 frozen ownership data. See `docs/world_identity/world_identity_runtime.md` and
 DEV-024.
 
+## Gameplay Canonical Identity Binding Repair
+
+**Status: COMPLETE.**
+
+- [x] Replace geography-source province names in the debug panel with canonical identity names.
+- [x] Replace mock `RealmState` display/ownership with catalogue realm identity and frozen owner IDs.
+- [x] Remove fake political IDs and fake realms from `PrototypeWorldState`.
+- [x] Keep Population, Food, Carrots and Development isolated and visibly labelled as non-canonical prototype metrics.
+- [x] Validate the actual gameplay controller and panel path across all 100 provinces and all 43 starting owners.
+- [x] Preserve the settlement prototype and all locked terrain, NaturalWorld, topology, borders and ownership data.
+
+DEV-025 records the corrected authority path.
+
 ## Province Geography Correction Pass
 
 **Status: COMPLETE; manually accepted.**

@@ -4,7 +4,7 @@ For Carrot and Honour is a real-time, pausable medieval-fantasy strategy game ab
 
 ## Current gameplay scene
 
-Open **[`scenes/gameplay/world_gameplay.tscn`](scenes/gameplay/world_gameplay.tscn)** and press **F6**. Gameplay 001 instances the completed NaturalWorld, provides geographic hover and persistent click selection for all 100 active provinces, and displays separate prototype province and realm state in a plain debug panel. Left click selects, Escape clears selection, WASD or middle drag pans, and the wheel zooms.
+Open **[`scenes/gameplay/world_gameplay.tscn`](scenes/gameplay/world_gameplay.tscn)** and press **F6**. Gameplay 001 instances the completed NaturalWorld, provides geographic hover and persistent click selection for all 100 active provinces, and displays canonical province identity plus frozen starting-realm identity in a plain debug panel. Population, Food, Carrots and Development remain clearly labelled non-canonical prototype metrics. Left click selects, Escape clears selection, WASD or middle drag pans, and the wheel zooms.
 
 The corrected geography is generated from the immutable Azgaar source plus `data/world_map/astra_province_corrections.json`. Seven IDs are retired without reuse; the accepted targeted topology adds IDs 90-107 and reserves 108 as the next fresh ID. The 100-province topology and dual-sided political border presentation are manually accepted.
 
@@ -127,6 +127,7 @@ godot --headless --path . --script res://tests/province_geography_query_test.gd
 godot --headless --path . --script res://tests/province_realm_state_test.gd
 godot --headless --path . --script res://tests/world_gameplay_scene_test.gd
 godot --headless --path . --script res://tests/world_identity_catalogue_test.gd
+godot --headless --path . --script res://tests/gameplay_identity_integration_test.gd
 ```
 
 Exit code `0` means a test passed. A non-zero exit code means it failed.

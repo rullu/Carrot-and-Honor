@@ -339,3 +339,29 @@ summary and reference validation. Province 30 remains Western Carthen/Crowned
 Communion inside R028, and R008 remains the unique `holy_state`. No modifiers,
 formation behaviour, unrest, diplomacy, conversion, rebellions or special
 systems are implemented.
+
+---
+
+## DEV-025 - Gameplay inspection binds canonical identity
+
+**Date:** 2026-09-16
+**Status:** Implemented
+
+Treat geography, identity, political ownership and realm identity as separate
+runtime responsibilities. `WorldGameplay` loads the validated
+`WorldIdentityCatalogue` and builds selected-province inspection records from
+geography facts, canonical province identity, canonical frozen starting realm,
+and separately isolated prototype metrics.
+
+Remove the old Free Province League, Hasenreich and Bunnyhausen political
+fixtures from `PrototypeWorldState` and remove its fake realm IDs from
+`ProvinceState`. The remaining Population, Food, Carrots and Development
+values are explicitly temporary and displayed under `Prototype Metrics (not
+canon)`.
+
+**Consequence:** the player-visible debug panel cannot use Azgaar/proposal names
+or mock realm identity. A gameplay integration test exercises all 100 active
+provinces and 43 starting owners through the same controller/formatter path,
+plus actual scene selection for Meyru and Keldren. No terrain, NaturalWorld,
+topology, borders, frozen ownership, settlement visuals or gameplay systems are
+changed.

@@ -15,11 +15,12 @@ The project contains verified pure-data foundations, a narrow province-interacti
 - `scenes/gameplay/world_gameplay.tscn` instances the locked NaturalWorld as the gameplay entry point.
 - `src/gameplay/province_geography.gd` loads authoritative geometry and performs bounds-filtered point-in-polygon lookup with multipart support. Corrected political geography contains no inland-water holes.
 - `src/gameplay/province_interaction.gd` owns cursor-to-terrain lookup, hover and selection.
-- `src/gameplay/world_gameplay.gd` coordinates geography, prototype state, presentation and UI.
-- `src/simulation/province_state.gd`, `realm_state.gd` and `prototype_world_state.gd` keep permanent province identity separate from political realm identity and from `ProvinceCapabilityState`.
+- `src/gameplay/world_gameplay.gd` coordinates geography, canonical identity, isolated prototype metrics, presentation and UI. Its inspection record never sources names or ownership from geography or prototype state.
+- `src/simulation/province_state.gd` and `prototype_world_state.gd` own only temporary Population, Food, Carrots and Development metrics. They own no political realm IDs or identity.
 - `src/presentation/world_map/province_presentation.gd` renders presentation-only province borders from interaction IDs.
-- `src/ui/province_debug_panel.gd` displays the selected geographic, province-state and realm-state data.
-- The `province_geography_query`, `province_realm_state`, `world_gameplay_scene` and `astra_province_coverage` tests verify lookup, state separation, scene composition, preservation locks and complete accepted-land coverage.
+- `src/ui/province_debug_panel.gd` displays canonical province/realm identity, geographic facts and explicitly non-canonical prototype metrics.
+- The `gameplay_identity_integration` test drives the actual gameplay controller and panel path across all 100 provinces so geography source names and mock realms cannot become visible again.
+- The `province_geography_query`, `province_realm_state`, `world_gameplay_scene` and `astra_province_coverage` tests verify lookup, metric isolation, scene composition, preservation locks and complete accepted-land coverage.
 
 ## Root
 

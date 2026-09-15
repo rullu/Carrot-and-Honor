@@ -3,7 +3,6 @@ extends RefCounted
 
 
 var _province_id: int
-var _realm_id: StringName
 var _population: int
 var _food: int
 var _carrots: int
@@ -12,20 +11,18 @@ var _development: int
 
 static func create(
         province_id: int,
-        realm_id: StringName,
         population: int,
         food: int,
         carrots: int,
         development: int
 ) -> ProvinceState:
-    if province_id <= 0 or not String(realm_id).begins_with("realm_"):
+    if province_id <= 0:
         return null
     if population < 0 or food < 0 or carrots < 0 or development < 0:
         return null
 
     var state: ProvinceState = ProvinceState.new()
     state._province_id = province_id
-    state._realm_id = realm_id
     state._population = population
     state._food = food
     state._carrots = carrots
@@ -35,10 +32,6 @@ static func create(
 
 func get_province_id() -> int:
     return _province_id
-
-
-func get_realm_id() -> StringName:
-    return _realm_id
 
 
 func get_population() -> int:

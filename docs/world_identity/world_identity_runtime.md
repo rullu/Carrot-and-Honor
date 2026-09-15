@@ -29,12 +29,29 @@ formable references, title guardrails, Hasenmark/R028, and Seravelle's unique
 `holy_state` type. Queries return defensive copies. No identity field produces
 a modifier or gameplay effect in this milestone.
 
+## Gameplay binding
+
+`world_gameplay.gd` builds selected-province inspection records with explicit
+authority boundaries:
+
+- geography supplies area, neighbors, polygons and selection IDs only;
+- `WorldIdentityCatalogue` supplies province name, culture, religion, frozen
+  starting owner and realm identity;
+- `PrototypeWorldState` supplies only synthetic Population, Food, Carrots and
+  Development values, which the panel labels `Prototype Metrics (not canon)`.
+
+`RealmState` and its Free Province League/Hasenreich/Bunnyhausen fixtures were
+removed. `tests/gameplay_identity_integration_test.gd` exercises the actual
+gameplay controller and debug-panel formatter for all 100 active provinces and
+all 43 starting owners, then drives actual selection for provinces 5 and 103.
+
 ## Headless validation and inspection
 
 Run the targeted test:
 
 ```powershell
 godot --headless --path . --script res://tests/world_identity_catalogue_test.gd
+godot --headless --path . --script res://tests/gameplay_identity_integration_test.gd
 ```
 
 Run the default human-readable inspection (the five canonical province samples

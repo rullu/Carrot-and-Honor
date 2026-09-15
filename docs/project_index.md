@@ -79,7 +79,7 @@ It validates 100 province identities and 43 starting realms against the frozen
 political ownership and active geography without deriving identity from legacy
 planning metadata or applying gameplay effects. DEV-024 records the boundary.
 
-Gameplay 001 now instances the locked NaturalWorld and adds province lookup, hover, selection, permanent-border presentation, separate province/realm prototype state and a debug panel. DEV-021 records this narrow interaction gate. Visual testing accepted the interaction architecture while exposing defects in the authoritative geography; DEV-022 addresses them through the separately approved correction pass.
+Gameplay 001 now instances the locked NaturalWorld and adds province lookup, hover, selection, permanent-border presentation and a debug panel. The panel binds canonical identity and frozen starting realms through `WorldIdentityCatalogue`; only its explicitly labelled numeric metrics remain synthetic. DEV-025 supersedes DEV-021's old mock province/realm display path. Visual testing accepted the interaction architecture while exposing defects in the authoritative geography; DEV-022 addresses them through the separately approved correction pass.
 
 The corrected 100-province topology and dual-sided political border presentation are manually accepted. `data/world_map/astra_province_corrections.json` is the version-controlled correction authority over the immutable Azgaar export; the runtime JSON and coverage report are deterministic derivatives. DEV-022 records stable/retired ID policy, complete playable-land coverage and inland-water ownership.
 
