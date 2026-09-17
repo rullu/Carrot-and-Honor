@@ -12,7 +12,7 @@ const DISTINCTIVE_VALUES: Dictionary = {
 }
 
 
-var _province_states: Dictionary[int, ProvinceState] = {}
+var _province_states: Dictionary[int, PrototypeProvinceMetrics] = {}
 
 
 static func create(province_ids: PackedInt32Array) -> PrototypeWorldState:
@@ -31,7 +31,7 @@ static func create(province_ids: PackedInt32Array) -> PrototypeWorldState:
             province_id,
             {"population": 1200, "food": 40, "carrots": 20, "development": 0}
         )
-        var province_state: ProvinceState = ProvinceState.create(
+        var province_state: PrototypeProvinceMetrics = PrototypeProvinceMetrics.create(
             province_id,
             values["population"],
             values["food"],
@@ -45,7 +45,7 @@ static func create(province_ids: PackedInt32Array) -> PrototypeWorldState:
     return world_state
 
 
-func get_province_state(province_id: int) -> ProvinceState:
+func get_province_state(province_id: int) -> PrototypeProvinceMetrics:
     return _province_states.get(province_id)
 
 

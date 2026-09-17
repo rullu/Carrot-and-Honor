@@ -70,7 +70,7 @@ func get_province_inspection(province_id: int) -> Dictionary:
     var realm_identity: Dictionary = _identity_catalogue.get_starting_realm_for_province(
         province_id
     )
-    var prototype_metrics: ProvinceState = _prototype_world_state.get_province_state(
+    var prototype_metrics: PrototypeProvinceMetrics = _prototype_world_state.get_province_state(
         province_id
     )
     if (

@@ -2,6 +2,19 @@
 
 The project contains verified pure-data foundations, a narrow province-interaction gameplay wrapper and directly executable headless tests. `project.godot` still has no configured main scene.
 
+## Campaign state foundation (DEV-026)
+
+- `src/simulation/province_state.gd` owns current Province ownership, local identity and local resource state; its immutable Province ID references the unchanged geography/heritage catalogue.
+- `src/simulation/campaign/realm_state.gd`, `character_state.gd`, `dynasty_state.gd` and `relationship_state.gd` are the other four typed authoritative records. They contain no competing derived territory, membership, ruling-Dynasty or war fields.
+- `claim_record.gd` is a shared value schema with one containing claimant. `historical_memory.gd` is a perspective-specific narrative record. `war_state.gd` is only a conflict identity/participant/activity boundary stub.
+- `campaign_state.gd` indexes typed records by stable ID and retains retired-ID reservations and campaign outcome. `campaign_queries.gd` derives territory, family children, Dynasty members/extinction, ruling Dynasty, resources and wars; its caches are disposable.
+- `campaign_session.gd` is the live publication boundary, exposes detached reads and commits only validated candidates. `realm_lifecycle.gd` handles capture/restoration/rebels/formables/succession; `character_lifecycle.gd` handles family writes and death with explicit successors.
+- `state_schema.gd` validates wire types and exact field sets; `campaign_validator.gd` checks the complete reference graph. `campaign_codec.gd` validates versioned JSON, verifies disk readback and atomically replaces saves.
+- `campaign_world_binding.gd` fingerprints the existing world authorities and checks identity/retired-ID preservation. `campaign_bootstrap.gd` initializes canonical ownership/local identity from those existing files, requiring explicit scenario ruler/capital/House records.
+- `tests/campaign_architecture_test.gd`, `campaign_lifecycle_test.gd`, `campaign_save_load_test.gd` and `campaign_world_bootstrap_test.gd` cover the locked acceptance conditions. `tests/support/` contains the explicit synthetic scenario and assertion harness.
+- `tools/testing/run_headless_tests.ps1` runs direct Godot tests with process waits, timeouts, fresh logs, PASS markers and parse/script-error detection. Godot `.gd.uid` sidecars belong to their adjacent sources.
+- `docs/gameplay_state/logic_foundation_pass1.md` owns the API contract, implementation decisions, verification and deferred scope. `docs/design_authority/` contains the exact locked specification.
+
 ## World identity
 
 - `data/world_identity/world_identity_master_canon.json` is the byte-identical locked implementation-facing identity authority for 100 provinces, 43 starting realms, formables, title rules and special-system metadata.
@@ -16,7 +29,7 @@ The project contains verified pure-data foundations, a narrow province-interacti
 - `src/gameplay/province_geography.gd` loads authoritative geometry and performs bounds-filtered point-in-polygon lookup with multipart support. Corrected political geography contains no inland-water holes.
 - `src/gameplay/province_interaction.gd` owns cursor-to-terrain lookup, hover and selection.
 - `src/gameplay/world_gameplay.gd` coordinates geography, canonical identity, isolated prototype metrics, presentation and UI. Its inspection record never sources names or ownership from geography or prototype state.
-- `src/simulation/province_state.gd` and `prototype_world_state.gd` own only temporary Population, Food, Carrots and Development metrics. They own no political realm IDs or identity.
+- `src/simulation/prototype_province_metrics.gd` and `prototype_world_state.gd` own only temporary Population, Food, Carrots and Development display metrics. They own no political realm IDs or identity and are never serialized as campaign state.
 - `src/presentation/world_map/province_presentation.gd` renders presentation-only province borders from interaction IDs.
 - `src/ui/province_debug_panel.gd` displays canonical province/realm identity, geographic facts and explicitly non-canonical prototype metrics.
 - The `gameplay_identity_integration` test drives the actual gameplay controller and panel path across all 100 provinces so geography source names and mock realms cannot become visible again.

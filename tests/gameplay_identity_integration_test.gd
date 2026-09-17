@@ -82,7 +82,7 @@ func _validate_inspection(province_id: int, inspection: Dictionary) -> void:
     var geography: Dictionary = inspection.get("geography", {})
     var identity: Dictionary = inspection.get("province_identity", {})
     var realm: Dictionary = inspection.get("realm_identity", {})
-    var metrics: ProvinceState = inspection.get("prototype_metrics")
+    var metrics: PrototypeProvinceMetrics = inspection.get("prototype_metrics")
     _check(int(geography.get("id", -1)) == province_id, "province %d geography resolves" % province_id)
     _check(int(identity.get("province_id", -1)) == province_id, "province %d identity resolves" % province_id)
     _check(metrics != null and metrics.get_province_id() == province_id, "province %d prototype metrics remain isolated" % province_id)

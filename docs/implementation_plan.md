@@ -1,5 +1,22 @@
 # Implementation Plan
 
+## Logic Foundation Pass 1
+
+**Status: IMPLEMENTED AND VERIFIED (2026-09-17).** This separately authorized state-foundation milestone supersedes the older simulation stop conditions for this scope only.
+
+- [x] Read the locked gameplay-state architecture and inspect baseline `037e339` plus existing user edits.
+- [x] Preserve geography, 100 Province IDs, 43 starting Realms, world identity, terrain/camera and settlement work.
+- [x] Separate old debug metrics from authoritative `ProvinceState`; implement Realm, Character, Dynasty and pair Relationship records.
+- [x] Add stable registries, derived queries/caches, claim ownership and perspective histories.
+- [x] Add atomic capture, relocation/inactivity, restoration, rebel allocation, formable, succession, family and death transitions.
+- [x] Validate exact schemas, identity reservations, cross-state references, role lifecycles and graph integrity.
+- [x] Verify versioned JSON/file round trips, historical resolution and interrupted-save protection.
+- [x] Add four architecture suites; pass all 20 current suites, including 617 new checks.
+- [x] Review scope and verify all 1,037 protected file hashes against task start.
+- [x] Record API, authority provenance, implementation decisions and deferred boundaries in `gameplay_state/logic_foundation_pass1.md` and DEV-026.
+
+The canonical adapter requires explicit scenario rulers, Houses, capitals and official identity. Tests supply synthetic roles; production starting roles and playable campaign/UI integration remain content/integration work. Full economy, war, succession rules, diplomacy AI and other subsystem simulation remain deferred.
+
 ## Status key
 
 - `[ ]` Not started

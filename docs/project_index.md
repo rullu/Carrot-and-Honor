@@ -2,6 +2,12 @@
 
 This file explains where project truth lives and which document owns which type of information.
 
+## Locked gameplay-state authority
+
+[`design_authority/FCAH_Gameplay_State_Architecture_v1_LOCKED.txt`](design_authority/FCAH_Gameplay_State_Architecture_v1_LOCKED.txt) is the primary authority for the five core state objects, sources of truth, references, lifecycles and save identity. Its September 17 combined audit supersedes older state-ownership descriptions. Other `design_authority/` documents may supply context; `design_reference/` is non-authoritative context, and `design_archive/` is historical material.
+
+[`gameplay_state/logic_foundation_pass1.md`](gameplay_state/logic_foundation_pass1.md) records implementation/API ownership, verification, provenance and future subsystem boundaries. The existing `data/world_identity/world_identity_master_canon.json` remains the immutable implemented world-identity authority.
+
 ## External design authorities
 
 ### Master Bible v1.6

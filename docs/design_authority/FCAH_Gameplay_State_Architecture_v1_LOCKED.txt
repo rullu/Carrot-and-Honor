@@ -1,0 +1,996 @@
+FOR CARROT AND HONOUR
+GAMEPLAY STATE ARCHITECTURE v1 — COMBINED / CROSS-AUDITED
+
+Combined: 2026-09-17
+Status: CORE STATE ARCHITECTURE COMPLETE / READY FOR IMPLEMENTATION HANDOFF
+
+Purpose:
+Combine the five closed core state-boundary passes into one authoritative state-system
+map for FCAH, identify the source of truth for each category of gameplay state, map
+cross-references, expose derived values, and catch cross-state contradictions before
+implementation.
+
+This document does NOT fully design the military, economy, war, succession, diplomacy,
+building, religion, AI, trade, expedition, event or UI subsystems.
+It defines where their state is allowed to live.
+
+======================================================================
+0. AUTHORITY
+======================================================================
+
+Core closed inputs:
+1. ProvinceState v1 CLOSED
+2. RealmState v1 CLOSED
+3. CharacterState v1 CLOSED
+4. DynastyState v1 CLOSED
+5. RelationshipState v1 CLOSED
+
+Authority rule:
+- the five closed state documents define current state ownership
+- later subsystem design may add detail inside these boundaries
+- a closed state boundary is reopened only if a concrete later mechanic exposes:
+  - a genuinely missing state category
+  - contradictory ownership
+  - an impossible lifecycle
+  - save/load identity failure
+  - another architectural requirement that cannot be represented cleanly
+
+Deferred != rejected.
+Deferred mechanics may be designed later without reopening this architecture unless they
+change ownership/source-of-truth rules.
+
+======================================================================
+1. CORE ARCHITECTURAL PRINCIPLE
+======================================================================
+
+FCAH uses MANY SMALL SOURCES OF TRUTH rather than one giant god-object.
+
+Each fact should have one authoritative home.
+
+Other systems may:
+- reference it
+- derive from it
+- cache it for performance
+- present it in UI
+- remember it historically
+
+but they must not silently become a second authoritative owner.
+
+Core rule:
+
+    STORE ON THE ENTITY/SYSTEM THAT OWNS THE FACT.
+    DERIVE EVERYWHERE ELSE.
+
+This is the central anti-contradiction rule for implementation.
+
+======================================================================
+2. THE FIVE CORE STATE OBJECTS
+======================================================================
+
+----------------------------------------------------------------------
+2.1 ProvinceState
+----------------------------------------------------------------------
+
+Represents:
+one geographic/provincial gameplay unit and its local campaign state.
+
+Authoritative/stored areas include:
+- stable Province ID / canonical geography reference
+- current owner Realm reference
+- immutable heritage / starting identity
+- mutable local campaign culture/religion/rite where applicable
+- one primary settlement / management hub
+- abstract Population Base
+- social composition
+- local manpower
+- local garrison/city-defence state
+- strategic buildings / slot use
+- Development Stage
+- ExternalSites[]
+- Devastation
+- Acceptance/Order
+- Traditions
+- Province Institutions
+- local Food state
+- local secondary-good production capabilities
+- campaign resource/suitability opportunities and discovery state
+- optional RebellionState
+- optional SiegeState
+- Province Temporary Conditions
+- compact Province Historical Memory
+
+ProvinceState does NOT authoritatively own:
+- capital status
+- Realm taxation policy
+- Realm treasury
+- Realm official identity
+- Realm diplomacy
+- character identity
+- dynasty identity
+
+Important derived outputs include:
+- Prosperity
+- province economic/tax base
+- Realm manpower contribution
+- Realm Food contribution
+- goods-access contribution
+- troop availability
+- tax contribution under Realm policy
+- raid/plunder value
+- settlement/world-map presentation
+- capital status by checking RealmState
+
+----------------------------------------------------------------------
+2.2 RealmState
+----------------------------------------------------------------------
+
+Represents:
+the persistent political entity.
+
+Authoritative/stored areas include:
+- stable Realm ID
+- active/inactive lifecycle
+- current political identity/formable identity
+- current Realm Style
+- government/polity type
+- capital Province reference
+- current ruler Character reference
+- optional recognized-heir Character reference
+- rulership legitimacy
+- succession scheme/law
+- current official culture/religion/rite
+- RealmResources
+  - Carrots
+  - Faith
+- Realm Laws/Policies
+- current Goods Access
+- current Realm Advantages
+- Realm claims
+- compact Realm history/deeds
+- Realm Temporary Conditions
+- War Strain / War Exhaustion
+- Realm Institutions
+
+RealmState does NOT authoritatively own:
+- an owned-province list
+- a copied ruler profile
+- a copied dynasty membership list
+- diplomacy relationship objects
+- WarState internals
+- trade-route internals
+- army/Marshal internals
+- expedition internals
+- Realm-wide manpower wallet
+- Realm-wide Food wallet
+- duplicate recurring-upkeep ledger
+- AI personality/controller identity
+- one generic Realm Stability score
+
+----------------------------------------------------------------------
+2.3 CharacterState
+----------------------------------------------------------------------
+
+Represents:
+a selectively persistent mechanically important rabbit.
+
+Authoritative/stored areas include:
+- stable Character ID
+- personal identity/presentation
+- lifecycle
+- personal culture/religion
+- dynasty reference
+- current Realm allegiance reference, nullable
+- traits/aptitudes/education outcome state
+- direct family relationship data
+- personal claims
+- compact personal history/deeds
+
+CharacterState does NOT authoritatively own:
+- Realm rulership role
+- recognized-heir role
+- Marshal/army position
+- Realm legitimacy
+- Realm treasury/resources
+- Realm diplomacy
+- Realm claims
+- universal map GPS
+- universal opinion matrix
+- universal personal inventory/economy
+- generic TemporaryConditions[] bucket
+
+Persistent CharacterStates survive death as historical records.
+
+----------------------------------------------------------------------
+2.4 DynastyState
+----------------------------------------------------------------------
+
+Represents:
+a House/family/lineage independent from any one Realm.
+
+Authoritative/stored areas include:
+- stable Dynasty ID
+- House identity/name
+- heraldry/presentation
+- historical origin/background
+- optional parent-Dynasty reference for cadet-branch capability
+- compact Dynasty history/deeds
+- genuine House-level claims
+- active/extinct lifecycle derived from living membership where useful
+
+DynastyState does NOT authoritatively own:
+- a second character-member list
+- family-tree copies
+- individual traits
+- individual current culture/religion
+- current Realm rulership
+- territory/capital
+- personal claims
+- Realm claims
+- Realm legitimacy
+- House treasury/inventory
+- universal Dynasty Head
+- generic permanent House-trait bonuses
+- universal Prestige/Renown/Influence meter
+
+Membership source of truth:
+CharacterState.dynasty_id
+
+----------------------------------------------------------------------
+2.5 RelationshipState
+----------------------------------------------------------------------
+
+Represents:
+the persistent diplomatic connection between one pair of Realms.
+
+Authoritative/stored areas include:
+- the canonical Realm pair
+- directional/current diplomatic attitudes
+- bilateral agreements that do not warrant separate state objects
+- compact bilateral diplomatic history/memory
+- references to relevant separate subsystem state where useful
+
+RelationshipState does NOT authoritatively own:
+- active-war truth
+- WarState internals
+- TradeRouteState internals
+- personal character opinions
+- claims
+- Realm deeds/history copies
+- ruler traits/culture/religion
+- Realm culture/religion
+- AI controller logic
+- diplomacy propagation algorithms
+- universal morality
+- one magic all-purpose relation number
+
+There is ONE RelationshipState per Realm pair, not separate A->B and B->A objects.
+Directional attitudes may differ inside that one shared object.
+
+======================================================================
+3. CANONICAL REFERENCE GRAPH
+======================================================================
+
+The intended core graph is:
+
+    ProvinceState
+        owner_realm_id ----------------------> RealmState
+
+    RealmState
+        capital_province_id -----------------> ProvinceState
+        current_ruler_id --------------------> CharacterState
+        recognized_heir_id? -----------------> CharacterState
+        Realm claims ------------------------> claim targets
+
+    CharacterState
+        dynasty_id --------------------------> DynastyState
+        realm_id? ---------------------------> RealmState
+        direct family links -----------------> CharacterState
+        personal claims ---------------------> claim targets
+
+    DynastyState
+        parent_dynasty_id? ------------------> DynastyState
+        House claims ------------------------> claim targets
+        members ----------------------------- DERIVED from CharacterState.dynasty_id
+
+    RelationshipState
+        realm_a_id --------------------------> RealmState
+        realm_b_id --------------------------> RealmState
+        WarState refs? ----------------------> WarState
+        TradeRouteState refs? ---------------> TradeRouteState
+
+Intentional cycles exist through IDs/references.
+They are NOT permission to duplicate the referenced entity's state.
+
+Examples:
+- Province -> owner Realm, while Realm -> capital Province
+- Realm -> ruler Character, while Character -> allegiance Realm
+
+Those are different facts and therefore valid reciprocal references.
+
+======================================================================
+4. SOURCE-OF-TRUTH MATRIX
+======================================================================
+
+FACT / QUESTION                                      AUTHORITATIVE HOME
+
+Who owns Province P?                                ProvinceState.owner_realm_id
+Which provinces does Realm R own?                   DERIVED from ProvinceState
+What is Realm R's capital?                          RealmState.capital_province_id
+Is Province P the capital?                          DERIVED from RealmState
+Who currently rules Realm R?                        RealmState.current_ruler_id
+Who is the recognized heir?                         RealmState.recognized_heir_id when used
+Who is Character C personally?                      CharacterState
+Which dynasty does Character C belong to?           CharacterState.dynasty_id
+Who belongs to Dynasty D?                           DERIVED from CharacterState
+Which dynasty currently rules Realm R?              DERIVED: Realm ruler -> Character -> Dynasty
+What is Character C's current allegiance?           CharacterState.realm_id
+What is Realm R's official religion/culture?        RealmState
+What is Character C's personal religion/culture?    CharacterState
+What is Province P's current local identity?        ProvinceState
+What is Dynasty D's historical origin?              DynastyState
+Current Realm treasury / Carrots?                   RealmState
+Current Realm Faith?                                RealmState
+Province Food/manpower?                             ProvinceState
+Realm Food/manpower overview?                       DERIVED from ProvinceStates
+Province tax/economic base?                         DERIVED from ProvinceState
+Tax policy?                                         RealmState
+Current active war?                                 WarState
+Bilateral treaty / diplomatic agreement?            RelationshipState
+Concrete individual trade route?                    TradeRouteState, if represented
+Realm-to-Realm diplomatic attitude?                 RelationshipState
+Personal Character claim?                           CharacterState
+House/Dynasty claim?                                DynastyState
+Realm political/territorial claim?                  RealmState
+Realm legitimacy?                                   RealmState/rulership relationship
+Province rebellion?                                 ProvinceState.RebellionState
+Province siege?                                     ProvinceState.SiegeState
+Current Marshal/army physical location?             Military/Marshal/Army state
+Realm AI decision behaviour?                        Separate AI controller/personality layer
+
+======================================================================
+5. CORE LIFECYCLE INVARIANTS
+======================================================================
+
+[INVARIANT]
+An active Realm must own at least one province.
+
+NPC Realm with zero provinces:
+- becomes inactive/extinct politically
+- retains stable Realm identity/history
+- has no current capital
+- has no current ruler reference
+- no longer participates in ordinary active diplomacy/economy as an active Realm
+
+Player Realm with zero provinces:
+- campaign game over
+
+[INVARIANT]
+Every active Realm has exactly one current capital Province that it owns.
+
+[INVARIANT]
+Every active Realm resolves to a current ruler Character.
+Succession crisis/regency may change legitimacy/conditions but does not require an ordinary
+rulerless active Realm.
+
+[INVARIANT]
+Province ownership is formal political ownership.
+Normal warfare does not create a generic separate Province controller layer.
+
+Successful enemy capture:
+- Province owner changes immediately
+
+Rebellion:
+- formal owner may remain until rebellion succeeds
+- practical authority may be suppressed through RebellionState
+- successful secession may create a new Realm and then change Province owner
+
+[INVARIANT]
+A restored Realm uses the SAME stable Realm ID.
+
+Therefore restoration can reconnect to:
+- old Realm history
+- old RelationshipState history
+- old identity
+without fabricating a new political entity.
+
+[INVARIANT]
+A genuinely new rebel-created Realm receives a NEW stable Realm ID.
+
+[INVARIANT]
+A formable/political transformation normally preserves the existing Realm ID.
+
+Therefore it also preserves continuity of:
+- treasury
+- ruler
+- history
+- diplomacy
+- relationships
+unless an explicitly authored mechanic says otherwise.
+
+[INVARIANT]
+A deceased CharacterState is retained historically but cannot participate as an active
+living character.
+
+[INVARIANT]
+A Dynasty with no living members becomes extinct historically rather than being deleted.
+
+[INVARIANT]
+RelationshipState history survives Realm inactivity.
+Active diplomacy is suspended while the Realm is inactive.
+
+======================================================================
+6. CLAIM ARCHITECTURE
+======================================================================
+
+FCAH has three legitimate claimant levels:
+
+1. Character claim
+2. Dynasty/House claim
+3. Realm claim
+
+These are NOT interchangeable.
+
+A claim whose historical BASIS is dynastic may still be a Realm claim if the claimant is
+the Realm.
+
+Implementation integrity rule:
+EVERY claim record must have exactly one authoritative claimant owner.
+
+Do not copy one authoritative claim into:
+- CharacterState
+- DynastyState
+- RealmState
+- RelationshipState
+simultaneously.
+
+If one historical legal basis legitimately produces multiple claimant rights, those are
+separate claim records with explicit provenance/relationship, not duplicate copies pretending
+to be one record.
+
+Exact claim strength, inheritance, age, expiry, war-goal use and transfer rules remain deferred.
+
+Architecture-neutral implementation option:
+all three owner types may use a shared ClaimRecord schema/value type.
+A future global ClaimState registry is allowed if later claim mechanics become complex,
+but is NOT required by v1.
+
+======================================================================
+7. HISTORY / MEMORY ARCHITECTURE
+======================================================================
+
+FCAH intentionally has several perspective-specific memory layers:
+
+- Province Historical Memory
+- Realm deeds/history
+- Character deeds/history
+- Dynasty deeds/history
+- Relationship bilateral history
+
+This is NOT a contradiction.
+
+The same historical event may matter from several perspectives.
+
+Integrity rule:
+Historical memories are contextual records and narrative inputs.
+They are NOT allowed to silently replace current authoritative state.
+
+Example:
+A Relationship memory may say "old war with Realm B".
+Whether Realm A and B are CURRENTLY at war still comes only from WarState.
+
+If future implementation needs one globally addressable historical event, the systems may
+reference a common event ID. A universal EventState is not required yet.
+
+======================================================================
+8. CULTURE / RELIGION IDENTITY LAYERS
+======================================================================
+
+These layers are intentionally separate:
+
+ProvinceState:
+- immutable Heritage/Starting Identity
+- mutable current local campaign identity
+
+RealmState:
+- historical/original Realm identity
+- mutable official culture/religion/rite
+
+CharacterState:
+- mutable personal culture/religion
+
+DynastyState:
+- historical/origin cultural/religious context only
+- NOT one universal current House religion/culture
+
+No layer automatically overwrites the others.
+
+Political formation does not automatically convert provinces.
+Ruler conversion does not automatically rewrite Realm official faith.
+Dynasty origin does not automatically rewrite living members.
+
+Exact conversion/assimilation mechanics remain deferred.
+
+======================================================================
+9. ECONOMY / RESOURCES — CROSS-STATE FLOW
+======================================================================
+
+ProvinceState stores/represents local productive reality:
+- population
+- social composition
+- manpower
+- local Food
+- resources/suitabilities
+- buildings
+- production capabilities
+- development
+- devastation
+- prosperity inputs
+
+RealmState stores genuine Realm wallets/resources:
+- Carrots
+- Faith
+
+Realm-level flows are derived:
+- income
+- expenses
+- net balance
+- Food overview
+- manpower overview
+- inflation condition
+- military-strength estimate
+
+Taxation flow:
+
+    Province local economic/tax base
+          +
+    Realm taxation policy
+          ->
+    Realm income
+          ->
+    Realm Carrot treasury
+
+Recurring expenses are derived from the systems that create them.
+RealmState does NOT keep a second authoritative upkeep ledger.
+
+TreasuryCrisisState may exist only when an actual crisis requires it.
+
+======================================================================
+10. MILITARY / WAR CROSS-STATE BOUNDARY
+======================================================================
+
+WarState:
+- authoritative current war/conflict object
+- owns war-specific participants and future conflict internals
+
+RelationshipState:
+- may reference WarState
+- may remember past war
+- may show derived "at war" presentation
+- is NOT authoritative for current war
+
+ProvinceState:
+- owns local garrison/city-defence state
+- may own active SiegeState
+- changes owner immediately after successful enemy capture
+- does not create ordinary occupation Controller state
+
+CharacterState:
+- does NOT universally own physical location
+- Marshal location belongs to Marshal/army/military state
+
+RealmState:
+- derives wars, armies, Marshals and military strength from actual subsystem state
+- stores War Strain as Realm-level pressure
+- does not store a magic military-power number
+
+Known future military-state boundary still requiring its own subsystem pass:
+- Marshal/Army/Formation state
+- exact WarState internals
+- exact Siege/Rebellion lifecycle rules
+
+======================================================================
+11. DIPLOMACY CROSS-STATE BOUNDARY
+======================================================================
+
+RelationshipState is the Realm-to-Realm diplomatic layer.
+
+It stores:
+- the Realm pair
+- directional attitudes
+- bilateral agreements
+- compact bilateral history
+
+It reads but does not own:
+- ruler traits
+- Realm culture/religion
+- Character personal culture/religion
+- deeds
+- claims
+- wars
+- dynasty/family connections
+- trade context
+
+Diplomatic reaction propagation is SYSTEM LOGIC, not duplicated persistent state.
+
+Campaign history creates bias/context/probability, not fixed scripts.
+
+A ruler change does not replace RelationshipState.
+It may alter attitudes because the new ruler is a different Character.
+
+======================================================================
+12. BUILDINGS / TRADITIONS / INSTITUTIONS
+======================================================================
+
+Province buildings:
+- local strategic building choices
+- equal fixed capacity principle
+- current numeric slot target remains separately auditable
+- hybrid family-specific upgrade policy
+
+Province Traditions:
+- living local capabilities/traditions
+
+Province Institutions:
+- local institutions
+
+Realm Institutions:
+- central/Realm-spanning institutions
+
+Province Institutions and Realm Institutions are DIFFERENT scopes.
+Do not merge them simply because both use the word "Institution".
+
+Exact InstitutionState representation is a later subsystem choice.
+
+======================================================================
+13. KNOWN SATELLITE / SUBSYSTEM STATE OBJECTS
+======================================================================
+
+Already architecturally justified:
+
+CORE CLOSED:
+- ProvinceState
+- RealmState
+- CharacterState
+- DynastyState
+- RelationshipState
+
+SEPARATE / KNOWN:
+- WarState
+- TradeRouteState
+- ExpeditionState
+
+CONDITIONAL / LOCAL:
+- TreasuryCrisisState
+- RebellionState
+- SiegeState
+
+KNOWN FUTURE SYSTEM-SPECIFIC STATE:
+- Marshal / Army / Formation state
+- exact Institution representation where needed
+- exact Tradition representation where needed
+
+Do NOT create one universal ProjectState or one giant WorldEntity object to swallow these.
+
+A lightweight campaign/world registry may later INDEX objects by stable ID, but indexing
+does not make the registry the owner of their gameplay facts.
+
+======================================================================
+14. DERIVED COLLECTION RULE
+======================================================================
+
+RealmState should derive collections whenever the child/system already owns the Realm link.
+
+Examples:
+- owned provinces <- Province.owner_realm_id
+- Realm characters <- Character.realm_id
+- armies/Marshals <- military state realm_id
+- trade routes <- TradeRouteState participating Realm refs
+- expeditions <- ExpeditionState launching Realm
+- wars <- WarState participants
+- allies/trading partners <- RelationshipState
+
+Performance caches/indexes are allowed.
+They must be rebuildable and must never become competing sources of truth.
+
+======================================================================
+15. CROSS-STATE SEAMS CAUGHT BY THE FINAL AUDIT
+======================================================================
+
+The combined audit found NO hard contradiction between the five closed core states.
+
+It DID catch four implementation seams that must be handled explicitly.
+
+----------------------------------------------------------------------
+15.1 Ruling-dynasty duplicate risk — RESOLVED
+----------------------------------------------------------------------
+
+RealmState previously allowed a "currently ruling dynasty" reference for convenience.
+DynastyState correctly says current rulership is derived.
+
+Final rule:
+
+    Realm.current_ruler_id
+        -> CharacterState.dynasty_id
+        -> current ruling Dynasty
+
+Any RealmState ruling_dynasty_id field, if implementation keeps one at all, is CACHE /
+DERIVED presentation only and is never authoritative.
+
+No core state needs reopening.
+
+----------------------------------------------------------------------
+15.2 Recognized heir vs Realm allegiance — RESOLVED
+----------------------------------------------------------------------
+
+RealmState may explicitly reference a recognized heir.
+CharacterState separately stores current Realm allegiance.
+
+Do NOT derive the recognized heir solely from Character.realm_id.
+
+A recognized heir may later be allowed to:
+- reside elsewhere
+- serve elsewhere
+- be unaffiliated temporarily
+depending on future succession/marriage rules.
+
+Final rule:
+RealmState.recognized_heir_id is the authoritative role reference when the succession
+scheme uses one.
+Character.realm_id remains allegiance, not "heir membership".
+
+No gameplay assumption about foreign heirs is locked here.
+
+----------------------------------------------------------------------
+15.3 Parent/child reciprocal-link duplication risk — GUARDED
+----------------------------------------------------------------------
+
+CharacterState v1 correctly owns direct family links, but "parents + children" can become
+two copies of the same genealogical fact if both are independently writable.
+
+Final implementation integrity rule:
+the family graph must have ONE canonical write path.
+
+Recommended implementation:
+- parent references are authoritative
+- children are derived/indexed from parent references
+- spouse/partner linkage must be reciprocal-validated if stored on both characters
+
+Alternative storage is allowed only if it provides equally strong invariant enforcement.
+
+This does not change the gameplay design; it prevents family-tree save corruption.
+
+----------------------------------------------------------------------
+15.4 Multi-layer historical-memory duplication risk — GUARDED
+----------------------------------------------------------------------
+
+Province, Realm, Character, Dynasty and Relationship all intentionally keep compact history.
+
+Final rule:
+these are perspective-specific memories, not duplicate current-state authorities.
+
+If several memory layers reference the same event, they may:
+- share a stable event/reference ID later
+- store perspective-specific summaries
+
+but none may override the system that owns the current fact.
+
+No universal EventState is required now.
+
+======================================================================
+16. TRANSACTION / UPDATE INVARIANTS FOR IMPLEMENTATION
+======================================================================
+
+State transitions that affect several entities must finish in a self-consistent state.
+
+Examples:
+
+PROVINCE CAPTURE
+1. Province owner changes to conquering Realm.
+2. If captured Province was old Realm's capital:
+   - old active Realm must receive a valid replacement capital if it still owns land.
+3. If old NPC Realm now owns zero provinces:
+   - Realm becomes inactive
+   - current capital clears
+   - current ruler reference clears from the inactive Realm
+   - active diplomacy suspends
+4. WarState resolves/continues according to later war rules.
+
+FORMABLE
+1. Stable Realm ID remains.
+2. Current political identity may change.
+3. Style changes only if authored.
+4. Treasury/history/ruler/relationships remain continuous.
+
+REALM RESTORATION
+1. Reactivate old stable Realm ID.
+2. Assign owned province(s).
+3. Establish valid current capital.
+4. Establish valid current ruler.
+5. Existing historical RelationshipStates become relevant again.
+6. Exact restored attitudes/treaties are recalculated/resolved by later diplomacy rules.
+
+NEW REBEL REALM
+1. Create NEW stable Realm ID.
+2. Transfer successful secession provinces.
+3. Establish capital/ruler.
+4. Create/initialize RelationshipStates against active diplomatic network.
+5. Do not impersonate an old Realm unless this is explicitly a restoration.
+
+RULER SUCCESSION
+1. Realm.current_ruler_id changes.
+2. Character-owned facts remain on characters.
+3. Rulership legitimacy resolves on RealmState.
+4. Recognized heir updates according to succession system.
+5. RelationshipStates persist but may update attitudes.
+6. Ruling Dynasty is derived from new ruler.
+
+======================================================================
+17. SAVE / IDENTITY RULES
+======================================================================
+
+Stable IDs are sacred references.
+
+Never infer identity from:
+- array index
+- display order
+- current owner
+- current name
+- current political style
+- current active/inactive state
+
+Stable ID categories include at minimum:
+- Province ID
+- Realm ID
+- Character ID
+- Dynasty ID
+
+RelationshipState must have a stable unique identity for its Realm pair, either through:
+- canonical pair key
+or
+- its own stable Relationship ID plus unique Realm-pair constraint
+
+Exact storage format is implementation detail.
+
+Retired/deceased/extinct identities are not casually recycled.
+
+======================================================================
+18. IMPLEMENTATION ORDER — ARCHITECTURE-SAFE
+======================================================================
+
+Recommended first implementation wave:
+
+1. Stable registries / lookup by ID
+2. ProvinceState core campaign record
+3. RealmState core campaign record
+4. Province ownership -> derived Realm territory
+5. capital invariant
+6. CharacterState core record
+7. Realm ruler -> Character reference
+8. DynastyState core record + derived membership
+9. RelationshipState pair registry
+10. cross-state validation/invariant tests
+11. save/load round-trip tests
+12. only then start adding deeper subsystem logic
+
+Do NOT implement all deferred gameplay mechanics in this first logic pass.
+
+The purpose of the first implementation is to establish:
+- correct ownership
+- references
+- lifecycles
+- derived queries
+- invariant enforcement
+- save/load stability
+
+before filling the game with systems.
+
+======================================================================
+19. FIRST IMPLEMENTATION ACCEPTANCE TESTS
+======================================================================
+
+The architecture should not be considered successfully implemented until automated tests
+prove at least the following:
+
+IDENTITY / REFERENCES
+- stable IDs survive save/load
+- invalid references are detected
+- IDs are not assumed contiguous
+
+PROVINCE / REALM
+- one Province has one owner
+- Realm territory derives correctly from Province owners
+- ownership transfer updates derived territory
+- active Realm capital is owned by that Realm
+- losing a capital forces valid relocation if Realm survives
+- NPC zero-province Realm becomes inactive
+- restoration reuses same Realm ID
+- new rebel Realm gets new Realm ID
+- formable keeps stable Realm ID
+
+CHARACTER / DYNASTY
+- active Realm ruler references valid Character
+- changing ruler does not duplicate character data
+- Dynasty membership derives from Character.dynasty_id
+- deceased Character remains historically resolvable
+- extinct Dynasty remains historically resolvable
+- family graph cannot become one-sided/corrupt under normal write APIs
+
+RELATIONSHIPS
+- exactly one RelationshipState exists per Realm pair
+- directional attitudes can differ
+- relationship survives ruler replacement
+- relationship history survives Realm inactivity
+- current war is derived from WarState, not a conflicting Relationship flag
+
+CLAIMS
+- claim has exactly one authoritative claimant level
+- RelationshipState does not own duplicate claims
+
+DERIVED / CACHE SAFETY
+- caches can be rebuilt from authoritative state
+- deleting/rebuilding a cache does not change gameplay truth
+- Food/manpower Realm overviews derive from provinces rather than wallets
+- ruling Dynasty derives from current ruler
+
+SAVE/LOAD
+- save -> load -> revalidate produces identical authoritative identities and references
+- inactive/deceased/extinct historical entities remain resolvable
+- all cross-state invariants pass after load
+
+======================================================================
+20. FINAL CROSS-STATE AUDIT
+======================================================================
+
+AUDIT RESULT:
+PASS — no hard contradiction exists between the five closed core state models.
+
+The architecture forms a coherent ownership graph.
+
+Key successful separations:
+
+PASS — geographic ownership vs political entity
+PASS — stable Realm identity vs political identity/style/formable
+PASS — local Province economy vs Realm treasury
+PASS — local manpower/Food vs Realm derived overview
+PASS — Realm ruler role vs Character personal identity
+PASS — Dynasty membership vs Realm allegiance
+PASS — Realm rulership vs Dynasty identity
+PASS — Character / Dynasty / Realm claim ownership
+PASS — Realm diplomacy vs personal character relations
+PASS — RelationshipState vs WarState authority
+PASS — diplomatic agreement vs TradeRouteState
+PASS — current facts vs historical memories
+PASS — Realm official identity vs Province local identity vs Character personal identity
+PASS — Dynasty historical origin vs current member identity
+PASS — player-visible summaries vs authoritative stored state
+PASS — subsystem state vs AI/controller logic
+
+No ProvinceState, RealmState, CharacterState, DynastyState or RelationshipState reopening
+is required before implementation.
+
+======================================================================
+21. ARCHITECTURE FREEZE / NEXT STEP
+======================================================================
+
+MILESTONE:
+
+GAMEPLAY STATE ARCHITECTURE v1 IS COMPLETE.
+
+The five core state boundaries can now be treated as one implementation target.
+
+Next step:
+prepare a narrow implementation handoff for the FIRST LOGIC FOUNDATION PASS.
+
+That handoff should:
+- implement architecture, not redesign it
+- protect locked terrain/world identity
+- use stable IDs and references
+- establish source-of-truth rules
+- add invariant validators/tests
+- add save/load-safe structure
+- avoid prematurely implementing every deferred subsystem
+- verify, fix failures, and retest before completion
+
+This is the first major logic foundation, not the final gameplay simulation.
+
+END OF GAMEPLAY STATE ARCHITECTURE v1

@@ -365,3 +365,26 @@ provinces and 43 starting owners through the same controller/formatter path,
 plus actual scene selection for Meyru and Keldren. No terrain, NaturalWorld,
 topology, borders, frozen ownership, settlement visuals or gameplay systems are
 changed.
+
+---
+
+## DEV-026 - Locked gameplay-state foundation and atomic publication
+
+**Date:** 2026-09-17
+**Status:** Implemented and verified
+
+Implement the five core state boundaries from `design_authority/FCAH_Gameplay_State_Architecture_v1_LOCKED.txt`. The file was missing from the Git checkout but present under the exact requested name in the NaturalWorld working copy. Install that file byte-for-byte; its SHA-256 and source path are recorded in `gameplay_state/logic_foundation_pass1.md`. Keep implemented world identity and frozen geography/ownership authoritative. The current user task supersedes older simulation gates only for this foundation pass.
+
+Rename the existing debug-only Province record to `PrototypeProvinceMetrics`; preserve its display behavior through type-only caller changes. Authoritative Province state now owns current owner/local identity/local Food and manpower. Realm owns capital/ruler/heir, official identity and Carrots/Faith. Character owns Dynasty/allegiance/family data. Dynasty membership/extinction and current ruling Dynasty are derived. One canonical JSON-tuple key identifies each persistent Relationship; all 43 starting Realms produce 903 pairs. No caches enter the save.
+
+Use small typed records, a registry, focused lifecycle services, derived queries and a session publication boundary. Commands build a detached candidate, validate the whole reference graph, normalize integer wire values and publish once. Failed commands preserve state/revision. Reads are defensive snapshots; callers obtain a new query view after a command. Full copying is acceptable for this first 100-province foundation and avoids half-updated cross-object lifecycles.
+
+Capital relocation uses sorted IDs as a deterministic fallback. Last-province NPC loss clears current political roles and retains identity/history; player loss additionally ends the campaign. Restoration reuses the retained Realm; rebels allocate fresh IDs excluding retained and retired identities. Formables preserve continuity. Succession changes Realm role fields only, and multi-Realm ruler death requires every successor explicitly in the same transaction. Parent links are canonical, children derived, partner writes reciprocal, and ancestry/cadet cycles invalid. Claims have one containing claimant and globally unique IDs. Perspective histories never drive current-state queries. WarState owns conflict activity; no Relationship war flag exists.
+
+Canonical initialization requires explicit scenario ruler/House/capital/official-identity setup because no authored starting roster exists. The adapter copies frozen owners/local identity and validates a hash binding to the unchanged world authorities. Synthetic test roles are not installed as canon. Gameplay 001 keeps its current inspection workflow. Trade, expeditions, conditional crisis/rebellion/siege and military objects retain their documented future boundaries without catch-all placeholders.
+
+Save schema 1 rejects unknown/missing fields, duplicate/retired IDs, invalid references and unsupported versions/world bindings. Validation precedes normalization: Godot JSON float parsing initially broke exact round trips and retired-ID membership; the fixed load/publication boundary normalizes only validated integers. Additional tests prevent claim target coercion, record/key mismatch, cyclic genealogy, duplicate claimant rights and stale roles. Disk save uses verified sibling-write/readback followed by rename; interrupted pending files are preserved.
+
+World fingerprints normalize CRLF/LF in memory so identical content remains save-compatible across Git checkout platforms. The locked specification has an explicit LF attribute preserving its recorded source fingerprint; protected world data is unchanged.
+
+**Verification:** All 20 direct suites pass, including four new campaign suites with 617 checks; JSON and actual file replacement round trips pass with inactive/deceased/extinct entities. The canonical fixture verifies 100 Provinces, 43 Realms, 903 pairs and all frozen owners. All 1,037 protected file hashes match task start. Existing user settlement edits are preserved and excluded from the milestone commit. Exact coverage and API limitations are in the pass report; economy/war/succession/diplomacy and other full subsystem simulation remain deferred.

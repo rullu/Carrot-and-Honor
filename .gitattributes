@@ -15,3 +15,4 @@ addons/terrain_3d/bin/libterrain.macos.*.framework/libterrain.macos.* filter=lfs
 
 # Canonical text authorities with byte-stable source fingerprints
 data/world_identity/world_identity_master_canon.json text eol=lf
+docs/design_authority/FCAH_Gameplay_State_Architecture_v1_LOCKED.txt text eol=lf

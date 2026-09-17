@@ -15,7 +15,7 @@ func show_province(
         geography: Dictionary,
         province_identity: Dictionary,
         realm_identity: Dictionary,
-        prototype_metrics: ProvinceState
+        prototype_metrics: PrototypeProvinceMetrics
 ) -> void:
     var display: Dictionary = build_display_data(
         geography,
@@ -34,7 +34,7 @@ static func build_display_data(
         geography: Dictionary,
         province_identity: Dictionary,
         realm_identity: Dictionary,
-        prototype_metrics: ProvinceState
+        prototype_metrics: PrototypeProvinceMetrics
 ) -> Dictionary:
     if (
         geography.is_empty()

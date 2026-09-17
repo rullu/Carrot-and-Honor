@@ -1,5 +1,13 @@
 # For Carrot and Honour
 
+## Logic Foundation Pass 1
+
+The five core campaign states, stable registries, derived queries, atomic lifecycle commands, strict validation and versioned JSON save/load are implemented. Read [`docs/gameplay_state/logic_foundation_pass1.md`](docs/gameplay_state/logic_foundation_pass1.md) for the API, acceptance evidence and remaining subsystem boundaries. The [locked state architecture](docs/design_authority/FCAH_Gameplay_State_Architecture_v1_LOCKED.txt) controls this work.
+
+Campaign setup requires explicit rulers, Dynasties and capitals. The canonical-world adapter preserves all 100 Provinces and 43 starting Realms; it does not invent the missing character/capital roster. Gameplay 001 remains an inspection scene with separately labelled prototype metrics, now named `PrototypeProvinceMetrics`.
+
+After Godot has scanned/imported the project, run the full 20-test suite on Windows with `powershell -NoProfile -ExecutionPolicy Bypass -File tools/testing/run_headless_tests.ps1`. The runner resolves `godot` from PATH, waits for the process, requires a PASS marker and checks script errors; logs stay in `.godot/test_logs/`.
+
 For Carrot and Honour is a real-time, pausable medieval-fantasy strategy game about ruling a bunny kingdom across one fixed, handcrafted continent. The interactive world map is intended to be the primary playing field, with province management available through panels. The project is built with Godot 4 and typed GDScript.
 
 ## Current gameplay scene
@@ -143,4 +151,4 @@ catalogue output. See [`docs/world_identity/world_identity_runtime.md`](docs/wor
 
 ## Current stop condition
 
-Further simulation features—including Population, workforce, Food arithmetic, construction, routes and detailed province scenes—must not begin until the six-province world-map feasibility gate passes.
+The separately authorized Logic Foundation Pass 1 supersedes the historical six-province gate for core campaign state, lifecycle primitives and persistence only. Economy, succession rules, combat, AI and the other deferred simulations still require their own subsystem passes.
