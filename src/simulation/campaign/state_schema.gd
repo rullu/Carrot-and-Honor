@@ -70,6 +70,9 @@ static func validate_record(value: Variant, fields: Dictionary, context: String,
 static func _validate_value(value: Variant, kind: String, context: String, errors: PackedStringArray) -> void:
     var valid: bool = true
     match kind:
+        "seed": valid = value is String and not value.is_empty()
+        "sex": valid = value is String and value in ["male", "female"]
+        "lineage_style": valid = value is String and value in ["house", "dynasty", "clan", "family", "lineage"]
         "id": valid = is_id(value)
         "text": valid = value is String and value == value.strip_edges()
         "nullable_text": valid = value == null or (value is String and value == value.strip_edges())

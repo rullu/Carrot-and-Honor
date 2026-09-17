@@ -1,12 +1,26 @@
 # For Carrot and Honour
 
+## Campaign start v1
+
+`CampaignBootstrap.new_campaign(seed, days_per_year, player_realm_id)` now generates and validates the complete canonical 43-Realm cast before creating campaign state. Seed and year length are explicit inputs; player selection does not affect the cast. Schema 2 persists the generated records, signed birth ticks and generation provenance. Loading never regenerates families.
+
+See [`docs/gameplay_state/campaign_start_v1.md`](docs/gameplay_state/campaign_start_v1.md) for API, decisions, deterministic stress evidence and the sealed authority. Run the complete suite with `powershell -NoProfile -ExecutionPolicy Bypass -File tools/testing/run_headless_tests.ps1 -TimeoutSeconds 600`; it includes a 1,000-seed stress test. Validate the name-table transcription with `node tools/campaign/build_campaign_start_data.js --check`.
+
+Inspect a real generated campaign without adding a player-facing reroll or changing Gameplay 001:
+
+```powershell
+godot --headless --path . --script res://tools/campaign/inspect_campaign_start.gd -- --seed=example --days-per-year=365 --player=R028
+```
+
+Here 365 is an example configuration, not a canonical calendar. Add `--save=res://.godot/example_campaign.json` to verify and save the complete campaign.
+
 ## Logic Foundation Pass 1
 
 The five core campaign states, stable registries, derived queries, atomic lifecycle commands, strict validation and versioned JSON save/load are implemented. Read [`docs/gameplay_state/logic_foundation_pass1.md`](docs/gameplay_state/logic_foundation_pass1.md) for the API, acceptance evidence and remaining subsystem boundaries. The [locked state architecture](docs/design_authority/FCAH_Gameplay_State_Architecture_v1_LOCKED.txt) controls this work.
 
-Campaign setup requires explicit rulers, Dynasties and capitals. The canonical-world adapter preserves all 100 Provinces and 43 starting Realms; it does not invent the missing character/capital roster. Gameplay 001 remains an inspection scene with separately labelled prototype metrics, now named `PrototypeProvinceMetrics`.
+Campaign-start v1 supplies the ruler/family/lineage roster and sealed fixed Seats to the existing canonical-world adapter. The adapter preserves all 100 Provinces and 43 starting Realms. Gameplay 001 remains an inspection scene with separately labelled prototype metrics, named `PrototypeProvinceMetrics`.
 
-After Godot has scanned/imported the project, run the full 20-test suite on Windows with `powershell -NoProfile -ExecutionPolicy Bypass -File tools/testing/run_headless_tests.ps1`. The runner resolves `godot` from PATH, waits for the process, requires a PASS marker and checks script errors; logs stay in `.godot/test_logs/`.
+After Godot has scanned/imported the project, use the suite command above. The runner resolves `godot` from PATH, waits for the process, requires a PASS marker and checks script errors; logs stay in `.godot/test_logs/`.
 
 For Carrot and Honour is a real-time, pausable medieval-fantasy strategy game about ruling a bunny kingdom across one fixed, handcrafted continent. The interactive world map is intended to be the primary playing field, with province management available through panels. The project is built with Godot 4 and typed GDScript.
 

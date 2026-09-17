@@ -4,7 +4,8 @@ extends RefCounted
 
 const FIELDS: Dictionary = {
     "dynasty_id": "id",
-    "house_name": "id",
+    "lineage_name": "id",
+    "lineage_style": "lineage_style",
     "parent_dynasty_id": "text",
     "origin_culture": "text",
     "origin_religion": "religion",
@@ -13,7 +14,8 @@ const FIELDS: Dictionary = {
 }
 
 var dynasty_id: String = ""
-var house_name: String = ""
+var lineage_name: String = ""
+var lineage_style: String = "house"
 var parent_dynasty_id: String = ""
 var origin_culture: String = ""
 var origin_religion: Dictionary = StateSchema.empty_religion()
@@ -24,7 +26,8 @@ var history: Array[HistoricalMemory] = []
 func to_data() -> Dictionary:
     return {
         "dynasty_id": dynasty_id,
-        "house_name": house_name,
+        "lineage_name": lineage_name,
+        "lineage_style": lineage_style,
         "parent_dynasty_id": parent_dynasty_id,
         "origin_culture": origin_culture,
         "origin_religion": origin_religion.duplicate(true),
@@ -37,7 +40,8 @@ func to_data() -> Dictionary:
 static func from_data(data: Dictionary) -> DynastyState:
     var state: DynastyState = DynastyState.new()
     state.dynasty_id = data["dynasty_id"]
-    state.house_name = data["house_name"]
+    state.lineage_name = data["lineage_name"]
+    state.lineage_style = data["lineage_style"]
     state.parent_dynasty_id = data["parent_dynasty_id"]
     state.origin_culture = data["origin_culture"]
     state.origin_religion = data["origin_religion"].duplicate(true)

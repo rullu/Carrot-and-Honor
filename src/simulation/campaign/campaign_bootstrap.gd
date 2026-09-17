@@ -2,16 +2,43 @@ class_name CampaignBootstrap
 extends RefCounted
 
 
+static func new_campaign(campaign_seed: String, days_per_year: int,
+        player_realm_id: String = "") -> Dictionary:
+    var generator: CampaignStartGenerator = CampaignStartGenerator.new()
+    var generated: Dictionary = generator.generate(campaign_seed, days_per_year)
+    if generated["cast"] == null:
+        return {"state": null, "errors": generated["errors"], "attempts": generated["attempts"], "rejections": generated["rejections"]}
+    var result: Dictionary = from_generated(generated["cast"], player_realm_id)
+    result["attempts"] = generated["attempts"]
+    result["rejections"] = generated["rejections"]
+    return result
+
+
+static func from_generated(cast: Dictionary, player_realm_id: String = "") -> Dictionary:
+    var world: CampaignStartWorld = CampaignStartWorld.new()
+    var errors: PackedStringArray = CampaignStartValidator.validate(cast, world)
+    if errors.is_empty():
+        errors = CampaignStartValidator.soft_sanity(cast)
+    if not errors.is_empty():
+        return {"state": null, "errors": errors}
+    return from_world(cast["realm_setups"], cast["character_setups"], cast["dynasty_setups"],
+        cast["campaign_seed"], int(cast["generator_version"]), int(cast["days_per_year"]), player_realm_id)
+
+
 # Capitals/rulers/official identity are supplied by a scenario, not invented by
 # the frozen ownership/identity adapter. Tests supply explicitly synthetic roles.
 static func from_world(
         realm_setups: Array[RealmState], character_setups: Array[CharacterState],
-        dynasty_setups: Array[DynastyState], player_realm_id: String = ""
+        dynasty_setups: Array[DynastyState], campaign_seed: String,
+        generator_version: int, days_per_year: int, player_realm_id: String = ""
 ) -> Dictionary:
     var catalogue: RefCounted = WorldIdentityCatalogue.load_default()
     if catalogue == null:
         return {"state": null, "errors": PackedStringArray(["Canonical world cannot be loaded."])}
     var state: CampaignState = CampaignState.new()
+    state.campaign_seed = campaign_seed
+    state.generator_version = generator_version
+    state.days_per_year = days_per_year
     state.world_binding = CampaignWorldBinding.fingerprint()
     state.player_realm_id = player_realm_id
     state.retired_ids["provinces"] = CampaignWorldBinding.retired_province_ids()

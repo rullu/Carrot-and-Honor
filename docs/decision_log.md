@@ -1,5 +1,23 @@
 # Technical Decision Log
 
+## DEV-030 - Deterministic campaign-start cast and separate Day-1 validation
+
+**Date:** 2026-09-18
+
+**Status:** Implemented and verified
+
+Implement the newest FINAL SEALED campaign-start authority as a narrow extension to schema 2: personal given name, lineage name/style, sex, signed birth tick, opaque seed, generator version and configured year length. Preserve the existing registry/session/codec/world adapter. Reuse permanent family graph validation before bootstrap; keep Day-1 rules and broad soft sanity in a separate service. Later unions, foreign marriages, child succession and family evolution remain representable.
+
+Use the exact transcribed sealed name/affinity/Seat tables, a versioned SHA-256 counter stream, sorted Realm iteration and bounded complete-world retries. Separate ID allocation from names and semantic roles. Apply player Realm selection after generation. Save the actual cast; never regenerate on load. Bootstrap alone initializes the existing neutral diplomatic pairs.
+
+Choose one bounded optional sibling/known parent/collateral branch, unbiased lineage-parent sex, age-aware young marital weights, exact-tick oldest-child succession with an opaque-ID tie break, and global unique lineage selection without replacement. Exhausted pools fail the attempt. Detailed choices, technical year-length bound, golden hash and verification are recorded in `gameplay_state/campaign_start_v1.md`; generation-affecting changes require a version bump.
+
+The dirty checkout is preserved. An isolated branch/worktree contains this milestone; the pending Political fixture's three schema edits are provided as a tested patch. DEV-027..029 are reserved for the accepted uncommitted presentation handover. Add LF attributes for four previously hash-locked world files after fresh-checkout CRLF conversion exposed preservation-test failures; their content and tests remain unchanged.
+
+**Verification:** 22/22 direct suites; 308 focused checks; 1,000 deterministic seeds with 393,729 checks; all four pending presentation compatibility suites; exact sealed table comparison; example production bootstrap/atomic save; clean editor and warnings-as-errors script scans. No parser failures or new warnings. Evidence and deferred boundaries are in the milestone report.
+
+---
+
 Repository-level technical decisions are recorded here. Game-design decisions remain in the design bibles.
 
 ---

@@ -1,5 +1,9 @@
 # Project Index
 
+## Campaign-start authority and implementation
+
+[`design_authority/FCAH_Campaign_Start_Procedural_Cast_Naming_Generator_v1_FINAL_SEALED_2026-09-18.txt`](design_authority/FCAH_Campaign_Start_Procedural_Cast_Naming_Generator_v1_FINAL_SEALED_2026-09-18.txt) supersedes older campaign-start/naming drafts for this milestone. [`gameplay_state/campaign_start_v1.md`](gameplay_state/campaign_start_v1.md) owns the implemented API, tuning decisions and verification. The September 18 changelog records this delivery; the September 17 handover is retained unchanged.
+
 This file explains where project truth lives and which document owns which type of information.
 
 ## Locked gameplay-state authority

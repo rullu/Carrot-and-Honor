@@ -3,6 +3,7 @@ extends RefCounted
 
 
 const ROOT_FIELDS: Dictionary = {
+    "campaign_seed": "seed", "generator_version": "positive_int", "days_per_year": "positive_int",
     "schema_version": "positive_int", "world_binding": "text",
     "player_realm_id": "text", "game_over": "bool", "retired_ids": "object",
     "provinces": "array", "realms": "array", "characters": "array",
@@ -81,7 +82,7 @@ static func validate_data(data: Variant) -> PackedStringArray:
         return errors
     var state: CampaignState = CampaignState.from_data(data)
     _validate_provinces_and_realms(state, errors)
-    _validate_characters_and_dynasties(state, errors)
+    validate_family_graph(state, errors)
     _validate_relationships_and_wars(state, errors)
     _validate_claims(state, errors)
     if not state.world_binding.is_empty():
@@ -129,13 +130,15 @@ static func _living_reference(state: CampaignState, id: String, context: String,
         errors.append(context + " must resolve to a living Character.")
 
 
-static func _validate_characters_and_dynasties(state: CampaignState, errors: PackedStringArray) -> void:
+static func validate_family_graph(state: CampaignState, errors: PackedStringArray) -> void:
     var ancestry: Dictionary = {}
     for character: CharacterState in state.characters.values():
         if not state.dynasties.has(character.dynasty_id):
             errors.append("Character %s has an unresolved Dynasty." % character.character_id)
         if not character.realm_id.is_empty() and not state.realms.has(character.realm_id):
             errors.append("Character %s has an unresolved allegiance." % character.character_id)
+        if character.parent_ids.size() > 2:
+            errors.append("Character may have at most two known actual parents.")
         ancestry[character.character_id] = character.parent_ids
         for id: String in character.parent_ids:
             if id == character.character_id or not state.characters.has(id):

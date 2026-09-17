@@ -1,0 +1,69 @@
+{
+  "attempt_histogram": {
+    "1": 979,
+    "2": 20,
+    "3": 1
+  },
+  "characters": 144416,
+  "deceased_spouses": 3849,
+  "dynasties": 70990,
+  "elapsed_ms": 88030,
+  "empty_heirs": 26378,
+  "female_heirs": 7939,
+  "maximum_lineage_pool_use": {
+    "central": 18,
+    "eastern": 15,
+    "kharven": 7,
+    "mediterranean": 19,
+    "northern": 9,
+    "western": 24
+  },
+  "repeated_given_names": 41970,
+  "seeds": 1000,
+  "stat_ranges": {
+    "childless": [
+      18,
+      34
+    ],
+    "large_family": [
+      0,
+      7
+    ],
+    "male": [
+      25,
+      40
+    ],
+    "old": [
+      0,
+      12
+    ],
+    "remarried": [
+      0,
+      3
+    ],
+    "young": [
+      0,
+      10
+    ]
+  },
+  "unique_casts": 1000,
+  "date": "2026-09-18",
+  "engine": "Godot 4.7.1.stable.official.a13da4feb",
+  "seed_pattern": "sealed-v1-stress/{0..999}",
+  "days_per_year": [
+    1,
+    360,
+    365,
+    400
+  ],
+  "focused_checks": 308,
+  "stress_checks": 393729,
+  "direct_suites_passed": 22,
+  "pending_presentation_compatibility_suites_passed": 4,
+  "golden_cast_sha256": "7b025d69d906c30e3c427cd45df3108584a5f46f5cafbe912437ae62cb14317c",
+  "golden_seed": "For Carrot and Honour / v1",
+  "golden_days_per_year": 365,
+  "editor_scan": "clean",
+  "warnings_as_errors_parse": "clean",
+  "name_table_transcription": "exact sealed match"
+}

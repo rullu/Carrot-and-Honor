@@ -1,5 +1,15 @@
 # Code Map
 
+## Campaign start v1
+
+- `src/simulation/campaign/start/campaign_start_world.gd` adapts canonical Realm identity, Province religion and sealed fixed Seats without changing world authority.
+- `campaign_start_names.gd` selects from sealed pools with 5:3:1 affinities and the 8% unisex overlay. `campaign_start_random.gd` supplies an engine-independent SHA-256 counter stream.
+- `campaign_start_generator.gd` builds the bounded family cast and retries deterministically. `campaign_start_validator.gd` owns Day-1 family/identity/succession rules and separate whole-world soft sanity.
+- `CampaignBootstrap.new_campaign()` and `from_generated()` validate before the existing `from_world()` adapter. Permanent validation, session publication and save/load follow the established paths.
+- `data/campaign/campaign_start_v1.json` contains exactly the sealed lexical tables/affinities and Seat references. `tools/campaign/build_campaign_start_data.js --check` verifies its transcription; `inspect_campaign_start.gd` creates, inspects and optionally saves real campaigns.
+- `tests/campaign_start_test.gd` verifies rejection paths, integration, schema, naming and determinism; `campaign_start_stress_test.gd` tests 1,000 deterministic seeds by default. `tests/support/campaign_start_fixture.gd` only provides detached test copies/wire views.
+- `docs/gameplay_state/campaign_start_v1.md` records the current contract, replacing the foundation report's historical schema-1/setup descriptions.
+
 The project contains verified pure-data foundations, a narrow province-interaction gameplay wrapper and directly executable headless tests. `project.godot` still has no configured main scene.
 
 ## Campaign state foundation (DEV-026)

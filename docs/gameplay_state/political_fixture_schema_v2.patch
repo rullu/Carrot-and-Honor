@@ -1,0 +1,22 @@
+diff --git a/tests/political_map_mode_test.gd b/tests/political_map_mode_test.gd
+--- a/tests/political_map_mode_test.gd
++++ b/tests/political_map_mode_test.gd
+@@ -177,15 +177,15 @@ func _canonical_session(catalogue: RefCounted) -> CampaignSession:
+         realms.append(realm)
+         var dynasty: DynastyState = DynastyState.new()
+         dynasty.dynasty_id = "political_fixture_house_" + String(realm_id)
+-        dynasty.house_name = "Political Fixture " + String(realm_id)
++        dynasty.lineage_name = "Political Fixture " + String(realm_id)
+         dynasties.append(dynasty)
+         var character: CharacterState = CharacterState.new()
+         character.character_id = realm.current_ruler_id
+-        character.display_name = "Political Fixture Ruler " + String(realm_id)
++        character.given_name = "Political Fixture Ruler " + String(realm_id)
+         character.dynasty_id = dynasty.dynasty_id
+         character.realm_id = String(realm_id)
+         characters.append(character)
+-    var result: Dictionary = CampaignBootstrap.from_world(realms, characters, dynasties, "R028")
++    var result: Dictionary = CampaignBootstrap.from_world(realms, characters, dynasties, "political-fixture", 1, 365, "R028")
+     if result["state"] == null:
+         return null
+     return CampaignSession.create(result["state"])["session"]

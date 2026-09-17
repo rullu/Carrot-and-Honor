@@ -6,10 +6,12 @@ extends RefCounted
 # exercise architecture independently of authored FCAH character/capital content.
 static func state() -> CampaignState:
     var state: CampaignState = CampaignState.new()
+    state.campaign_seed = "synthetic-fixture"
+    state.days_per_year = 365
     for id: String in ["house_oak", "house_ash", "house_historical"]:
         var dynasty: DynastyState = DynastyState.new()
         dynasty.dynasty_id = id
-        dynasty.house_name = "Fixture " + id
+        dynasty.lineage_name = "Fixture " + id
         state.dynasties[id] = dynasty
     for entry: Array in [
         ["rabbit_7", "house_oak", "R002"],
@@ -20,7 +22,7 @@ static func state() -> CampaignState:
     ]:
         var character: CharacterState = CharacterState.new()
         character.character_id = entry[0]
-        character.display_name = "Fixture " + entry[0]
+        character.given_name = "Fixture " + entry[0]
         character.dynasty_id = entry[1]
         character.realm_id = entry[2]
         character.alive = entry[0] != "ancestor"

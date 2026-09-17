@@ -1,5 +1,20 @@
 # Implementation Plan
 
+## Campaign-Start Procedural Cast + Naming + Generator v1
+
+**Status: IMPLEMENTED AND VERIFIED (2026-09-18).**
+
+- [x] Audit HEAD `43a5438`, locked architecture, newest sealed authority and September 17 handover; isolate pre-existing presentation work.
+- [x] Introduce strict schema 2 with given/lineage names, sex, signed birth ticks, lineage style and explicit seed/version/year length.
+- [x] Transcribe all sealed naming pools, affinities, expansion entries and 43 Seats; preserve world geography and identity.
+- [x] Implement deterministic complete-cast generation, hard start validation, broad soft sanity and bounded retries.
+- [x] Integrate with canonical bootstrap, permanent validation, session publication and JSON/file save/load.
+- [x] Verify 1,000 deterministic seeds, complete replay, varied casts, ancestry, succession, widow/remarriage, uniqueness and pool capacity.
+- [x] Pass all 22 direct suites, 308 focused and 393,729 stress checks; verify pending presentation compatibility separately.
+- [x] Complete scope review, documentation and clean editor/warnings-as-errors checks; deliver on isolated branch `campaign-start-v1`.
+
+See `gameplay_state/campaign_start_v1.md`. Calendar presentation, death timing, extended succession, elections, traits and gameplay UI remain separately scoped future work.
+
 ## Logic Foundation Pass 1
 
 **Status: IMPLEMENTED AND VERIFIED (2026-09-17).** This separately authorized state-foundation milestone supersedes the older simulation stop conditions for this scope only.
