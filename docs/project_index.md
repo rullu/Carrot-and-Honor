@@ -1,5 +1,13 @@
 # Project Index
 
+## Repository integration record
+
+[`gameplay_state/repository_integration_2026-09-18.md`](gameplay_state/repository_integration_2026-09-18.md) records the combined main baseline, source commits, dirty-work preservation, exact verification and integration-only changes. The accompanying integration changelog is implementation history, not a revision to sealed design authority.
+
+## Campaign-start authority and implementation
+
+[`design_authority/FCAH_Campaign_Start_Procedural_Cast_Naming_Generator_v1_FINAL_SEALED_2026-09-18.txt`](design_authority/FCAH_Campaign_Start_Procedural_Cast_Naming_Generator_v1_FINAL_SEALED_2026-09-18.txt) supersedes older campaign-start/naming drafts for this milestone. [`gameplay_state/campaign_start_v1.md`](gameplay_state/campaign_start_v1.md) owns the implemented API, tuning decisions and verification. The September 18 changelog records this delivery; the September 17 handover is retained unchanged.
+
 This file explains where project truth lives and which document owns which type of information.
 
 ## Locked gameplay-state authority
@@ -101,7 +109,7 @@ Gameplay 001 now instances the locked NaturalWorld and adds province lookup, hov
 
 The corrected 100-province topology and dual-sided political border presentation are manually accepted. `data/world_map/astra_province_corrections.json` is the version-controlled correction authority over the immutable Azgaar export; the runtime JSON and coverage report are deterministic derivatives. DEV-022 records stable/retired ID policy, complete playable-land coverage and inland-water ownership.
 
-A separately authorised settlement representation prototype is also present for review in the real Gameplay 001 wrapper. It compares the exact supplied 2D image with a Godot primitive blockout at matching anchors in provinces 67 and 54, without adding settlement state or changing the locked world.
+The accepted 2D/2.5D settlement representation prototype remains in Gameplay 001 at the unchanged province 67/54 anchors. Its earlier 3D comparison is retained for reference. The September 17 sealed handover records acceptance of the current miniature and scale; this adds no settlement state or change to the locked world.
 
 Stage 1 foundation work is implemented. The explicit September 2026 Astra tasks delivered full-continent Terrain3D data, aligned mask QA, the initial 82-province data layer, a diagnostic biome preview and a separate textured surface preview; the authoritative corrected layer now contains 100 active provinces. The older static-map brief and six-province restriction do not describe this authorized terrain work; DEV-016 records that scoped reconciliation. The subsequent final-natural-world assignment explicitly authorizes natural decoration, water, lighting and surface completion; DEV-017 records this extension. Province rendering, gameplay expansion and interaction-gate Pass remain separate.
 

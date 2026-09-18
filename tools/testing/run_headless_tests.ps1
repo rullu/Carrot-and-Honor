@@ -1,6 +1,7 @@
 param(
     [string[]]$TestNames = @(),
-    [string]$Godot = 'godot'
+    [string]$Godot = 'godot',
+    [ValidateRange(1, 3600)][int]$TimeoutSeconds = 120
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
@@ -17,7 +18,7 @@ foreach ($testName in $TestNames) {
     [System.IO.File]::WriteAllText($logPath, '')
     $arguments = @('--headless', '--path', "`"$projectRoot`"", '--log-file', "`"$logPath`"", '--script', "res://tests/$testName.gd")
     $process = Start-Process -FilePath $godotExecutable -ArgumentList $arguments -WindowStyle Hidden -PassThru
-    $finished = $process.WaitForExit(120000)
+    $finished = $process.WaitForExit($TimeoutSeconds * 1000)
     if (-not $finished) { $process.Kill(); $failed += $testName; Write-Output "TIMEOUT $testName"; continue }
     $process.Refresh()
     $output = if (Test-Path -LiteralPath $logPath) { Get-Content -Raw -LiteralPath $logPath } else { '' }

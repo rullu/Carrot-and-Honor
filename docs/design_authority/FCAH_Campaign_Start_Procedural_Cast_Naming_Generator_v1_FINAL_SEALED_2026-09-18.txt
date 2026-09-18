@@ -1,0 +1,1121 @@
+FOR CARROT AND HONOUR
+CAMPAIGN-START PROCEDURAL CAST + NAMING + GENERATOR V1
+FINAL CONSOLIDATED SEALED DESIGN CANON
+Date: 2026-09-18
+Status: FINAL SEALED DESIGN CANON FOR THIS MILESTONE — IMPLEMENTATION NOT YET AUTHORIZED
+
+======================================================================
+1. AUTHORITY, SUPERSESSION AND FINAL AUDIT RESULT
+======================================================================
+
+This file is the single consolidated authority for FCAH campaign-start procedural cast generation, character/lineage naming inputs, generator-v1 tuning, start-only validation, and the narrow state-schema additions required by that feature.
+
+It supersedes for this milestone:
+- FCAH_Campaign_Start_Procedural_Cast_Milestone_2026-09-17.txt
+- FCAH_Campaign_Start_Procedural_Cast_and_Naming_SEALED_2026-09-17.txt
+- the provisional/open status of the Lineage Expansion Addendum in FCAH Character Naming — Draft 1 v2.
+
+Those older files remain historical records. Where wording differs, THIS FILE wins for campaign-start procedural cast / naming / generator v1.
+
+FINAL SWEEP RESULT:
+- No hard contradiction requiring redesign was found.
+- The locked Master Bible succession rule remains compatible: eldest legitimate child inherits regardless of gender.
+- The implemented campaign foundation is compatible with the generator direction, but requires the narrow schema changes recorded below.
+- Start-only restrictions are intentionally separated from permanent campaign invariants so later gameplay may create personal unions, foreign marriages, succession crises, etc.
+- The deterministic SimulationClock can supply current tick state without forcing a finished calendar; age uses a separately persisted days_per_year setting.
+- Updated Naming Draft v2 changes the earlier naming draft only by adding the lineage expansion appendix; its original naming philosophy/pools remain intact.
+- The expanded lineage pools remove the practical starting-lineage capacity concern.
+
+This seal does NOT authorize Codex implementation. Future changes to the rules below require an explicit decision to reopen this milestone.
+
+======================================================================
+2. SOURCE / AUTHORITY SWEEP
+======================================================================
+
+Cross-checked against:
+- FCAH Character Naming — Draft 1 v2 (including Lineage Expansion Addendum)
+- prior sealed campaign-start + culture-weighted naming log (2026-09-17)
+- For Carrot and Honour Master Bible v1.6 — Dynasty & Diplomacy / Decision Register
+- current Gameplay State Architecture / Logic Foundation implementation snapshots
+- CampaignBootstrap / CampaignValidator / CharacterLifecycle behavior
+- deterministic SimulationClock implementation and round-trip test record
+- locked World Identity / starting ownership / Realm Seat decisions already established by project canon
+
+Authority interpretation:
+- Locked world identity and Realm/Province canon outrank stale geographic wording in older naming material.
+- Naming Draft v2 supplies the lexical/name-style foundation.
+- This file supplies the final v1 affinity weights, expansion classifications, generator tuning, start-only validation and narrow state-schema contract.
+
+======================================================================
+3. FIXED WORLD FACTS — NOT PROCEDURAL
+======================================================================
+
+Preserved and not regenerated:
+- 100 active Provinces.
+- 43 starting Realms.
+- frozen starting Province ownership / Realm footprints.
+- locked Province culture and religion/belief data.
+- locked Realm identity, political identity, style/type and special institutional rules.
+- fixed Realm Seats listed below.
+
+Starting Realm Seats:
+R001 -> P106 Avelmere
+R002 -> P37 Cormere
+R003 -> P107 Bramblewick
+R004 -> P41 Lindenhagen
+R005 -> P66 Harthmark
+R006 -> P70 Werrenfeld
+R007 -> P54 Valecour
+R008 -> P51 Seravelle
+R009 -> P32 Eldsund
+R010 -> P24 Arkenfeld
+R011 -> P25 Haselwick
+R012 -> P53 Conejolandia
+R013 -> P52 Harenne
+R014 -> P27 Bellaro
+R015 -> P34 Ravessa
+R016 -> P26 Dornwacht
+R017 -> P50 Corvessa
+R018 -> P49 Maravela
+R019 -> P73 Solvarra
+R020 -> P69 Orellan
+R021 -> P35 Varezza
+R022 -> P103 Keldren
+R023 -> P105 Eydvard
+R024 -> P18 Varnskar
+R025 -> P22 Namaruun
+R026 -> P92 Talmir
+R027 -> P1 Avelor
+R028 -> P16 Azharion Vel-Kareth
+R029 -> P45 Jereth
+R030 -> P47 Vorthyrion
+R031 -> P61 Sorelion
+R032 -> P15 Damor
+R033 -> P77 Velcora
+R034 -> P17 Aradon Merekh
+R035 -> P93 Sarqai
+R036 -> P80 Mino
+R037 -> P101 Belisara
+R038 -> P99 Zahraim Darun
+R039 -> P89 Zarvan
+R040 -> P100 Veyran
+R041 -> P5 Meyru
+R042 -> P14 Ramekh
+R043 -> P6 Samera
+
+Realm Seat remains a lightweight seat-of-government / Realm.capital_province_id reference only. It does not itself create a capital-city class or automatic economic, building, fortification or visual bonuses.
+
+R028 special remains preserved: P30 Hasenmark is the deliberate Carthen / Living Crown enclave; R028 therefore uses P16 Azharion Vel-Kareth as its fixed Seat.
+
+R008 Seravelle remains the unique Crowned Communion holy state.
+
+======================================================================
+4. GENERATION TIMING, SEED AND REPRODUCIBILITY
+======================================================================
+
+- Generate the complete starting cast for all 43 Realms once, before bootstrap and before play.
+- Do not lazily generate rulers when first encountered.
+- One campaign seed drives the entire starting cast.
+- campaign_seed is an opaque NONEMPTY STRING.
+- generator_version is persisted alongside the seed; v1 begins at integer 1.
+- Player Realm selection must not influence cast generation. The same generation inputs produce the same 43-Realm cast regardless of the player Realm chosen afterward.
+- No player-facing reroll button.
+- Any change to generation logic, generation-affecting name data or locked tuning requires a generator_version bump if it would change reproducibility.
+
+Reproducibility contract:
+SAME campaign_seed + SAME generator_version + SAME canonical generation authorities/configuration (including days_per_year) => SAME accepted starting cast and SAME deterministic opaque generated IDs.
+
+The generated cast itself is serialized in the save; loading a save does not regenerate it. The seed/version are provenance and recreation/debug information.
+
+Deterministic retries:
+- hard/soft validation retries follow a deterministic attempt sequence derived from the same seed;
+- retries are bounded; exact attempt cap is implementation detail;
+- failed attempts never relax locked rules;
+- if no valid cast is produced within the bounded attempts, campaign creation fails loudly.
+
+======================================================================
+5. MINIMAL GENERATOR OUTPUT / OWNERSHIP BOUNDARY
+======================================================================
+
+High-level generator result:
+- campaign_seed
+- generator_version
+- days_per_year
+- realm_setups
+- character_setups
+- dynasty_setups
+
+The generator does NOT procedurally create:
+- Provinces
+- Province borders/geometry
+- starting ownership
+- canonical Realm identity/style/type
+- canonical Province culture/religion
+- Realm-pair RelationshipState records
+- wars
+- economy/history/claims filler
+
+Flow:
+Campaign-start generator -> CampaignStartValidator -> CampaignBootstrap -> permanent CampaignValidator
+
+CampaignStartValidator owns Day-1-only restrictions. CampaignValidator continues to own permanent structural/lifecycle invariants. This separation is required because later gameplay may legitimately create situations forbidden at campaign start, including personal unions and inter-Realm marriages.
+
+======================================================================
+6. NARROW STATE-SCHEMA DELTA — SEALED
+======================================================================
+
+CharacterState final v1 campaign-start-facing fields:
+- character_id
+- given_name              [rename from display_name]
+- alive
+- sex                      [male | female]
+- birth_tick               [authoritative birth/age fact]
+- dynasty_id
+- realm_id
+- personal_culture
+- personal_religion
+- parent_ids
+- partner_ids
+- traits
+- claims
+- history
+
+Rules:
+- given_name stores ONLY the personal given name, never title/House/territory/epithet/regnal number.
+- parent_ids is unordered and contains at most two known actual parents in v1.
+- children are derived from parent_ids; no children_ids field.
+- partner links are reciprocal.
+- age is derived; no duplicate age field.
+
+DynastyState final v1 campaign-start-facing fields:
+- dynasty_id
+- lineage_name             [rename from house_name]
+- lineage_style            [one of: house, dynasty, clan, family, lineage]
+- parent_dynasty_id
+- origin_culture
+- origin_religion
+- claims
+- history
+
+Rules:
+- lineage is distinct from territory.
+- v1 generated default lineage_style by naming family:
+  Western = house; Mediterranean = family; Northern = lineage; Central/Imperial = house; Kharven = clan.
+- Eastern/Avenic = dynasty for the ruling lineage and house for unrelated supporting/spouse lineages by default; future authored exceptions may override presentation.
+- Kharven public style is always clan in v1.
+- Newly generated starting lineages use parent_dynasty_id = ""; no procedural cadet branches at start.
+- origin_culture / origin_religion are immutable historical origins, not permanent restrictions on descendants.
+
+CampaignState narrow additions:
+- campaign_seed: nonempty String
+- generator_version: integer
+- days_per_year: positive integer campaign timing configuration
+
+The current strict schema is version 1 and still uses display_name / house_name and lacks these additions. Implementation must therefore update the strict schema version (v2 is the intended next schema) and update fixtures/tests. There are no production campaign saves requiring a migration path at this milestone.
+
+======================================================================
+7. AGE / TIME CONTRACT — SEALED
+======================================================================
+
+- Campaign start is simulation tick 0.
+- Characters born before campaign start have negative birth_tick values.
+- For a living character, age is derived from current simulation tick and persisted days_per_year.
+- birth_tick remains the sole authoritative birth/age fact; do not also store age_years.
+- days_per_year is deliberately separate from unfinished month/year presentation. This seal does not choose month names, number of months, seasons or a final calendar.
+- Campaign creation must receive a positive days_per_year configuration and persist it; changing it changes generation authorities and therefore reproducibility.
+- Starting ruler and living starting spouse minimum age: 18.
+- Starting child rulers are excluded in generator v1.
+- Hard parent/child floor: every recorded parent is at least 16 years older than the child. This is a generation sanity floor, not a universal marriage/social law.
+- Generated living adult ages must be bounded; v1 technical ceiling is 85 unless a future authored exception explicitly overrides it.
+- Deceased v1 relatives retain birth_tick, but this milestone does not introduce structured death_tick / age-at-death storage.
+
+Starting ruler age-band weights:
+- 18–24: 10%
+- 25–39: 32%
+- 40–59: 45%
+- 60–85: 13%
+
+======================================================================
+8. STARTING RULERS, SUCCESSION AND REALM SETUP — SEALED
+======================================================================
+
+- Exactly 43 distinct living starting rulers: one per active starting Realm.
+- No starting personal unions; the same Character may rule multiple Realms later in gameplay because permanent architecture intentionally allows that.
+- Ruler sex tuning: 80% male / 20% female over generation rolls; no culture-specific sex bias.
+- Default normal succession_law_id = eldest_legitimate_child.
+- Seravelle succession_law_id = elected_office.
+- Starting legitimacy = "unresolved" for all Realms. This is a mechanic placeholder, not a political claim that the ruler is illegitimate.
+- Normal recognized heir = oldest living legitimate child of the ruler, regardless of sex.
+- For campaign-start v1, recognized_heir_id may be empty when no legitimate ruler child exists. Do not manufacture a sibling/cousin just to fill the field.
+- Starting recognized_heir_id does not point to siblings/cousins in v1. Extended succession order is future work.
+- Seravelle gets no normal hereditary recognized heir.
+- Starting ruler children are alive at campaign start. No deceased ruler children are generated in v1, avoiding unresolved grandchild/representation succession branches.
+- During later gameplay there is no minimum succession age: an infant/newborn lawful heir may inherit; regency mechanics are future work.
+
+Realm setup adapter:
+- official_culture = Realm canonical primary_culture.
+- official_religion = full canonical religion record of the Realm's fixed Seat Province, unless a future explicit authored Realm-level exception exists.
+- These are copied from canon/setup data; the family generator does not invent them.
+- Realm Seat/capital is copied from locked setup.
+- original/current political identity, realm_style and polity_type remain canon/bootstrap-owned.
+- carrots, faith, claims and history remain neutral/default unless future authored content explicitly supplies them.
+
+======================================================================
+9. FAMILY / MARRIAGE CONSTRUCTION — SEALED
+======================================================================
+
+Starting marital-status weights:
+- unmarried: 35%
+- married: 55%
+- widowed: 9%
+- remarried: 1%
+
+Age-aware application:
+- widowhood skews away from very young rulers;
+- remarriage is effectively unavailable to very young rulers;
+- exact internal conditional weighting may be implemented freely so long as the above world-level direction and hard age rules are preserved.
+
+State representation:
+- unmarried => no spouse record; because starting bastards are excluded, unmarried also => 0 legitimate children.
+- married => one living spouse.
+- widowed => one deceased spouse Character, even if childless; otherwise widowed would be indistinguishable from never married.
+- remarried => one deceased former spouse + one living current spouse.
+- at most one living spouse at campaign start; no random polygamy v1.
+- deceased spouse is a proper CharacterState with permanent ID, alive=false and reciprocal partner reference; never current ruler/heir.
+
+No starting inter-Realm marriages. Ruler, spouse, generated children and generated close relatives start with realm_id equal to that Realm. Deceased spouse/parent retains the last relevant Realm affiliation.
+
+Spouse identity:
+- spouse normally weighted toward ruler culture;
+- mixed culture/religion is allowed only where the Realm's canonical starting footprint genuinely supports that identity;
+- generator must use explicit canonical culture/religion data and must never infer religion from culture name alone.
+
+Children — conditional distribution used only for married/widowed/remarried rulers:
+- 0 children: 42%
+- 1 child: 26%
+- 2 children: 18%
+- 3 children: 9%
+- 4 children: 4%
+- 5 children: 1%
+
+These are weights, not quotas. Because unmarried rulers are forced to 0 children, overall campaign childlessness is intentionally higher than 42%.
+
+Starting illegitimate children/bastards are excluded from v1.
+
+Bloodline inheritance:
+- ruler keeps own lineage.
+- spouse keeps own birth lineage; marriage does not merge lineages.
+- legitimate children belong to the reigning ruler's lineage regardless of ruler sex.
+- no patrilineal/matrilineal marriage-mode system in v1.
+- every unrelated spouse has a real DynastyState/lineage record.
+- ruler siblings share ruler lineage; spouse siblings/parents use spouse lineage logic as appropriate.
+
+Generated parents:
+- if ruler parents are generated, one is chosen as the lineage parent and shares the ruler's dynasty_id; the other may have an unrelated lineage.
+- lineage-parent choice has no sex bias.
+- no extra persistent "lineage parent" field is required; resulting dynasty_id relationships are sufficient.
+
+Personal culture/religion:
+- ruler normally starts with Realm official culture/religion unless future authored exception.
+- spouse keeps own generated personal culture/religion.
+- ruler children start with ruler-parent's culture/religion.
+- future upbringing/conversion/assimilation may change personal identity later.
+
+======================================================================
+10. FAMILY-TREE SCOPE / OPTIONAL RELATIVES — SEALED
+======================================================================
+
+Core generation: ruler + marital state + children needed by that state.
+
+Extended Family Tuning v1:
+- ruler sibling(s): 35% chance to generate at least one
+- living parent(s): 20%
+- aunt/uncle/cousin branch: 5%
+- grandparents: not generated by default
+- distant relatives: only if later required for a concrete authored/claimant purpose
+
+These rolls do not independently explode into giant trees. Generation stops once a coherent bounded family exists.
+
+Dead relatives are generated only when they represent selected state or are needed for coherence (e.g. widowed status, parent of a living child, half-sibling explanation). Do not generate dead relatives as decorative genealogy.
+
+======================================================================
+11. GENERATED IDS / IDENTITY — SEALED
+======================================================================
+
+- Character and Dynasty IDs are deterministic, stable, opaque, case-sensitive strings.
+- IDs do not encode display name, title, Realm, job or lineage semantics.
+- Example style only: character_7f3a91c2; the exact encoding is implementation detail.
+- Same generation inputs/version produce the same generated IDs.
+- A character changing name/title/Realm does not change ID.
+- Given names may repeat freely; even the same given-name + lineage combination may recur across generations. IDs disambiguate identity.
+- Unrelated starting lineage identities/names must be unique within a campaign.
+- No accidental procedural cross-Realm starting-dynasty webs.
+
+======================================================================
+12. NAMING MODEL / WEIGHTS — FINAL V1
+======================================================================
+
+FCAH does not use one universal first-name + surname system. Personal given name, lineage, patronymic, territorial style, epithet and office/title are separate concepts.
+
+CharacterState.given_name contains only the given name. DynastyState.lineage_name contains the lineage display name. Titles, territorial style, epithet and regnal numbering are separate presentation/history layers.
+
+For multi-culture regional master pools, affinity weights are:
+- Primary = 5
+- Shared = 3
+- Rare = 1
+
+Anything not explicitly Primary or Rare for a culture is Shared. Cultural affinity and independent base-frequency are conceptually separate. For Generator v1, ordinary non-soft entries use base frequency 1 unless a future authored/tuning table explicitly overrides it; therefore affinity 5/3/1 is the effective ordinary-name weighting.
+
+Soft/rabbit-world overlay — Generator v1:
+- 8% chance that a generated given-name selection uses the global soft-name overlay.
+- Overlay is unisex; this allows names such as Briar on any sex, consistent with the naming draft's intended use.
+- natural soft names use normal overlay weight: Hazel, Hasel, Rowan, Briar, Sorrel, Linden.
+- conspicuous soft names use approximately one-third of normal overlay weight: Mallow, Fern, Clover, Thistle, Bramble, Moss.
+- overlay-listed strings that also appear in regional pools must not be double-counted as ordinary high-frequency entries; implementation should treat the overlay branch as the controlling soft-name frequency mechanism.
+- 8% is v1 tuning, not sacred lore and may be adjusted after generated-cast inspection.
+
+The older ~70% serious / ~20% FCAH-native / ~10% soft balance remains an aesthetic direction, not a second mechanical quota.
+
+======================================================================
+13. LINEAGE POOL CAPACITY / EXPANSION — SEALED
+======================================================================
+
+Naming Draft v2 added lineage-only capacity so 43 ruling lineages plus unrelated spouses/remarriages/parent lines do not exhaust normal generation. Approximate totals after expansion:
+- Western ~38
+- Central / Imperial ~38
+- Mediterranean ~34
+- Eastern / Avenic ~34
+- Northern ~25
+- Kharven ~25
+
+The addendum changed no given-name pools or naming philosophy. All additions are now fully affinity-classified below where multi-culture weighting applies.
+
+======================================================================
+14. WESTERN MASTER POOL — SEALED
+======================================================================
+
+Cultures:
+- Haldren
+- Velaine
+- Carthen
+- Brevane
+
+Locked context:
+One broad Western naming/language family with regional flavour, not four
+separate invented languages.
+
+Male given names:
+Name | Primary | Rare
+-----|---------|-----
+Alaric | Haldren, Carthen | —
+Oswin | Haldren, Brevane | Velaine
+Gerwald | Haldren, Carthen | Velaine
+Adelmar | Haldren, Carthen | —
+Edric | Haldren, Brevane | Velaine
+Lucien | Velaine | Haldren
+Aldren | Haldren, Brevane | —
+Perrin | Velaine, Brevane | Carthen
+Corvin | Carthen, Velaine | —
+Gavrel | Velaine, Brevane | Haldren
+Odran | Carthen, Haldren | Velaine
+Valen | Velaine, Carthen | —
+Emeric | Velaine, Haldren | —
+Renard | Velaine, Brevane | Haldren
+Osric | Haldren, Brevane | Velaine
+Beren | Haldren, Brevane | —
+Lorcan | Brevane, Carthen | Velaine
+Ferren | Brevane, Velaine | —
+Rovan | Carthen, Brevane | —
+Werric | Haldren, Carthen | Velaine
+
+Female given names:
+Name | Primary | Rare
+-----|---------|-----
+Aveline | Velaine, Brevane | —
+Elise | Velaine, Haldren | —
+Maelis | Velaine, Brevane | Carthen
+Hedwig | Haldren, Carthen | Velaine
+Mathelda | Haldren, Carthen | Velaine
+Mirelle | Velaine | Haldren
+Celene | Velaine | Haldren
+Alwen | Haldren, Brevane | Velaine
+Sabella | Velaine, Brevane | Haldren
+Oriane | Velaine, Brevane | Haldren
+Mariel | Velaine, Brevane | —
+Yselle | Velaine, Brevane | Carthen
+Adeline | Velaine, Haldren | —
+Mereth | Haldren, Carthen | Velaine
+Odelia | Velaine, Carthen | —
+Seren | Brevane, Carthen | —
+Briar | Brevane | Carthen
+Rowan | Brevane, Haldren | Velaine
+Hasel | Haldren, Brevane | Velaine
+Linden | Haldren, Brevane | Velaine
+
+Houses:
+Name | Primary | Rare
+-----|---------|-----
+Vaudren | Velaine, Brevane | —
+Corvenne | Velaine | Haldren
+Alderwick | Brevane, Haldren | Velaine
+Lindenhart | Haldren, Carthen | Velaine
+Dornhelm | Haldren, Carthen | Velaine
+Werrental | Haldren, Carthen | Brevane
+Vaurel | Velaine, Brevane | Haldren
+Arvenne | Velaine | Carthen
+Ardenwald | Haldren, Carthen | Velaine
+Haselorn | Haldren, Carthen | —
+Montreval | Velaine, Brevane | Haldren
+Burenne | Velaine, Brevane | —
+Varenne | Velaine | Haldren
+Bramelot | Brevane, Velaine | Carthen
+Corvain | Velaine, Carthen | —
+Aldermere | Brevane, Haldren | —
+Harthwald | Haldren, Carthen | Velaine
+Velden | Carthen, Haldren | Velaine
+Rossenwick | Brevane, Haldren | Velaine
+Merrenholt | Brevane, Haldren | —
+
+Soft-name frequency note:
+Briar, Rowan, Hasel and Linden retain their cultural affinities above but should
+not become ordinary high-frequency filler merely because they are Primary.
+
+EXPANDED WESTERN LINEAGES — SEALED 2026-09-18
+Name | Primary | Rare
+-----|---------|-----
+Avermont | Velaine, Brevane | —
+Beaulren | Velaine | Haldren
+Cerdain | Velaine, Carthen | —
+Duvren | Velaine, Brevane | —
+Everen | Brevane, Haldren | —
+Falkenray | Haldren, Brevane | Velaine
+Garenne | Velaine, Brevane | —
+Havelot | Brevane, Velaine | —
+Jorvain | Velaine, Carthen | —
+Lornesse | Velaine, Brevane | —
+Mauveren | Velaine | Haldren
+Norcel | Carthen, Brevane | —
+Perravel | Brevane, Velaine | —
+Rosenne | Velaine, Brevane | —
+Tervain | Velaine, Carthen | —
+Valcrest | Carthen, Brevane | —
+Weyrden | Haldren, Carthen | Velaine
+Yvermont | Velaine, Brevane | —
+
+======================================================================
+15. MEDITERRANEAN MASTER POOL — SEALED
+======================================================================
+
+Cultures:
+- Saleran: western Mediterranean, maritime/outward-looking, closest to West.
+- Varethi: central Mediterranean heartland, courtly/ceremonial.
+- Corassi: eastern Mediterranean, increasingly old-Imperial-adjacent.
+
+Male given names:
+Name | Primary | Rare
+-----|---------|-----
+Ramiro | Saleran | Corassi
+Terenzio | Varethi | Saleran
+Leandro | Saleran, Varethi | —
+Aurelio | Varethi, Corassi | —
+Domenico | Varethi | Corassi
+Alessan | Varethi, Corassi | Saleran
+Cassio | Corassi, Varethi | —
+Valerio | Varethi, Corassi | —
+Mareno | Saleran, Corassi | —
+Renzo | Varethi, Saleran | Corassi
+Tavio | Saleran, Varethi | —
+Calisto | Varethi, Corassi | —
+Adrano | Corassi, Varethi | Saleran
+Loreno | Saleran, Varethi | —
+Vareno | Varethi, Corassi | —
+Orellio | Varethi | Saleran
+Dario | Saleran, Corassi | —
+Mavio | Saleran, Varethi | —
+Serrin | Corassi | Varethi
+Levan | Corassi | Saleran
+
+Female given names:
+Name | Primary | Rare
+-----|---------|-----
+Marcella | Varethi | Saleran
+Isadora | Saleran, Varethi | —
+Fiora | Varethi | Corassi
+Mirella | Saleran, Varethi | —
+Sabina | Varethi, Corassi | —
+Oriella | Saleran, Varethi | —
+Lucia | Varethi, Saleran | Corassi
+Marena | Saleran, Corassi | —
+Calia | Varethi, Corassi | —
+Aurelia | Varethi, Corassi | —
+Selene | Corassi, Varethi | Saleran
+Livia | Varethi | Corassi
+Isela | Saleran | Corassi
+Mirena | Saleran, Corassi | —
+Elisia | Varethi, Saleran | —
+Valera | Corassi, Varethi | —
+Soraya | Corassi | Varethi
+Ravena | Corassi | Saleran
+Nerissa | Corassi, Saleran | —
+Aressa | Corassi | Saleran
+
+Houses / family names:
+Name | Primary | Rare
+-----|---------|-----
+Bellari | Varethi, Saleran | —
+Ravellane | Varethi | Corassi
+Corvani | Corassi, Varethi | —
+Maravel | Saleran | Corassi
+Varrano | Varethi, Corassi | —
+Orelli | Varethi | Saleran
+Varelli | Varethi, Corassi | —
+Coneval | Saleran | Corassi
+Seravani | Corassi | Saleran
+Marcelli | Varethi | Corassi
+Aurellan | Varethi, Corassi | —
+Valeri | Varethi, Corassi | —
+Loravella | Saleran, Varethi | Corassi
+Cassari | Corassi, Varethi | —
+Marenzi | Saleran, Varethi | —
+Orselli | Varethi | Corassi
+Bellavere | Saleran, Varethi | —
+Terenari | Varethi | Saleran
+Solvari | Corassi, Saleran | —
+Calessa | Varethi, Saleran | Corassi
+
+Presentation:
+Mediterranean family names may be used directly in ordinary UI/speech rather
+than requiring "House X" every time.
+
+EXPANDED MEDITERRANEAN LINEAGES — SEALED 2026-09-18
+Name | Primary | Rare
+-----|---------|-----
+Alberani | Varethi, Saleran | —
+Corselli | Varethi, Corassi | —
+Daverra | Saleran, Corassi | —
+Fioranti | Varethi, Saleran | —
+Gavelli | Varethi | Corassi
+Loredani | Saleran, Varethi | —
+Maretti | Varethi, Corassi | —
+Nerelli | Varethi, Corassi | —
+Oravelli | Varethi, Saleran | —
+Palerzi | Corassi, Varethi | —
+Raverni | Corassi, Saleran | —
+Serafani | Saleran, Varethi | —
+Valdieri | Varethi, Corassi | —
+Zanelli | Varethi, Corassi | —
+
+======================================================================
+16. NORTHERN MASTER POOL — SEALED
+======================================================================
+
+Cultures:
+- Skeldren: northwestern/coastal.
+- Vaarnic: interior/eastern, harsher/continental.
+- Eldskar: strait/gateway culture with heavier Western contact.
+
+Male given names:
+Name | Primary | Rare
+-----|---------|-----
+Eirik | Skeldren, Eldskar | Vaarnic
+Hroven | Skeldren, Vaarnic | —
+Vaerik | Vaarnic, Skeldren | Eldskar
+Halvar | Skeldren, Vaarnic | —
+Rorik | Skeldren, Eldskar | —
+Fenrik | Vaarnic, Skeldren | Eldskar
+Orven | Eldskar, Skeldren | —
+Haldren | Eldskar | Vaarnic
+Torald | Vaarnic, Skeldren | —
+Varrik | Vaarnic | Eldskar
+Eskar | Eldskar, Skeldren | —
+Keld | Vaarnic, Eldskar | —
+Bram | Eldskar | Vaarnic
+Tarren | Eldskar, Skeldren | —
+Elden | Eldskar | Vaarnic
+Rauk | Vaarnic | Eldskar
+Torren | Skeldren, Vaarnic | —
+Buren | Eldskar, Skeldren | —
+Hasel | Eldskar | Vaarnic
+Werren | Vaarnic, Eldskar | —
+
+Female given names:
+Name | Primary | Rare
+-----|---------|-----
+Sigrun | Skeldren, Vaarnic | Eldskar
+Eydra | Skeldren, Eldskar | —
+Vaela | Eldskar, Skeldren | Vaarnic
+Runa | Skeldren, Vaarnic | —
+Haldis | Vaarnic, Skeldren | Eldskar
+Yrsa | Vaarnic | Eldskar
+Elska | Eldskar, Skeldren | —
+Ragna | Vaarnic, Skeldren | —
+Svala | Skeldren | Vaarnic
+Brynja | Vaarnic | Eldskar
+Varda | Vaarnic, Eldskar | —
+Hessa | Eldskar, Skeldren | —
+Thora | Skeldren, Vaarnic | —
+Asta | Skeldren, Eldskar | —
+Fenna | Eldskar, Skeldren | Vaarnic
+Eira | Eldskar, Skeldren | —
+Briar | Eldskar | Vaarnic
+Rowan | Eldskar | Vaarnic
+Sorrel | Eldskar | Vaarnic
+Meren | Eldskar, Skeldren | —
+
+Houses / lineages:
+Name | Primary | Rare
+-----|---------|-----
+Raukvar | Vaarnic | Eldskar
+Hallskar | Skeldren, Vaarnic | —
+Eydvar | Skeldren, Eldskar | —
+Raukeld | Vaarnic | Eldskar
+Varnskar | Vaarnic, Skeldren | —
+Haldren | Eldskar | Vaarnic
+Skelvar | Skeldren | Vaarnic
+Torvald | Skeldren, Eldskar | —
+Burenmark | Eldskar, Skeldren | Vaarnic
+Haselmark | Eldskar | Vaarnic
+Eldskar | Eldskar | Vaarnic
+Varrhald | Vaarnic | Eldskar
+Orvenskar | Skeldren, Eldskar | —
+Hearthvar | Skeldren, Vaarnic | —
+Werrenhald | Vaarnic, Eldskar | —
+
+Patronymics:
+- allowed as a Northern naming layer;
+- not forced onto every Northern character;
+- Draft 1 examples such as Hrovenson / Eiriksdatter demonstrate the concept;
+- exact native suffix grammar remains deferred and those example suffixes are
+  not sealed as final language rules.
+
+EXPANDED NORTHERN LINEAGES — SEALED 2026-09-18
+Name | Primary | Rare
+-----|---------|-----
+Aldskar | Eldskar, Skeldren | —
+Brekvar | Vaarnic, Skeldren | —
+Drenhald | Vaarnic, Eldskar | —
+Falkvar | Vaarnic, Skeldren | —
+Hjoren | Skeldren, Vaarnic | —
+Keldskar | Eldskar, Vaarnic | —
+Ravenskar | Skeldren, Eldskar | —
+Skorvald | Skeldren, Vaarnic | —
+Tarnvar | Vaarnic, Eldskar | —
+Yrdhald | Vaarnic, Skeldren | —
+
+======================================================================
+17. CENTRAL / IMPERIAL MASTER POOL — SEALED
+======================================================================
+
+This table covers the four Rethic Central cultures:
+- Orthean
+- Selvaran
+- Drevanic
+- Vaskari
+
+Kharven is deliberately separate in Section 13.
+
+Male given names:
+Name | Primary | Rare
+-----|---------|-----
+Cassian | Orthean, Selvaran | Vaskari
+Varek | Vaskari, Drevanic | Selvaran
+Miros | Drevanic | Orthean
+Theodrion | Orthean | Drevanic
+Radovan | Drevanic | Selvaran
+Darian | Selvaran, Orthean | —
+Belisar | Orthean | Vaskari
+Alexion | Orthean, Selvaran | Vaskari
+Orestan | Orthean | Selvaran
+Theron | Orthean, Selvaran | —
+Marcion | Orthean, Selvaran | Drevanic
+Velisar | Vaskari, Orthean | Selvaran
+Veles | Vaskari, Drevanic | Selvaran
+Jarek | Drevanic | Orthean
+Radan | Drevanic, Vaskari | Selvaran
+Damar | Vaskari, Drevanic | Orthean
+Vasko | Vaskari | Selvaran
+Sorel | Selvaran, Drevanic | Vaskari
+Obran | Drevanic, Vaskari | Orthean
+Damir | Drevanic, Vaskari | Selvaran
+
+Female given names:
+Name | Primary | Rare
+-----|---------|-----
+Selene | Orthean, Selvaran | Drevanic
+Alexara | Orthean | Vaskari
+Vesara | Vaskari, Orthean | Selvaran
+Ilena | Selvaran, Drevanic | —
+Mireva | Drevanic, Vaskari | Orthean
+Tasia | Selvaran, Orthean | Drevanic
+Elara | Orthean, Selvaran | —
+Sorela | Selvaran, Drevanic | Vaskari
+Velena | Vaskari, Drevanic | Selvaran
+Cassara | Orthean | Vaskari
+Thea | Orthean, Selvaran | Drevanic
+Darena | Selvaran, Drevanic | —
+Vesna | Drevanic | Orthean
+Zora | Drevanic, Vaskari | Selvaran
+Danira | Vaskari, Drevanic | Orthean
+Alena | Selvaran, Drevanic | —
+Mara | Drevanic, Vaskari | Orthean
+Vela | Vaskari | Selvaran
+Mirena | Selvaran, Vaskari | Orthean
+Arvena | Orthean, Vaskari | Selvaran
+
+Houses:
+Name | Primary | Rare
+-----|---------|-----
+Merovar | Orthean, Selvaran | Vaskari
+Karethar | Orthean, Vaskari | Selvaran
+Veleskar | Vaskari, Drevanic | Orthean
+Theryon | Orthean | Drevanic
+Sorevan | Selvaran, Orthean | Vaskari
+Dravek | Drevanic | Selvaran
+Varassene | Orthean, Selvaran | Drevanic
+Merevan | Selvaran, Drevanic | —
+Velisar | Vaskari, Orthean | Selvaran
+Damarion | Orthean, Vaskari | Drevanic
+Kassaren | Orthean, Selvaran | Vaskari
+Vardek | Drevanic, Vaskari | Selvaran
+Alexar | Orthean | Drevanic
+Belisarion | Orthean | Vaskari
+Soravel | Selvaran, Orthean | Vaskari
+Radevan | Drevanic, Selvaran | Orthean
+Velenar | Vaskari, Drevanic | Selvaran
+Mirekar | Drevanic, Vaskari | Orthean
+Therovar | Orthean | Vaskari
+Arvenar | Orthean, Vaskari | Selvaran
+
+Imperial presentation:
+- older Imperial dynasties may use especially archaic forms;
+- House Theryon and House Belisarion remain good Draft 1 examples;
+- this is presentation/history flavour, not a separate state system.
+
+EXPANDED CENTRAL / IMPERIAL LINEAGES — SEALED 2026-09-18
+Name | Primary | Rare
+-----|---------|-----
+Asterion | Orthean, Selvaran | —
+Branovar | Drevanic, Selvaran | Orthean
+Ceredar | Selvaran, Orthean | —
+Daskeron | Drevanic, Vaskari | Orthean
+Elenvar | Selvaran, Orthean | —
+Istranon | Orthean, Selvaran | —
+Kavrenos | Orthean, Vaskari | Drevanic
+Malovar | Drevanic, Vaskari | Orthean
+Nerathion | Orthean, Selvaran | Drevanic
+Odraven | Drevanic, Selvaran | —
+Paleron | Orthean, Selvaran | —
+Ravessar | Vaskari, Drevanic | —
+Sarkevan | Vaskari, Drevanic | Orthean
+Terenos | Orthean, Selvaran | —
+Valeskion | Orthean, Vaskari | Drevanic
+Vardaron | Vaskari, Drevanic | —
+Zorevan | Drevanic, Selvaran | —
+Mirethos | Orthean, Selvaran | —
+
+======================================================================
+18. KHARVEN / STEPPE POOL — SEALED
+======================================================================
+
+Kharven has one dedicated culture pool, so no Primary/Shared/Rare intra-cultural
+weighting is needed.
+
+Male given names:
+Temurak, Arslan, Altan, Tumar, Kharan, Batur, Tolen, Saruk, Ordan, Miran, Arven, Kulan, Saran, Tarek, Barun
+
+Female given names:
+Alara, Saran, Tula, Mirai, Yara, Altara, Naran, Sareen, Teyra, Aruna, Vela, Orana, Mira, Kara, Taran
+
+Clans:
+Orduun, Saryk, Miran, Kharuun, Altaran, Baruk, Tolgai, Saran, Aruk, Tumar, Orlan, Kharad, Baturin, Naruun, Veyruk
+
+Presentation:
+- "Clan", not "House".
+- Example form: Temurak of Clan Orduun.
+- Compact UI may show Temurak Orduun.
+- Internally the same DynastyState architecture may still be used.
+
+EXPANDED KHARVEN CLANS — SEALED 2026-09-18
+Arduq
+Beyran
+Dorgai
+Karsun
+Morun
+Sarqai
+Teygur
+Uldan
+Varuk
+Yalgar
+
+Kharven has one naming culture in v1, so these clan names do not use Primary / Shared / Rare intra-cultural tags.
+
+======================================================================
+19. EASTERN / AVENIC MASTER POOL — SEALED
+======================================================================
+
+Cultures:
+- Averi
+- Tazhari
+- Qasren
+
+Current canon geography:
+- Averi starting provinces are Living Garden in the current start.
+- Qasren starting provinces are Veiled Spring in the current start.
+- Tazhari is deliberately split across Living Garden and Veiled Spring.
+This informs flavour but does NOT merge culture with rite.
+
+Male given names:
+Name | Primary | Rare
+-----|---------|-----
+Bahram | Qasren, Tazhari | Averi
+Nasir | Qasren | Averi
+Rashad | Qasren, Tazhari | Averi
+Zahir | Qasren | —
+Darim | Tazhari, Averi | —
+Ramin | Averi, Tazhari | Qasren
+Sahir | Qasren, Tazhari | —
+Farad | Qasren | Averi
+Navid | Averi | Qasren
+Kaveh | Averi, Tazhari | —
+Azran | Tazhari, Qasren | Averi
+Samir | Averi, Tazhari | —
+Nadir | Qasren | Averi
+Mehran | Averi | —
+Javid | Averi | Qasren
+Rassan | Tazhari, Qasren | —
+Tarek | Tazhari, Qasren | Averi
+Zayen | Averi, Tazhari | —
+Ramez | Tazhari, Qasren | —
+Azhar | Qasren | Averi
+
+Female given names:
+Name | Primary | Rare
+-----|---------|-----
+Samira | Averi, Tazhari | Qasren
+Nayara | Averi | Qasren
+Zahra | Qasren, Tazhari | Averi
+Laleh | Averi | Qasren
+Nareen | Tazhari, Qasren | —
+Amira | Averi, Tazhari | —
+Soraya | Tazhari, Averi | Qasren
+Yasra | Qasren, Tazhari | Averi
+Delara | Averi | Qasren
+Mirah | Averi, Tazhari | —
+Azira | Qasren, Tazhari | Averi
+Nalia | Averi | Qasren
+Nayra | Averi, Tazhari | —
+Zahira | Qasren | Averi
+Amara | Averi, Tazhari | —
+Saira | Tazhari, Qasren | —
+Yara | Averi, Tazhari | Qasren
+Samara | Averi | Qasren
+Ravya | Tazhari, Qasren | Averi
+Lareen | Tazhari, Averi | —
+
+Dynasties / Houses:
+Name | Primary | Rare
+-----|---------|-----
+Qasir | Qasren | Averi
+Zahraim | Qasren | Averi
+Arzavan | Tazhari, Qasren | —
+Veyrani | Averi | Qasren
+Meyrani | Averi | Qasren
+Ramekhar | Tazhari | Averi
+Samaraid | Averi | Qasren
+Darvani | Qasren, Tazhari | —
+Nasari | Qasren | Averi
+Bahramid | Qasren, Tazhari | Averi
+Zarevan | Tazhari | Averi
+Mehrani | Averi | Qasren
+Azrani | Tazhari, Qasren | —
+Sahirad | Qasren, Tazhari | Averi
+Qaremi | Qasren | Averi
+Navari | Averi | Qasren
+Rassani | Tazhari, Qasren | —
+Delahr | Averi, Tazhari | Qasren
+Vahrani | Tazhari, Averi | —
+Azirad | Qasren, Tazhari | Averi
+
+Presentation:
+- House and Dynasty are both valid player-facing terminology.
+- Large royal families are more likely to be styled Dynasty.
+
+EXPANDED EASTERN / AVENIC LINEAGES — SEALED 2026-09-18
+Name | Primary | Rare
+-----|---------|-----
+Alzahir | Qasren, Tazhari | Averi
+Daremi | Averi, Tazhari | —
+Farhani | Qasren, Tazhari | Averi
+Javari | Averi, Tazhari | —
+Kashiran | Qasren, Tazhari | Averi
+Narezi | Averi, Tazhari | —
+Qadiran | Qasren | Averi
+Rahami | Tazhari, Qasren | —
+Saref | Tazhari, Averi | —
+Tavari | Averi, Tazhari | —
+Varzani | Averi, Tazhari | —
+Yazari | Averi, Tazhari | —
+Zaheran | Qasren, Tazhari | Averi
+Mehrzad | Averi | Qasren
+
+======================================================================
+20. OTHER NAMING COMPONENTS — PRESERVED / DEFERRED
+======================================================================
+
+Preserved naming concepts:
+- patronymics where culturally appropriate;
+- territorial styles;
+- epithets;
+- office/title presentation;
+- regnal numbering from title/Realm/dynastic history rather than intrinsic personal name.
+
+Still deferred:
+- final native Northern patronymic grammar;
+- full epithet generation/system;
+- regnal-number UI and exact numbering presentation;
+- clergy/public-lineage suppression conventions.
+
+======================================================================
+21. ABILITIES / PERSONALITY — BOUNDARY
+======================================================================
+
+Starting ruler abilities/personality remain mostly randomized with only weak contextual bias when those systems exist. Culture/Realm must never deterministically stereotype a ruler as good/bad or force a specific personality/stat profile.
+
+Exact traits, stats, ranges and gameplay effects remain deferred. Generator v1 must not invent hidden stability/personality scores merely to satisfy campaign-start sanity.
+
+======================================================================
+22. CAMPAIGN-START HARD VALIDATION — SEALED
+======================================================================
+
+CampaignStartValidator must reject at minimum:
+- not exactly 43 active starting Realms / not exactly one distinct living ruler per Realm;
+- starting personal union / one ruler assigned to multiple starting Realms;
+- missing/invalid fixed Realm Seat or Seat not owned by its Realm;
+- invalid canonical Realm culture/religion handoff;
+- ruler younger than 18 or older than v1 generated ceiling unless explicit authored exception;
+- living starting spouse younger than 18;
+- parent younger than child or parent-child gap below 16 years;
+- more than two parent_ids;
+- invalid/nonreciprocal partner links;
+- more than one living spouse at start;
+- starting inter-Realm marriage;
+- duplicate unrelated starting lineage identity/name;
+- procedural cross-Realm starting lineage web;
+- culturally invalid name selection under regional pool rules;
+- invalid lineage public style where a hard convention exists (especially Kharven clan);
+- dead current ruler;
+- dead recognized heir;
+- recognized heir equal to ruler;
+- normal Realm recognized heir that is not the ruler's living legitimate child;
+- normal Realm with living legitimate children but recognized heir not the oldest living legitimate child;
+- Seravelle using hereditary recognized heir / hereditary succession law;
+- normal hereditary Realm not using eldest_legitimate_child in v1;
+- any starting bastard/illegitimate-child branch in v1;
+- any generated deceased child of the starting ruler in v1;
+- malformed opaque IDs / unresolved character or Dynasty references;
+- cycle in parent ancestry or Dynasty parentage;
+- any violation already rejected by permanent CampaignValidator.
+
+Permanent CampaignValidator must NOT acquire Day-1-only restrictions such as "no personal unions" or "no foreign marriage", because later gameplay may legitimately create them.
+
+======================================================================
+23. WORLD-LEVEL SOFT SANITY — GENERATOR V1
+======================================================================
+
+Soft bounds are broad retry triggers, NOT targets or exact quotas:
+- male starting rulers: 25–40 of 43
+- rulers aged 18–24: no more than 10
+- rulers aged 60–85: no more than 12
+- childless rulers: 18–34 of 43
+- rulers with 4–5 children: no more than 8
+- remarried rulers: no more than 3
+
+The sanity pass may inspect only facts that actually exist in generator v1. It must not fabricate a hidden political-stability score or other undeveloped mechanic.
+
+Hard validity and soft sanity remain separate:
+- hard validity: never break; invalid attempt rejected.
+- soft sanity: if the whole generated world is freakishly shaped despite individually valid families, deterministically retry.
+
+======================================================================
+24. SERAVELLE — SPECIAL START RULE
+======================================================================
+
+R008 Seravelle:
+- generate a current living office-holder procedurally;
+- office-holder may personally belong to a normal lineage;
+- office succession is elected, not hereditary;
+- succession_law_id = elected_office;
+- recognized_heir_id = "" for the office;
+- exact election mechanics and final ceremonial office title remain deferred.
+
+======================================================================
+25. IMPLEMENTATION ACCEPTANCE ENVELOPE
+======================================================================
+
+Implementation may choose internal algorithms freely inside this envelope. It must:
+1. preserve existing Gameplay State Architecture rather than redesign it;
+2. make only the narrow state/schema additions/renames recorded here;
+3. update strict schema version and all fixtures/tests coherently; birth_tick must use a signed integer schema path because pre-campaign births are negative, never a nonnegative count type;
+4. generate before bootstrap;
+5. validate with CampaignStartValidator before bootstrap and permanent CampaignValidator afterward;
+6. preserve deterministic output and bounded deterministic retries;
+7. preserve player-choice independence of generation;
+8. use canonical Realm/Province identity rather than reconstructing or guessing it;
+9. use explicit culture for naming affinity and explicit religion data for personal/Realm religion;
+10. never infer identity from matching strings;
+11. preserve the fixed Realm Seats and R028 / Seravelle exceptions;
+12. generate no economy, claims, wars or fake historical content merely to populate fields;
+13. test hard invariants, soft-sanity retry behavior, seed reproducibility, save/load strictness and name-pool exhaustion handling;
+14. leave terrain/world-map work locked.
+
+Before implementation, the coding agent should identify any additional hidden failure modes or missing acceptance checks without changing the locked design. If it discovers a genuine design contradiction, implementation stops and the contradiction is brought back for a human decision.
+
+======================================================================
+26. INTENTIONALLY DEFERRED / OUT OF SCOPE
+======================================================================
+
+Not required for Generator v1:
+- final calendar/month/season presentation and a canon numeric days_per_year value (campaign creation receives configured days_per_year);
+- structured death_tick / age-at-death;
+- bastardy / adoption / disputed parentage;
+- regency/guardian/council mechanics;
+- extended succession ordering through siblings/cousins;
+- Seravelle election mechanics;
+- inter-Realm starting marriage webs;
+- cadet branches at campaign start;
+- exact traits/stats/personality implementation;
+- hidden political stability mechanics;
+- final patronymic grammar;
+- full epithet/regnal UI;
+- authored protected historical rulers/lineages beyond future explicit overrides.
+
+These deferrals do not block implementation of the sealed v1 campaign-start generator.
+
+======================================================================
+27. FINAL SEAL
+======================================================================
+
+SEALED AND LOCKED as of 2026-09-18:
+- procedural 43-Realm starting cast model;
+- campaign seed + generator version reproducibility contract;
+- birth_tick + configured days_per_year age contract;
+- CharacterState / DynastyState naming/schema cleanup and narrow additions;
+- CampaignStartValidator separation;
+- ruler/family/marriage/succession start rules;
+- generator tuning v1;
+- deterministic retry/fail-loud behavior;
+- Realm official culture/religion handoff;
+- complete original culture-weighted naming pools;
+- expanded lineage pools and their final affinity classification;
+- 5:3:1 Primary/Shared/Rare naming weights;
+- 8% soft-name overlay tuning;
+- world-level v1 sanity bounds;
+- Seravelle exception;
+- implementation acceptance envelope.
+
+This milestone is CLOSED. Do not reopen or reinterpret it during implementation unless a genuine contradiction is discovered and explicitly brought back for a new design decision.
+
+THE HOLY TROUT PROTECTS THE BLOODLINE, THE SEED, AND THE NAME TABLES.
+======================================================================
+END OF FINAL CONSOLIDATED SEALED LOG
+======================================================================

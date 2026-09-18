@@ -1,5 +1,11 @@
 # Implementation Plan
 
+## Repository integration
+
+**Status: INTEGRATED AND VERIFIED (2026-09-18).** All 24 direct suites pass, including the unchanged 1,000-seed stress sample and four presentation compatibility suites. Naming transcription, editor/import, production bootstrap/atomic save and preservation checks pass.
+
+Preserve the accepted Political/Culture/settlement working tree in commit `1dbe757febcefaf871293c6d30129363223a65e1`, then merge campaign-start commit `c45f8080a9b0cd375c0495371689e8d06e7e48ba` without rewriting either history. Apply only the Political test's schema-2 fixture migration. Combined verification and exact provenance are recorded in `gameplay_state/repository_integration_2026-09-18.md`.
+
 ## Culture Map Mode v0.1
 
 **Status: IMPLEMENTED AND VERIFIED (2026-09-17).**
@@ -35,7 +41,22 @@ See `world_map/political_map_mode_v0_1.md` and DEV-028.
 - [x] Tint the original terrain at 38% through a derived Province ID mask; preserve water, props, settlements, camera, geometry and accepted border meshes.
 - [x] Verify P on/off in the running Gameplay 001 scene at zoom 800, 1600 and 3600, inspect a continent overview, and pass all 21 direct tests.
 
-See `world_map/political_map_mode_v0_1.md` and DEV-027. The current inspection scene still lacks the authored ruler/capital roster required to create a canonical `CampaignSession`; its initial ProvinceState records come from frozen starting ownership. Faith mode remains future presentation work.
+See `world_map/political_map_mode_v0_1.md` and DEV-027. The standalone inspection scene continues to seed ProvinceState from frozen starting ownership. Campaign-start v1 can now create a complete campaign for the existing session-binding interface. Faith mode remains future presentation work.
+
+## Campaign-Start Procedural Cast + Naming + Generator v1
+
+**Status: IMPLEMENTED AND VERIFIED (2026-09-18).**
+
+- [x] Audit HEAD `43a5438`, locked architecture, newest sealed authority and September 17 handover; isolate pre-existing presentation work.
+- [x] Introduce strict schema 2 with given/lineage names, sex, signed birth ticks, lineage style and explicit seed/version/year length.
+- [x] Transcribe all sealed naming pools, affinities, expansion entries and 43 Seats; preserve world geography and identity.
+- [x] Implement deterministic complete-cast generation, hard start validation, broad soft sanity and bounded retries.
+- [x] Integrate with canonical bootstrap, permanent validation, session publication and JSON/file save/load.
+- [x] Verify 1,000 deterministic seeds, complete replay, varied casts, ancestry, succession, widow/remarriage, uniqueness and pool capacity.
+- [x] Pass all 22 direct suites, 308 focused and 393,729 stress checks; verify pending presentation compatibility separately.
+- [x] Complete scope review, documentation and clean editor/warnings-as-errors checks; deliver on isolated branch `campaign-start-v1`.
+
+See `gameplay_state/campaign_start_v1.md`. Calendar presentation, death timing, extended succession, elections, traits and gameplay UI remain separately scoped future work.
 
 ## Logic Foundation Pass 1
 
@@ -219,13 +240,13 @@ DEV-025 records the corrected authority path.
 
 ## Settlement representation scale prototype
 
-**Status: IMPLEMENTED; awaiting human visual review.**
+**Status: ACCEPTED AND CONCLUDED; retained as a prototype.** The September 17 sealed handover records the accepted 2D/2.5D direction, `the_victim.png`, pixel size 0.36 and bottom grounding. The checklist below also preserves the earlier comparison workflow.
 
 - [x] Place the exact supplied 2D settlement asset at grounded anchors in provinces 67 and 54.
 - [x] Build a compact procedural 3D blockout from the supplied layout reference at the same anchors.
 - [x] Add reversible F1/F2/F3/F4 comparison modes without collisions or simulation state.
 - [x] Capture both approaches at 800, 1200, 1600, 2000, 2400 and 3200 zoom in the real Gameplay 001 scene.
-- [ ] Record the human 2D-versus-3D direction decision; this prototype does not select final art or authorize a city system.
+- [x] Record the accepted 2D/2.5D direction; current artwork remains prototype art and no city system is authorized.
 
 ## Phase 2 — One-province greybox
 

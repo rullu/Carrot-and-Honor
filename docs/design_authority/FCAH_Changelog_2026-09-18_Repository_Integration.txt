@@ -1,0 +1,55 @@
+FOR CARROT AND HONOUR - REPOSITORY INTEGRATION
+2026-09-18 - IMPLEMENTATION / HANDOVER RECORD; NO NEW DESIGN AUTHORITY
+
+RESULT
+Combine accepted original Political/Culture/settlement work and campaign-start v1
+on main. Preserve generator/schema-2 behavior and locked world authorities.
+
+SOURCE HISTORY
+Starting main/origin/main: 43a5438cdee9232031be24e7cc1108db38c5ad61
+Presentation snapshot:     1dbe757febcefaf871293c6d30129363223a65e1
+Campaign-start branch:     c45f8080a9b0cd375c0495371689e8d06e7e48ba
+Use a two-parent merge; retain campaign-start-v1 locally and remotely.
+Exact merge identity is appended after commit creation in the completion record.
+
+PRESERVATION
+Initial main: 8 modified tracked files, 602 Git-visible untracked files.
+Preserve all 120 accepted files in the snapshot, with original SHA-256 inventory
+and external backups. Preserve the separate non-production terrain experiment
+and ZIP outside the worktree: 935 total files, 731046632 bytes, hashes verified.
+Recovery: C:/Projects/fcah_integration_recovery_2026-09-18/
+No deletion, force push, history rewrite, ambiguous file classification or scope
+expansion. All 1197 unchanged tracked files outside the campaign delta retain
+their original bytes, including locked terrain/geography/ownership/identity.
+
+CONFLICTS / FIXES
+README test-command/count conflict: use the combined 24-suite command.
+Implementation-plan conflict: retain both presentation and campaign milestones.
+Political fixture: lineage_name, given_name and explicit campaign seed/version/
+year configuration, exactly matching the delivered schema-v2 patch semantics.
+No changed test assertions, runtime presentation, generator code, tables or schema.
+Update stale settlement pending-review and unavailable-roster notes while keeping
+historical evidence. Commit 27 accepted-asset import sidecars; preserve two
+incidental old-reference imports externally.
+
+VERIFICATION
+Original presentation snapshot: 22/22 direct suites PASS.
+Combined main: 24/24 direct suites PASS, including all four compatibility suites.
+Focused generator: 308 checks PASS; golden digest unchanged.
+Stress: 1000 unique worlds / 393729 checks PASS; 144416 Characters / 70990 Dynasties.
+Attempts: 979 first / 20 second / 1 third. No exhaustion or nondeterminism.
+Naming transcription: 230 given entries, 194 lineage entries, all affinities and
+43 Seats match sealed authority. Strict schema/save/load/bootstrap suites PASS.
+Production atomic save: 148 Characters / 73 lineages / 903 relationships PASS.
+Editor/import exits 0; only known Terrain3D interpolation deprecation warning.
+Git diff whitespace and Git LFS integrity checks PASS.
+
+EVIDENCE
+docs/gameplay_state/repository_integration_2026-09-18.md
+docs/gameplay_state/repository_integration_2026-09-18_verification.json
+DEV-031; current README, code map, project index and implementation plan.
+Historical authorities and earlier changelogs are retained unchanged.
+
+DEFERRED
+Existing presentation polish/legend debt, production settlement art, Faith view,
+campaign-selection UI and previously deferred gameplay systems remain separate.

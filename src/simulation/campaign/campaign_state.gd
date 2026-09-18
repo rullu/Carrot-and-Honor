@@ -4,7 +4,7 @@ extends RefCounted
 
 # A typed registry, not an additional owner of entity facts. Runtime writers use
 # CampaignSession; this value object is also useful for explicit scenario setup.
-const SCHEMA_VERSION: int = 1
+const SCHEMA_VERSION: int = 2
 const RETIRED_FIELDS: Dictionary = {
     "provinces": "province_ids", "realms": "ids", "characters": "ids",
     "dynasties": "ids", "wars": "ids", "claims": "ids",
@@ -19,6 +19,9 @@ var wars: Dictionary[String, WarState] = {}
 var retired_ids: Dictionary = {
     "provinces": [], "realms": [], "characters": [], "dynasties": [], "wars": [], "claims": [],
 }
+var campaign_seed: String = ""
+var generator_version: int = 1
+var days_per_year: int = 0
 var world_binding: String = ""
 var player_realm_id: String = ""
 var game_over: bool = false
@@ -26,6 +29,8 @@ var game_over: bool = false
 
 func to_data() -> Dictionary:
     return {
+        "campaign_seed": campaign_seed, "generator_version": generator_version,
+        "days_per_year": days_per_year,
         "schema_version": SCHEMA_VERSION, "world_binding": world_binding,
         "player_realm_id": player_realm_id, "game_over": game_over,
         "retired_ids": retired_ids.duplicate(true),
@@ -46,6 +51,9 @@ static func _registry_data(registry: Dictionary) -> Array:
 
 static func from_data(data: Dictionary) -> CampaignState:
     var state: CampaignState = CampaignState.new()
+    state.campaign_seed = data["campaign_seed"]
+    state.generator_version = int(data["generator_version"])
+    state.days_per_year = int(data["days_per_year"])
     state.world_binding = data["world_binding"]
     state.player_realm_id = data["player_realm_id"]
     state.game_over = data["game_over"]

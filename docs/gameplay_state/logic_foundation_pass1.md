@@ -1,5 +1,7 @@
 # Logic Foundation Pass 1
 
+Historical foundation report. The September 18 [campaign-start milestone](campaign_start_v1.md) supersedes the schema-1 names and missing-production-roster statements below. The original ownership/lifecycle boundaries remain in force.
+
 Implemented against `docs/design_authority/FCAH_Gameplay_State_Architecture_v1_LOCKED.txt` on 2026-09-17. This is the core state and persistence foundation; it does not run the future gameplay simulation.
 
 ## Authority and repository reconciliation

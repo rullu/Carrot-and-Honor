@@ -1,0 +1,2087 @@
+LOG SEALED / LAST UPDATED: 2026-09-17
+
+FOR CARROT AND HONOUR — IMPLEMENTATION / DESIGN LOG
+Date: 2026-09-11 19:18 (Europe/Berlin)
+
+Settlement representation prototype concluded and accepted as the working direction for now.
+
+STATUS
+The 2D / 2.5D world-map settlement experiment is concluded successfully enough to move on. The accepted prototype direction is a transparent 2D settlement miniature placed in world space with proper grounding, normal depth interaction, and restrained strategic exaggeration.
+
+This is a prototype acceptance, not approval of the current test artwork as final production art. The current image, "The Victim", contains obvious generated-art defects such as incomplete/awkward wall continuity and is only being used to validate scale, composition, hierarchy, silhouette, and map readability.
+
+ACCEPTED VISUAL DIRECTION
+Settlements should read as compact strategic miniatures in the spirit of classic Knights of Honor 1 / Knights of Honor 2 world-map settlement presentation.
+
+Core rule:
+Settlement importance must come from footprint, hierarchy, silhouette, landmarks, and structured density — not from oversized ordinary buildings or from crushing every element into a dense blob.
+
+The desired middle ground is:
+- compact enough to read as one cohesive strategic object
+- substantial enough to feel important and worth fighting over
+- internally readable rather than visually crushed
+- not realistically spread across a huge geographic footprint
+- not a circular or emblem-like pile of buildings
+- strong enough that even the lowest development stage retains meaningful visual presence
+
+PROVISIONAL SETTLEMENT DESIGN RULES
+These rules are now accepted as the working settlement-composition standard and should be carried into later documentation/design records:
+
+1. House scale remains broadly believable and consistent between development stages. Larger or richer settlements gain presence through more buildings, stronger structures, larger footprint, and stronger landmarks rather than inflated house size.
+
+2. Every settlement needs visible breathing room. Streets, alleys, courtyards, market space, small gardens, and gaps between building clusters must remain readable.
+
+3. Use a clear hierarchy. A settlement should normally have one dominant seat-of-power element — manor, keep, castle, hall, fortified tower, or equivalent depending on culture and development — with secondary civic/religious landmarks beneath it.
+
+4. Castle / seat of power should be spatially related to the town but not mashed into it. It may sit uphill, toward one edge, behind an inner wall, or overlook the settlement. It should not consume the whole composition.
+
+5. The outer silhouette should be irregular and recognizable rather than a perfect circle or square. Organic asymmetry is desirable because it helps settlements remain identifiable at distance.
+
+6. Development stages should change structure and hierarchy, not merely size. Even a low-development settlement must feel like a place worth fighting over rather than a few insignificant huts lost inside a province.
+
+7. The core settlement asset remains separate from modular province sites. Farms, monasteries, mines, quarries, harbors, and other external sites should remain separate assets/systems rather than being permanently fused into the town image.
+
+8. Fixed-camera art direction is acceptable. Settlement assets are authored for the game's approximately 40-degree oblique strategy-camera language; arbitrary camera rotation is not required.
+
+9. Strong readability at close/default gameplay zoom is mandatory. Extreme far-zoom readability should not be solved by endlessly increasing physical settlement scale. If later needed, zoom-dependent presentation or LOD can be considered separately.
+
+10. No clipping or accidental visual cutoff is acceptable. Assets need sufficient transparent padding, and the Sprite3D presentation must ground the visible bottom of the artwork correctly at terrain height.
+
+DENSITY / COMPOSITION TARGET
+The experiment established that both extremes fail:
+- earlier castle-heavy image: too cramped / too much visual mass packed together
+- later broad image: too spread out / read more like a realistic city layout than one strategic-map object
+
+The accepted target is the middle ground: a compact irregular settlement with readable internal structure.
+
+A useful art-direction guide is approximately 70–75% built/structured visual mass and 25–30% readable open space. This is not a mathematical runtime rule; it is a visual design check.
+
+A practical target for a medium prototype composition is roughly 20–30 houses/workshops plus a dominant seat of power, one secondary civic/religious landmark, and a readable market/town-center structure. Exact counts may vary by region and development stage.
+
+PROTOTYPE ASSET
+Accepted test candidate:
+assets/prototypes/settlement/the_victim.png
+
+Source image dimensions:
+1254 × 1254 px
+
+The source PNG was copied byte-for-byte into the repository. Source and repository hashes matched:
+684B267E37BCCEA73ABBDA857534C53B19A30774260DE9A114B90920931494F7
+
+IMPLEMENTATION CHANGES
+Modified:
+- assets/prototypes/settlement/the_victim.png
+- assets/prototypes/settlement/the_victim.png.import
+- src/presentation/world_map/settlement_prototype_test.gd
+
+The active prototype texture reference was changed from:
+res://assets/prototypes/settlement/carrothome2dtest2.png
+
+to:
+res://assets/prototypes/settlement/the_victim.png
+
+Settlement scale changed from:
+TWO_D_PIXEL_SIZE = 0.335
+
+to:
+TWO_D_PIXEL_SIZE = 0.36
+
+This is an approximately 7.46% increase.
+
+At 1254 px source width, the resulting canvas width is approximately:
+451.44 world units
+
+This final small scale increase was visually accepted. No further physical scale increase is currently desired.
+
+GROUNDING / CLIPPING
+The previously corrected bottom-anchored Sprite3D presentation was preserved.
+
+The new image-specific visible-bottom reference is:
+TWO_D_VISIBLE_BOTTOM_PIXEL = 1091.0
+
+The existing grounding formula remains in use. The Sprite3D itself remains positioned at terrain height, while the internal artwork offset ensures that the meaningful visible bottom is grounded rather than allowing the lower half of the image to intersect the terrain.
+
+Result:
+- no horizontal terrain cutoff
+- no visible floating
+- no rectangular image background
+- normal world-depth interaction remains intact
+
+Nearby trees and clouds can naturally overlap/obscure the settlement. This is expected depth behavior, not a sprite defect.
+
+TEXTURE / IMPORT SETTINGS
+Accepted per-texture treatment:
+- lossless compression
+- RGBA transparency preserved
+- mipmaps enabled
+- alpha-border correction enabled
+- no texture-size limit
+- mipmapped linear / anisotropic Sprite3D filtering
+
+Godot initially imported the new PNG with mipmap generation disabled. Mipmap generation was explicitly enabled to preserve far-zoom readability consistent with the previous prototype.
+
+TEST LOCATIONS
+Existing prototype anchors were preserved.
+
+Reference provinces:
+- Province 67: smaller / lower-end province reference
+- Province 54: larger province reference
+
+No settlement X/Z anchor changes were made.
+
+ZOOM VALIDATION
+Automated GPU captures were taken at:
+- 825
+- 1600
+- 3500
+
+for both Province 67 and Province 54.
+
+Manual user inspection additionally confirmed the accepted appearance around approximately:
+- 830–844 close zoom
+- approximately 2785 far zoom
+
+VISUAL CONCLUSION
+At close gameplay zoom, the accepted settlement has enough footprint and visual weight to feel like an actual strategic settlement rather than a decorative token. The castle, church, market center, and residential mass remain individually understandable without making the province feel consumed by the settlement.
+
+At far zoom, internal detail naturally compresses, but the settlement remains identifiable through its castle towers, church spire, roof mass, and overall silhouette. This is considered sufficient for the current prototype stage.
+
+Dynamic settlement scaling / LOD is therefore NOT required at this point. It may be revisited later only if real gameplay proves that extreme far-zoom readability needs additional support.
+
+TECHNICAL VALIDATION
+- Godot texture import: PASS
+- Godot texture reimport: PASS
+- world_gameplay_scene_test.gd: PASS, exit code 0
+- GPU captures for both reference provinces at 825 / 1600 / 3500: PASS
+- gameplay scene GPU launch: PASS
+- transparency: PASS
+- grounding: PASS
+- terrain clipping: PASS
+- interaction regression: none observed
+- terrain/world/camera/geography systems: unchanged
+
+PROTECTED / UNCHANGED SYSTEMS
+This experiment did not intentionally modify:
+- terrain
+- Terrain3D
+- terrain materials
+- water
+- vegetation
+- atmosphere
+- lighting
+- NaturalWorld shaders
+- camera behavior or zoom limits
+- world scale
+- province geography
+- province borders
+- gameplay interaction
+- province data
+- realm data
+- 3D settlement prototype
+
+FINAL DECISION
+The basic FCAH world-map settlement representation test is accepted and concluded for now.
+
+Working baseline:
+- 2D / 2.5D transparent settlement miniature in world space
+- current physical scale approximately 451 world units for this 1254 px prototype asset
+- correct bottom-grounded Sprite3D presentation
+- restrained strategic exaggeration
+- strong hierarchy and silhouette
+- compact but internally readable composition
+- no dynamic scaling / LOD yet
+
+The next settlement work should focus on curated regional art families, development stages, and deliberate production-quality layouts rather than reopening the basic scale experiment unless later gameplay reveals a real problem.
+
+COMMIT STATE
+No commit performed.
+No push performed.
+
+======================================================================
+PROVINCE TOPOLOGY / BORDER PRESENTATION UPDATE
+Date/Time: 2026-09-11 23:36 CEST
+======================================================================
+
+This section extends the existing 2026-09-11 implementation/design log.
+The settlement-representation conclusions above remain unchanged.
+
+STATUS
+The accepted province-topology proposal has now been promoted into the canonical
+province pipeline and is active in gameplay.
+
+The topology itself is accepted as the current authoritative baseline.
+Manual inspection judged the result to work very well overall — approximately
+88% of the province layout is considered successful. A small number of provinces
+still appear larger than ideal and may receive narrowly targeted splits later,
+but this is now considered minor cleanup rather than a reason to reopen or
+redesign the province map.
+
+The current border presentation is NOT accepted as final. The topology/data work
+is accepted; the visual border style still needs one final presentation-focused
+pass.
+
+AUTHORITATIVE PROVINCE STATE
+Active province count:
+100
+
+Newly allocated IDs from this topology pass:
+90–107
+
+Retired province IDs:
+8, 31, 57, 63, 68, 81, 82
+
+Next permitted new province ID:
+108
+
+IMPORTANT TOPOLOGY CHANGES
+- Province 8 merged into Province 9.
+- Provinces 56 and 57 merged, retaining Province 56.
+- Province 6 was split into Provinces 6 and 90.
+- Province 11 received approximately 10% of former Province 6.
+- Province 9 received the former Province 8 and a small transfer from Province 12.
+- Former oversized Province 84 was split into:
+  84, 91, 92, 93, 94, 95.
+- Province 86 was split into:
+  86, 96, 97.
+- Province 85 was split into:
+  85, 98, 99.
+- Province 10 was split into:
+  10, 100.
+- Province 88 was split into:
+  88, 101.
+- Province 22 was split into:
+  22, 102.
+- Province 21 was split into:
+  21, 103, 104, 105.
+- Province 37 was split into:
+  37, 106, 107.
+
+The targeted edits were made without globally repartitioning the whole map.
+
+CANONICAL PIPELINE / DATA CHANGES
+The accepted proposal was promoted into the real correction/generation pipeline
+rather than being left as a runtime redirect to proposal data.
+
+Relevant changed/generated files include:
+- tools/world_map/build_astra_province_corrections.py
+- tools/world_map/build_astra_province_topology_proposal.py
+- data/world_map/astra_province_corrections.json
+- data/world_map/astra_provinces.json
+- data/world_map/astra_province_coverage_report.json
+- docs/world_map/qa/astra_provinces_corrected_overview.png
+- docs/world_map/qa/astra_provinces_corrected_coverage.png
+
+The existing province importer was used unchanged.
+
+The authoritative generated province data is semantically identical to the
+accepted review proposal for province records, geometry, neighbors and anchors.
+Only provenance/status metadata differs intentionally.
+
+Authoritative astra_provinces.json SHA-256:
+c5ccc4f9d5afb4b3988dcb418402ffeccbab08d70cef8c48a9c57df08f993d7e
+
+Canonical correction manifest SHA-256:
+5cbdd1212115f3e986f5e521671290c3d6d7f5ddaefa3f05aa2fa5c52d445444
+
+VALIDATION
+Final authoritative validation:
+PASS
+
+Confirmed:
+- 100 active provinces
+- 0 unassigned playable land
+- 0.0% meaningful unassigned land
+- 0 positive-area overlaps
+- 0 political holes
+- 0 retired source cells still owning land
+- symmetric neighbor relationships
+- valid anchors / labels
+- deterministic correction-manifest generation
+- deterministic province-data import generation
+- all 14 repository Godot tests PASS
+- git diff --check PASS
+
+One stale multipart geography test fixture was updated from Province 6 to
+Province 90 because that disconnected geography now belongs to Province 90.
+
+COUNT / DOCUMENTATION UPDATES
+References that still assumed the older 84-province authoritative state were
+updated in relevant tests and project documentation, including:
+- tests/astra_province_data_test.gd
+- tests/astra_province_coverage_test.gd
+- tests/province_geography_query_test.gd
+- tests/world_gameplay_scene_test.gd
+- README.md
+- docs/code_map.md
+- docs/project_index.md
+- docs/world_map/astra_province_data.md
+
+The review proposal artifacts remain preserved as historical QA evidence.
+
+BORDER PRESENTATION — CURRENT IMPLEMENTATION
+The previously rejected thick, hard and strongly highlighted border experiment
+was replaced.
+
+Current implementation:
+- shared internal LAND borders only
+- no coastline duplication
+- exact shared borders grouped by province pair
+- shared edges stitched into ordered polylines
+- one conservative Chaikin smoothing pass
+- Chaikin weight: 0.12
+- presentation paths resampled every 36 world units
+- open endpoints remain fixed so border junctions continue to meet
+- simulation/picking polygons remain exact and unchanged
+- cached presentation geometry; no geometry rebuild while zooming
+- hover border rendering removed
+- selected province border rendering removed
+- interaction/UI callbacks remain, but do not visually alter borders
+
+Current reference border treatment at camera size 1600:
+Support layer:
+- width 4.0
+- RGBA (0.20, 0.22, 0.27, 0.24)
+
+Main line:
+- width 1.8
+- RGBA (0.39, 0.43, 0.51, 0.56)
+
+Zoom compensation:
+(clamp(camera_size, 800, 3600) / 1600)^0.45
+
+GPU validation confirmed:
+- gameplay initializes with 100 active provinces
+- requested subdivisions are visible
+- no hover/selected border nodes
+- no observed coastline duplication
+- no observed broken junctions
+- no observed z-fighting
+- no observed visible border gaps
+- sampled runtime picking resolved authoritative IDs correctly in tested regions
+
+MANUAL ACCEPTANCE REVIEW
+Manual gameplay inspection confirmed that the new province topology is good
+enough to become the working baseline.
+
+Topology verdict:
+ACCEPTED
+
+Approximately 88% of the province layout is considered very good.
+Some provinces remain somewhat too large. These may be split later when the
+political/realm layout gives better context for which changes are actually
+needed. No broad province redesign is planned.
+
+Border verdict:
+NOT FINAL / NOT ACCEPTED VISUALLY
+
+The current lines are too subtle and become difficult to read at farther zoom.
+They are technically cleaner than the rejected previous version, but they still
+do not match the intended Knights of Honor 2-inspired presentation.
+
+FINAL BORDER TARGET
+The desired final direction is a two-sided political border band rather than a
+single thin center line.
+
+Design intent:
+- the mathematically true province boundary remains the center seam
+- each adjacent province contributes one separate colored half-band
+- both half-bands meet exactly at the actual border
+- each band extends slightly inward into its own province
+- color is strongest/readable at the shared seam
+- opacity/color softly weakens toward the province interior
+- subtle hatching / brushed / lightly striped texture gives the bands a painted
+  medieval-map character rather than a clean modern UI strip
+- bands should be broader and clearly readable at normal and far gameplay zoom
+- presentation must remain visible without overpowering the terrain
+- colors should use a restrained medieval / heraldic palette:
+  faded crimson, dusty blue, moss/sage green, muted ochre, weathered plum,
+  iron grey-blue, warm brown-red, and similar desaturated earthy pigments
+- no neon colors
+- no glow
+- no bright hover outline
+- no persistent selection outline
+- no separate coastline border
+
+Long-term color architecture should allow each side of a shared border to receive
+a realm/province color dynamically rather than hard-coding one universal border
+color. This will allow the same rendering system to support the future political
+realm map.
+
+NEXT BORDER ACTION
+One tightly scoped implementation attempt should be made later to achieve the
+dual-sided medieval border-band presentation.
+
+Preferred workflow:
+1. preserve the currently functioning topology and current border renderer as a
+   fallback
+2. give Sol one focused implementation attempt
+3. inspect the result manually in gameplay
+4. if successful, accept / log / commit and close map presentation work
+5. if unsuccessful, stop spending repeated Sol usage on it and consider one
+   later Astra visual-specialist pass if justified
+
+No further map work should be allowed to turn into another broad terrain or
+topology redesign.
+
+NEXT MAJOR DESIGN PHASE
+After the border presentation is closed, the next planned major phase is the
+starting political world / Realm ownership design.
+
+This includes, before implementation:
+- what realms/kingdoms exist
+- province ownership
+- realm size and relative power
+- capitals
+- names and identities
+- history
+- starting conditions
+- wars
+- alliances
+- rivalries
+- vassals / overlords
+- claims and disputed territory
+- political relationships and strategic starting situation
+
+This phase is primarily design/worldbuilding and should be worked out before
+spending scarce Codex implementation usage.
+
+PRESERVED / UNCHANGED
+The topology/border pass did not intentionally modify:
+- Terrain3D
+- terrain geometry
+- terrain materials
+- water
+- vegetation
+- atmosphere
+- lighting
+- NaturalWorld shaders
+- camera behavior
+- camera zoom limits
+- world scale
+- settlement prototype scale
+- realm architecture
+
+PROCESS / COMMIT STATE
+At the conclusion of this log update:
+- no final commit has yet been performed for this pass
+- no push has been performed
+- no implementation log had been updated by Codex during the pass
+- this file is the human-reviewed record of the accepted topology result and the
+  still-open border visual direction
+
+FINAL DECISION
+The 100-province authoritative topology is accepted as the current FCAH world-map
+baseline.
+
+Remaining province-size issues are minor and may be addressed later with narrow
+local edits once Realm ownership provides more strategic context.
+
+The province-border rendering remains the final open map-presentation item.
+The target is now explicitly defined as a visible, two-sided, colored medieval
+border band inspired by Knights of Honor 2.
+
+After that border item is resolved, map work should close and development should
+move into the Realm/political-world phase.
+
+======================================================================
+FINAL PROVINCE BORDER ACCEPTANCE / MAP PRESENTATION CLOSURE
+Date/Time: 2026-09-12 18:53 CEST
+======================================================================
+
+CONTEXT
+The province topology had already been accepted as the authoritative 100-province
+baseline. The final remaining open map-presentation issue was the visual style of
+province borders.
+
+The previous thin muted border treatment was technically clean but visually too
+subtle, especially at farther gameplay zooms. The intended direction was clarified
+as a Knights of Honor 2-inspired dual-sided political border treatment: the true
+province boundary remains the center seam, while each neighboring province owns a
+colored half-band extending inward into its own territory. Each half-band is
+strongest at the true border and fades outward into the province interior.
+
+IMPLEMENTATION
+The final accepted implementation is in:
+- src/presentation/world_map/province_presentation.gd
+
+The renderer now uses:
+- shared internal land edges only
+- no coastline ribbon
+- 2,933 shared source segments stitched into 211 cached border paths
+- two neighboring mesh half-bands per shared border path
+- exact authoritative X/Z center seam preserved
+- 36 world-unit densification for terrain conformance without moving authoritative
+  source vertices
+- ring winding to determine which province owns which side of a border
+- shader-driven outward alpha fade from the seam into each province
+- subtle diagonal pigment variation / brushed irregularity
+- zoom-dependent shader width only; no geometry rebuild during zoom
+- hover and selection callbacks remain visual no-ops
+- legacy centered two-line renderer retained behind
+  USE_LEGACY_SINGLE_LINE_FALLBACK
+
+FINAL ACCEPTED TUNING
+- TOTAL_RIBBON_WIDTH = 26.0
+  - 13 world units into each neighboring province
+- RIBBON_OPACITY = 0.70
+- INWARD_FADE_POWER = 0.55
+- HATCH_TEXTURE_STRENGTH = 0.38
+- HATCH_SCALE_WORLD_UNITS = 18.0
+- PIGMENT_SATURATION = 0.82
+- ZOOM_COMPENSATION_EXPONENT = 0.42
+- REFERENCE_CAMERA_SIZE = 1600.0
+- RIBBON_HEIGHT_OFFSET = 3.15
+
+COLOR SYSTEM
+The prototype uses seven restrained medieval/heraldic pigment colors:
+- faded crimson
+- dusty blue
+- moss / sage green
+- muted ochre
+- weathered plum
+- iron blue-grey
+- warm brown-red
+
+Temporary province colors are assigned deterministically with neighbor-aware
+coloring so adjacent provinces remain visually distinct.
+
+The renderer also exposes set_political_colors(), allowing future Realm/province
+political colors to update through the palette texture without rebuilding border
+geometry. This is intentionally future-facing for the upcoming political Realm
+layer.
+
+VALIDATION
+Final implementation validation reported:
+- all 14 repository Godot tests PASS
+- git diff --check PASS
+- GPU gameplay launch PASS on Godot 4.7.1 Compatibility/OpenGL
+- RTX 3060 Laptop GPU
+- geometry side-ownership audit:
+  - 2,830 samples
+  - 100% correct left ownership
+  - 100% correct right ownership
+  - 0 neighbor/color failures
+- 20 GPU QA captures generated during implementation
+- inspected:
+  - 6/11/90 region
+  - 37/106/107
+  - former Province 84 region
+  - Province 67 coast
+  - central junctions
+  - plains
+  - forest
+  - desert / bright terrain
+  - mountains
+  - camera sizes 800 / 1600 / 2800 / 3500
+- opposing border colors remained distinguishable
+- border junction seams connected
+- no coastline ribbon observed
+- terrain remained readable beneath the border treatment
+- no observed z-fighting or terrain-conformance gaps
+
+Known limitation:
+Very sharp authoritative source vertices remain geometrically sharp because the
+true seam is deliberately preserved. Averaged joins, pigment texture and outward
+fading soften their appearance without changing authoritative geography.
+
+MANUAL LIVE ACCEPTANCE
+The final result was inspected live in the gameplay scene by the project owner.
+
+Verdict:
+ACCEPTED
+
+Project-owner reaction:
+The result was considered "very nice" and no immediate visual change was judged
+necessary.
+
+This is important: no further tuning should be performed simply because tuning
+is possible. The border presentation has reached the required quality and should
+remain stable unless a concrete gameplay/readability problem is discovered later.
+
+FINAL MAP STATUS
+Province topology:
+ACCEPTED / AUTHORITATIVE
+
+Province border presentation:
+ACCEPTED
+
+Terrain / NaturalWorld:
+LOCKED / UNCHANGED
+
+Settlement prototype scale/direction:
+ACCEPTED
+
+Remaining oversized provinces:
+Some provinces are still somewhat larger than ideal, but this is classified as
+minor future cleanup only. Do not reopen broad topology work. Any later split
+should be narrow, justified by actual Realm/political gameplay needs, and logged.
+
+MAP PHASE VERDICT
+The world-map foundation and province presentation phase is now CLOSED for normal
+development.
+
+Do not casually reopen:
+- terrain
+- NaturalWorld
+- world scale
+- camera feel
+- province topology
+- province border presentation
+- settlement prototype scale
+
+unless a concrete later gameplay requirement demonstrates a real problem.
+
+NEXT MAJOR DESIGN PHASE
+The next major FCAH phase is the starting political world / Realm structure.
+
+Planned design work includes:
+- Realm roster
+- province ownership
+- Realm sizes and power tiers
+- capitals
+- names and political identities
+- cultures / governments where relevant
+- rulers / dynasties where relevant
+- starting history
+- active wars
+- alliances
+- rivalries
+- vassals / overlords
+- claims / disputed provinces
+- starting economic, military and internal conditions
+- strategic starting situations and goals
+
+This phase should primarily be designed before spending scarce Codex/Astra
+implementation usage.
+
+PROCESS STATE AT ACCEPTANCE
+- final border implementation completed
+- no implementation log was changed by Codex during the run
+- no commit was made by Codex during the run
+- no push was made
+- this entry records the manual acceptance decision before the project commit
+
+FINAL DECISION
+The authoritative 100-province topology and the dual-sided medieval political
+border renderer are accepted together as the current FCAH world-map baseline.
+
+The map is now ready to support Realm ownership and political-world design.
+
+======================================================================
+STARTING REALM OWNERSHIP V1 / POLITICAL LANDSCAPE STEP 1
+Date/Time: 2026-09-12 20:58 CEST
+======================================================================
+
+STATUS
+Political Landscape Step 1 is accepted.
+
+The starting political geography has been frozen as:
+- 100 active provinces
+- 43 starting Realms
+- stable temporary Realm IDs R001-R043
+- exact starting province ownership per Realm
+
+Canonical ownership artifact:
+- starting_realm_ownership_v1.json
+
+Human-readable reference:
+- starting_realm_ownership_v1.txt
+
+The visual file FCAH_starting_realm_ownership_draft_v5_reassigned.png remains a
+planning/reference image only. It is NOT the source of truth for ownership.
+
+IMPORTANT DESIGN PRINCIPLE
+The starting Realm ownership/footprints are fixed campaign-start structure.
+Current diplomacy is NOT fixed.
+
+Future new-game generation may roll:
+- wars
+- alliances
+- truces
+- current hostility/friendship
+- temporary guarantees, coalitions and similar diplomatic situations
+
+History, culture, faith, Realm traits and ruler traits may create biases,
+pressures and probabilities, but should not force identical diplomatic outcomes
+every campaign.
+
+REGIONAL POLITICAL INTENT
+Far West:
+Highly fragmented medieval-European-inspired political landscape. Most states
+are intentionally tiny, often one province. One larger western regional power is
+retained to create an obvious local heavyweight among the petty states.
+
+South-West:
+Calmer, more isolated and comparatively consolidated. Intended to offer more
+forgiving starting situations and fewer immediate neighbors.
+
+North:
+Colder, more established kingdoms. Generally fewer states with multi-province
+holdings.
+
+Central:
+A cultural and political collision zone. Medium-sized established states sit
+close together and can later receive overlapping identities, claims and
+historical tensions.
+
+East:
+More consolidated than the west and generally composed of larger political
+blocks, while deliberately avoiding oversized monolithic realms.
+
+FINAL ACCEPTED OWNERSHIP ADJUSTMENTS
+The final two changes from the previous v4 draft are:
+- Provinces 36, 24, 33 and 29 form one larger western Realm.
+- Provinces 48 and 17 form a new central Realm.
+- Province 17 was removed from its prior central Realm.
+- Province 48 was removed from its prior central Realm.
+- Every other province ownership remains unchanged from the accepted v4 design
+  intent.
+
+VALIDATION
+The canonical ownership file was checked against the authoritative
+astra_provinces.json data:
+- 100/100 active provinces assigned
+- every province assigned exactly once
+- 0 duplicate assignments
+- 0 missing active provinces
+- 0 unknown province IDs
+- 43 Realms total
+
+NEXT PHASE
+Proceed to Realm identity design.
+
+Not yet assigned:
+- final Realm names
+- capitals
+- cultural/naming families
+- faith/religious identity
+- governments and ruler titles
+- rulers/dynasties
+- Realm traits
+- history
+- claims/grievances
+- economic/military character
+- starting internal conditions
+
+Do not infer current wars or alliances from Realm history. Those remain part of
+the later dynamic campaign-start layer.
+
+FINAL DECISION
+Starting Realm Ownership v1 is the canonical political-landscape baseline for
+the next design phase.
+
+======================================================================
+POLITICAL LANDSCAPE STEP 1 — FINAL FREEZE
+Date/Time: 2026-09-12 21:18 CEST
+======================================================================
+
+STATUS
+Starting Political Ownership Baseline v1 is ACCEPTED AND FROZEN.
+
+CANONICAL FILES
+Source of truth for ownership:
+- starting_realm_ownership_v1.json
+
+Accepted visual representation:
+- FCAH_starting_realm_ownership_v6_clean.png
+
+Authoritative province geometry:
+- astra_provinces.json
+
+Immutable visual base used for deterministic political overlays:
+- astra_provinces_corrected_overview(2).png
+
+Freeze manifest with exact SHA-256 hashes:
+- starting_political_ownership_v1_freeze_manifest.json
+
+VALIDATED STATE
+- 43 starting Realms
+- 100 active provinces
+- every active province assigned exactly once
+- 0 duplicate province assignments
+- 0 missing active provinces
+- stable Realm IDs R001-R043 retained independent of future names
+
+FINAL ACCEPTED OWNERSHIP CHANGES
+- Western regional kingdom: provinces 36, 24, 33, 29
+- Central kingdom: provinces 48, 17
+- C02 remains provinces 30, 16, 20, 19
+- C03 remains provinces 45, 46, 42
+- all other ownership follows starting_realm_ownership_v1.json exactly
+
+AUTHORITY RULE
+The JSON ownership file is canonical. The PNG is visualization only.
+Future ownership changes must be made in canonical data first and the map must
+then be regenerated deterministically from authoritative geometry.
+
+Do NOT:
+- infer or reconstruct ownership from raster colors
+- manually edit the PNG and treat that edit as canonical ownership
+- use image generation for authoritative map overlays
+
+SUPERSEDED / REJECTED OUTPUTS
+- FCAH_starting_realm_ownership_draft_v5_reassigned.png is NOT authoritative.
+  Its reconstruction method incorrectly yielded 46 realm groups and its visual
+  quality degraded. Preserve only if useful as historical development evidence.
+- Any image-generated political-map rendition from this phase is rejected for
+  authoritative cartographic use because geography/details can drift.
+
+FREEZE BOUNDARY
+This freeze establishes only:
+- starting Realm roster
+- starting province ownership
+- starting geographic Realm footprints
+
+Not frozen yet:
+- Realm names and identities
+- capitals
+- cultures / naming families
+- faiths
+- governments / ruler titles
+- rulers / dynasties
+- Realm traits
+- histories and claims
+- economic / military character
+- current wars, alliances, truces and other campaign-start diplomacy
+
+Current diplomacy remains a later dynamic campaign-start layer. History and
+identity may bias diplomatic behavior but should not force identical current
+relations every campaign.
+
+HASHES / EXACT FREEZE FINGERPRINTS
+- v6 political map PNG:
+  070981e679afcd9d2f9b12f884cc8597e37a0d728feeabb8b3501f5d71206700
+- ownership JSON:
+  0065fcf86faec23e4e7ae6e9e45101af8aefd1f432031e48031cda349c131261
+- province geometry JSON:
+  c5ccc4f9d5afb4b3988dcb418402ffeccbab08d70cef8c48a9c57df08f993d7e
+- corrected overview base PNG:
+  70492c43d64fe8d3e90a1bea775ea3a930e5b76200c0c4b27a0922c7031f8138
+
+NEXT PHASE
+Proceed to Realm identity design from the frozen 43-Realm ownership baseline.
+Do not reopen starting ownership unless an explicit design decision requires it.
+
+FINAL DECISION
+Political Landscape Step 1 is CLOSED and FROZEN.
+======================================================================
+RUNNING LOG CONTINUATION
+Recorded into cumulative implementation/design log: 2026-09-16 00:27 CEST
+======================================================================
+
+The following milestone continues the same running implementation/recovery log.
+Earlier entries above remain authoritative historical record. Design-canon
+documents remain separate from this implementation/handover log.
+
+======================================================================
+WORLD IDENTITY MASTER / GODOT RUNTIME INTEGRATION
+Date: 2026-09-16 00:19 CEST
+======================================================================
+
+STATUS
+COMPLETE, VALIDATED, COMMITTED, AND PUSHED.
+
+The locked FCAH world-identity master has been integrated into the authoritative
+Godot repository as a pure-data runtime layer.
+
+Repository authority:
+C:\Projects\For-Carrot-and-Honour
+
+Pushed baseline:
+c19a8bd7b9315183211de17a3aef6d77c51edf5b
+Commit:
+Integrate locked world identity catalogue
+
+Branch:
+main
+
+Push:
+successful to origin/main
+
+PURPOSE
+The milestone installs the accepted province/realm identity canon into runtime
+without introducing gameplay effects.
+
+The integration deliberately keeps:
+- province geography
+- province identity
+- political ownership
+- realm identity
+- formable metadata
+- special-system metadata
+
+as distinct data responsibilities.
+
+No gameplay modifier, conversion, unrest, diplomacy, rebellion, formable
+execution, special religious mechanic, or automatic title change is activated
+by this milestone.
+
+CANONICAL WORLD IDENTITY DATA
+Repository file:
+data/world_identity/world_identity_master_canon.json
+
+Accepted source SHA-256:
+a05c067bdde05322e2f60372c6e2a75364befef3d13c97e03a3ba81cab08de93
+
+The repository copy is byte-identical to the accepted source.
+
+Windows line-ending protection was added in .gitattributes:
+data/world_identity/world_identity_master_canon.json text eol=lf
+
+This prevents future CRLF checkout conversion from silently changing the
+fingerprinted canonical JSON.
+
+RUNTIME ARCHITECTURE
+Added:
+src/simulation/world_identity_catalogue.gd
+
+The WorldIdentityCatalogue:
+- loads the world identity master
+- loads frozen starting ownership
+- loads active province geography IDs
+- independently validates all three sources against one another
+- exposes defensive read queries for provinces, realms, formables, title rules,
+  and special-system metadata
+- refuses malformed or contradictory canon rather than silently repairing it
+
+The catalogue does not trust the master JSON's own embedded PASS metadata as
+proof. Validation is recomputed at runtime/tests.
+
+AUTHORITY BOUNDARIES
+Frozen starting political ownership remains authoritative at:
+data/politics/starting_realm_ownership_v1.json
+
+Active province geography and IDs remain authoritative at:
+data/world_map/astra_provinces.json
+
+World identity master owns:
+- province names
+- identity regions
+- cultures
+- religious identity fields
+- starting realm identity references
+- realm names/styles/types
+- primary realm identities
+- mixed-identity metadata
+- special flags
+- formable metadata
+- regional title rules
+- Central/Eastern special-system metadata
+
+CRITICAL RULE PRESERVED
+Legacy ownership/planning `region` metadata must never automatically determine:
+- culture
+- religion
+- communion
+- rite/belief
+- civilizational identity
+- gameplay bonuses
+
+Province identity and political ownership remain separate concepts.
+
+COUNTS
+Validated runtime totals:
+- 100 active provinces
+- 43 starting realms
+- 19 currently defined formables
+
+All 100 province IDs load exactly once.
+All 43 starting realm IDs load exactly once.
+Every starting owner matches frozen ownership.
+Every realm footprint matches frozen ownership.
+
+LOCKED SPECIAL CASES VERIFIED
+Province 30 — Hasenmark:
+- identity region: western
+- culture: Carthen
+- broad faith: Rethic Faith
+- communion: Crowned Communion
+- rite: Rite of the Living Crown
+- starting owner: R028 Banate of Vel-Kareth
+
+This intentionally preserves Western cultural/religious identity inside a
+Central Vaskari-dominant political realm.
+
+R028 — Banate of Vel-Kareth:
+- primary culture: Vaskari
+- primary religious identity: Rite of the Woven Root
+- starting provinces: 30, 16, 20, 19
+- starting cultures: Carthen + Vaskari
+- starting rites: Living Crown + Woven Root
+- mixed-identity flags preserved
+
+R008 — Seravelle:
+- remains realm_type = holy_state
+- remains the unique starting holy_state
+- ceremonial title remains deliberately deferred
+- normally non-playable status metadata preserved
+
+Other explicit inspection samples verified:
+- Province 32 Eldsund — Eldskar / Hearthbound Faith / Buried Ember
+- Province 53 Conejolandia — Saleran / Crowned Communion / First Light
+- Province 99 Zahraim Darun — Qasren / Way of Aven / Veiled Spring
+- R030 — Empire of Vorthyrion
+- R043 — Sultanate of Samera
+- UTF-8 display name Kingdom of Qasrûn round-trips correctly
+
+VALIDATION BEHAVIOUR
+The catalogue rejects:
+- duplicate province IDs
+- duplicate realm IDs
+- duplicate formable IDs
+- missing required fields
+- invalid field types
+- contradictory starting ownership
+- realm footprint disagreements
+- province/realm summary drift
+- unknown realm references
+- unknown province references
+- malformed formable references
+- invalid title guardrails
+- broken Hasenmark/R028 separation
+- loss of Seravelle's unique holy-state invariant
+
+Queries return defensive copies so callers cannot mutate catalogue authority by
+editing returned dictionaries.
+
+FORMABLES / SPECIAL SYSTEMS
+All 19 current formables are loaded and reference-validated as data.
+
+Central and Eastern special-system metadata is loaded and preserved.
+
+NO behaviour was implemented for:
+- formable execution
+- Deep Wells emergence
+- Wellspring Summons
+- Imperial restoration
+- automatic realm title promotion
+- automatic realm renaming
+
+DEVELOPER INSPECTION
+Added:
+tools/world_identity/inspect_world_identity.gd
+
+The inspector supports:
+- default canonical sample inspection
+- --province=<id>
+- --realm=<id>
+- --all
+
+The full inspection run produced:
+- 100 PROVINCE records
+- 43 REALM records
+- 0 runtime errors
+
+Godot JSON numeric province IDs are normalized to integer IDs for developer
+inspection/query paths where appropriate.
+
+TESTING
+Added:
+tests/world_identity_catalogue_test.gd
+
+Final validation:
+- complete direct Godot suite: 15 / 15 PASS
+- identity catalogue test: PASS
+- full inspector: 100 province lines / 43 realm lines / 0 errors
+- headless editor/project parse: exit 0
+- git diff --check: PASS
+- exact canonical master SHA-256: PASS
+- UTF-8 round-trip: PASS
+- rejection-path tests: PASS
+
+During implementation, several issues were found and fixed rather than ignored:
+- Windows GUI-subsystem godot.exe returned shell control before process
+  completion; validation was changed to explicit process waiting/log capture
+- early typed-GDScript references to the dynamically loaded catalogue required
+  safer RefCounted/runtime script handling
+- JSON numeric arrays required explicit integer normalization in some checks
+- GDScript string-format precedence broke the first inspector output and was
+  corrected
+- an initially mistyped expected SHA-256 was caught by the hash-backed test and
+  corrected
+- CRLF checkout risk for the canonical JSON was caught before commit and
+  protected through .gitattributes
+
+DOCUMENTATION
+Added:
+docs/world_identity/world_identity_runtime.md
+
+Updated identity-specific portions of:
+- README.md
+- docs/code_map.md
+- docs/decision_log.md
+- docs/implementation_plan.md
+- docs/project_index.md
+- .gitattributes
+
+DEV-024 records the validated world-identity catalogue implementation boundary.
+
+GIT / DIRTY WORKTREE SAFETY
+The repository already contained unrelated local settlement-prototype changes
+and protected historical/untracked material before this milestone.
+
+The world-identity commit was staged surgically so those unrelated changes were
+not included.
+
+A temporary .identity_stage workspace was used only to construct clean staged
+versions of documentation files that contained both pre-existing settlement
+changes and new identity documentation.
+
+Final identity commit contains only the intended identity milestone.
+
+Pre-existing settlement prototype work remains local, untouched and uncommitted.
+
+Protected material remains untouched, including:
+- experiments/
+- for_carrot_and_honour_godot_terrain_proof_01.zip
+
+LOCKED / UNCHANGED SYSTEMS
+This milestone did not intentionally modify:
+- Terrain3D
+- terrain geometry
+- terrain materials
+- water
+- vegetation
+- atmosphere
+- lighting
+- NaturalWorld shaders
+- NaturalWorld scene
+- camera behaviour
+- camera zoom envelope
+- world scale
+- province topology
+- province polygons
+- border geometry/presentation
+- frozen starting ownership
+- settlement prototype implementation
+
+FUTURE-PROOFING NOTE
+The current 43-realm frozen ownership is the single implemented starting
+political scenario for now.
+
+The architecture preserves the important future separation needed for possible
+alternate historical start dates:
+- stable province geography/IDs
+- identity separate from ownership
+- realms represented as data
+- ownership represented as data rather than baked into province geometry
+
+No alternate-start scenario system is implemented now. If introduced much
+later, the current hard expectation of 43 starting realms should become
+scenario-specific rather than universal. This is explicitly future discussion
+and not current implementation scope.
+
+FINAL DECISION
+The world-identity integration milestone is accepted as complete.
+
+Current authoritative pushed baseline:
+c19a8bd7b9315183211de17a3aef6d77c51edf5b
+
+The project now has a validated runtime identity foundation for all 100
+provinces and 43 starting realms while deliberately postponing actual gameplay
+effects.
+
+NEXT DEVELOPMENT WORK
+Do not reopen or extend this identity milestone merely because the data now
+exists.
+
+The next task should be separately scoped and explicitly chosen before spending
+additional Codex/Sol usage.
+
+The unrelated dirty settlement-prototype work and broader repository/storage
+cleanup remain separate concerns and must not be folded casually into the next
+gameplay task.
+
+
+======================================================================
+GAMEPLAY CANONICAL IDENTITY BINDING REPAIR / MANUAL ACCEPTANCE
+Date/Time: 2026-09-16 01:20 CEST
+======================================================================
+
+This section extends the existing cumulative implementation/design log.
+All earlier entries remain authoritative unless explicitly superseded below.
+
+STATUS
+The player-visible gameplay inspection path has been repaired after manual review
+revealed widespread stale prototype names and fake realm identity in the province
+debug panel.
+
+The repair is complete, committed, pushed, automatically validated, and manually
+re-checked in the running gameplay scene.
+
+ROOT CAUSE
+The canonical WorldIdentityCatalogue itself was correct. The visible mismatch came
+from two older Gameplay 001 scaffolding paths that had survived beside it:
+
+1. ProvinceDebugPanel was displaying the legacy/import/provisional `name` field
+   from `data/world_map/astra_provinces.json`, exposing labels such as `Mengia`
+   and `Proposal Province 103`.
+
+2. PrototypeWorldState still contained mock political fixtures and owner IDs,
+   including:
+   - Free Province League
+   - Hasenreich
+   - Bunnyhausen
+
+Population, Food, Carrots and Development were also synthetic prototype metrics,
+but those values were not mistaken for canon once isolated and labelled clearly.
+
+ARCHITECTURAL REPAIR
+Runtime responsibility is now explicitly separated:
+
+- Province geography supplies geometry/selection facts only: polygons, area,
+  neighbours and stable province IDs.
+- WorldIdentityCatalogue supplies canonical province name, culture, religion,
+  frozen starting owner and realm identity.
+- PrototypeWorldState supplies only temporary synthetic numeric metrics:
+  Population, Food, Carrots and Development.
+
+The visible gameplay/debug path no longer sources province identity or political
+identity from geography metadata or prototype state.
+
+The old parallel mock-political layer was removed rather than merely hidden:
+- fake realm fixtures removed from PrototypeWorldState
+- fake realm IDs removed from ProvinceState
+- obsolete RealmState implementation removed
+
+The remaining synthetic metrics are displayed explicitly under:
+`Prototype Metrics (not canon)`
+
+VALIDATION
+Focused and full verification succeeded:
+- province_realm_state_test.gd: PASS
+- world_identity_catalogue_test.gd: PASS
+- gameplay_identity_integration_test.gd: PASS
+- complete relevant direct Godot suite: 16/16 PASS
+- headless editor/project parse: PASS
+- normal-renderer gameplay startup: PASS, exit code 0, no errors
+- git diff --check: PASS
+
+Runtime startup reported:
+`GAMEPLAY_001_READY: 100 canonical province identities; 43 starting realms`
+
+The integration test verifies the actual gameplay inspection path across all 100
+active provinces and all 43 starting owners, plus real scene-selection calls for
+representative provinces including Meyru and Keldren.
+
+Required examples verified include:
+- Province 5 Meyru -> R041 Beylik of Meyru
+- Province 30 Hasenmark -> R028 Banate of Vel-Kareth
+- Province 32 Eldsund -> R009
+- Province 51 Seravelle -> R008 holy_state
+- Province 53 Conejolandia -> R012
+- Province 99 Zahraim Darun -> R038
+- Province 103 Keldren -> R022 Jarldom of Skeldmark
+
+The Hasenmark mixed-identity special case remains intact.
+
+MANUAL HUMAN REVIEW
+After the repair was pushed, the gameplay scene was launched manually and provinces
+were clicked across the map. No remaining name/realm mismatch was found.
+
+This manual inspection is accepted as the human verification for this repair.
+
+GIT / COMMIT
+Repair commit:
+037e339d2cdc65948526c8157c9003c7a3f2d9e5
+
+Commit message:
+Bind gameplay inspection to canonical world identity
+
+Push:
+successful to origin/main
+
+Local main and origin/main matched immediately after push.
+
+Pre-existing settlement-related local work, experiments/, and protected archive
+material remained outside this repair commit.
+
+LOCKED / UNCHANGED SYSTEMS
+The repair did not intentionally modify:
+- terrain / Terrain3D
+- NaturalWorld
+- water
+- vegetation
+- atmosphere / lighting
+- camera behaviour
+- province topology / polygons / IDs
+- political borders
+- frozen starting ownership
+- settlement visuals
+- new gameplay systems
+
+SETTLEMENT REPRESENTATION STATUS CLARIFICATION
+The settlement-representation direction is NOT unresolved. The earlier section of
+this same cumulative log already records the accepted working direction:
+
+- 2D / 2.5D transparent settlement miniature
+- placed in world space through Sprite3D-style presentation
+- approximately 40-degree fixed oblique strategy-camera language
+- proper terrain grounding and normal depth interaction
+- no dynamic settlement scaling/LOD required at present
+
+The basic settlement representation experiment was explicitly concluded and
+accepted as the working direction. The test artwork itself remains non-final, but
+the 2D / 2.5D representation choice does not need to be reopened unless later
+gameplay reveals a concrete problem.
+
+Any remaining local settlement-prototype files are implementation/worktree state,
+not evidence that the representation direction itself is undecided.
+
+NEXT WORKING PHASE — DESIGN FIRST, NO CODING YET
+With terrain, province geography, starting political ownership and world identity
+now established and correctly visible in runtime, the next agreed major design
+step is to define the authoritative gameplay-state model rather than begin another
+visual or implementation experiment.
+
+Working target:
+`Province + Realm Gameplay-State Model v1`
+
+The first pass should recover and inventory already-decided gameplay/state concepts
+from the existing FCAH logs and design history before inventing new mechanics.
+
+Planned design sequence:
+1. Recover the existing gameplay/state concepts already agreed or provisionally
+   accepted.
+2. Sort them by ownership/responsibility, for example:
+   - province state
+   - realm state
+   - ruler/character state
+   - relationship state
+   - derived values
+   - event/output concepts
+   - future/deferred systems
+3. Reduce that inventory into the minimum authoritative state model required for
+   real gameplay.
+4. Only after that model is accepted, choose one first mechanic/system to implement
+   against it.
+
+No Codex implementation is authorized by this planning note.
+
+FINAL DECISION
+The gameplay canonical-identity repair is accepted and closed.
+The 2D / 2.5D settlement representation direction remains accepted and parked.
+The next major effort should begin with design recovery and definition of the
+Province + Realm Gameplay-State Model v1.
+
+======================================================================
+GAMEPLAY STATE ARCHITECTURE V1 — DESIGN LOCK
+Date: 2026-09-17
+======================================================================
+
+STATUS
+The first authoritative gameplay-state architecture for FCAH is now CLOSED and
+LOCKED as the foundation for future campaign simulation work.
+
+Primary authority:
+- docs/design_authority/FCAH_Gameplay_State_Architecture_v1_LOCKED.txt
+
+This combined architecture consolidates the previously closed Province/Realm,
+RealmState, CharacterState, DynastyState and RelationshipState design work into
+one implementation authority.
+
+CENTRAL ARCHITECTURE RULE
+Store each fact on the entity or subsystem that actually owns that fact.
+Derive it everywhere else.
+
+The campaign must not grow into one giant god-object or into several competing
+sources of truth.
+
+CORE AUTHORITATIVE STATE OBJECTS
+The five closed core state objects are:
+- ProvinceState
+- RealmState
+- CharacterState
+- DynastyState
+- RelationshipState
+
+Known separate/satellite boundaries include:
+- WarState
+- TradeRouteState
+- ExpeditionState
+- TreasuryCrisisState when needed
+- RebellionState when needed
+- SiegeState when needed
+- future Marshal / Army / Formation objects
+- future Institution / Tradition representations
+
+No universal ProjectState or generic catch-all state object is authorized.
+
+SOURCE-OF-TRUTH RULES
+Current ownership:
+- Province.owner_realm_id is authoritative.
+- Realm territory is derived from Province ownership.
+
+Capital:
+- Realm.capital_province_id is authoritative.
+
+Current ruler:
+- Realm.current_ruler_id is authoritative.
+- CharacterState owns the ruler rabbit's personal facts.
+
+Dynasty membership:
+- Character.dynasty_id is authoritative.
+- Dynasty member lists and current ruling dynasty are derived.
+
+Current war:
+- WarState is authoritative.
+- RelationshipState does not duplicate an "at war" truth.
+
+Bilateral diplomacy:
+- one canonical RelationshipState exists per Realm pair.
+- directional attitudes can differ inside that one object.
+
+Claims:
+- claims may belong to a Character, Dynasty or Realm.
+- each claim record has exactly one authoritative claimant.
+- related rights may share provenance, but not duplicate authority.
+
+History:
+- Province, Realm, Character, Dynasty and Relationship may each retain compact
+  perspective-specific historical memory.
+- historical memory must never be treated as current gameplay truth.
+
+STABLE ID / LIFECYCLE RULES
+Stable IDs are opaque identities and must not be inferred from:
+- array index
+- display order
+- current owner
+- name
+- style
+- active/inactive state
+
+Historical IDs are not recycled.
+
+Realm lifecycle:
+- active Realm: owns at least one Province
+- active Realm: exactly one owned capital and one current ruler
+- NPC Realm with zero Provinces: becomes inactive but remains historically
+  resolvable
+- player Realm with zero Provinces: campaign ends
+- formable transformation: same stable Realm ID, new political identity
+- restoration: reactivates the same historical Realm ID
+- genuinely new rebel Realm: receives a new ID
+
+Character lifecycle:
+- deceased persistent Characters remain resolvable
+- important Characters are persistent; narrative-only names do not need full
+  CharacterState
+- parent links are the recommended authoritative family edge
+- children are derived
+- spouse/partner links must be reciprocal and validated
+
+Dynasty lifecycle:
+- Dynasty identity is independent from any Realm
+- no living members means extinct/inactive, but the Dynasty remains historical
+- marriage does not merge Dynasties or automatically rewrite dynasty membership
+
+PROVINCE / REALM DESIGN BOUNDARIES PRESERVED
+Province:
+- one current owner
+- one primary settlement / management hub
+- local population/manpower/food reality
+- local culture/religion
+- development and later local conditions/systems
+- no generic wartime Controller for normal conquest
+- ownership changes directly when a city/province is captured
+
+Realm:
+- owns political identity, capital, ruler/heir roles, official identity,
+  Realm-wide Carrots and Faith, laws/policies and Realm claims/history
+- Food and manpower are not Realm wallets; they are derived from local state
+- current ruling Dynasty is derived through current ruler
+- style is not inferred from Realm size
+- ordinary conquest does not automatically rename/promote a Realm
+
+RELATIONSHIP DESIGN
+One canonical RelationshipState is retained for each Realm pair, including
+historical/inactive Realms.
+
+RelationshipState may own bilateral agreements and compact relationship memory.
+It does not own:
+- active-war truth
+- Realm claims
+- character opinions
+- a universal single "relation score"
+
+DYNAMIC DIPLOMACY PRINCIPLE
+History and identity may bias diplomacy, probabilities and reactions, but current
+campaign diplomacy is not a fixed script.
+
+TRANSACTION PRINCIPLE
+Multi-entity changes such as:
+- province capture
+- capital relocation
+- Realm inactivity
+- restoration
+- rebel Realm creation
+- formable transformation
+- succession
+
+must be applied coherently and validated as one state transition rather than
+publishing partially changed live state.
+
+DESIGN AUDIT
+The combined architecture audit passed with no hard contradiction found between
+the closed state models.
+
+The architecture deliberately leaves detailed future mechanics such as full
+economy, combat, AI, authored succession systems, building systems, traditions,
+institutions and detailed diplomacy logic for later subsystem passes.
+
+FINAL DESIGN DECISION
+Gameplay State Architecture v1 is accepted as the authoritative state ownership
+and lifecycle foundation for FCAH.
+
+Future systems should attach to this architecture rather than invent parallel
+ownership/state models.
+
+
+======================================================================
+LOGIC FOUNDATION PASS 1 — IMPLEMENTED / VERIFIED / PUSHED
+Date: 2026-09-17
+======================================================================
+
+STATUS
+Logic Foundation Pass 1 is COMPLETE.
+
+The locked gameplay-state architecture has now been implemented as a real Godot
+campaign-state foundation.
+
+Repository:
+C:\Projects\For-Carrot-and-Honour
+
+Commit:
+43a5438cdee9232031be24e7cc1108db38c5ad61
+
+Commit message:
+Implement locked gameplay state foundation pass 1
+
+Push:
+successful to origin/main
+
+Starting implementation baseline:
+037e339d2cdc65948526c8157c9003c7a3f2d9e5
+
+IMPLEMENTED CORE RECORDS
+Implemented authoritative records include:
+- src/simulation/province_state.gd
+- src/simulation/campaign/realm_state.gd
+- src/simulation/campaign/character_state.gd
+- src/simulation/campaign/dynasty_state.gd
+- src/simulation/campaign/relationship_state.gd
+
+Supporting value/boundary records include:
+- claim_record.gd
+- historical_memory.gd
+- war_state.gd
+
+The old debug-only Province record was separated and renamed:
+- PrototypeProvinceMetrics
+
+Prototype metrics remain isolated from authoritative campaign state.
+
+CAMPAIGN STATE / QUERY ARCHITECTURE
+Implemented:
+- campaign_state.gd
+- campaign_queries.gd
+- campaign_session.gd
+- campaign_validator.gd
+- state_schema.gd
+- campaign_codec.gd
+- campaign_bootstrap.gd
+- campaign_world_binding.gd
+- realm_lifecycle.gd
+- character_lifecycle.gd
+
+CampaignState provides stable registries for:
+- Provinces
+- Realms
+- Characters
+- Dynasties
+- Relationships
+- WarState boundary records
+
+Derived query support includes:
+- Realm territory from Province ownership
+- Dynasty membership from Characters
+- children from parent links
+- Dynasty extinction
+- ruling Dynasty from current ruler
+- local Food / manpower overview
+- capital lookup
+- diplomacy availability
+- current wars from WarState
+
+ATOMIC PUBLICATION BOUNDARY
+CampaignSession is the live state-publication boundary.
+
+Public reads return detached copies/snapshots so callers cannot mutate
+authoritative state accidentally.
+
+Lifecycle commands:
+1. copy the current committed state
+2. modify the detached candidate
+3. validate the complete reference graph
+4. normalize validated wire values
+5. publish exactly once if valid
+
+Failed commands leave:
+- authoritative state unchanged
+- revision unchanged
+
+This prevents half-applied capture/restoration/succession states.
+
+IMPLEMENTED LIFECYCLE PRIMITIVES
+Implemented and tested:
+- province capture
+- capital fallback/relocation when required
+- NPC Realm inactivity after losing all land
+- player defeat after losing all land
+- historical Realm restoration
+- fresh rebel Realm creation
+- formable political-identity transformation
+- succession
+- Character death with explicit simultaneous succession where necessary
+- parent assignment
+- reciprocal partner linkage
+- allegiance changes
+- claims
+- perspective-specific history records
+- WarState registration/end boundary
+
+No full war, economy, AI or authored succession simulation was implemented.
+
+CANONICAL WORLD BOOTSTRAP
+The campaign foundation binds to the existing world authorities rather than
+rebuilding or inventing them.
+
+The canonical-world test confirms:
+- 100 active Provinces
+- 43 starting Realms
+- 903 unique Realm-pair Relationships
+- frozen starting owners preserved
+- Hasenmark mixed identity preserved
+- retired Province IDs remain reserved
+- canonical Realm identities remain stable
+
+Production rulers, Houses and capitals were NOT invented.
+
+Campaign bootstrap currently requires explicit scenario setup for:
+- starting rulers
+- Dynasties/Houses
+- capitals
+- relevant official Realm identity setup
+
+Tests use clearly synthetic fixtures for those missing authored roles.
+
+SAVE / LOAD FOUNDATION
+Implemented versioned JSON persistence with strict validation.
+
+The save/load layer checks:
+- schema version
+- exact expected fields
+- stable IDs
+- retired-ID reuse
+- duplicate IDs
+- cross-state references
+- family graph integrity
+- Realm lifecycle validity
+- Relationship pair uniqueness
+- claim ownership
+- WarState references
+- world binding compatibility
+
+Disk save behaviour:
+- validate before writing
+- write a sibling .pending file
+- read it back
+- validate the readback
+- compare authoritative round-trip state
+- atomically rename into the destination only after success
+
+Interrupted/pending writes do not silently overwrite an existing valid save.
+
+WORLD AUTHORITY BINDING
+Campaign saves carry a fingerprint of the implemented world authorities:
+- world identity master
+- frozen starting ownership
+- authoritative province geography
+- province correction manifest
+
+A save is rejected if its bound world authority is incompatible and no explicit
+migration exists.
+
+The binding also verifies that canonical Province/Realm identities and retired
+geographic IDs have not silently disappeared or been reassigned.
+
+BUGS / EDGE CASES FOUND DURING IMPLEMENTATION
+The architecture itself did not reveal a hard contradiction.
+
+Several implementation-level problems were found by Astra's own verification and
+fixed before commit:
+
+1. Godot JSON numeric normalization
+Godot JSON parsing can represent integral JSON numbers as floats. This initially
+broke exact round-trip comparisons and retired Province-ID membership checks.
+
+Fix:
+- validate numeric values first
+- normalize accepted integral numeric values at load/publication boundaries
+
+2. Claim-target coercion risk
+An early claim-loading path could convert an invalid fractional Province target
+such as 407.5 into integer 407.
+
+Fix:
+- target kind/type is validated before conversion
+- malformed strings, fractions, booleans and null targets are rejected
+- regression tests cover this path
+
+3. Registry-key / record-identity divergence
+A registry could theoretically contain a record under one key while the record
+itself claimed another stable ID.
+
+Fix:
+- registry keys are validated against record identities before session creation,
+  publication and save
+
+4. Cross-platform world fingerprint line endings
+Identical authority files could hash differently on Windows and Linux because of
+CRLF versus LF line endings.
+
+Fix:
+- authority text is normalized to LF in memory before hashing
+- actual source files are not rewritten
+- regression test proves line-ending-only differences produce the same binding
+- real content changes still change the fingerprint
+
+Additional defensive tests cover:
+- ancestry cycles
+- Dynasty branch cycles
+- invalid/missing references
+- duplicate/retired IDs
+- mixed integer/float duplicate-ID attempts
+- duplicate claim ownership
+- stale/dead ruler or heir references
+- malformed nested history
+- invalid WarState participants
+- a Realm appearing on both sides of the same war
+- interrupted save files
+- inactive/restored Realm history preservation
+
+TESTING
+Final full repository test result:
+20 / 20 test suites PASS
+
+Four new campaign-focused suites were added:
+- campaign_architecture_test.gd
+- campaign_lifecycle_test.gd
+- campaign_save_load_test.gd
+- campaign_world_bootstrap_test.gd
+
+New campaign checks:
+617
+
+Verified areas include:
+- stable/non-contiguous IDs
+- ownership -> derived territory
+- capital invariants
+- Realm inactivity/restoration
+- new rebel identity allocation
+- formable continuity
+- ruler references
+- Dynasty derivation/extinction
+- deceased historical Character resolution
+- family graph integrity
+- one Relationship per Realm pair
+- asymmetric bilateral attitudes
+- persistent Relationship history
+- WarState ownership of active-war truth
+- claim owner uniqueness
+- query cache rebuilding
+- local Food/manpower derivation
+- ruling Dynasty derivation
+- save/load round-trip integrity
+- interrupted-write protection
+- canonical world bootstrap
+
+PROTECTED WORLD / WORKTREE SAFETY
+At task start Astra recorded:
+1,037 protected file hashes.
+
+At completion:
+all 1,037 protected hashes matched.
+
+No protected terrain/world asset drift was introduced.
+
+Existing settlement-related local work was preserved and intentionally excluded
+from the Logic Foundation milestone commit.
+
+The staged foundation commit was reviewed separately from those pre-existing
+settlement edits.
+
+DOCUMENTATION
+Repository documentation was updated for the new foundation, including:
+- AGENTS.md
+- README.md
+- docs/code_map.md
+- docs/project_index.md
+- docs/decision_log.md
+- docs/implementation_plan.md
+- docs/gameplay_state/logic_foundation_pass1.md
+- .gitattributes
+
+DEV-026 records the implemented gameplay-state foundation.
+
+TEST RUNNER
+A reusable Windows PowerShell headless Godot test runner now exists:
+- tools/testing/run_headless_tests.ps1
+
+It:
+- resolves Godot from PATH
+- waits for test processes
+- applies timeouts
+- writes fresh per-test logs
+- requires PASS markers
+- detects script/parse/crash failures
+
+This removes the recurring need for Codex/Astra to rediscover the Godot
+executable path manually on every run.
+
+GIT / PUSH
+The verified milestone was committed as:
+43a5438cdee9232031be24e7cc1108db38c5ad61
+
+The first push attempt failed because the restricted execution environment could
+not reach github.com:443.
+
+A permitted network-enabled retry succeeded:
+037e339..43a5438  main -> main
+
+Final local HEAD and origin/main matched.
+
+CURRENT PROJECT POSITION
+Closed / established:
+- Terrain / NaturalWorld foundation
+- authoritative 100-Province geography
+- province border presentation
+- frozen 43-Realm starting ownership
+- implemented world identity
+- accepted 2D / 2.5D settlement representation direction
+- Gameplay State Architecture v1
+- Logic Foundation Pass 1
+
+The campaign now has a real authoritative state/persistence spine onto which
+future gameplay systems can attach.
+
+STILL DEFERRED
+Not implemented by this milestone:
+- production starting rulers
+- production Dynasties/Houses
+- production capitals
+- playable campaign bootstrap/UI integration
+- full economy simulation
+- construction/building simulation
+- trade system
+- full diplomacy AI
+- full war/combat/military simulation
+- authored succession-rule systems
+- traditions/institutions mechanics
+- rebellion/siege/crisis mechanics
+- full AI behaviour
+- detailed population/workforce simulation
+
+These remain separate future design/implementation passes.
+
+NEXT DEVELOPMENT BOUNDARY
+Do not reopen this foundation merely because additional systems can now be built.
+
+Before another large implementation run:
+- review the committed foundation against the locked architecture
+- close any genuinely small architectural issues if found
+- then select the next coherent gameplay/content milestone deliberately
+
+The most obvious content/integration gap is the real campaign-start setup:
+- rulers
+- Houses/Dynasties
+- capitals
+- the explicit production scenario data needed to instantiate the 43-Realm
+  canonical world without synthetic fixtures
+
+This is a new milestone, not unfinished work from Logic Foundation Pass 1.
+
+FINAL DECISION
+Gameplay State Architecture v1 and Logic Foundation Pass 1 are accepted as the
+current FCAH campaign-state baseline.
+
+Commit 43a5438 is the authoritative pushed implementation baseline for this
+foundation.
+
+Future simulation systems must preserve the established source-of-truth,
+stable-ID, lifecycle, validation and persistence boundaries unless an explicit
+later design decision intentionally revises them.
+======================================================================
+
+======================================================================
+2026-09-17 — TEMPORARY VISUAL INSPECTION MAP HANDOVER
+======================================================================
+
+STATUS
+A small Codex-driven visual inspection pass was completed after Logic Foundation
+Pass 1. The work is accepted as a temporary/internal development aid, not as the
+final player-facing map-mode system.
+
+This handover is intentionally recorded in the cumulative changelog because code,
+presentation seams, tests and documentation were added. If the temporary system is
+later removed or replaced, this entry should remain as historical record and be
+marked SUPERSEDED / RETIRED / REMOVED by a later changelog entry rather than being
+silently deleted.
+
+POLITICAL MAP MODE v0.1 — INTERNAL INSPECTION TOOL
+Codex implemented a temporary Political inspection overlay in Gameplay 001.
+
+Current behavior:
+- P toggles Normal <-> Political mode.
+- The existing Terrain3D world remains visible.
+- A 38% Realm-color tint is applied through a derived Province-ID mask.
+- Current ownership is read from ProvinceState.owner_realm_id.
+- All Provinces owned by the same Realm receive the same political color.
+- Starting Realm colors are deterministic and optimized for neighboring contrast.
+- Existing terrain, water, vegetation, settlements, accepted borders and camera are
+  preserved.
+- Normal mode restores the original terrain shader and border presentation.
+
+The implementation produced a reusable presentation seam rather than a duplicate
+political source of truth. A live CampaignSession can supply current ownership;
+the standalone inspection scene seeds current ProvinceState ownership from frozen
+starting ownership until the authored production scenario exists.
+
+Political Realm-name labels were added as a second small pass:
+- one label per currently landed Realm
+- authoritative Realm/formable display identity
+- territorial anchors derived from currently owned Provinces
+- labels refresh after campaign ownership/identity changes
+- labels disappear in Normal mode
+- labels avoid the existing inspection panel at overview scale
+
+Known accepted weakness:
+- label readability/scaling is imperfect at mid and closer zoom ranges
+- continent/far-overview readability is better than some intermediate zoom levels
+- this is accepted because the mode is currently for internal inspection only
+
+The intended final player-facing Political Realm View remains a future redesign.
+That later system is expected to use the exact terrain camera angle but a distinct
+political presentation layer, strong Realm presentation, larger overview zoom,
+proper typography, eventual parchment treatment and a polished terrain-to-map
+transition. The current tint overlay must not be mistaken for that final design.
+
+CULTURE MAP MODE v0.1 — INTERNAL INSPECTION TOOL
+Codex then implemented a temporary Culture inspection mode by reusing the accepted
+Province-mask/tint presentation path.
+
+Current behavior:
+- C toggles Normal <-> Culture mode.
+- P and C switch directly between mutually exclusive Political and Culture modes.
+- Only one map mode is active at a time.
+- Culture is read from the Province-level authoritative field
+  ProvinceState.local_culture.
+- Canonical campaign bootstrap already seeds local culture from validated World
+  Identity Province culture.
+- The standalone inspection scene seeds that same field from canonical starting
+  identity until a live CampaignSession is bound.
+- Realm primary culture and Realm ownership do not decide Province culture color.
+- All Provinces sharing a culture receive the same deterministic color across Realm
+  borders.
+- Existing Province boundaries remain readable.
+- Culture labels are placed per connected cultural region rather than forcing one
+  misleading label between disconnected areas of the same culture.
+
+Starting-state inspection facts verified by the implementation:
+- 100 active Provinces
+- 18 starting cultures
+- 28 connected culture regions
+
+KNOWN LIMITATIONS / DEFERRED PRESENTATION WORK
+The temporary Culture view is accepted as useful but visually incomplete.
+
+Known limitations:
+- no culture legend yet
+- zoom/readability of labels is functional rather than polished
+- culture is represented primarily through color separation
+- no richer hierarchical map grammar is implemented yet
+
+The missing legend is explicitly acknowledged and should be added only when map
+presentation is revisited; current Codex usage was intentionally not spent polishing
+this temporary tool further.
+
+FAITH / RELIGION MAP — DEFERRED DIRECTION
+A Faith/Religion inspection map was discussed but not implemented in this pass.
+
+Preferred future visual grammar:
+- broad/main religion represented primarily by base fill color
+- rite / branch / communion distinctions represented through secondary visual
+  encoding such as stripes, hatching, dots, value variation or restrained border
+  treatment rather than assigning every lower-level religious identity an unrelated
+  base color
+- a proper hierarchical legend is mandatory
+
+This should allow the player/developer to read broad religious families first and
+then see internal rites/branches without destroying visual kinship.
+
+VERIFICATION
+Political pass verification reached:
+- 21 / 21 direct test suites PASS after Realm-label work
+- 43 / 43 starting Realm labels visible at continent overview in automated QA
+- no detected overview label rectangle overlap
+- Normal restoration verified
+
+Culture pass verification reached:
+- 22 / 22 direct test suites PASS
+- all 100 Province cultures read from current ProvinceState
+- 18 distinct deterministic starting culture colors
+- 28 connected culture-region labels
+- 28 / 28 overview culture labels visible in automated QA with zero detected overlap
+- Normal -> Culture -> Normal restoration verified
+- Political -> Culture -> Political restoration verified
+
+IMPLEMENTATION / DOCUMENTATION SURFACES ADDED OR EXTENDED
+The temporary visual pass added or extended presentation/testing/documentation around:
+- political Province-ID mask generation
+- political Realm palette assignment
+- Political map presentation
+- Political Realm labels
+- Culture connected-region labels
+- Gameplay 001 P/C map-mode switching
+- Political and Culture QA capture scripts
+- focused Political/Culture regression tests
+- README / code map / decision log / implementation plan / map-mode notes
+
+No terrain/world authority, canonical geography, camera identity, accepted settlement
+direction or gameplay-state architecture was intentionally changed by this visual
+inspection milestone.
+
+GIT / HANDOVER STATE
+The Codex Political/Culture visual runs explicitly reported:
+- no commit made
+- no push made
+
+Therefore these temporary visual changes were handed back as working-tree changes at
+the end of the Codex pass and should be included deliberately in the next repository
+cleanup/commit decision rather than assumed to be part of commit 43a5438.
+
+CURRENT DECISION
+The temporary visual mini-phase is CLOSED for now.
+
+Accepted for internal development use:
+- Political overlay + Realm labels
+- Culture overlay + connected-region labels
+
+Do not spend additional implementation budget polishing these temporary views now.
+Known presentation debt is intentionally deferred.
+
+Development returns to the main gameplay path. The next major gap remains the real
+campaign-start content/integration needed to instantiate the canonical 43-Realm world
+without synthetic fixtures: production capitals, starting rulers, Houses/Dynasties
+and the minimum required starting political-character setup.
+======================================================================

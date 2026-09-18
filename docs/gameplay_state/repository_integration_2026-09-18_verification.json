@@ -1,0 +1,881 @@
+{
+  "milestone": "Repository integration 2026-09-18",
+  "sources": {
+    "baseline": "43a5438cdee9232031be24e7cc1108db38c5ad61",
+    "presentation": "1dbe757febcefaf871293c6d30129363223a65e1",
+    "campaign_start": "c45f8080a9b0cd375c0495371689e8d06e7e48ba"
+  },
+  "starting_inventory": {
+    "modified_tracked": 8,
+    "untracked_git_visible": 602,
+    "accepted_untracked": 112,
+    "excluded_git_visible": 490
+  },
+  "preservation": {
+    "recovery_directory": "C:/Projects/fcah_integration_recovery_2026-09-18",
+    "accepted_files": [
+      {
+        "path": "README.md",
+        "sha256": "27b4b54331ce787157edf4b1974a1e6b6fb3fbe170be86bce39281b973ccb73d",
+        "tracked": true
+      },
+      {
+        "path": "docs/code_map.md",
+        "sha256": "7783c0e8155ab824ede20cb35aa9e006fd1acc3c93e2ee007bce553c23bd3812",
+        "tracked": true
+      },
+      {
+        "path": "docs/decision_log.md",
+        "sha256": "43031055dbdf2687001136d5807e54efbf207eeecd1ecce1046a620c35e32485",
+        "tracked": true
+      },
+      {
+        "path": "docs/implementation_plan.md",
+        "sha256": "585e0d725a005955787efd3a82e4b759058337631aa1a5e5ff66d89c2c7a2c08",
+        "tracked": true
+      },
+      {
+        "path": "docs/project_index.md",
+        "sha256": "c4108f62f6d8d6e89a12cbb5417113d2f7468b45e6b8af1b01ae6f11950e1137",
+        "tracked": true
+      },
+      {
+        "path": "scenes/gameplay/world_gameplay.tscn",
+        "sha256": "043c453dbbdf8686e7160a3cca7afa666e56901ebd5a1653d973bce7655b419c",
+        "tracked": true
+      },
+      {
+        "path": "src/gameplay/world_gameplay.gd",
+        "sha256": "292257b64bc9f1b9a5bd7aaf5b3f12b642504a5efe7175bee7d331bce5fe4f88",
+        "tracked": true
+      },
+      {
+        "path": "tests/world_gameplay_scene_test.gd",
+        "sha256": "3f49fefb06f12af5a0b7969b0ea9e6f5d2f6a8e655582901f152ad27414bc360",
+        "tracked": true
+      },
+      {
+        "path": "assets/prototypes/settlement/carrothome2dtest2.png",
+        "sha256": "42bd2437805b587541586286f19b6295c7709b2a55aeaf96eef1dcbca45341c4",
+        "tracked": false
+      },
+      {
+        "path": "assets/prototypes/settlement/carrothome2dtest2.png.import",
+        "sha256": "3f20f0db402744eaa40630cf67667b8783afad274ca10f299602d88c3c0cc7f7",
+        "tracked": false
+      },
+      {
+        "path": "assets/prototypes/settlement/testhome_2d.png",
+        "sha256": "36fc0a6bf0a839efc2714f98aa56c84c2e8989cbdf3cd40ab11f7f05baa61bf5",
+        "tracked": false
+      },
+      {
+        "path": "assets/prototypes/settlement/testhome_2d.png.import",
+        "sha256": "1d8d70e1cb34a28ebe16780a64120c5caefde7bb44bda407808fb603f3ec766d",
+        "tracked": false
+      },
+      {
+        "path": "assets/prototypes/settlement/testhome_3d_reference.png",
+        "sha256": "9f628f554874efeff1059492f5e67dd79a6047d98b4202963fc4c26f81315d5f",
+        "tracked": false
+      },
+      {
+        "path": "assets/prototypes/settlement/testhome_3d_reference.png.import",
+        "sha256": "4ccbf912f23a04470a54223ba3298cb7d38dd1bf903376a38026c684e8adf9ab",
+        "tracked": false
+      },
+      {
+        "path": "assets/prototypes/settlement/the_victim.png",
+        "sha256": "684b267e37bccea73abbda857534c53b19a30774260de9a114b90920931494f7",
+        "tracked": false
+      },
+      {
+        "path": "assets/prototypes/settlement/the_victim.png.import",
+        "sha256": "f150808243c6acb8e088ff5aacb3fa6cebc03d2b3a9e2d089281923d24c58509",
+        "tracked": false
+      },
+      {
+        "path": "assets/world_map/political/province_id_mask.png",
+        "sha256": "95837e8012e38fad5305654ec5c2a30a6ab7d48e9d466fab7f6f0e97f7dd294c",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/culture_map_mode_v0_1.md",
+        "sha256": "3b90f381b17b70219a83387e333cefda3eb11806e413181b5485bf3a1bce4720",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/political_map_mode_v0_1.md",
+        "sha256": "9648f363ddd82d9e403f51f3be7bb7e9a3f9a479f5a7d7252d6b283362a33339",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/culture_map_mode/culture_1600.png",
+        "sha256": "ab4911358af04f63992aee53ca57f47451be9383eab9e6f84b85a7f5b76db4ee",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/culture_map_mode/culture_3600.png",
+        "sha256": "f8af6a0224c4779eb72119ef279f0ac0513da80a4135107ef8305363daf4a977",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/culture_map_mode/culture_800.png",
+        "sha256": "9d14b04f59090ca769042d757c6035ff81bb27c6cd6603f184edbb6d7382a148",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/culture_map_mode/culture_overview.png",
+        "sha256": "e8d4fca2ad7948b75340071bd4eb6bcaba026919811cfe5e172a7b3e0000df6c",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/culture_map_mode/culture_overview_ui.png",
+        "sha256": "2fe2aeee1a2cace359f474a4c1a9e7658de48faaff921bfbc82feebb54cbf0b1",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/culture_map_mode/normal_1600.png",
+        "sha256": "338937666b86fbb60c89932aa0965370b432103557f8281554b8f1c67efcbcf2",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/culture_map_mode/normal_after_culture_1600.png",
+        "sha256": "f95d6054b6fbed586aa4fa70aa61ced8dc43083f4fad56f8d75eb2d4301e7f81",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/culture_map_mode/political_after_culture.png",
+        "sha256": "f58b23757faa69bbdc2d3b98348fbcfd132a90671ee99c8d781f8d2fe770f78e",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/culture_map_mode/political_before_culture.png",
+        "sha256": "19ad766d9d4b73864d362905a464bfedc553ea7ac3268240a00a4393710f6d4a",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/mountains_normal.png",
+        "sha256": "229623351b5170b35fca736a89199156f27973443e6eff70d416f17d1bfff680",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/mountains_political.png",
+        "sha256": "3e1c8171d47dfef2f2f78719f45b57f954df10724859b59c4a8ee97cc219a351",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/normal_1600.png",
+        "sha256": "669eeeb8f055c15cf7b91fae51b7595df07fef9a568177a12e3741d0f13f2b75",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/normal_3600.png",
+        "sha256": "79831f83a9e300db1a40de42ef6cdcbdc98aa644e6f657a2de941e4ebf74a5f3",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/normal_800.png",
+        "sha256": "f909f0879a71d040831e5244d2016e49698aca3023cf3a2c9af73635c4cb78eb",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/political_1600.png",
+        "sha256": "1c51f40c32df5dd5064cad3976e020c2105bf0ffd0fe1ffc29c77dee05e088e6",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/political_3600.png",
+        "sha256": "79f579c223fddb3b4921d61fcc38f082aa1ebb0a1bdead5255d43cdcb25108ed",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/political_800.png",
+        "sha256": "12db471dc7bca14033f31ddb31a8247a5be765b42a5096276d9798f7bfcd9edd",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/political_overview.png",
+        "sha256": "89f30afd3bec5b710cad3560f41d50eb4b25aff81e130bdbc0133afab482a26a",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/settlement_normal.png",
+        "sha256": "080cd036f170dbfbfb913a4477ae5b7e76e85ad992fd7e677b1e611126146a21",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_map_mode/settlement_political.png",
+        "sha256": "10ff0c7d31c39d5cf13b80ad7707fd901140b1cc11ac11aa6bb6d6441cc022e1",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_realm_labels/normal_1600.png",
+        "sha256": "ee93abfaf57a074932c0e3045fec9fc8595f6b88335b286bc149e8ee66a688d3",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_realm_labels/political_1600.png",
+        "sha256": "a6a84f95f6276ce46bbfd30790c3bf9da6cc19c72abd37ea6961ccd08282ed04",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_realm_labels/political_3600.png",
+        "sha256": "5fe1b0bea2dc10a3eb5c826f4a6b5b15e6d04ccfb704c1bebc951c0b718be31f",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_realm_labels/political_800.png",
+        "sha256": "a1dcee6fc63381eca22bf277ef71eb9886eb2c134b76a73ca9b04b7776662370",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_realm_labels/political_overview.png",
+        "sha256": "75e45b728219c9e4f5bfb0d8fa5f569fcb801deb9e5081e9cdc7deff6abc63c8",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/political_realm_labels/political_overview_ui.png",
+        "sha256": "4f69a6e7b1f6ed02c3c95fa989316d33d1e969a06d6f47496f4b0a013b613f11",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_0800.png",
+        "sha256": "eb73e308538a9d4ec981542000f0557af508303ed8d8aebcd4b7c9eb5c0002c4",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_0800.png.import",
+        "sha256": "32e24916b74c4595f2910f4d29dacb04adf8750df312f455faaa9c22a6257fd0",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_1200.png",
+        "sha256": "8f8b4076d0fb3fb48f638e416e30ae7aadc43aedf831a46839743d1a21762041",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_1200.png.import",
+        "sha256": "c86bde2781177fedc21f625c988ff3e7c346a99415e973c9e1814d71fb989671",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_1600.png",
+        "sha256": "ef1aa8f3786f84576f62cb9f76f22a79d0bff5a3a87676ad0d4d25e3e6b7ae53",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_1600.png.import",
+        "sha256": "688e613b3e5a51b881cf3f13dbd8bb0c6a27a9e9d28b315c95afdf2b862f57c5",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_2000.png",
+        "sha256": "83266acf6e7152079240a741779764aaccf3243bff7d30c2bc96426882843fbb",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_2000.png.import",
+        "sha256": "e838f449c62bb5406d9b3df569e84b1c6737477691aa8d1a5eb1f4f928b440fc",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_2400.png",
+        "sha256": "71e98860a0da0cf3d0d71b49b41be47d280036d202e5d02cad8bbe6dd5c52943",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_2400.png.import",
+        "sha256": "9396c9c2d153d15f7549ac5b293c62edb42e37601cdfd31f4372b0e53af293fe",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_3200.png",
+        "sha256": "49089eeb0584af4ef8dc0cd7b07dfb3cb3b4463445fc08105c0c2c36d6a252ce",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_2d_zoom_3200.png.import",
+        "sha256": "9f1985fe2e2a30cab23e967a46f0013a2baf481830013042d8afbd1f4861c835",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_0800.png",
+        "sha256": "6b28d347179c0031018b1f7f6693bebb8aa56b3f5df21707ba2ff13e30c8ad9d",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_0800.png.import",
+        "sha256": "517fc30d5cee351dfb42fdb498c61119e9f624b383bd05e0b9a35eb0afb12e8b",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_1200.png",
+        "sha256": "f49b1377b735a3bc916cb957146fdb6bc4e1299182fee1815fd3b65bc9c3d6fb",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_1200.png.import",
+        "sha256": "96e03aba04da5087a90fb5d36de6923e642e2def9db0257dd51808cc1b47bc64",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_1600.png",
+        "sha256": "ec7f2476a18fdff02c8e321bebeebeacf6e74eab0a005c7f8e92d30936759a32",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_1600.png.import",
+        "sha256": "e0de4627cb09f06e5a4de7f0fb1ac926adea65d64b5b5980ae9ec31935324f67",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_2000.png",
+        "sha256": "4fd9998d2c212126fda0cc050fd6f3a550bf8e9405d29f5a903b2b5a06e3702b",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_2000.png.import",
+        "sha256": "c4038c871b2fea5a2621787b689a7b6cd68de359b4084ef4ce3bd9872729536c",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_2400.png",
+        "sha256": "eec405f851e293ca7294494f405b3791f4e75c292dac852dc0c572488e0eb78f",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_2400.png.import",
+        "sha256": "d547c534a02cdde8bc850462a2ed8b49bbe40f9e84f3ad0fc49eeb3df108c0c6",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_3200.png",
+        "sha256": "7397522f6b61358811eff997b32d0ac1d7bb28fda743f15105613e04905e3613",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_54_3d_zoom_3200.png.import",
+        "sha256": "c8bb020c847173d2caabda52db32ff95fa9f4e5eccea1d92f93411f590f88954",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_0800.png",
+        "sha256": "e174cacc4fd0753304607e05ab2facfefcf90d6e0095c888d547694458d552ac",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_0800.png.import",
+        "sha256": "88bedd89df52eb94d0dd97ae1d67a3021d819f85b269158335d0cedcc82e3ea2",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_1200.png",
+        "sha256": "a4a5ad6fc1669fd0a04ecd955b5d67acd5093ac196ec43a330d10047dabba5bb",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_1200.png.import",
+        "sha256": "f4e90fd592b6b6704d84079135e0e03ae638fb617f0cb842f607229c630b7e5e",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_1600.png",
+        "sha256": "3e7d05a0e1b90b76436e0c2392d3c59e000f751f58e82e6a6e49b467b5b14cad",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_1600.png.import",
+        "sha256": "46a4615ad6aee1a6406e7895ff594e8f49bdb8d748613bed01f84bd15ef1b54d",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_2000.png",
+        "sha256": "7cf639fc3a66b61cf786ba70252d0fbe0404b25a5831e87cf1bf150e89dc995f",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_2000.png.import",
+        "sha256": "9398cc1a8df94950cf0425db56f3805d75dc2f2f07476eea7d11386d3e1c7109",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_2400.png",
+        "sha256": "e4d6917a39bdf3c38187eea20adc7c54b9cfcbe68b6377b737500f68ea941b60",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_2400.png.import",
+        "sha256": "47e37560c4da790f19946ac0fd82c8f6e83b23efac9864bc86403aee40385a0b",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_3200.png",
+        "sha256": "d5eeabd999052fd21960b258f2e140ed7e46b2f7f433b1daa94c48c22085dd72",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_2d_zoom_3200.png.import",
+        "sha256": "d9a3a6e9927db2987cc369794755b238d9c5c4f8c6936b5b4bb0de92cc7eea93",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_0800.png",
+        "sha256": "1cebe0d3d2094b22c519f89f1083fc4010211d52134282831e1898888c192ce3",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_0800.png.import",
+        "sha256": "268a4826ad44c5323fd42d11c23cd1108635b8de50dbe50e9a0e98c48d0b4756",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_1200.png",
+        "sha256": "9aaee19221304987ab2cc96e6d54d776c4d2b5d663a747a9b42b7ad7a2abd6eb",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_1200.png.import",
+        "sha256": "0d7b03a7b9393e20a6b9efcabc524c4eb07d3abac8113d4d9e2e152ccedf232f",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_1600.png",
+        "sha256": "4c99d915b79141625ec2aed91c5c05733b6d327eb2456362a435716bf06fcda0",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_1600.png.import",
+        "sha256": "b6832ffff9ea363a9ffa8a17e9d857c00d5e506e866286dd97f7bea88fc49504",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_2000.png",
+        "sha256": "73476e83cccfbc565d32737232fe689d920ce5625360a65654d24c118ff48823",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_2000.png.import",
+        "sha256": "20f56823c8054dd7ea6c0b4103891d09181155364d7f15b5af4395c68e87a45a",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_2400.png",
+        "sha256": "3ef72edf88be3f3ebd0ac8e8a46445a1fbd730a62f4d309e187dfc32d41afee9",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_2400.png.import",
+        "sha256": "b35d827aba983e9f58ddfb5040cb0355c86178579d2582b37b121bb52cd79e04",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_3200.png",
+        "sha256": "9b3de9d21c1ac0eb5a9de94c77cc3e238dec82d574d5e03e21dfcf741d7bc3b5",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/province_67_3d_zoom_3200.png.import",
+        "sha256": "f810bf36b43bda3025edd8985256c462ecc87c71933d58265261fbdb700e2a71",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/qa/settlement_prototype/settlement_prototype_capture_report.json",
+        "sha256": "49c428455931ee53c9a9fcb559d4948f18d4b0be57fc8b7c8dcbff4859b88810",
+        "tracked": false
+      },
+      {
+        "path": "docs/world_map/settlement_representation_prototype.md",
+        "sha256": "83dea74599ae6d168ef850c60c32d217551c3f542521f370480ce8a30bfc930e",
+        "tracked": false
+      },
+      {
+        "path": "scenes/gameplay/settlement_prototype_test.tscn",
+        "sha256": "0a5d734a4e249f30d472ff21866e02730033a9acd2a0ca308ffc81b9499d2f64",
+        "tracked": false
+      },
+      {
+        "path": "src/presentation/world_map/culture_region_labels.gd",
+        "sha256": "0294f9aa6c1aeb95fe3673582a6104c5e5486a5eb135b2d83110995be83b27e4",
+        "tracked": false
+      },
+      {
+        "path": "src/presentation/world_map/culture_region_labels.gd.uid",
+        "sha256": "99f8ca325b3be120812b1a9ea31842a39d4e4a3d06b3fca5ce14cf632f5ec29d",
+        "tracked": false
+      },
+      {
+        "path": "src/presentation/world_map/political_map_presentation.gd",
+        "sha256": "74bd3d5d19264d731ee9f8001a4b511e890f4455ca71b64c978b17f07d4b0f7c",
+        "tracked": false
+      },
+      {
+        "path": "src/presentation/world_map/political_map_presentation.gd.uid",
+        "sha256": "980a9853cb6a5cb3b083dd6ee8944f72e8d681259e328081e2ead7f694c985cd",
+        "tracked": false
+      },
+      {
+        "path": "src/presentation/world_map/political_realm_labels.gd",
+        "sha256": "7ef4e59423ec3dbc15bf734e2f6b8ea35a8e00739d8a4ca3edb3177f7df23726",
+        "tracked": false
+      },
+      {
+        "path": "src/presentation/world_map/political_realm_labels.gd.uid",
+        "sha256": "87d37cf32456116566e710d7c20b4820ec8f288482a8db177a34c536e50af849",
+        "tracked": false
+      },
+      {
+        "path": "src/presentation/world_map/political_realm_palette.gd",
+        "sha256": "c8e37865c9c9b3e03bce7c38e9ac76fc631da1482ea9ff236e57b0153d8dbd9d",
+        "tracked": false
+      },
+      {
+        "path": "src/presentation/world_map/political_realm_palette.gd.uid",
+        "sha256": "d0ad801b0f1e899756840ddd1d9b50fa1fec2be67d2606714d9ffedc48ed3f06",
+        "tracked": false
+      },
+      {
+        "path": "src/presentation/world_map/settlement_prototype_test.gd",
+        "sha256": "86ab6f1f9fed38914b9158087b7cb81028dabd574be503b2d97559add1b64589",
+        "tracked": false
+      },
+      {
+        "path": "src/presentation/world_map/settlement_prototype_test.gd.uid",
+        "sha256": "368f113a456c7b9090e8d13d559e01671dfe82ab108117b3828a7a2f9bb59a3d",
+        "tracked": false
+      },
+      {
+        "path": "tests/culture_map_mode_test.gd",
+        "sha256": "68226281333184a78811f15a0a4f0cb3e48b178a3a2971cd69e7e2f8caf649e9",
+        "tracked": false
+      },
+      {
+        "path": "tests/culture_map_mode_test.gd.uid",
+        "sha256": "eef862b758bf26e65a9ec744b123826ca822e949343d7e70a01a64e9e0b35cbe",
+        "tracked": false
+      },
+      {
+        "path": "tests/political_map_mode_test.gd",
+        "sha256": "85d06d57abdee3d41a540220b9b37d064ab89a85c4a9ae4d66d22f61f07167cb",
+        "tracked": false
+      },
+      {
+        "path": "tests/political_map_mode_test.gd.uid",
+        "sha256": "59ae6bd0251801137fa4937a09eda7adb0651b0cbfa68a786bdd986480489ab3",
+        "tracked": false
+      },
+      {
+        "path": "tools/world_map/build_political_province_mask.gd",
+        "sha256": "bd98090833ac7611951861eeaee2dc6bd1ed811ebba96e1e0c946170b1f08d4c",
+        "tracked": false
+      },
+      {
+        "path": "tools/world_map/build_political_province_mask.gd.uid",
+        "sha256": "1e2e90863a087c22edebde85a108a50dc34514ce6a0a5c022c0b19330646d127",
+        "tracked": false
+      },
+      {
+        "path": "tools/world_map/capture_culture_map_mode.gd",
+        "sha256": "4960620096415eabf822fcb25d62a04bc446f5ae46a79b63347bd21e07de54b5",
+        "tracked": false
+      },
+      {
+        "path": "tools/world_map/capture_culture_map_mode.gd.uid",
+        "sha256": "3053908617d3d2e0b04a7f38b0c5622fbc72e20cc2ec894c57e2c16bf421b750",
+        "tracked": false
+      },
+      {
+        "path": "tools/world_map/capture_political_map_mode.gd",
+        "sha256": "66dbdf2f109a56ee81043ed88180a8f6656a29386d4f565ca26d2c00791625af",
+        "tracked": false
+      },
+      {
+        "path": "tools/world_map/capture_political_map_mode.gd.uid",
+        "sha256": "f6eade5c6373ac305c5fc53b2695bbfa34c620cf7accd221b330162844ffcb02",
+        "tracked": false
+      },
+      {
+        "path": "tools/world_map/capture_political_realm_labels.gd",
+        "sha256": "5c77ea573d2a6676726d69bb12049568b9a42d8272f7fc86633c9c767e3b4ef8",
+        "tracked": false
+      },
+      {
+        "path": "tools/world_map/capture_political_realm_labels.gd.uid",
+        "sha256": "4daf227feb5cc24b877f8ca3cd34b38cc0cea0e144725f8043078a812c2f469a",
+        "tracked": false
+      },
+      {
+        "path": "tools/world_map/capture_settlement_prototype.gd",
+        "sha256": "e855a8141d478968547152943ba411ff118d4ce7d39291c406a252cc8dab7157",
+        "tracked": false
+      },
+      {
+        "path": "tools/world_map/capture_settlement_prototype.gd.uid",
+        "sha256": "30937285d5bf9cd26ec20a75d61f7011ca3928efc5fa01404722347235110629",
+        "tracked": false
+      }
+    ],
+    "accepted_byte_identical": 111,
+    "documented_changed_accepted_paths": [
+      "README.md",
+      "docs/code_map.md",
+      "docs/decision_log.md",
+      "docs/implementation_plan.md",
+      "docs/project_index.md",
+      "docs/world_map/culture_map_mode_v0_1.md",
+      "docs/world_map/political_map_mode_v0_1.md",
+      "docs/world_map/settlement_representation_prototype.md",
+      "tests/political_map_mode_test.gd"
+    ],
+    "tracked_baseline_count": 1210,
+    "tracked_byte_identical": 1197,
+    "tracked_changes_from_campaign_commit": [
+      ".gitattributes",
+      "AGENTS.md",
+      "docs/gameplay_state/logic_foundation_pass1.md",
+      "src/simulation/campaign/campaign_bootstrap.gd",
+      "src/simulation/campaign/campaign_state.gd",
+      "src/simulation/campaign/campaign_validator.gd",
+      "src/simulation/campaign/character_state.gd",
+      "src/simulation/campaign/dynasty_state.gd",
+      "src/simulation/campaign/state_schema.gd",
+      "tests/campaign_save_load_test.gd",
+      "tests/campaign_world_bootstrap_test.gd",
+      "tests/support/campaign_fixture.gd",
+      "tools/testing/run_headless_tests.ps1"
+    ],
+    "excluded_archive_files": 935,
+    "excluded_archive_bytes": 731046632,
+    "excluded_archive_hashes_verified": true,
+    "accepted_backup_hashes_verified": true,
+    "fixture_exact_three_line_migration": true,
+    "campaign_runtime_tests_tools_unchanged": true,
+    "presentation_runtime_tests_unchanged": true
+  },
+  "verification": {
+    "original_presentation_suites_passed": 22,
+    "combined_suites": [
+      {
+        "suite": "astra_biome_preview_test.gd",
+        "result": "PASS",
+        "log_sha256": "da98161329d31ed7dbfaea1dcbe7b984dc8a6b861e904734ff8ec3b650f646f0",
+        "warnings": [
+          "WARNING: instance_reset_physics_interpolation() is deprecated."
+        ]
+      },
+      {
+        "suite": "astra_province_coverage_test.gd",
+        "result": "PASS",
+        "log_sha256": "975ea0b31eccdad6e01d70940a56c8e94f2224b7ab0c572fafe419dab7fd71a2",
+        "warnings": []
+      },
+      {
+        "suite": "astra_province_data_test.gd",
+        "result": "PASS",
+        "log_sha256": "d44eb6c95872b8f67b208a8ded12c7123209c8eb01689e510aca2b84a978b6d3",
+        "warnings": []
+      },
+      {
+        "suite": "astra_terrain_art_assets_test.gd",
+        "result": "PASS",
+        "log_sha256": "af9b293c160c8d53b4e882d006002c170f20f3a0dfa5cb839aec7b5ce82bc478",
+        "warnings": []
+      },
+      {
+        "suite": "building_definition_test.gd",
+        "result": "PASS",
+        "log_sha256": "4d879de78c17c060d16ba740bf4a947cd9bf87f25665662b78d7f53174a14ed8",
+        "warnings": []
+      },
+      {
+        "suite": "campaign_architecture_test.gd",
+        "result": "PASS",
+        "log_sha256": "57d0e091809de029461d2ed5f11c8f5000ae897156760325b332af434e806097",
+        "warnings": []
+      },
+      {
+        "suite": "campaign_lifecycle_test.gd",
+        "result": "PASS",
+        "log_sha256": "36cc7a8d9416983d9c7b66d9910a8461726ae01952ca06ecee8dba06929efeb8",
+        "warnings": []
+      },
+      {
+        "suite": "campaign_save_load_test.gd",
+        "result": "PASS",
+        "log_sha256": "e35836be4e0b2d109af826ebc17e402783c03a49ef7165f1f9477dc12036c73a",
+        "warnings": []
+      },
+      {
+        "suite": "campaign_start_stress_test.gd",
+        "result": "PASS",
+        "log_sha256": "22cc29397deef90e1e786a1d47e9f3a72a3baf77ae40baaeb9772d0fc10c348b",
+        "warnings": []
+      },
+      {
+        "suite": "campaign_start_test.gd",
+        "result": "PASS",
+        "log_sha256": "21665d93abf03600def7a7636973b23d855896deb3baad540b998e34a3c6492c",
+        "warnings": []
+      },
+      {
+        "suite": "campaign_world_bootstrap_test.gd",
+        "result": "PASS",
+        "log_sha256": "83d46f3016b49cd7d839545a1d98628897ea9f9245662b8802cdac1798910ce5",
+        "warnings": []
+      },
+      {
+        "suite": "culture_map_mode_test.gd",
+        "result": "PASS",
+        "log_sha256": "fde7c2b6d2ff0d9987cf69b37ac688639b4d8c00f19df94d4c235e3b96dacfa4",
+        "warnings": []
+      },
+      {
+        "suite": "foundation_smoke_test.gd",
+        "result": "PASS",
+        "log_sha256": "ac809ba54b2ccb7e43a4c089a86a58d213d4d145618f1995aefbbab6fbfcddf6",
+        "warnings": []
+      },
+      {
+        "suite": "gameplay_identity_integration_test.gd",
+        "result": "PASS",
+        "log_sha256": "a71db52dcf3de3ade4de147dac2b0e078e5002ae86a62678b645cfa2b1eb645d",
+        "warnings": []
+      },
+      {
+        "suite": "good_definition_test.gd",
+        "result": "PASS",
+        "log_sha256": "810534aecde365d8ccd0ab0fe2b7653d804ae5aa39a0157c75882c540b071805",
+        "warnings": []
+      },
+      {
+        "suite": "political_map_mode_test.gd",
+        "result": "PASS",
+        "log_sha256": "b3f435caa3dd3b013b93222c9eef3deb5fba92ae9824c1621f6de22abc5ff8bf",
+        "warnings": []
+      },
+      {
+        "suite": "prototype_content_catalogue_test.gd",
+        "result": "PASS",
+        "log_sha256": "a883c01b16adfe9d6e0cf7a181f9be7e35fd7bdefb31add46de440b23892793f",
+        "warnings": []
+      },
+      {
+        "suite": "province_capability_state_test.gd",
+        "result": "PASS",
+        "log_sha256": "6932fbcaacd245006fa345f1d99378986448a2a0d2998e5cfb7442a608dfe403",
+        "warnings": []
+      },
+      {
+        "suite": "province_geography_query_test.gd",
+        "result": "PASS",
+        "log_sha256": "9874abc4ca605547ce92d9c09290c29a3eb881ef3156213377fdb6da7a1b9ce5",
+        "warnings": []
+      },
+      {
+        "suite": "province_realm_state_test.gd",
+        "result": "PASS",
+        "log_sha256": "8997923fe91163dded983affd9df59c28889b4d3b01f23c11977810dba02a728",
+        "warnings": []
+      },
+      {
+        "suite": "simulation_clock_test.gd",
+        "result": "PASS",
+        "log_sha256": "be7dbe665b1f4eac32dc2107b3580dd9c70dc1b4a848158751afea3fafd2bf68",
+        "warnings": []
+      },
+      {
+        "suite": "world_gameplay_scene_test.gd",
+        "result": "PASS",
+        "log_sha256": "dea1dc7d1a638874e4b0ef7ecc2f34c997d7b6228d2c87943485309b0d56d47c",
+        "warnings": []
+      },
+      {
+        "suite": "world_identity_catalogue_test.gd",
+        "result": "PASS",
+        "log_sha256": "5d297eb4fdafed4fbcebc8496cfb0af9529e4d3f6dfaa0d40730635f8e500d7a",
+        "warnings": []
+      },
+      {
+        "suite": "world_map_integration_proof_test.gd",
+        "result": "PASS",
+        "log_sha256": "93d52f210cccc475ebfc8531a81c278bfa0b94eb7c716c36afd1d1dc43191ff6",
+        "warnings": []
+      }
+    ],
+    "focused_generator_checks": 308,
+    "stress_checks": 393729,
+    "stress": {
+      "attempt_histogram": {
+        "1": 979,
+        "2": 20,
+        "3": 1
+      },
+      "characters": 144416,
+      "deceased_spouses": 3849,
+      "dynasties": 70990,
+      "elapsed_ms": 85105,
+      "empty_heirs": 26378,
+      "female_heirs": 7939,
+      "maximum_lineage_pool_use": {
+        "central": 18,
+        "eastern": 15,
+        "kharven": 7,
+        "mediterranean": 19,
+        "northern": 9,
+        "western": 24
+      },
+      "repeated_given_names": 41970,
+      "seeds": 1000,
+      "stat_ranges": {
+        "childless": [
+          18,
+          34
+        ],
+        "large_family": [
+          0,
+          7
+        ],
+        "male": [
+          25,
+          40
+        ],
+        "old": [
+          0,
+          12
+        ],
+        "remarried": [
+          0,
+          3
+        ],
+        "young": [
+          0,
+          10
+        ]
+      },
+      "unique_casts": 1000
+    },
+    "golden_digest": "7b025d69d906c30e3c427cd45df3108584a5f46f5cafbe912437ae62cb14317c",
+    "naming_transcription": {
+      "result": "PASS",
+      "given_entries": 230,
+      "lineage_entries": 194,
+      "seats": 43
+    },
+    "production_atomic_save": {
+      "result": "PASS",
+      "seed": "example",
+      "days_per_year": 365,
+      "player": "R028",
+      "characters": 148,
+      "dynasties": 73,
+      "relationships": 903
+    },
+    "editor_import": {
+      "result": "PASS",
+      "warnings": [
+        "WARNING: instance_reset_physics_interpolation() is deprecated."
+      ]
+    },
+    "git_lfs_fsck": "PASS"
+  }
+}

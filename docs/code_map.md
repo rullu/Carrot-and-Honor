@@ -1,5 +1,15 @@
 # Code Map
 
+## Campaign start v1
+
+- `src/simulation/campaign/start/campaign_start_world.gd` adapts canonical Realm identity, Province religion and sealed fixed Seats without changing world authority.
+- `campaign_start_names.gd` selects from sealed pools with 5:3:1 affinities and the 8% unisex overlay. `campaign_start_random.gd` supplies an engine-independent SHA-256 counter stream.
+- `campaign_start_generator.gd` builds the bounded family cast and retries deterministically. `campaign_start_validator.gd` owns Day-1 family/identity/succession rules and separate whole-world soft sanity.
+- `CampaignBootstrap.new_campaign()` and `from_generated()` validate before the existing `from_world()` adapter. Permanent validation, session publication and save/load follow the established paths.
+- `data/campaign/campaign_start_v1.json` contains exactly the sealed lexical tables/affinities and Seat references. `tools/campaign/build_campaign_start_data.js --check` verifies its transcription; `inspect_campaign_start.gd` creates, inspects and optionally saves real campaigns.
+- `tests/campaign_start_test.gd` verifies rejection paths, integration, schema, naming and determinism; `campaign_start_stress_test.gd` tests 1,000 deterministic seeds by default. `tests/support/campaign_start_fixture.gd` only provides detached test copies/wire views.
+- `docs/gameplay_state/campaign_start_v1.md` records the current contract, replacing the foundation report's historical schema-1/setup descriptions.
+
 The project contains verified pure-data foundations, a narrow province-interaction gameplay wrapper and directly executable headless tests. `project.godot` still has no configured main scene.
 
 ## Campaign state foundation (DEV-026)
@@ -10,7 +20,7 @@ The project contains verified pure-data foundations, a narrow province-interacti
 - `campaign_state.gd` indexes typed records by stable ID and retains retired-ID reservations and campaign outcome. `campaign_queries.gd` derives territory, family children, Dynasty members/extinction, ruling Dynasty, resources and wars; its caches are disposable.
 - `campaign_session.gd` is the live publication boundary, exposes detached reads and commits only validated candidates. `realm_lifecycle.gd` handles capture/restoration/rebels/formables/succession; `character_lifecycle.gd` handles family writes and death with explicit successors.
 - `state_schema.gd` validates wire types and exact field sets; `campaign_validator.gd` checks the complete reference graph. `campaign_codec.gd` validates versioned JSON, verifies disk readback and atomically replaces saves.
-- `campaign_world_binding.gd` fingerprints the existing world authorities and checks identity/retired-ID preservation. `campaign_bootstrap.gd` initializes canonical ownership/local identity from those existing files, requiring explicit scenario ruler/capital/House records.
+- `campaign_world_binding.gd` fingerprints the existing world authorities and checks identity/retired-ID preservation. `campaign_bootstrap.gd` initializes canonical ownership/local identity from those existing files; explicit schema-2 scenario records or the validated campaign-start generator supply the cast and Seats.
 - `tests/campaign_architecture_test.gd`, `campaign_lifecycle_test.gd`, `campaign_save_load_test.gd` and `campaign_world_bootstrap_test.gd` cover the locked acceptance conditions. `tests/support/` contains the explicit synthetic scenario and assertion harness.
 - `tools/testing/run_headless_tests.ps1` runs direct Godot tests with process waits, timeouts, fresh logs, PASS markers and parse/script-error detection. Godot `.gd.uid` sidecars belong to their adjacent sources.
 - `docs/gameplay_state/logic_foundation_pass1.md` owns the API contract, implementation decisions, verification and deferred scope. `docs/design_authority/` contains the exact locked specification.
@@ -28,7 +38,7 @@ The project contains verified pure-data foundations, a narrow province-interacti
 - `scenes/gameplay/world_gameplay.tscn` instances the locked NaturalWorld as the gameplay entry point.
 - `src/gameplay/province_geography.gd` loads authoritative geometry and performs bounds-filtered point-in-polygon lookup with multipart support. Corrected political geography contains no inland-water holes.
 - `src/gameplay/province_interaction.gd` owns cursor-to-terrain lookup, hover and selection.
-- `src/gameplay/world_gameplay.gd` coordinates geography, canonical identity, isolated prototype metrics, presentation and UI. Its inspection record never sources names or ownership from geography or prototype state. Without an authored scenario, it seeds current `ProvinceState` owners and local cultures once from validated canonical Province identity; an injected `CampaignSession` supersedes those records and supplies later state revisions. P/C select exclusive Normal, Political and Culture modes.
+- `src/gameplay/world_gameplay.gd` coordinates geography, canonical identity, isolated prototype metrics, presentation and UI. Its inspection record never sources names or ownership from geography or prototype state. The standalone inspection workflow seeds current `ProvinceState` owners and local cultures once from validated canonical Province identity; an injected `CampaignSession` supersedes those records and supplies later state revisions. Campaign-start v1 can now provide that session's initial state. P/C select exclusive Normal, Political and Culture modes.
 - `src/simulation/prototype_province_metrics.gd` and `prototype_world_state.gd` own only temporary Population, Food, Carrots and Development display metrics. They own no political realm IDs or identity and are never serialized as campaign state.
 - `src/presentation/world_map/province_presentation.gd` renders presentation-only province borders from interaction IDs.
 - `src/presentation/world_map/political_realm_palette.gd` assigns 30 curated debug pigments to Realm IDs using the current geographic adjacency graph, then improves neighboring contrast without changing canonical identity. `political_map_presentation.gd` binds those colors to a Province ID mask and a gameplay-only variant of the existing terrain shader. Normal mode restores the original shader and ribbon palette.

@@ -12,10 +12,11 @@ Read these files before changing code:
 4. `docs/implementation_plan.md`
 5. `docs/decision_log.md`
 
-Current phase: **Logic Foundation Pass 1** on the accepted 100-province geography, 43 starting Realms and implemented world identity. Terrain and NaturalWorld are locked.
+Current phase: **Campaign-Start Procedural Cast + Naming + Generator v1** on the accepted 100-province geography, 43 starting Realms and implemented world identity. Terrain and NaturalWorld are locked.
 
 Design and implementation authority:
 
+- `docs/design_authority/FCAH_Campaign_Start_Procedural_Cast_Naming_Generator_v1_FINAL_SEALED_2026-09-18.txt` governs campaign-start generation, naming, tuning and the narrow schema-v2 delta. Its implementation was explicitly authorized on September 18. Keep Day-1 validation separate from permanent campaign invariants; generation-affecting changes require a generator version bump.
 - `docs/design_authority/FCAH_Gameplay_State_Architecture_v1_LOCKED.txt` is the primary authority for current gameplay-state ownership, references and lifecycle boundaries. Read it before changing campaign state. `docs/design_reference/` is context and `docs/design_archive/` is superseded history.
 - Master Bible v1.4 is the consolidated high-level design authority.
 - Goods Design Workbook v1.3 is the detailed specialist annex.

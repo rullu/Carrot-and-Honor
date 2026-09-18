@@ -4,8 +4,10 @@ extends RefCounted
 
 const FIELDS: Dictionary = {
     "character_id": "id",
-    "display_name": "id",
+    "given_name": "id",
     "alive": "bool",
+    "sex": "sex",
+    "birth_tick": "integer",
     "dynasty_id": "id",
     "realm_id": "text",
     "personal_culture": "text",
@@ -18,8 +20,10 @@ const FIELDS: Dictionary = {
 }
 
 var character_id: String = ""
-var display_name: String = ""
+var given_name: String = ""
 var alive: bool = true
+var sex: String = "male"
+var birth_tick: int = 0
 var dynasty_id: String = ""
 var realm_id: String = ""
 var personal_culture: String = ""
@@ -34,8 +38,10 @@ var history: Array[HistoricalMemory] = []
 func to_data() -> Dictionary:
     return {
         "character_id": character_id,
-        "display_name": display_name,
+        "given_name": given_name,
         "alive": alive,
+        "sex": sex,
+        "birth_tick": birth_tick,
         "dynasty_id": dynasty_id,
         "realm_id": realm_id,
         "personal_culture": personal_culture,
@@ -52,8 +58,10 @@ func to_data() -> Dictionary:
 static func from_data(data: Dictionary) -> CharacterState:
     var state: CharacterState = CharacterState.new()
     state.character_id = data["character_id"]
-    state.display_name = data["display_name"]
+    state.given_name = data["given_name"]
     state.alive = data["alive"]
+    state.sex = data["sex"]
+    state.birth_tick = int(data["birth_tick"])
     state.dynasty_id = data["dynasty_id"]
     state.realm_id = data["realm_id"]
     state.personal_culture = data["personal_culture"]
@@ -66,3 +74,11 @@ static func from_data(data: Dictionary) -> CharacterState:
     for record: Dictionary in data["history"]:
         state.history.append(HistoricalMemory.from_data(record))
     return state
+
+
+func age_years(current_tick: int, days_per_year: int) -> int:
+    assert(days_per_year > 0 and current_tick >= birth_tick)
+    # Integer division avoids losing a birthday to floating-point rounding.
+    @warning_ignore("integer_division")
+    var years: int = (current_tick - birth_tick) / days_per_year
+    return years

@@ -1,5 +1,11 @@
 # Settlement Representation Prototype
 
+## Current accepted status (September 18 integration)
+
+The September 17 sealed handover concludes the representation review: the working direction is a transparent 2D/2.5D settlement miniature grounded in world space. The active prototype is `assets/prototypes/settlement/the_victim.png` (SHA-256 `684b267e37bccea73abbda857534c53b19a30774260de9a114b90920931494f7`), with pixel size **0.36**, canvas width **451.44 world units** and visible-bottom pixel **1091**. Provinces 67/54 and the comparison controls remain unchanged. The artwork is provisional; production art and any future LOD remain deferred.
+
+The earlier supplied assets, 3D comparison and QA captures below are retained as the original experiment's evidence. Their 94-unit scale and pending-review language describe that earlier comparison, not the accepted current 2D configuration. See the opening settlement acceptance record in `docs/design_authority/FCAH_Changelog_2026-09-17 (1).txt`.
+
 ## Purpose and boundary
 
 This removable test compares a supplied 2D settlement image with a crude 3D Godot blockout in the real Gameplay 001 wrapper. It exists only to judge strategic-map scale, readability and zoom behavior. It adds no settlement state, economy, realm rules, names, collisions or final art.

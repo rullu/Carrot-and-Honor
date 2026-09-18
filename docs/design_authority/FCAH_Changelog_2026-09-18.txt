@@ -1,0 +1,112 @@
+FOR CARROT AND HONOUR - IMPLEMENTATION CHANGELOG
+2026-09-18 - CAMPAIGN-START PROCEDURAL CAST + NAMING + GENERATOR V1
+
+STATUS / AUTHORIZATION
+Implemented and verified. The user's September 18 implementation task explicitly
+authorizes the milestone sealed earlier that day. The sealed file's historical
+"implementation not yet authorized" wording is retained unchanged.
+
+AUTHORITY / REPOSITORY AUDIT
+Baseline: 43a5438cdee9232031be24e7cc1108db38c5ad61, origin/main at task start.
+Read repository instructions, architecture, actual state/bootstrap/codec/validator/
+lifecycle/clock implementations, relevant tests, newest FINAL SEALED authority and
+September 17 handover. No unresolved design contradiction was found.
+
+The newest authority and handover were absent from Git and found in the exact
+NaturalWorld project docs/design_authority directory. Both were installed
+byte-for-byte. Provenance and hashes are in docs/gameplay_state/campaign_start_v1.md.
+No Downloads copy or superseded naming/campaign-start document supplied data.
+
+Existing uncommitted Political/Culture/settlement work remains in the original
+checkout. Delivery uses branch campaign-start-v1 at C:/Projects/fcah_campaign_start_v1.
+Unrelated assets and experiments are excluded. Git records final commit/push identity.
+
+IMPLEMENTED
+- Strict schema 2: given_name, lineage_name, sex, signed birth_tick, lineage_style,
+  campaign_seed, generator_version and configured days_per_year. No redundant age,
+  child list, marital-status field or lineage-parent flag.
+- Complete deterministic 43-Realm ruler/family/lineage generation before bootstrap.
+- Living adult distinct rulers; no Day-1 unions, foreign marriages or lineage webs.
+- Actual deceased spouse records for widows/remarriages; coherent reciprocal family
+  links; optional bounded parent/sibling/collateral branches.
+- Ruler-lineage/identity inheritance regardless of sex; oldest living legitimate
+  child as normal heir; empty heirs legal; Seravelle elected_office/empty heir.
+- All fixed Seats and canonical primary-culture/full Seat-religion adapter,
+  including R028 P16 and unchanged P30 Carthen identity.
+- Exact sealed naming tables: 230 given-name entries, 194 expanded lineage entries,
+  all affinities and 43 Seats. Reproducible transcription/check tool included.
+- 5:3:1 affinities, 8% unisex overlay, 3:1 natural/conspicuous soft weights,
+  no soft double counting, correct styles and unique unrelated lineage names.
+- Exact sealed tuning and separate broad soft sanity, without quotas or fake stats.
+- SHA-256 counter stream, opaque IDs, bounded deterministic retries, explicit errors.
+- Production CampaignBootstrap.new_campaign/from_generated; existing permanent
+  validation/session/save-load paths. Loading never regenerates the saved cast.
+- Developer inspection/optional-save command and focused/stress test suites.
+
+DECISIONS AFFECTING FUTURE WORK
+Version starts at 1; generation-affecting changes require a version bump. Retry cap
+is 64. Player choice is applied after generation. Under-25 marital weights are
+43/55/2/0. Spouses use clipped ruler-age +/-8 and explicit footprint identity pairs,
+weighted 5 for ruler culture and 1 otherwise; religion is never inferred.
+Optional relatives stop at one sibling, one known lineage parent and one aunt/uncle
+with cousin. Parent sex is unbiased. A deceased grandparent exists only to encode
+that branch. Unknown second parents do not assert illegitimacy; ruler children have
+both actual partnered parents. Same-tick oldest children tie-break on opaque ID.
+Year length is explicit, with a documented technical sampling ceiling and no final
+calendar. Full details and ownership boundaries are in the milestone report.
+
+VALIDATION
+CampaignStartValidator owns hard Day-1 rules and a separate soft-sanity pass.
+CampaignValidator retains permanent schema/reference/lifecycle rules. Tests prove
+later personal unions and foreign marriages remain valid and saveable. No minimum
+succession age, foreign-marriage ban or unique-name rule leaks into later history.
+
+VERIFICATION RESULTS
+22/22 direct suites PASS, including 308 focused campaign-start checks.
+1,000 deterministic seeds, year lengths 1/360/365/400: 393,729 checks PASS.
+All accepted casts replay exactly; full retries replay every tenth seed; canonical
+bootstrap and strict complete-state round trips run every 101st seed.
+
+Stress: 1,000 distinct worlds; 144,416 Characters; 70,990 Dynasties; zero campaign
+failures or lineage exhaustion. Attempts: 979 first, 20 second, one third.
+Peak pool use: Western 24/38, Mediterranean 19/34, Northern 9/25, Central 18/38,
+Kharven 7/25, Eastern 15/34. Deceased spouses 3,849; female heirs 7,939; empty normal
+heir roles 26,378; repeated given names 41,970. Male count varies 25..40 and
+childless count 18..34, confirming broad bounds do not become quotas.
+
+retry-21 exercises real soft rejection, deterministic retry and cap-1 failure.
+Deliberately exhausted tables verify bounded hard failure without fallback names.
+Name-table --check exactly matches the sealed source. Production inspection creates
+and atomically saves a 148-character, 73-lineage example with 903 neutral pairs.
+Final editor and warnings-as-errors scans are clean. The unchanged biome suite
+retains its existing Terrain3D interpolation deprecation warning; no new warning
+comes from this milestone.
+
+PENDING PRESENTATION COMPATIBILITY
+Political, Culture, gameplay-scene and canonical-inspection suites all pass in a
+temporary overlay of original pending work. Political needs three schema fixture
+edits, delivered as docs/gameplay_state/political_fixture_schema_v2.patch.
+git apply --check passes against the original file. Apply it when combining the
+pending presentation work with this branch. Assertions and presentation behavior
+are unchanged. The overlay was removed; original working files remain untouched.
+
+FRESH-CHECKOUT PRESERVATION
+Windows Git CRLF conversion initially changed byte hashes of two locked geographic
+JSON files and the NaturalWorld scene/controller. Restore their exact accepted
+bytes and add LF attributes so fresh checkouts preserve existing checksums.
+No locked content or preservation-test expectations changed. Regressions now pass.
+
+DOCUMENTATION / EVIDENCE
+Updated AGENTS, README, code map, project index, implementation plan and DEV-030.
+Historical foundation report points to current schema-2 documentation. Authorities
+and September 17 history remain unchanged. Detailed report and machine-readable
+evidence: docs/gameplay_state/campaign_start_v1.md and
+docs/gameplay_state/campaign_start_v1_verification.json.
+
+DEFERRED
+Final calendar/death timing, bastardy/adoption/disputed parentage, regency, extended
+succession, elections, traits/abilities, claims/history generation, economy/war/AI,
+patronymic grammar, epithets/regnal UI and player-facing campaign-selection flow.
+
+The production generation -> Day-1 validation -> bootstrap -> permanent validation
+-> session/save-load chain is complete. Future work must preserve those boundaries.

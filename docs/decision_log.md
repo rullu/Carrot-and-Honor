@@ -1,5 +1,39 @@
 # Technical Decision Log
 
+## DEV-031 - Preserve presentation history and integrate campaign-start v1
+
+**Date:** 2026-09-18
+
+**Status:** Integrated and verified
+
+Record the accepted original Political/Culture/settlement working tree separately in `1dbe757febcefaf871293c6d30129363223a65e1`, based on `43a5438cdee9232031be24e7cc1108db38c5ad61`. Merge `campaign-start-v1` at `c45f8080a9b0cd375c0495371689e8d06e7e48ba` into main with both parents retained. Keep the source branch and its clean worktree as recovery/reference. No established history is rewritten.
+
+Resolve the README test-command conflict to the combined 24-suite command and retain both presentation and campaign-start sections in the implementation plan. Reproduce exactly the three Political fixture schema-2 edits from the delivered patch; no presentation assertions, runtime behavior, generator logic, schema or tables change. Correct stale settlement-review and roster-availability documentation with explicit current-status notes; retain historical evidence.
+
+Before modifying the checkout, back up and hash all 120 accepted dirty files. Move only the separately identified isolated terrain proof and ZIP outside the worktree, verifying all 935 files including ignored caches. Preserve the accepted presentation assets and QA captures. Commit 27 newly generated import sidecars belonging to those assets; move two incidental imports for pre-existing political reference images to the recovery folder.
+
+**Verification:** Original presentation snapshot 22/22 suites; combined main 24/24 suites; 308 focused generator checks and 393,729 checks across 1,000 deterministic seeds with the original golden digest and retry distribution. Political/Culture/gameplay-scene/identity compatibility, strict save/load/bootstrap, sealed naming transcription, production atomic save and Git LFS integrity pass. Editor/import has only the existing Terrain3D interpolation deprecation warning. All 1,197 tracked files outside the campaign branch's intended changes remain byte-identical. Full evidence and dirty-work inventory are in `gameplay_state/repository_integration_2026-09-18.md` and its verification JSON.
+
+---
+
+## DEV-030 - Deterministic campaign-start cast and separate Day-1 validation
+
+**Date:** 2026-09-18
+
+**Status:** Implemented and verified
+
+Implement the newest FINAL SEALED campaign-start authority as a narrow extension to schema 2: personal given name, lineage name/style, sex, signed birth tick, opaque seed, generator version and configured year length. Preserve the existing registry/session/codec/world adapter. Reuse permanent family graph validation before bootstrap; keep Day-1 rules and broad soft sanity in a separate service. Later unions, foreign marriages, child succession and family evolution remain representable.
+
+Use the exact transcribed sealed name/affinity/Seat tables, a versioned SHA-256 counter stream, sorted Realm iteration and bounded complete-world retries. Separate ID allocation from names and semantic roles. Apply player Realm selection after generation. Save the actual cast; never regenerate on load. Bootstrap alone initializes the existing neutral diplomatic pairs.
+
+Choose one bounded optional sibling/known parent/collateral branch, unbiased lineage-parent sex, age-aware young marital weights, exact-tick oldest-child succession with an opaque-ID tie break, and global unique lineage selection without replacement. Exhausted pools fail the attempt. Detailed choices, technical year-length bound, golden hash and verification are recorded in `gameplay_state/campaign_start_v1.md`; generation-affecting changes require a version bump.
+
+The dirty checkout is preserved. An isolated branch/worktree contains this milestone; the pending Political fixture's three schema edits are provided as a tested patch. DEV-027..029 are reserved for the accepted uncommitted presentation handover. Add LF attributes for four previously hash-locked world files after fresh-checkout CRLF conversion exposed preservation-test failures; their content and tests remain unchanged.
+
+**Verification:** 22/22 direct suites; 308 focused checks; 1,000 deterministic seeds with 393,729 checks; all four pending presentation compatibility suites; exact sealed table comparison; example production bootstrap/atomic save; clean editor and warnings-as-errors script scans. No parser failures or new warnings. Evidence and deferred boundaries are in the milestone report.
+
+---
+
 Repository-level technical decisions are recorded here. Game-design decisions remain in the design bibles.
 
 ---

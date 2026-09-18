@@ -1,5 +1,7 @@
 # Political Map Mode v0.1
 
+**September 18 integration:** This accepted internal inspection mode is now combined with campaign-start v1 on `main`. The schema-2 Political fixture migration is applied; presentation behavior is unchanged. The historical roster limitation below is resolved by `CampaignBootstrap.new_campaign()`. Gameplay 001 still opens as an inspection scene and accepts sessions through its existing binding interface. Combined results are in [repository integration](../gameplay_state/repository_integration_2026-09-18.md).
+
 Gameplay 001 opens in its unchanged Normal mode. Press **P** to tint the existing Terrain3D surface by current Realm ownership, and **P** again to restore Normal. The key is handled by the gameplay wrapper before NaturalWorld's standalone P shortcut, so toggling modes does not hide natural props. The camera, settlement test, water, vegetation, rocks, geometry, picking and accepted dual-sided border mesh are unchanged.
 
 Current ownership is read from `ProvinceState.owner_realm_id`. The inspection scene does not yet have the authored ruler, House and capital scenario records needed for a valid full `CampaignSession`, so it seeds 100 current ProvinceState records once from validated frozen starting ownership. `WorldGameplay.bind_campaign_session()` replaces that inspection source when a live campaign is supplied; while Political mode is open, it refreshes on session revision changes. The catalogue remains the frozen starting definition, not a second current-owner table.

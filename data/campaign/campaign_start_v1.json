@@ -1,0 +1,3671 @@
+{
+  "generator_version": 1,
+  "authority": "docs/design_authority/FCAH_Campaign_Start_Procedural_Cast_Naming_Generator_v1_FINAL_SEALED_2026-09-18.txt",
+  "families": {
+    "western": {
+      "cultures": [
+        "Haldren",
+        "Velaine",
+        "Carthen",
+        "Brevane"
+      ],
+      "male": [
+        {
+          "name": "Alaric",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Oswin",
+          "primary": [
+            "Haldren",
+            "Brevane"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Gerwald",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Adelmar",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Edric",
+          "primary": [
+            "Haldren",
+            "Brevane"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Lucien",
+          "primary": [
+            "Velaine"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Aldren",
+          "primary": [
+            "Haldren",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Perrin",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": [
+            "Carthen"
+          ]
+        },
+        {
+          "name": "Corvin",
+          "primary": [
+            "Carthen",
+            "Velaine"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Gavrel",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Odran",
+          "primary": [
+            "Carthen",
+            "Haldren"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Valen",
+          "primary": [
+            "Velaine",
+            "Carthen"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Emeric",
+          "primary": [
+            "Velaine",
+            "Haldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Renard",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Osric",
+          "primary": [
+            "Haldren",
+            "Brevane"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Beren",
+          "primary": [
+            "Haldren",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Lorcan",
+          "primary": [
+            "Brevane",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Ferren",
+          "primary": [
+            "Brevane",
+            "Velaine"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Rovan",
+          "primary": [
+            "Carthen",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Werric",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        }
+      ],
+      "female": [
+        {
+          "name": "Aveline",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Elise",
+          "primary": [
+            "Velaine",
+            "Haldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Maelis",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": [
+            "Carthen"
+          ]
+        },
+        {
+          "name": "Hedwig",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Mathelda",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Mirelle",
+          "primary": [
+            "Velaine"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Celene",
+          "primary": [
+            "Velaine"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Alwen",
+          "primary": [
+            "Haldren",
+            "Brevane"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Sabella",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Oriane",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Mariel",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Yselle",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": [
+            "Carthen"
+          ]
+        },
+        {
+          "name": "Adeline",
+          "primary": [
+            "Velaine",
+            "Haldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Mereth",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Odelia",
+          "primary": [
+            "Velaine",
+            "Carthen"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Seren",
+          "primary": [
+            "Brevane",
+            "Carthen"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Briar",
+          "primary": [
+            "Brevane"
+          ],
+          "rare": [
+            "Carthen"
+          ]
+        },
+        {
+          "name": "Rowan",
+          "primary": [
+            "Brevane",
+            "Haldren"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Hasel",
+          "primary": [
+            "Haldren",
+            "Brevane"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Linden",
+          "primary": [
+            "Haldren",
+            "Brevane"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        }
+      ],
+      "lineage": [
+        {
+          "name": "Vaudren",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Corvenne",
+          "primary": [
+            "Velaine"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Alderwick",
+          "primary": [
+            "Brevane",
+            "Haldren"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Lindenhart",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Dornhelm",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Werrental",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Brevane"
+          ]
+        },
+        {
+          "name": "Vaurel",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Arvenne",
+          "primary": [
+            "Velaine"
+          ],
+          "rare": [
+            "Carthen"
+          ]
+        },
+        {
+          "name": "Ardenwald",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Haselorn",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Montreval",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Burenne",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Varenne",
+          "primary": [
+            "Velaine"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Bramelot",
+          "primary": [
+            "Brevane",
+            "Velaine"
+          ],
+          "rare": [
+            "Carthen"
+          ]
+        },
+        {
+          "name": "Corvain",
+          "primary": [
+            "Velaine",
+            "Carthen"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Aldermere",
+          "primary": [
+            "Brevane",
+            "Haldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Harthwald",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Velden",
+          "primary": [
+            "Carthen",
+            "Haldren"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Rossenwick",
+          "primary": [
+            "Brevane",
+            "Haldren"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Merrenholt",
+          "primary": [
+            "Brevane",
+            "Haldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Avermont",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Beaulren",
+          "primary": [
+            "Velaine"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Cerdain",
+          "primary": [
+            "Velaine",
+            "Carthen"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Duvren",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Everen",
+          "primary": [
+            "Brevane",
+            "Haldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Falkenray",
+          "primary": [
+            "Haldren",
+            "Brevane"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Garenne",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Havelot",
+          "primary": [
+            "Brevane",
+            "Velaine"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Jorvain",
+          "primary": [
+            "Velaine",
+            "Carthen"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Lornesse",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Mauveren",
+          "primary": [
+            "Velaine"
+          ],
+          "rare": [
+            "Haldren"
+          ]
+        },
+        {
+          "name": "Norcel",
+          "primary": [
+            "Carthen",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Perravel",
+          "primary": [
+            "Brevane",
+            "Velaine"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Rosenne",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Tervain",
+          "primary": [
+            "Velaine",
+            "Carthen"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Valcrest",
+          "primary": [
+            "Carthen",
+            "Brevane"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Weyrden",
+          "primary": [
+            "Haldren",
+            "Carthen"
+          ],
+          "rare": [
+            "Velaine"
+          ]
+        },
+        {
+          "name": "Yvermont",
+          "primary": [
+            "Velaine",
+            "Brevane"
+          ],
+          "rare": []
+        }
+      ]
+    },
+    "mediterranean": {
+      "cultures": [
+        "Saleran",
+        "Varethi",
+        "Corassi"
+      ],
+      "male": [
+        {
+          "name": "Ramiro",
+          "primary": [
+            "Saleran"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Terenzio",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        },
+        {
+          "name": "Leandro",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Aurelio",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Domenico",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Alessan",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        },
+        {
+          "name": "Cassio",
+          "primary": [
+            "Corassi",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Valerio",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Mareno",
+          "primary": [
+            "Saleran",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Renzo",
+          "primary": [
+            "Varethi",
+            "Saleran"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Tavio",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Calisto",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Adrano",
+          "primary": [
+            "Corassi",
+            "Varethi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        },
+        {
+          "name": "Loreno",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Vareno",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Orellio",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        },
+        {
+          "name": "Dario",
+          "primary": [
+            "Saleran",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Mavio",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Serrin",
+          "primary": [
+            "Corassi"
+          ],
+          "rare": [
+            "Varethi"
+          ]
+        },
+        {
+          "name": "Levan",
+          "primary": [
+            "Corassi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        }
+      ],
+      "female": [
+        {
+          "name": "Marcella",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        },
+        {
+          "name": "Isadora",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Fiora",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Mirella",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Sabina",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Oriella",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Lucia",
+          "primary": [
+            "Varethi",
+            "Saleran"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Marena",
+          "primary": [
+            "Saleran",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Calia",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Aurelia",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Selene",
+          "primary": [
+            "Corassi",
+            "Varethi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        },
+        {
+          "name": "Livia",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Isela",
+          "primary": [
+            "Saleran"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Mirena",
+          "primary": [
+            "Saleran",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Elisia",
+          "primary": [
+            "Varethi",
+            "Saleran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Valera",
+          "primary": [
+            "Corassi",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Soraya",
+          "primary": [
+            "Corassi"
+          ],
+          "rare": [
+            "Varethi"
+          ]
+        },
+        {
+          "name": "Ravena",
+          "primary": [
+            "Corassi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        },
+        {
+          "name": "Nerissa",
+          "primary": [
+            "Corassi",
+            "Saleran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Aressa",
+          "primary": [
+            "Corassi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        }
+      ],
+      "lineage": [
+        {
+          "name": "Bellari",
+          "primary": [
+            "Varethi",
+            "Saleran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Ravellane",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Corvani",
+          "primary": [
+            "Corassi",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Maravel",
+          "primary": [
+            "Saleran"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Varrano",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Orelli",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        },
+        {
+          "name": "Varelli",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Coneval",
+          "primary": [
+            "Saleran"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Seravani",
+          "primary": [
+            "Corassi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        },
+        {
+          "name": "Marcelli",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Aurellan",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Valeri",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Loravella",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Cassari",
+          "primary": [
+            "Corassi",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Marenzi",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Orselli",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Bellavere",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Terenari",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Saleran"
+          ]
+        },
+        {
+          "name": "Solvari",
+          "primary": [
+            "Corassi",
+            "Saleran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Calessa",
+          "primary": [
+            "Varethi",
+            "Saleran"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Alberani",
+          "primary": [
+            "Varethi",
+            "Saleran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Corselli",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Daverra",
+          "primary": [
+            "Saleran",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Fioranti",
+          "primary": [
+            "Varethi",
+            "Saleran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Gavelli",
+          "primary": [
+            "Varethi"
+          ],
+          "rare": [
+            "Corassi"
+          ]
+        },
+        {
+          "name": "Loredani",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Maretti",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Nerelli",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Oravelli",
+          "primary": [
+            "Varethi",
+            "Saleran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Palerzi",
+          "primary": [
+            "Corassi",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Raverni",
+          "primary": [
+            "Corassi",
+            "Saleran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Serafani",
+          "primary": [
+            "Saleran",
+            "Varethi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Valdieri",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Zanelli",
+          "primary": [
+            "Varethi",
+            "Corassi"
+          ],
+          "rare": []
+        }
+      ]
+    },
+    "northern": {
+      "cultures": [
+        "Skeldren",
+        "Vaarnic",
+        "Eldskar"
+      ],
+      "male": [
+        {
+          "name": "Eirik",
+          "primary": [
+            "Skeldren",
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Hroven",
+          "primary": [
+            "Skeldren",
+            "Vaarnic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Vaerik",
+          "primary": [
+            "Vaarnic",
+            "Skeldren"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Halvar",
+          "primary": [
+            "Skeldren",
+            "Vaarnic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Rorik",
+          "primary": [
+            "Skeldren",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Fenrik",
+          "primary": [
+            "Vaarnic",
+            "Skeldren"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Orven",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Haldren",
+          "primary": [
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Torald",
+          "primary": [
+            "Vaarnic",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Varrik",
+          "primary": [
+            "Vaarnic"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Eskar",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Keld",
+          "primary": [
+            "Vaarnic",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Bram",
+          "primary": [
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Tarren",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Elden",
+          "primary": [
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Rauk",
+          "primary": [
+            "Vaarnic"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Torren",
+          "primary": [
+            "Skeldren",
+            "Vaarnic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Buren",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Hasel",
+          "primary": [
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Werren",
+          "primary": [
+            "Vaarnic",
+            "Eldskar"
+          ],
+          "rare": []
+        }
+      ],
+      "female": [
+        {
+          "name": "Sigrun",
+          "primary": [
+            "Skeldren",
+            "Vaarnic"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Eydra",
+          "primary": [
+            "Skeldren",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Vaela",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Runa",
+          "primary": [
+            "Skeldren",
+            "Vaarnic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Haldis",
+          "primary": [
+            "Vaarnic",
+            "Skeldren"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Yrsa",
+          "primary": [
+            "Vaarnic"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Elska",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Ragna",
+          "primary": [
+            "Vaarnic",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Svala",
+          "primary": [
+            "Skeldren"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Brynja",
+          "primary": [
+            "Vaarnic"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Varda",
+          "primary": [
+            "Vaarnic",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Hessa",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Thora",
+          "primary": [
+            "Skeldren",
+            "Vaarnic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Asta",
+          "primary": [
+            "Skeldren",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Fenna",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Eira",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Briar",
+          "primary": [
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Rowan",
+          "primary": [
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Sorrel",
+          "primary": [
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Meren",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": []
+        }
+      ],
+      "lineage": [
+        {
+          "name": "Raukvar",
+          "primary": [
+            "Vaarnic"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Hallskar",
+          "primary": [
+            "Skeldren",
+            "Vaarnic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Eydvar",
+          "primary": [
+            "Skeldren",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Raukeld",
+          "primary": [
+            "Vaarnic"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Varnskar",
+          "primary": [
+            "Vaarnic",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Haldren",
+          "primary": [
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Skelvar",
+          "primary": [
+            "Skeldren"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Torvald",
+          "primary": [
+            "Skeldren",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Burenmark",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Haselmark",
+          "primary": [
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Eldskar",
+          "primary": [
+            "Eldskar"
+          ],
+          "rare": [
+            "Vaarnic"
+          ]
+        },
+        {
+          "name": "Varrhald",
+          "primary": [
+            "Vaarnic"
+          ],
+          "rare": [
+            "Eldskar"
+          ]
+        },
+        {
+          "name": "Orvenskar",
+          "primary": [
+            "Skeldren",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Hearthvar",
+          "primary": [
+            "Skeldren",
+            "Vaarnic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Werrenhald",
+          "primary": [
+            "Vaarnic",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Aldskar",
+          "primary": [
+            "Eldskar",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Brekvar",
+          "primary": [
+            "Vaarnic",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Drenhald",
+          "primary": [
+            "Vaarnic",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Falkvar",
+          "primary": [
+            "Vaarnic",
+            "Skeldren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Hjoren",
+          "primary": [
+            "Skeldren",
+            "Vaarnic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Keldskar",
+          "primary": [
+            "Eldskar",
+            "Vaarnic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Ravenskar",
+          "primary": [
+            "Skeldren",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Skorvald",
+          "primary": [
+            "Skeldren",
+            "Vaarnic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Tarnvar",
+          "primary": [
+            "Vaarnic",
+            "Eldskar"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Yrdhald",
+          "primary": [
+            "Vaarnic",
+            "Skeldren"
+          ],
+          "rare": []
+        }
+      ]
+    },
+    "central": {
+      "cultures": [
+        "Orthean",
+        "Selvaran",
+        "Drevanic",
+        "Vaskari"
+      ],
+      "male": [
+        {
+          "name": "Cassian",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Varek",
+          "primary": [
+            "Vaskari",
+            "Drevanic"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Miros",
+          "primary": [
+            "Drevanic"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Theodrion",
+          "primary": [
+            "Orthean"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Radovan",
+          "primary": [
+            "Drevanic"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Darian",
+          "primary": [
+            "Selvaran",
+            "Orthean"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Belisar",
+          "primary": [
+            "Orthean"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Alexion",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Orestan",
+          "primary": [
+            "Orthean"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Theron",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Marcion",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Velisar",
+          "primary": [
+            "Vaskari",
+            "Orthean"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Veles",
+          "primary": [
+            "Vaskari",
+            "Drevanic"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Jarek",
+          "primary": [
+            "Drevanic"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Radan",
+          "primary": [
+            "Drevanic",
+            "Vaskari"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Damar",
+          "primary": [
+            "Vaskari",
+            "Drevanic"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Vasko",
+          "primary": [
+            "Vaskari"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Sorel",
+          "primary": [
+            "Selvaran",
+            "Drevanic"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Obran",
+          "primary": [
+            "Drevanic",
+            "Vaskari"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Damir",
+          "primary": [
+            "Drevanic",
+            "Vaskari"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        }
+      ],
+      "female": [
+        {
+          "name": "Selene",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Alexara",
+          "primary": [
+            "Orthean"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Vesara",
+          "primary": [
+            "Vaskari",
+            "Orthean"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Ilena",
+          "primary": [
+            "Selvaran",
+            "Drevanic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Mireva",
+          "primary": [
+            "Drevanic",
+            "Vaskari"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Tasia",
+          "primary": [
+            "Selvaran",
+            "Orthean"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Elara",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Sorela",
+          "primary": [
+            "Selvaran",
+            "Drevanic"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Velena",
+          "primary": [
+            "Vaskari",
+            "Drevanic"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Cassara",
+          "primary": [
+            "Orthean"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Thea",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Darena",
+          "primary": [
+            "Selvaran",
+            "Drevanic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Vesna",
+          "primary": [
+            "Drevanic"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Zora",
+          "primary": [
+            "Drevanic",
+            "Vaskari"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Danira",
+          "primary": [
+            "Vaskari",
+            "Drevanic"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Alena",
+          "primary": [
+            "Selvaran",
+            "Drevanic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Mara",
+          "primary": [
+            "Drevanic",
+            "Vaskari"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Vela",
+          "primary": [
+            "Vaskari"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Mirena",
+          "primary": [
+            "Selvaran",
+            "Vaskari"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Arvena",
+          "primary": [
+            "Orthean",
+            "Vaskari"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        }
+      ],
+      "lineage": [
+        {
+          "name": "Merovar",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Karethar",
+          "primary": [
+            "Orthean",
+            "Vaskari"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Veleskar",
+          "primary": [
+            "Vaskari",
+            "Drevanic"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Theryon",
+          "primary": [
+            "Orthean"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Sorevan",
+          "primary": [
+            "Selvaran",
+            "Orthean"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Dravek",
+          "primary": [
+            "Drevanic"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Varassene",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Merevan",
+          "primary": [
+            "Selvaran",
+            "Drevanic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Velisar",
+          "primary": [
+            "Vaskari",
+            "Orthean"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Damarion",
+          "primary": [
+            "Orthean",
+            "Vaskari"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Kassaren",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Vardek",
+          "primary": [
+            "Drevanic",
+            "Vaskari"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Alexar",
+          "primary": [
+            "Orthean"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Belisarion",
+          "primary": [
+            "Orthean"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Soravel",
+          "primary": [
+            "Selvaran",
+            "Orthean"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Radevan",
+          "primary": [
+            "Drevanic",
+            "Selvaran"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Velenar",
+          "primary": [
+            "Vaskari",
+            "Drevanic"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Mirekar",
+          "primary": [
+            "Drevanic",
+            "Vaskari"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Therovar",
+          "primary": [
+            "Orthean"
+          ],
+          "rare": [
+            "Vaskari"
+          ]
+        },
+        {
+          "name": "Arvenar",
+          "primary": [
+            "Orthean",
+            "Vaskari"
+          ],
+          "rare": [
+            "Selvaran"
+          ]
+        },
+        {
+          "name": "Asterion",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Branovar",
+          "primary": [
+            "Drevanic",
+            "Selvaran"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Ceredar",
+          "primary": [
+            "Selvaran",
+            "Orthean"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Daskeron",
+          "primary": [
+            "Drevanic",
+            "Vaskari"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Elenvar",
+          "primary": [
+            "Selvaran",
+            "Orthean"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Istranon",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Kavrenos",
+          "primary": [
+            "Orthean",
+            "Vaskari"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Malovar",
+          "primary": [
+            "Drevanic",
+            "Vaskari"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Nerathion",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Odraven",
+          "primary": [
+            "Drevanic",
+            "Selvaran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Paleron",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Ravessar",
+          "primary": [
+            "Vaskari",
+            "Drevanic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Sarkevan",
+          "primary": [
+            "Vaskari",
+            "Drevanic"
+          ],
+          "rare": [
+            "Orthean"
+          ]
+        },
+        {
+          "name": "Terenos",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Valeskion",
+          "primary": [
+            "Orthean",
+            "Vaskari"
+          ],
+          "rare": [
+            "Drevanic"
+          ]
+        },
+        {
+          "name": "Vardaron",
+          "primary": [
+            "Vaskari",
+            "Drevanic"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Zorevan",
+          "primary": [
+            "Drevanic",
+            "Selvaran"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Mirethos",
+          "primary": [
+            "Orthean",
+            "Selvaran"
+          ],
+          "rare": []
+        }
+      ]
+    },
+    "kharven": {
+      "cultures": [
+        "Kharven"
+      ],
+      "male": [
+        {
+          "name": "Temurak",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Arslan",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Altan",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Tumar",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Kharan",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Batur",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Tolen",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Saruk",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Ordan",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Miran",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Arven",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Kulan",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Saran",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Tarek",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Barun",
+          "primary": [],
+          "rare": []
+        }
+      ],
+      "female": [
+        {
+          "name": "Alara",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Saran",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Tula",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Mirai",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Yara",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Altara",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Naran",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Sareen",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Teyra",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Aruna",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Vela",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Orana",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Mira",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Kara",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Taran",
+          "primary": [],
+          "rare": []
+        }
+      ],
+      "lineage": [
+        {
+          "name": "Orduun",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Saryk",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Miran",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Kharuun",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Altaran",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Baruk",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Tolgai",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Saran",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Aruk",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Tumar",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Orlan",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Kharad",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Baturin",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Naruun",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Veyruk",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Arduq",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Beyran",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Dorgai",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Karsun",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Morun",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Sarqai",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Teygur",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Uldan",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Varuk",
+          "primary": [],
+          "rare": []
+        },
+        {
+          "name": "Yalgar",
+          "primary": [],
+          "rare": []
+        }
+      ]
+    },
+    "eastern": {
+      "cultures": [
+        "Averi",
+        "Tazhari",
+        "Qasren"
+      ],
+      "male": [
+        {
+          "name": "Bahram",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Nasir",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Rashad",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Zahir",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Darim",
+          "primary": [
+            "Tazhari",
+            "Averi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Ramin",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Sahir",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Farad",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Navid",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Kaveh",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Azran",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Samir",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Nadir",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Mehran",
+          "primary": [
+            "Averi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Javid",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Rassan",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Tarek",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Zayen",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Ramez",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Azhar",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        }
+      ],
+      "female": [
+        {
+          "name": "Samira",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Nayara",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Zahra",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Laleh",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Nareen",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Amira",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Soraya",
+          "primary": [
+            "Tazhari",
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Yasra",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Delara",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Mirah",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Azira",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Nalia",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Nayra",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Zahira",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Amara",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Saira",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Yara",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Samara",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Ravya",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Lareen",
+          "primary": [
+            "Tazhari",
+            "Averi"
+          ],
+          "rare": []
+        }
+      ],
+      "lineage": [
+        {
+          "name": "Qasir",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Zahraim",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Arzavan",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Veyrani",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Meyrani",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Ramekhar",
+          "primary": [
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Samaraid",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Darvani",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Nasari",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Bahramid",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Zarevan",
+          "primary": [
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Mehrani",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Azrani",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Sahirad",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Qaremi",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Navari",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Rassani",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Delahr",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        },
+        {
+          "name": "Vahrani",
+          "primary": [
+            "Tazhari",
+            "Averi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Azirad",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Alzahir",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Daremi",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Farhani",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Javari",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Kashiran",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Narezi",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Qadiran",
+          "primary": [
+            "Qasren"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Rahami",
+          "primary": [
+            "Tazhari",
+            "Qasren"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Saref",
+          "primary": [
+            "Tazhari",
+            "Averi"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Tavari",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Varzani",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Yazari",
+          "primary": [
+            "Averi",
+            "Tazhari"
+          ],
+          "rare": []
+        },
+        {
+          "name": "Zaheran",
+          "primary": [
+            "Qasren",
+            "Tazhari"
+          ],
+          "rare": [
+            "Averi"
+          ]
+        },
+        {
+          "name": "Mehrzad",
+          "primary": [
+            "Averi"
+          ],
+          "rare": [
+            "Qasren"
+          ]
+        }
+      ]
+    }
+  },
+  "seats": {
+    "R001": 106,
+    "R002": 37,
+    "R003": 107,
+    "R004": 41,
+    "R005": 66,
+    "R006": 70,
+    "R007": 54,
+    "R008": 51,
+    "R009": 32,
+    "R010": 24,
+    "R011": 25,
+    "R012": 53,
+    "R013": 52,
+    "R014": 27,
+    "R015": 34,
+    "R016": 26,
+    "R017": 50,
+    "R018": 49,
+    "R019": 73,
+    "R020": 69,
+    "R021": 35,
+    "R022": 103,
+    "R023": 105,
+    "R024": 18,
+    "R025": 22,
+    "R026": 92,
+    "R027": 1,
+    "R028": 16,
+    "R029": 45,
+    "R030": 47,
+    "R031": 61,
+    "R032": 15,
+    "R033": 77,
+    "R034": 17,
+    "R035": 93,
+    "R036": 80,
+    "R037": 101,
+    "R038": 99,
+    "R039": 89,
+    "R040": 100,
+    "R041": 5,
+    "R042": 14,
+    "R043": 6
+  }
+}
