@@ -1,5 +1,42 @@
 # Implementation Plan
 
+## Culture Map Mode v0.1
+
+**Status: IMPLEMENTED AND VERIFIED (2026-09-17).**
+
+- [x] Inspect canonical Province culture, mutable ProvinceState, input, accepted mask/palette/shader and borders.
+- [x] Seed standalone inspection ProvinceState culture from validated canonical Province identity; read live campaign ProvinceState when bound.
+- [x] Add exclusive C/P/Normal transitions without changing the accepted Political presentation.
+- [x] Reuse the existing Province-mask tint path with a separate culture palette instance and unchanged Province borders.
+- [x] Label the 28 connected starting culture regions with zoom-aware plain text.
+- [x] Visually inspect close/default/far/continent captures and pass all 22 direct suites.
+
+See `world_map/culture_map_mode_v0_1.md` and DEV-029. Culture conversion and Faith mode remain future work.
+
+## Political Realm-name labels
+
+**Status: IMPLEMENTED AND VERIFIED (2026-09-17).**
+
+- [x] Read current names from Realm identity or live formable political identity, with no duplicate name table.
+- [x] Keep one Political-only label per Realm, anchored to currently owned territory and refreshed after campaign revisions.
+- [x] Scale names across gameplay and overview zoom, keep a label visible inside a large on-screen Realm, and separate crowded overview names.
+- [x] Visually inspect close/default/far/continent captures, verify P restores Normal without labels, and pass all 21 direct tests.
+
+See `world_map/political_map_mode_v0_1.md` and DEV-028.
+
+## Political Map Mode v0.1
+
+**Status: IMPLEMENTED AND VERIFIED (2026-09-17).**
+
+- [x] Inspect the locked NaturalWorld, gameplay wrapper, accepted border renderer, ownership architecture and existing tests.
+- [x] Keep Normal mode bound to the original terrain shader and original Province ribbon palette.
+- [x] Bind political colors to current `ProvinceState.owner_realm_id`, with a `CampaignSession` read seam for later live campaigns.
+- [x] Assign 30 muted pigments deterministically across 43 starting Realms with geographic adjacency optimization.
+- [x] Tint the original terrain at 38% through a derived Province ID mask; preserve water, props, settlements, camera, geometry and accepted border meshes.
+- [x] Verify P on/off in the running Gameplay 001 scene at zoom 800, 1600 and 3600, inspect a continent overview, and pass all 21 direct tests.
+
+See `world_map/political_map_mode_v0_1.md` and DEV-027. The current inspection scene still lacks the authored ruler/capital roster required to create a canonical `CampaignSession`; its initial ProvinceState records come from frozen starting ownership. Faith mode remains future presentation work.
+
 ## Logic Foundation Pass 1
 
 **Status: IMPLEMENTED AND VERIFIED (2026-09-17).** This separately authorized state-foundation milestone supersedes the older simulation stop conditions for this scope only.
@@ -179,6 +216,16 @@ DEV-025 records the corrected authority path.
 - [x] Add accepted-mask coverage validation and full-map QA images.
 - [x] Add and validate the dual-sided medieval political border ribbon without changing authoritative geometry.
 - [x] Complete human scalpel review of the corrected strategic shapes and political borders.
+
+## Settlement representation scale prototype
+
+**Status: IMPLEMENTED; awaiting human visual review.**
+
+- [x] Place the exact supplied 2D settlement asset at grounded anchors in provinces 67 and 54.
+- [x] Build a compact procedural 3D blockout from the supplied layout reference at the same anchors.
+- [x] Add reversible F1/F2/F3/F4 comparison modes without collisions or simulation state.
+- [x] Capture both approaches at 800, 1200, 1600, 2000, 2400 and 3200 zoom in the real Gameplay 001 scene.
+- [ ] Record the human 2D-versus-3D direction decision; this prototype does not select final art or authorize a city system.
 
 ## Phase 2 — One-province greybox
 

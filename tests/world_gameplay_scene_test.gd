@@ -6,6 +6,8 @@ const NATURAL_WORLD_SCENE_PATH: String = "res://scenes/world_map/astra_natural_w
 const NATURAL_WORLD_SCENE_SHA256: String = "0f5450a6488b3ae7e1789c1bf7bddb69594efb225cd45da3b8d2c52edb7dc90a"
 const PROVINCE_DATA_SHA256: String = "c5ccc4f9d5afb4b3988dcb418402ffeccbab08d70cef8c48a9c57df08f993d7e"
 const NATURAL_WORLD_CONTROLLER_SHA256: String = "eb9e433f559f741d07ac1327da1b954228f90e721c96f426c7038420095a4a6e"
+const SETTLEMENT_2D_SHA256: String = "36fc0a6bf0a839efc2714f98aa56c84c2e8989cbdf3cd40ab11f7f05baa61bf5"
+const SETTLEMENT_3D_REFERENCE_SHA256: String = "9f628f554874efeff1059492f5e67dd79a6047d98b4202963fc4c26f81315d5f"
 
 
 var _failures: int = 0
@@ -47,6 +49,35 @@ func _initialize() -> void:
     _check(
         root.get_node_or_null("GameplayUI/ProvinceDebugPanel") != null,
         "debug UI responsibility exists"
+    )
+    var settlement_test: Node = root.get_node_or_null("SettlementPrototypeTestRoot")
+    _check(settlement_test != null, "removable settlement representation test is instanced")
+    if settlement_test != null:
+        _check(
+            settlement_test.get_node_or_null("Province67_TestAnchor") != null,
+            "province 67 settlement anchor exists"
+        )
+        _check(
+            settlement_test.get_node_or_null("Province54_TestAnchor") != null,
+            "province 54 settlement anchor exists"
+        )
+        var prototype_panel: Control = settlement_test.get_node_or_null(
+            "PrototypeUI/Panel"
+        ) as Control
+        _check(
+            prototype_panel != null
+            and prototype_panel.mouse_filter == Control.MOUSE_FILTER_IGNORE,
+            "settlement prototype controls do not block province interaction"
+        )
+    _check(
+        FileAccess.get_sha256("res://assets/prototypes/settlement/testhome_2d.png")
+        == SETTLEMENT_2D_SHA256,
+        "the supplied Testhome2d PNG is used unchanged"
+    )
+    _check(
+        FileAccess.get_sha256("res://assets/prototypes/settlement/testhome_3d_reference.png")
+        == SETTLEMENT_3D_REFERENCE_SHA256,
+        "the supplied testhome3d reference is preserved unchanged"
     )
     _check(
         root.find_children("*", "CollisionShape3D", true, false).is_empty(),

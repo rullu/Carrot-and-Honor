@@ -316,6 +316,19 @@ Render shared internal land borders as a presentation-only dual-sided political 
 
 ---
 
+## DEV-023 - Reversible settlement representation comparison
+
+**Date:** 2026-09-10
+**Status:** Implemented; awaiting human visual review
+
+Compare the exact supplied transparent `Testhome2d.png` with a crude Godot primitive blockout based on the supplied `testhome3d.png` sketch. Instance a removable presentation-only test under Gameplay 001, use shared terrain-grounded anchors in provinces 67 and 54, and expose F1/F2/F3/F4 modes for 2D, 3D, both and none. Keep the 2D image unchanged and build the 3D proxy from neutral primitives with no collisions, state or gameplay authority.
+
+Use a roughly 94-unit 2D image width and 110 by 95-unit 3D town core so the comparison tests the same medium-settlement footprint class. Capture each method at the existing 40-degree camera pitch and zooms 800, 1200, 1600, 2000, 2400 and 3200. Terrain heights are queried only to ground the prototype; the NaturalWorld, camera, province geography and simulation remain unchanged.
+
+**Consequence:** this is a scale and readability review artifact. It does not choose the final representation, establish a settlement system, add city content or authorize economy gameplay. Remove the instanced test scene and its two integration lines when the comparison is no longer needed.
+
+---
+
 ## DEV-024 - Validated world-identity catalogue
 
 **Date:** 2026-09-16
@@ -388,3 +401,44 @@ Save schema 1 rejects unknown/missing fields, duplicate/retired IDs, invalid ref
 World fingerprints normalize CRLF/LF in memory so identical content remains save-compatible across Git checkout platforms. The locked specification has an explicit LF attribute preserving its recorded source fingerprint; protected world data is unchanged.
 
 **Verification:** All 20 direct suites pass, including four new campaign suites with 617 checks; JSON and actual file replacement round trips pass with inactive/deceased/extinct entities. The canonical fixture verifies 100 Provinces, 43 Realms, 903 pairs and all frozen owners. All 1,037 protected file hashes match task start. Existing user settlement edits are preserved and excluded from the milestone commit. Exact coverage and API limitations are in the pass report; economy/war/succession/diplomacy and other full subsystem simulation remain deferred.
+
+---
+
+## DEV-027 - Gameplay Political Map Mode v0.1
+
+**Date:** 2026-09-17
+**Status:** Implemented and verified
+
+Use `ProvinceState.owner_realm_id` as the current political-color input. Gameplay 001 seeds initial ProvinceState ownership from validated frozen canon because the authored scenario roster needed for a full campaign session is not yet present; a supplied `CampaignSession` replaces that inspection source and its revision drives later presentation refreshes. Realm pigment assignment lives only in presentation: 30 curated colors are distributed deterministically using current geographic Realm adjacency and a local contrast optimization. No political color is written to canonical identity or save state.
+
+Keep the accepted border mesh and NaturalWorld source untouched. A derived, single-channel Province ID raster selects the color in a gameplay-only variant of the existing terrain shader. Blend at 38%; restore the original shader and border palette exactly in Normal mode. The gameplay wrapper captures P before NaturalWorld's standalone props shortcut. This leaves a two-mode seam for future presentation views without creating a generic map-mode system.
+
+**Verification:** The Gameplay 001 scene launched, P toggled both ways without changing natural-prop visibility, visual captures were reviewed at 800/1600/3600 and continent QA zoom, and all 21 direct tests passed. The weakest adjacent Realm color pair measures 0.0187 squared OKLab distance. `docs/world_map/political_map_mode_v0_1.md` records the mask build, shader seam and captures.
+
+---
+
+## DEV-028 - Political Realm-name labels
+
+**Date:** 2026-09-17
+**Status:** Implemented and verified
+
+Add a presentation-only CanvasLayer to the existing Political mode. Name text comes from the current Realm's canonical display identity, including a live formable identity where present. Current `ProvinceState.owner_realm_id` groups Provinces into Realms; an owned Province interior point nearest the territory's area-weighted center supplies each anchor. Session revision refreshes both ownership grouping and labels. A Realm with no currently owned Province has no label.
+
+Project anchors through the unchanged camera. At close gameplay zoom, the Realm under the camera center retains a label if its fixed anchor is offscreen. At continent zoom, full names wrap and move by small screen-space offsets to avoid text overlap; labels also avoid the existing gameplay inspection panel. Gameplay text uses light lettering and overview text uses dark lettering for terrain contrast. P disables the entire label layer in Normal mode. This adds no Province names, identity data, camera changes, gameplay state, or terrain/border edits. A generated Realm without an authored political identity currently falls back to its stable Realm ID because no canonical display name exists for it yet.
+
+**Verification:** Running Gameplay 001 captures at zoom 800, 1600, 3600 and 30000 show names and accepted underlying map presentation. All 43 starting Realms are on-screen at overview with zero label-rectangle overlaps; P restores Normal and hides the layer. Focused tests cover authoritative names, single labels, live capture/formation and territorial anchors; all 21 direct suites pass.
+
+---
+
+## DEV-029 - Gameplay Culture Map Mode v0.1
+
+**Date:** 2026-09-17
+**Status:** Implemented and verified
+
+Read culture from current `ProvinceState.local_culture`, never from Realm ownership or Realm primary culture. Canonical campaign bootstrap already seeds the field from the validated Province identity. Gameplay 001's standalone inspection records now seed that same field from canonical identity because no authored ruler/House/capital scenario exists; a bound campaign supplies current Province snapshots and revision refreshes. This adds no culture conversion or competing mutable culture table.
+
+Use C, which has no gameplay/NaturalWorld conflict, for an exclusive Normal/Political/Culture mode seam. Culture uses its own instance of the accepted Province-mask tint presenter and 30-color adjacency assignment; the accepted Political presenter, palette code, shader strength and Realm labels remain unchanged. Culture keeps the Normal Province ribbon palette rather than carrying Realm colors across modes. The 18 starting cultures receive 18 distinct pigments, with current culture alone selecting each Province's texture entry.
+
+Connected components in the accepted Province neighbor graph supply Culture-region labels. The 100 starting Provinces form 28 components; each label uses a component-owned Province interior anchor, so scattered cultures are named in each actual region. Text scales with the unchanged camera and avoids the existing inspection panel. Culture labels hide completely outside Culture mode.
+
+**Verification:** Gameplay 001 launched; captures at zoom 800, 1600, 3600 and 30000 show terrain and borders under Culture tint. All 28 region labels are on-screen at overview without text/panel overlap. P/C transitions preserve natural props, restore Political Realm colors/names, and restore Normal's original shader and border palette. The culture test verifies current/canonical reads, exact color identity, 18 distinct colors, neighboring contrast and connected labels; all 22 direct suites pass. The nearest neighboring colors have 0.0237 squared OKLab distance before terrain blending. `docs/world_map/culture_map_mode_v0_1.md` records the authority limit and captures.

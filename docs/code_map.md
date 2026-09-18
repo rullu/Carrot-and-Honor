@@ -28,9 +28,16 @@ The project contains verified pure-data foundations, a narrow province-interacti
 - `scenes/gameplay/world_gameplay.tscn` instances the locked NaturalWorld as the gameplay entry point.
 - `src/gameplay/province_geography.gd` loads authoritative geometry and performs bounds-filtered point-in-polygon lookup with multipart support. Corrected political geography contains no inland-water holes.
 - `src/gameplay/province_interaction.gd` owns cursor-to-terrain lookup, hover and selection.
-- `src/gameplay/world_gameplay.gd` coordinates geography, canonical identity, isolated prototype metrics, presentation and UI. Its inspection record never sources names or ownership from geography or prototype state.
+- `src/gameplay/world_gameplay.gd` coordinates geography, canonical identity, isolated prototype metrics, presentation and UI. Its inspection record never sources names or ownership from geography or prototype state. Without an authored scenario, it seeds current `ProvinceState` owners and local cultures once from validated canonical Province identity; an injected `CampaignSession` supersedes those records and supplies later state revisions. P/C select exclusive Normal, Political and Culture modes.
 - `src/simulation/prototype_province_metrics.gd` and `prototype_world_state.gd` own only temporary Population, Food, Carrots and Development display metrics. They own no political realm IDs or identity and are never serialized as campaign state.
 - `src/presentation/world_map/province_presentation.gd` renders presentation-only province borders from interaction IDs.
+- `src/presentation/world_map/political_realm_palette.gd` assigns 30 curated debug pigments to Realm IDs using the current geographic adjacency graph, then improves neighboring contrast without changing canonical identity. `political_map_presentation.gd` binds those colors to a Province ID mask and a gameplay-only variant of the existing terrain shader. Normal mode restores the original shader and ribbon palette.
+- `src/presentation/world_map/political_realm_labels.gd` reads current Province owners and authoritative Realm/formable display identity to maintain one Political-only screen label per current Realm. It chooses an owned Province interior anchor, projects through the existing camera, and handles close-view visibility, overview spacing and the gameplay panel's screen rectangle; it owns no authoritative identity or territory state.
+- `src/presentation/world_map/culture_region_labels.gd` groups current Province cultures by the accepted neighbor graph and labels each connected region from a Province interior anchor. Culture mode uses a separate `PoliticalMapPresentation` instance for the same accepted Province mask, shader seam and 30-color adjacency optimizer; the Political instance and accepted border renderer are unchanged.
+- `tools/world_map/build_political_province_mask.gd` deterministically rasterizes the accepted Province rings into `assets/world_map/political/province_id_mask.png`; the pixels contain Province IDs only. `capture_political_map_mode.gd` captures close/default/far gameplay comparisons and a whole-world overview. `tests/political_map_mode_test.gd` checks current-owner mapping, 43 Realm colors, adjacency, and all 100 mask anchors.
+- `tools/world_map/capture_political_realm_labels.gd` captures the running Political labels at close/default/far/continent zoom and checks 43 overview names, no text overlap and complete Normal-mode removal. The Political test also checks label names and anchors after live ownership/identity changes.
+- `tools/world_map/capture_culture_map_mode.gd` captures close/default/far/continent Culture views plus P/C restoration. `tests/culture_map_mode_test.gd` checks all 100 current Province cultures, 18 distinct colors, connected region placement and stale-label removal after a culture change.
+- `scenes/gameplay/settlement_prototype_test.tscn` and `src/presentation/world_map/settlement_prototype_test.gd` own the removable settlement representation comparison. They add no simulation state or collision and use Terrain3D only to ground the two test anchors and procedural blockout.
 - `src/ui/province_debug_panel.gd` displays canonical province/realm identity, geographic facts and explicitly non-canonical prototype metrics.
 - The `gameplay_identity_integration` test drives the actual gameplay controller and panel path across all 100 provinces so geography source names and mock realms cannot become visible again.
 - The `province_geography_query`, `province_realm_state`, `world_gameplay_scene` and `astra_province_coverage` tests verify lookup, metric isolation, scene composition, preservation locks and complete accepted-land coverage.
@@ -56,6 +63,10 @@ Detailed authority for planned Stage 1.5 world-map visuals, interactions, proof 
 ### `docs/world_map/astra_province_data.md`
 
 Authority for the corrected non-contiguous province-ID schema, correction manifest, reproducible import command, exact coordinate contract and coverage validation.
+
+### `docs/world_map/settlement_representation_prototype.md`
+
+Records the supplied 2D and 3D-reference assets, comparison controls, exact province anchors, scale choices, capture workflow and provisional visual findings. It is QA documentation and does not establish a settlement system or final art direction.
 
 ### `docs/world_map/astra_biome_preview.md`
 

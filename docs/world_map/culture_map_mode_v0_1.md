@@ -1,0 +1,17 @@
+# Culture Map Mode v0.1
+
+Gameplay 001 now has three exclusive inspection modes: **Normal**, **Political** and **Culture**. Press **C** to enter or leave Culture; press **P** to enter or leave Political. Pressing the other mode's key switches directly to it. C was unused by the gameplay scene, NaturalWorld and project input map. Normal retains the original terrain shader and border palette. Switching modes disables the previous overlay and labels before enabling the next, so Culture never retains Realm colors or names.
+
+Culture is a Province property. The current field is `ProvinceState.local_culture`, which canonical campaign bootstrap initializes from each Province's `culture` in the validated World Identity catalogue. Gameplay 001 has no authored ruler/House/capital scenario and therefore seeds its standalone inspection `ProvinceState` records from that same canonical starting culture, alongside their existing owner seed. When a live `CampaignSession` is bound, the map reads its current ProvinceState snapshots and refreshes after session revisions. There is no culture-conversion command or simulation in this milestone; the standalone scene shows starting culture unless a live state is supplied. Realm `primary_culture` and starting Realm ownership are never used to decide a Province's color.
+
+Culture mode uses a separate instance of the existing `PoliticalMapPresentation` renderer. This reuses the accepted 4096×2304 Province ID mask, terrain shader seam, 38% tint and curated 30-pigment adjacency optimizer without changing the accepted Political instance or its appearance. The 18 starting cultures receive 18 distinct deterministic colors; each Province of a culture gets the exact same color across Realm boundaries. The original Province-border ribbon palette stays in Culture mode, so internal Province boundaries remain readable and no Realm political ribbon color leaks through. The terrain, NaturalWorld, camera, settlements, geography and border renderer are unchanged.
+
+`CultureRegionLabels` groups same-culture Provinces through the accepted Province neighbor graph. Each connected component gets one label at a currently matching Province interior point near its weighted geographic center. There are **28 starting components** across 18 cultures; separated Averi, Haldren, Selvaran and other regions therefore receive separate names instead of a misleading label between them. Labels use the existing plain font, scale with zoom, keep the centered region visible at close zoom, and avoid the existing gameplay panel at overview. They appear only in Culture mode.
+
+[`qa/culture_map_mode/`](qa/culture_map_mode/) contains running-scene captures at zoom 800, 1600, 3600 and 30000, a UI-visible overview, Normal before/after Culture and Political before/after switching. The capture checks actual C/P input, all 28 overview labels with no overlap, unchanged natural-prop visibility, default Province ribbon colors in Culture, and clean Normal and Political restoration. Run it with:
+
+```powershell
+godot --path . --log-file .godot/culture_capture.log --script res://tools/world_map/capture_culture_map_mode.gd
+```
+
+`tests/culture_map_mode_test.gd` verifies all 100 canonical/current culture reads, 18 distinct deterministic colors, neighboring contrast, exact Province-to-culture color mapping, 28 connected label components and a current ProvinceState culture change removing a stale label. All **22/22** direct suites pass. The weakest neighboring culture pair measures **0.0237 squared OKLab distance** before terrain blending.

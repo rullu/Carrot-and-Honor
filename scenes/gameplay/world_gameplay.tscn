@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://src/gameplay/world_gameplay.gd" id="1_gameplay"]
 [ext_resource type="PackedScene" path="res://scenes/world_map/astra_natural_world_final.tscn" id="2_natural_world"]
 [ext_resource type="Script" path="res://src/gameplay/province_interaction.gd" id="3_interaction"]
 [ext_resource type="Script" path="res://src/presentation/world_map/province_presentation.gd" id="4_presentation"]
 [ext_resource type="Script" path="res://src/ui/province_debug_panel.gd" id="5_debug_panel"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/settlement_prototype_test.tscn" id="6_settlement_prototype"]
 
 [node name="WorldGameplay" type="Node3D"]
 script = ExtResource("1_gameplay")
@@ -16,6 +17,8 @@ script = ExtResource("3_interaction")
 
 [node name="ProvincePresentation" type="Node3D" parent="."]
 script = ExtResource("4_presentation")
+
+[node name="SettlementPrototypeTestRoot" parent="." instance=ExtResource("6_settlement_prototype")]
 
 [node name="GameplayUI" type="CanvasLayer" parent="."]
 

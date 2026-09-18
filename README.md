@@ -6,13 +6,19 @@ The five core campaign states, stable registries, derived queries, atomic lifecy
 
 Campaign setup requires explicit rulers, Dynasties and capitals. The canonical-world adapter preserves all 100 Provinces and 43 starting Realms; it does not invent the missing character/capital roster. Gameplay 001 remains an inspection scene with separately labelled prototype metrics, now named `PrototypeProvinceMetrics`.
 
-After Godot has scanned/imported the project, run the full 20-test suite on Windows with `powershell -NoProfile -ExecutionPolicy Bypass -File tools/testing/run_headless_tests.ps1`. The runner resolves `godot` from PATH, waits for the process, requires a PASS marker and checks script errors; logs stay in `.godot/test_logs/`.
+After Godot has scanned/imported the project, run the full 22-test suite on Windows with `powershell -NoProfile -ExecutionPolicy Bypass -File tools/testing/run_headless_tests.ps1`. The runner resolves `godot` from PATH, waits for the process, requires a PASS marker and checks script errors; logs stay in `.godot/test_logs/`.
 
 For Carrot and Honour is a real-time, pausable medieval-fantasy strategy game about ruling a bunny kingdom across one fixed, handcrafted continent. The interactive world map is intended to be the primary playing field, with province management available through panels. The project is built with Godot 4 and typed GDScript.
 
 ## Current gameplay scene
 
 Open **[`scenes/gameplay/world_gameplay.tscn`](scenes/gameplay/world_gameplay.tscn)** and press **F6**. Gameplay 001 instances the completed NaturalWorld, provides geographic hover and persistent click selection for all 100 active provinces, and displays canonical province identity plus frozen starting-realm identity in a plain debug panel. Population, Food, Carrots and Development remain clearly labelled non-canonical prototype metrics. Left click selects, Escape clears selection, WASD or middle drag pans, and the wheel zooms.
+
+The current review build also contains a removable 2D-versus-3D medium-settlement scale test in provinces 67 and 54. Press **F1** for the supplied 2D asset, **F2** for the procedural 3D blockout, **F3** for both, or **F4** to hide both. See [`docs/world_map/settlement_representation_prototype.md`](docs/world_map/settlement_representation_prototype.md) for anchors, scale and QA captures.
+
+Press **P** in Gameplay 001 to toggle its Political Map Mode v0.1. It tints the existing terrain by each Province's current `ProvinceState.owner_realm_id` and shows one zoom-aware name per current Realm. The accepted borders, NaturalWorld detail and camera controls remain intact. Press **P** again for the original normal presentation. See [`docs/world_map/political_map_mode_v0_1.md`](docs/world_map/political_map_mode_v0_1.md) for the presentation boundary and visual captures.
+
+Press **C** to toggle Culture Map Mode v0.1. It colors Provinces by current `ProvinceState.local_culture` and labels connected cultural regions; P and C switch directly between the exclusive modes. The standalone inspection scene seeds culture from canonical starting Province identity, and a bound campaign supplies current Province state. See [`docs/world_map/culture_map_mode_v0_1.md`](docs/world_map/culture_map_mode_v0_1.md) for the data boundary and captures.
 
 The corrected geography is generated from the immutable Azgaar source plus `data/world_map/astra_province_corrections.json`. Seven IDs are retired without reuse; the accepted targeted topology adds IDs 90-107 and reserves 108 as the next fresh ID. The 100-province topology and dual-sided political border presentation are manually accepted.
 
@@ -134,6 +140,8 @@ godot --headless --path . --script res://tests/astra_terrain_art_assets_test.gd
 godot --headless --path . --script res://tests/province_geography_query_test.gd
 godot --headless --path . --script res://tests/province_realm_state_test.gd
 godot --headless --path . --script res://tests/world_gameplay_scene_test.gd
+godot --headless --path . --script res://tests/political_map_mode_test.gd
+godot --headless --path . --script res://tests/culture_map_mode_test.gd
 godot --headless --path . --script res://tests/world_identity_catalogue_test.gd
 godot --headless --path . --script res://tests/gameplay_identity_integration_test.gd
 ```

@@ -64,6 +64,18 @@ Owns the standalone textured-surface preview entry point, controls, resource reb
 
 Owns the final natural-world scene, inspection controls, presentation data semantics, provenance, rebuilding and verification. Supersedes the first textured preview as the current art entry point. Current final handoff: `C:\Projects\FCAH_ASTRA_WORKSPACE\ASTRA_FINAL_BEAUTY_HANDOFF.md`. `ASTRA_NATURAL_WORLD_REPORT.md` remains the September 8 historical report.
 
+### [`docs/world_map/settlement_representation_prototype.md`](world_map/settlement_representation_prototype.md)
+
+Owns the temporary 2D-versus-3D settlement scale/readability test, its exact source-asset hashes, controls, placements and generated QA captures. It records review evidence only and is not settlement-system or art authority.
+
+### [`docs/world_map/political_map_mode_v0_1.md`](world_map/political_map_mode_v0_1.md)
+
+Owns the implemented Gameplay 001 normal/political toggle, current-ownership presentation path, Province ID mask derivative, palette assignment, Realm-name labels, and visual verification. Political pigments and labels are presentation data only.
+
+### [`docs/world_map/culture_map_mode_v0_1.md`](world_map/culture_map_mode_v0_1.md)
+
+Owns the Gameplay 001 Culture inspection mode, authoritative Province culture read path, connected-region labels, exclusive P/C transitions and visual verification. Culture colors and labels are presentation data only.
+
 ### [`docs/world_identity/world_identity_runtime.md`](world_identity/world_identity_runtime.md)
 
 Owns the implementation-facing world-identity runtime contract, source fingerprint, authority boundaries, inspection commands, validation coverage and deliberately deferred gameplay behaviour.
@@ -88,6 +100,8 @@ planning metadata or applying gameplay effects. DEV-024 records the boundary.
 Gameplay 001 now instances the locked NaturalWorld and adds province lookup, hover, selection, permanent-border presentation and a debug panel. The panel binds canonical identity and frozen starting realms through `WorldIdentityCatalogue`; only its explicitly labelled numeric metrics remain synthetic. DEV-025 supersedes DEV-021's old mock province/realm display path. Visual testing accepted the interaction architecture while exposing defects in the authoritative geography; DEV-022 addresses them through the separately approved correction pass.
 
 The corrected 100-province topology and dual-sided political border presentation are manually accepted. `data/world_map/astra_province_corrections.json` is the version-controlled correction authority over the immutable Azgaar export; the runtime JSON and coverage report are deterministic derivatives. DEV-022 records stable/retired ID policy, complete playable-land coverage and inland-water ownership.
+
+A separately authorised settlement representation prototype is also present for review in the real Gameplay 001 wrapper. It compares the exact supplied 2D image with a Godot primitive blockout at matching anchors in provinces 67 and 54, without adding settlement state or changing the locked world.
 
 Stage 1 foundation work is implemented. The explicit September 2026 Astra tasks delivered full-continent Terrain3D data, aligned mask QA, the initial 82-province data layer, a diagnostic biome preview and a separate textured surface preview; the authoritative corrected layer now contains 100 active provinces. The older static-map brief and six-province restriction do not describe this authorized terrain work; DEV-016 records that scoped reconciliation. The subsequent final-natural-world assignment explicitly authorizes natural decoration, water, lighting and surface completion; DEV-017 records this extension. Province rendering, gameplay expansion and interaction-gate Pass remain separate.
 
