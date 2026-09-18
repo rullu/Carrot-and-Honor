@@ -10,7 +10,10 @@ Starting main/origin/main: 43a5438cdee9232031be24e7cc1108db38c5ad61
 Presentation snapshot:     1dbe757febcefaf871293c6d30129363223a65e1
 Campaign-start branch:     c45f8080a9b0cd375c0495371689e8d06e7e48ba
 Use a two-parent merge; retain campaign-start-v1 locally and remotely.
-Exact merge identity is appended after commit creation in the completion record.
+Verified integration merge: a4a49034c315d1d34e820ffffda03d825997d414
+Parents: presentation snapshot first, campaign-start branch second.
+This exact merge identity was added in a documentation-only completion commit;
+the fully tested runtime, assets and generator remain unchanged.
 
 PRESERVATION
 Initial main: 8 modified tracked files, 602 Git-visible untracked files.

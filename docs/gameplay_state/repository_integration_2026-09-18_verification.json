@@ -3,7 +3,8 @@
   "sources": {
     "baseline": "43a5438cdee9232031be24e7cc1108db38c5ad61",
     "presentation": "1dbe757febcefaf871293c6d30129363223a65e1",
-    "campaign_start": "c45f8080a9b0cd375c0495371689e8d06e7e48ba"
+    "campaign_start": "c45f8080a9b0cd375c0495371689e8d06e7e48ba",
+    "verified_merge": "a4a49034c315d1d34e820ffffda03d825997d414"
   },
   "starting_inventory": {
     "modified_tracked": 8,

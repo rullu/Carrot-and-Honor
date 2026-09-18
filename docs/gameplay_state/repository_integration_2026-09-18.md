@@ -9,8 +9,9 @@ Main combines the accepted Political/Culture inspection modes and settlement pro
 | Starting main and origin/main | `43a5438cdee9232031be24e7cc1108db38c5ad61` |
 | Accepted presentation working-tree snapshot | `1dbe757febcefaf871293c6d30129363223a65e1` |
 | Campaign-start source branch | `c45f8080a9b0cd375c0495371689e8d06e7e48ba` |
+| Verified two-parent integration merge | `a4a49034c315d1d34e820ffffda03d825997d414` |
 
-The merge retains both source parents. Its exact commit is recorded in the completion entry after creation. `campaign-start-v1` remains available locally/remotely at its original commit, with its clean worktree at `C:/Projects/fcah_campaign_start_v1`. Main remains in `C:/Projects/For-Carrot-and-Honour`. Push uses the ordinary fast-forward update of origin/main; no force push or branch deletion.
+The merge retains both source parents. This completion entry is a documentation-only follow-up to that verified merge; the tested runtime and assets are unchanged. `campaign-start-v1` remains available locally/remotely at its original commit, with its clean worktree at `C:/Projects/fcah_campaign_start_v1`. Main remains in `C:/Projects/For-Carrot-and-Honour`. Push uses the ordinary fast-forward update of origin/main; no force push or branch deletion.
 
 ## Starting inventory and preservation
 
