@@ -147,7 +147,11 @@ Implementation/retest findings: strict JSON handling required validated integer 
 
 All locked terrain/NaturalWorld, geography, ownership, Seats, canonical identity, presentation and cast source/data remain byte-identical. There was no pre-existing dirty work to relocate. Two incidental editor-generated import sidecars for old political reference images were hash-checked and preserved outside the repository; no unrelated material is committed. Downloads originals and the copied sealed authority still match their supplied/recorded hashes; the historical cumulative-log prefix remains byte-exact.
 
-Delivery follows normal main history without rebase or force push. The implementation commit's exact identity is recorded in the completion entry after committing; the final documentation commit is identified by Git history. `campaign-start-v1` remains at `c45f8080a9b0cd375c0495371689e8d06e7e48ba` locally, remotely and in its clean reference worktree.
+### Delivery identity
+
+Implementation commit: **`6f7c174036a31bfe861ea665f876fd70472566fd`**, based on `4b1f36eb03a792a15e2705aa8ed8147c3073bd20`. Its 60-file diff was reviewed after verification and pushed successfully to `origin/main`; local HEAD, tracking ref and queried remote head matched, with a clean working tree. This documentation-only follow-up records the exact implementation identity; its own identity is available from Git history and the final handover. No code or test output changes after the successful full run.
+
+Delivery uses normal main history without rebase or force push. `campaign-start-v1` remains at `c45f8080a9b0cd375c0495371689e8d06e7e48ba` locally, remotely and in its clean reference worktree.
 
 ## Deferred boundary
 

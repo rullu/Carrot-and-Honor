@@ -2913,3 +2913,16 @@ FILES / HANDOVER
   military effects, and UI/art remain outside this milestone.
 - Exact implementation commit identity follows in the completion entry after commit.
   Final handover documentation records that identity without self-referential hashes.
+
+2026-09-20 — ECONOMY IMPLEMENTATION COMMIT / PUSH COMPLETION
+- Exact implementation commit: 6f7c174036a31bfe861ea665f876fd70472566fd
+  "Implement sealed province economy foundation and deterministic starts v1"
+- Parent baseline: 4b1f36eb03a792a15e2705aa8ed8147c3073bd20.
+- Reviewed 60-file diff; all final verification above completed before committing.
+- Normal push to origin/main succeeded. Local HEAD, origin/main and queried remote
+  refs/heads/main all matched the implementation SHA; working tree was clean.
+- campaign-start-v1 remains locally and remotely at
+  c45f8080a9b0cd375c0495371689e8d06e7e48ba; its reference worktree remains clean.
+- This documentation-only follow-up records the implementation SHA and push evidence.
+  Its own final SHA is recorded by Git history and the delivery handover. No runtime,
+  content or test changes occurred after the complete 26-suite verification.

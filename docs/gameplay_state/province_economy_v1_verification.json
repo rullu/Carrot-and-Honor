@@ -470,5 +470,10 @@
     "building/military effects",
     "UI/art"
   ],
-  "delivery": "Implementation commit identity is recorded by a subsequent documentation commit."
+  "delivery": {
+    "implementation_commit": "6f7c174036a31bfe861ea665f876fd70472566fd",
+    "implementation_push": "PASS: normal origin/main push; local HEAD, tracking ref and queried remote HEAD matched",
+    "implementation_working_tree": "clean",
+    "follow_up": "Documentation-only commit records this identity; its SHA is in Git history and final handover."
+  }
 }
