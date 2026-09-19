@@ -1,5 +1,17 @@
 # Code Map
 
+## Province economy foundation v1
+
+- `src/simulation/economy/` owns typed definitions/configuration, Province economy records, provenance, generation, permanent wire/reference checks, Day-1 validation and lifecycle primitives. `EconomyWorld` reads fixed IDs/adjacency and explicit suitability bindings without changing geography.
+- `data/economy/economy_catalogue_v1.json` contains 26 opportunities, 32 countryside types and 37 strategic families, including the exact 13-type random Day-1 pool. `campaign_economy_v1.json` is explicitly incomplete canonical configuration.
+- `ProvinceState.economy` owns local records and positive Realm knowledge. `CampaignState.economy_generation` retains generator/content/config versions, fingerprints and the strict configuration snapshot. Schema 3 uses null economy for explicitly uninitialized cast-only/legacy scenarios.
+- `CampaignBootstrap.new_campaign()` creates cast plus economy only with complete configuration. `new_cast_campaign()` is the unchanged cast-only path. `CampaignCodec.migrate_v2()` explicitly adds uninitialized economy without generating anything; normal loads require schema 3.
+- `CampaignSession.transition_economy_instance()` publishes validated lifecycle transitions atomically. Existing ownership commands reveal physical-site sources to the new owner while preserving sites, damage and building origin identity.
+- `tests/economy_foundation_test.gd`, `economy_stress_test.gd` and the explicitly synthetic `tests/support/economy_fixture.gd` cover the new contract. `tools/economy/check_economy_content.js` checks sealed transcription; `inspect_economy.gd` validates/inspects an explicit configuration and can atomically save the result.
+- Legacy `GoodDefinition`, `BuildingDefinition`, `PrototypeContentCatalogue` and `ProvinceCapabilityState` remain an isolated historical capability proof. Their old scope/placement assumptions do not enter the campaign economy dependency graph.
+
+See `gameplay_state/province_economy_v1.md` for complete ownership, API and configuration boundaries.
+
 ## Campaign start v1
 
 - `src/simulation/campaign/start/campaign_start_world.gd` adapts canonical Realm identity, Province religion and sealed fixed Seats without changing world authority.

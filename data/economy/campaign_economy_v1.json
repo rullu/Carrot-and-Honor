@@ -1,0 +1,20 @@
+{
+  "config_id": "economy_canonical_v1",
+  "config_version": 1,
+  "status": "incomplete",
+  "strategic_slots": 10,
+  "opportunity_weights": null,
+  "hidden_chance_bp": null,
+  "rare_opportunity_ids": null,
+  "anti_cluster_penalty_bp": null,
+  "powerhouse_realm_ids": null,
+  "authored_sites": null,
+  "authored_buildings": null,
+  "geography": null,
+  "domain_versions": {
+    "opportunities": 1,
+    "hiding": 1,
+    "sites": 1,
+    "buildings": 1
+  }
+}

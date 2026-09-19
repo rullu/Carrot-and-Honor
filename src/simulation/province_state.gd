@@ -14,6 +14,7 @@ const FIELDS: Dictionary = {
     "local_food": "count",
     "development_stage": "count",
     "history": "history",
+    "economy": "economy",
 }
 
 var province_id: int = 0
@@ -26,6 +27,7 @@ var local_manpower: int = 0
 var local_food: int = 0
 var development_stage: int = 0
 var history: Array[HistoricalMemory] = []
+var economy: ProvinceEconomy
 
 
 func to_data() -> Dictionary:
@@ -40,6 +42,7 @@ func to_data() -> Dictionary:
         "local_food": local_food,
         "development_stage": development_stage,
         "history": StateSchema.records_to_data(history),
+        "economy": economy.to_data() if economy != null else null,
     }
 
 
@@ -55,6 +58,7 @@ static func from_data(data: Dictionary) -> ProvinceState:
     state.local_manpower = int(data["local_manpower"])
     state.local_food = int(data["local_food"])
     state.development_stage = int(data["development_stage"])
+    state.economy = ProvinceEconomy.from_data(data["economy"]) if data["economy"] != null else null
     for record: Dictionary in data["history"]:
         state.history.append(HistoricalMemory.from_data(record))
     return state

@@ -12,9 +12,11 @@ Read these files before changing code:
 4. `docs/implementation_plan.md`
 5. `docs/decision_log.md`
 
-Current phase: **Campaign-Start Procedural Cast + Naming + Generator v1** on the accepted 100-province geography, 43 starting Realms and implemented world identity. Terrain and NaturalWorld are locked.
+Current phase: **Province Economy Foundation / Campaign-Start Generation v1** on the accepted 100-province geography, 43 starting Realms and implemented world identity. Terrain and NaturalWorld are locked.
 
 Design and implementation authority:
+
+- `docs/design_authority/FCAH_Province_Economy_Production_Discovery_v1_FINAL_SEALED_IMPLEMENTATION_AUTHORITY_2026-09-19.txt` governs the economy foundation and supersedes older goods/prototype assumptions. Follow its authority routing. Unresolved tuning and suitable-geography bindings must remain explicit configuration; never substitute fixture values for canon. `docs/gameplay_state/province_economy_v1.md` records the schema-3 APIs and incomplete canonical configuration.
 
 - `docs/design_authority/FCAH_Campaign_Start_Procedural_Cast_Naming_Generator_v1_FINAL_SEALED_2026-09-18.txt` governs campaign-start generation, naming, tuning and the narrow schema-v2 delta. Its implementation was explicitly authorized on September 18. Keep Day-1 validation separate from permanent campaign invariants; generation-affecting changes require a generator version bump.
 - `docs/design_authority/FCAH_Gameplay_State_Architecture_v1_LOCKED.txt` is the primary authority for current gameplay-state ownership, references and lifecycle boundaries. Read it before changing campaign state. `docs/design_reference/` is context and `docs/design_archive/` is superseded history.
@@ -109,9 +111,9 @@ Ordinary goods represent province-local capability and access, not universal num
 
 Code uses underscore stable IDs such as `good_grain` and `building_bakery`; dotted design notation is not used in code.
 
-In the prototype capability foundation, Timber enables automatic local Firewood. There is no prototype Woodcutter.
+The old Farm/Mill/Bakery capability slice is a historical proof, not current production authority. In the new economy catalogue ordinary Timber/Firewood/Stone/basic metalwork are background access, Mill is strategic-city processing, and opportunities/sites/buildings are distinct typed content. The historical slice must not supply campaign economy rules.
 
-Province capability state owns a validated set of present building IDs and derives available goods plus direct blockers in authoritative catalogue order. It does not own quantities or production execution.
+The legacy `ProvinceCapabilityState` is isolated to that proof. `ProvinceState.economy` owns generated opportunities, Realm-specific positive knowledge, countryside instances and strategic instances. The campaign registry stores versioned economy configuration/provenance, not a competing Province economy registry. Production arithmetic, finished-good scope and workforce remain deferred.
 
 Every definition must have a stable ID.
 

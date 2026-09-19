@@ -1,5 +1,25 @@
 # Technical Decision Log
 
+## DEV-032 - Province-owned economy, independent generation domains and explicit incomplete configuration
+
+**Date:** 2026-09-20 (September 19 implementation task)
+
+**Status:** Implemented and verified: 26/26 direct suites, including both 1,000-seed stress samples
+
+Install the exact sealed Province/Economy authority after matching its supplied SHA-256. Select the newest cumulative Downloads record by its internal seal, integrated-main commit and supersession text; retain its bytes as the prefix of the new cumulative file. Downloads originals and historical repository logs remain untouched. Begin from clean integrated main `4b1f36eb03a792a15e2705aa8ed8147c3073bd20`.
+
+Add typed opportunity/site/building content and `ProvinceState.economy`; keep campaign-level configuration/version/hash provenance separate. Opportunity knowledge references persistent Realms. Physical instances retain creation culture/religion/Realm through capture and later identity change. Captured physical sites expose their source to the actual owner without transferring undeveloped knowledge. Atomic session commands support only the sealed construction/disruption/recovery states; production, staffing, survey and trade remain deferred.
+
+Save schema 3 strictly validates all new nested state before publication. Explicit schema-2 migration adds null, uninitialized economy without generating content. The complete `new_campaign` API requires complete configuration; `new_cast_campaign` preserves explicit cast-only generation. Loading stores/restores the accepted physical state and never rerolls it.
+
+Use independent SHA-256 domains for opportunities, hiding, sites and buildings, with separate count/type/repair/identity purposes. Persist the complete config fingerprint without feeding it into every stream and coupling unrelated changes. Preserve cast version 1 and its golden digest. Economy/content start at version 1. Deterministic repair preserves capacity, essential floors and existing authored site sources; an authored site whose source was never generated fails rather than spawning a convenient resource. Day-1 validation stays separate from permanent validation.
+
+Leave unresolved production tuning, Powerhouse IDs and authored starts explicitly null. Fixed suitable Harbour/Fishery access also needs explicit authoring: existing geometry has no validated gameplay suitability binding, and a shoreline threshold would invent one. Fixture suitability is labelled synthetic. Prototype capacity is configurable (10 supplied, 8/10/12 tested), not a permanent slot-count decision. Technical integer weight bounds keep draws within the existing unbiased sampler. Cache only disposable fixed world metadata; permanent world fingerprint checks still run on publication/load.
+
+Audit and isolate the old GoodDefinition/BuildingDefinition/PrototypeContentCatalogue/ProvinceCapabilityState proof. Reusing it would leak rural Mill, Province-local finished-good scope and implicit production assumptions. Its tests and implementation remain unchanged. Exact verification, implementation findings, configuration gaps and delivery commits are in `gameplay_state/province_economy_v1.md` and its verification JSON.
+
+---
+
 ## DEV-031 - Preserve presentation history and integrate campaign-start v1
 
 **Date:** 2026-09-18

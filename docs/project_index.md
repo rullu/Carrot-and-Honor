@@ -1,5 +1,11 @@
 # Project Index
 
+## Province economy authority and implementation
+
+[`design_authority/FCAH_Province_Economy_Production_Discovery_v1_FINAL_SEALED_IMPLEMENTATION_AUTHORITY_2026-09-19.txt`](design_authority/FCAH_Province_Economy_Production_Discovery_v1_FINAL_SEALED_IMPLEMENTATION_AUTHORITY_2026-09-19.txt) is the hash-verified binding authority for this subsystem. Its Section 2 supersedes older authority ordering for economy questions. The locked state/world/cast authorities retain their boundaries.
+
+[`gameplay_state/province_economy_v1.md`](gameplay_state/province_economy_v1.md) owns implementation facts, schema-3 migration, explicit configuration gaps, tests and developer commands. [`design_authority/FCAH_Changelog_Cumulative_2026-09-19.txt`](design_authority/FCAH_Changelog_Cumulative_2026-09-19.txt) preserves the newest Downloads cumulative record as its unchanged prefix and appends implementation evidence; older changelogs remain historical.
+
 ## Repository integration record
 
 [`gameplay_state/repository_integration_2026-09-18.md`](gameplay_state/repository_integration_2026-09-18.md) records the combined main baseline, source commits, dirty-work preservation, exact verification and integration-only changes. The accompanying integration changelog is implementation history, not a revision to sealed design authority.

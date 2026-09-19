@@ -1,22 +1,30 @@
 # For Carrot and Honour
 
+## Province economy foundation v1
+
+The sealed economy foundation adds deterministic opportunities, owner knowledge, countryside sites and strategic buildings to **save schema 3**. See [the implementation report](docs/gameplay_state/province_economy_v1.md) for APIs, authority, migration and verification.
+
+**Canonical economy tuning is intentionally incomplete.** `CampaignBootstrap.new_campaign(seed, days_per_year, player_realm_id, economy_config)` requires complete explicit configuration and refuses the unfinished default. Rarity, hiding, anti-clustering, authored starts, Powerhouse IDs and suitable coast/aquatic bindings are not guessed. Tests use labelled fixtures. `new_cast_campaign()` remains available for explicit cast-only inspection; it produces no economy.
+
+Run all 26 suites with `powershell -NoProfile -ExecutionPolicy Bypass -File tools/testing/run_headless_tests.ps1 -TimeoutSeconds 1200`. Both cast and economy have 1,000-seed stress suites. Check economy transcription with `node tools/economy/check_economy_content.js`.
+
 ## Integrated development baseline
 
 `main` now combines the accepted Political/Culture inspection modes and settlement prototype with campaign-start v1. See [repository integration](docs/gameplay_state/repository_integration_2026-09-18.md) for provenance, preserved working files, merge decisions and verification. Gameplay 001 retains its inspection workflow; a campaign-selection UI remains deferred.
 
 ## Campaign start v1
 
-`CampaignBootstrap.new_campaign(seed, days_per_year, player_realm_id)` now generates and validates the complete canonical 43-Realm cast before creating campaign state. Seed and year length are explicit inputs; player selection does not affect the cast. Schema 2 persists the generated records, signed birth ticks and generation provenance. Loading never regenerates families.
+`CampaignBootstrap.new_cast_campaign(seed, days_per_year, player_realm_id)` generates and validates the complete canonical 43-Realm cast. Seed and year length are explicit inputs; player selection does not affect the cast. Cast generator v1 and its golden output are unchanged. Schema 3 retains the generated records, signed birth ticks and generation provenance. Loading never regenerates families or economy.
 
-See [`docs/gameplay_state/campaign_start_v1.md`](docs/gameplay_state/campaign_start_v1.md) for API, decisions, deterministic stress evidence and the sealed authority. Run the complete suite with `powershell -NoProfile -ExecutionPolicy Bypass -File tools/testing/run_headless_tests.ps1 -TimeoutSeconds 600`; it includes a 1,000-seed stress test. Validate the name-table transcription with `node tools/campaign/build_campaign_start_data.js --check`.
+See [`docs/gameplay_state/campaign_start_v1.md`](docs/gameplay_state/campaign_start_v1.md) for API, decisions, deterministic stress evidence and the sealed authority. Use the full-suite command above for both 1,000-seed stress tests. Validate the name-table transcription with `node tools/campaign/build_campaign_start_data.js --check`.
 
 Inspect a real generated campaign without adding a player-facing reroll or changing Gameplay 001:
 
 ```powershell
-godot --headless --path . --script res://tools/campaign/inspect_campaign_start.gd -- --seed=example --days-per-year=365 --player=R028
+godot --headless --path . --script res://tools/campaign/inspect_campaign_start.gd -- --cast-only --seed=example --days-per-year=365 --player=R028
 ```
 
-Here 365 is an example configuration, not a canonical calendar. Add `--save=res://.godot/example_campaign.json` to verify and save the complete campaign.
+Here 365 is an example configuration, not a canonical calendar. Add `--save=res://.godot/example_campaign.json` to verify and save the cast-only campaign.
 
 ## Logic Foundation Pass 1
 
@@ -24,7 +32,7 @@ The five core campaign states, stable registries, derived queries, atomic lifecy
 
 Campaign-start v1 supplies the ruler/family/lineage roster and sealed fixed Seats to the existing canonical-world adapter. The adapter preserves all 100 Provinces and 43 starting Realms. Gameplay 001 remains an inspection scene with separately labelled prototype metrics, named `PrototypeProvinceMetrics`.
 
-After Godot has scanned/imported the project, run the full 24-test suite using the command above. The runner resolves `godot` from PATH, waits for the process, requires a PASS marker and checks script errors; logs stay in `.godot/test_logs/`.
+After Godot has scanned/imported the project, run the full 26-test suite using the economy command above. The runner resolves `godot` from PATH, waits for the process, requires a PASS marker and checks script errors; logs stay in `.godot/test_logs/`.
 
 For Carrot and Honour is a real-time, pausable medieval-fantasy strategy game about ruling a bunny kingdom across one fixed, handcrafted continent. The interactive world map is intended to be the primary playing field, with province management available through panels. The project is built with Godot 4 and typed GDScript.
 
@@ -105,9 +113,9 @@ Full-continent production must not begin before the proof receives a **Pass** de
 4. Gameplay Direction Change Register v0.1 — reconciliation history.
 5. Repository documentation, source and tests — authoritative for implemented reality.
 
-## Implemented economic foundation
+## Historical economic capability proof
 
-Ordinary goods are province-local capabilities rather than universal inventories. Timber enables Firewood; Farm provides Grain; Mill requires Grain and provides Flour; Bakery requires Flour and Firewood and provides Bread. Carrots, Food and Population remain separate systems, and there is no prototype Woodcutter.
+This isolated earlier proof models Timber/Firewood and Farm/Mill/Bakery capabilities. Its local-only goods scope and rural Mill classification are superseded for campaign economy by the September 19 sealed authority. The new generator does not consume this catalogue or its derived capability state. Finished-good access and workforce remain deferred.
 
 This foundation contains no quantity inventories, storage, recipes or production ticks. Code uses underscore stable IDs.
 

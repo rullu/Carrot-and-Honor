@@ -4,7 +4,7 @@ extends RefCounted
 
 # A typed registry, not an additional owner of entity facts. Runtime writers use
 # CampaignSession; this value object is also useful for explicit scenario setup.
-const SCHEMA_VERSION: int = 2
+const SCHEMA_VERSION: int = 3
 const RETIRED_FIELDS: Dictionary = {
     "provinces": "province_ids", "realms": "ids", "characters": "ids",
     "dynasties": "ids", "wars": "ids", "claims": "ids",
@@ -25,6 +25,7 @@ var days_per_year: int = 0
 var world_binding: String = ""
 var player_realm_id: String = ""
 var game_over: bool = false
+var economy_generation: EconomyProvenance
 
 
 func to_data() -> Dictionary:
@@ -33,6 +34,7 @@ func to_data() -> Dictionary:
         "days_per_year": days_per_year,
         "schema_version": SCHEMA_VERSION, "world_binding": world_binding,
         "player_realm_id": player_realm_id, "game_over": game_over,
+        "economy_generation": economy_generation.to_data() if economy_generation != null else null,
         "retired_ids": retired_ids.duplicate(true),
         "provinces": _registry_data(provinces), "realms": _registry_data(realms),
         "characters": _registry_data(characters), "dynasties": _registry_data(dynasties),
@@ -57,6 +59,7 @@ static func from_data(data: Dictionary) -> CampaignState:
     state.world_binding = data["world_binding"]
     state.player_realm_id = data["player_realm_id"]
     state.game_over = data["game_over"]
+    state.economy_generation = EconomyProvenance.from_data(data["economy_generation"]) if data["economy_generation"] != null else null
     state.retired_ids = data["retired_ids"].duplicate(true)
     state.retired_ids["provinces"] = StateSchema.integer_array(data["retired_ids"]["provinces"])
     for record: Dictionary in data["provinces"]:

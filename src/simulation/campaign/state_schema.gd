@@ -70,6 +70,8 @@ static func validate_record(value: Variant, fields: Dictionary, context: String,
 static func _validate_value(value: Variant, kind: String, context: String, errors: PackedStringArray) -> void:
     var valid: bool = true
     match kind:
+        "economy": EconomySchema.validate_province(value, context, errors)
+        "economy_generation": EconomySchema.validate_generation(value, context, errors)
         "seed": valid = value is String and not value.is_empty()
         "sex": valid = value is String and value in ["male", "female"]
         "lineage_style": valid = value is String and value in ["house", "dynasty", "clan", "family", "lineage"]

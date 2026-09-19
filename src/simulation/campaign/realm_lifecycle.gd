@@ -93,7 +93,10 @@ static func _validate_grant(state: CampaignState, ids: Array[int], capital_id: i
 
 static func settle_territory(state: CampaignState) -> void:
     var territory: Dictionary = {}
+    var economy_catalogue: EconomyCatalogue = EconomyCatalogue.new() if state.economy_generation != null else null
     for province: ProvinceState in state.provinces.values():
+        if province.economy != null:
+            province.economy.reveal_sites(province.owner_realm_id, economy_catalogue)
         if not territory.has(province.owner_realm_id):
             territory[province.owner_realm_id] = []
         territory[province.owner_realm_id].append(province.province_id)

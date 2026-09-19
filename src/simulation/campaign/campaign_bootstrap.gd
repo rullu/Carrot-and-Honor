@@ -3,6 +3,23 @@ extends RefCounted
 
 
 static func new_campaign(campaign_seed: String, days_per_year: int,
+        player_realm_id: String = "", economy_config: EconomyConfig = null) -> Dictionary:
+    if economy_config == null:
+        var loaded: Dictionary = EconomyConfig.load_default()
+        if loaded["config"] == null:
+            return {"state": null, "errors": loaded["errors"]}
+        economy_config = loaded["config"]
+    var cast_result: Dictionary = new_cast_campaign(campaign_seed, days_per_year, player_realm_id)
+    if cast_result["state"] == null:
+        return cast_result
+    var result: Dictionary = EconomyGenerator.generate(cast_result["state"], economy_config)
+    result["attempts"] = cast_result["attempts"]
+    result["rejections"] = cast_result["rejections"]
+    return result
+
+
+# Explicit cast-only/scenario boundary. Null economy means uninitialized, not barren.
+static func new_cast_campaign(campaign_seed: String, days_per_year: int,
         player_realm_id: String = "") -> Dictionary:
     var generator: CampaignStartGenerator = CampaignStartGenerator.new()
     var generated: Dictionary = generator.generate(campaign_seed, days_per_year)

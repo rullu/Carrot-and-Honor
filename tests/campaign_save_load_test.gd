@@ -68,7 +68,7 @@ func _corrupt_saves() -> void:
     bad_registry.provinces[11].province_id = 12
     check(CampaignSession.create(bad_registry)["session"] == null, "registry key and stable record ID cannot diverge")
     invalid([], "non-object root rejected")
-    for bad_version: Variant in [1, 3, 1.5, "2", true]:
+    for bad_version: Variant in [1, 2, CampaignState.SCHEMA_VERSION + 1, 1.5, "3", true]:
         var data: Dictionary = valid.duplicate(true)
         data["schema_version"] = bad_version
         invalid(data, "unsupported/noninteger schema rejected")

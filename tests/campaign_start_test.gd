@@ -69,8 +69,8 @@ func _integration(generator: CampaignStartGenerator) -> void:
     check(child.age_years(clock.get_elapsed_daily_ticks(), 365) == 1, "clock daily tick advances derived age")
     check(SimulationClock.create_from_state(clock.export_state()).get_elapsed_daily_ticks() == 1, "clock remains independently restorable")
     check(CampaignBootstrap.from_generated(_cast, "unknown")["state"] == null, "invalid player choice fails bootstrap")
-    var production: Dictionary = CampaignBootstrap.new_campaign("api-entry", 360, "R008")
-    check(production["state"] != null, "single production creation entry point")
+    var production: Dictionary = CampaignBootstrap.new_cast_campaign("api-entry", 360, "R008")
+    check(production["state"] != null, "explicit cast-only creation entry point preserves cast v1")
 
 
 func _schema() -> void:

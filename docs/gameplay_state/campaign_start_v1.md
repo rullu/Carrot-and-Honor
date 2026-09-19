@@ -1,5 +1,7 @@
 # Campaign start v1
 
+**September 19 economy integration:** Save schema is now 3; cast generator v1 and the golden cast are unchanged. Use `CampaignBootstrap.new_cast_campaign()` for the historical cast-only behavior described below. `new_campaign()` now requires complete economy configuration and refuses the unfinished canonical defaults. `from_generated()`/`from_world()` remain explicit scenario/cast bootstrap boundaries with null economy. The inspection command requires `--cast-only` for this historical scope. See [province economy v1](province_economy_v1.md) for current API and explicit schema-2 migration; the original verification below remains historical evidence.
+
 Implemented from the FINAL SEALED September 18 authority, with explicit user implementation authorization. It extends the state foundation at `43a5438cdee9232031be24e7cc1108db38c5ad61` without changing geography, ownership, canonical identity, terrain, Realm relationships or war generation.
 
 ## Authority and workspace

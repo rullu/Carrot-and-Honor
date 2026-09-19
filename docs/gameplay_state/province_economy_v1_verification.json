@@ -1,0 +1,474 @@
+{
+  "task_date": "2026-09-19",
+  "verification_date": "2026-09-20",
+  "baseline_commit": "4b1f36eb03a792a15e2705aa8ed8147c3073bd20",
+  "baseline_dirty_inventory": [],
+  "baseline_suites_passed": 24,
+  "preserved_reference_branch": {
+    "name": "campaign-start-v1",
+    "commit": "c45f8080a9b0cd375c0495371689e8d06e7e48ba"
+  },
+  "versions": {
+    "save_schema": 3,
+    "cast_generator": 1,
+    "economy_generator": 1,
+    "economy_content": 1
+  },
+  "tests": [
+    {
+      "name": "astra_biome_preview_test",
+      "result": "PASS",
+      "markers": [
+        "Astra biome preview test PASS: crop, channels, shader, scene, and Terrain3D settings validated."
+      ],
+      "log_sha256": "da98161329d31ed7dbfaea1dcbe7b984dc8a6b861e904734ff8ec3b650f646f0",
+      "warnings": [
+        "WARNING: instance_reset_physics_interpolation() is deprecated."
+      ]
+    },
+    {
+      "name": "astra_province_coverage_test",
+      "result": "PASS",
+      "markers": [
+        "Astra province coverage test PASS: accepted land has complete, non-overlapping province coverage."
+      ],
+      "log_sha256": "975ea0b31eccdad6e01d70940a56c8e94f2224b7ab0c572fafe419dab7fd71a2",
+      "warnings": []
+    },
+    {
+      "name": "astra_province_data_test",
+      "result": "PASS",
+      "markers": [
+        "Astra province data test PASS: 100 stable active IDs, geometry, adjacency, bounds, and anchors validated."
+      ],
+      "log_sha256": "d44eb6c95872b8f67b208a8ded12c7123209c8eb01689e510aca2b84a978b6d3",
+      "warnings": []
+    },
+    {
+      "name": "astra_terrain_art_assets_test",
+      "result": "PASS",
+      "markers": [
+        "ASTRA_TERRAIN_ART_ASSETS_PASS: 24 source hashes, 16 compressed mip payloads, aligned context and unchanged vertex kernel"
+      ],
+      "log_sha256": "af9b293c160c8d53b4e882d006002c170f20f3a0dfa5cb839aec7b5ce82bc478",
+      "warnings": []
+    },
+    {
+      "name": "building_definition_test",
+      "result": "PASS",
+      "markers": [
+        "Building definition test PASS: all pure-data definition checks succeeded."
+      ],
+      "log_sha256": "4d879de78c17c060d16ba740bf4a947cd9bf87f25665662b78d7f53174a14ed8",
+      "warnings": []
+    },
+    {
+      "name": "campaign_architecture_test",
+      "result": "PASS",
+      "markers": [
+        "Campaign architecture PASS: 70 checks."
+      ],
+      "log_sha256": "57d0e091809de029461d2ed5f11c8f5000ae897156760325b332af434e806097",
+      "warnings": []
+    },
+    {
+      "name": "campaign_lifecycle_test",
+      "result": "PASS",
+      "markers": [
+        "Campaign lifecycle PASS: 93 checks."
+      ],
+      "log_sha256": "36cc7a8d9416983d9c7b66d9910a8461726ae01952ca06ecee8dba06929efeb8",
+      "warnings": []
+    },
+    {
+      "name": "campaign_save_load_test",
+      "result": "PASS",
+      "markers": [
+        "Campaign save/load PASS: 90 checks."
+      ],
+      "log_sha256": "894fca45d5631bb55f9e0da4a4cc72fe3fac35cd78aafa410ad0c42fa157e5ed",
+      "warnings": []
+    },
+    {
+      "name": "campaign_start_stress_test",
+      "result": "PASS",
+      "markers": [
+        "Campaign start stress PASS: 393729 checks."
+      ],
+      "log_sha256": "54a95821dc1eb0b14e406bee0ab7108a01ef1b03e92ad4b3dde6e4cb03df1e3f",
+      "warnings": []
+    },
+    {
+      "name": "campaign_start_test",
+      "result": "PASS",
+      "markers": [
+        "Campaign start PASS: 308 checks."
+      ],
+      "log_sha256": "21665d93abf03600def7a7636973b23d855896deb3baad540b998e34a3c6492c",
+      "warnings": []
+    },
+    {
+      "name": "campaign_world_bootstrap_test",
+      "result": "PASS",
+      "markers": [
+        "Campaign canonical bootstrap PASS: 366 checks."
+      ],
+      "log_sha256": "83d46f3016b49cd7d839545a1d98628897ea9f9245662b8802cdac1798910ce5",
+      "warnings": []
+    },
+    {
+      "name": "culture_map_mode_test",
+      "result": "PASS",
+      "markers": [
+        "Culture map mode test PASS: current state, colors and connected labels."
+      ],
+      "log_sha256": "fde7c2b6d2ff0d9987cf69b37ac688639b4d8c00f19df94d4c235e3b96dacfa4",
+      "warnings": []
+    },
+    {
+      "name": "economy_foundation_test",
+      "result": "PASS",
+      "markers": [
+        "Economy foundation PASS: 347 checks."
+      ],
+      "log_sha256": "8948a1839c2058e11f205a3e3fa61155e30a53dd8072b7ebea5d8367d913579f",
+      "warnings": []
+    },
+    {
+      "name": "economy_stress_test",
+      "result": "PASS",
+      "markers": [
+        "Economy stress PASS: 877128 checks."
+      ],
+      "log_sha256": "aee16be8b93b7b4c7674b322ebad160cd673f75d230d7e3c3e1065d0b6034a69",
+      "warnings": []
+    },
+    {
+      "name": "foundation_smoke_test",
+      "result": "PASS",
+      "markers": [
+        "Foundation smoke test PASS: typed GDScript executed successfully."
+      ],
+      "log_sha256": "ac809ba54b2ccb7e43a4c089a86a58d213d4d145618f1995aefbbab6fbfcddf6",
+      "warnings": []
+    },
+    {
+      "name": "gameplay_identity_integration_test",
+      "result": "PASS",
+      "markers": [
+        "Gameplay identity integration test PASS: all 100 displayed province identities and 43 starting owners resolve canonically; prototype metrics remain explicit."
+      ],
+      "log_sha256": "a71db52dcf3de3ade4de147dac2b0e078e5002ae86a62678b645cfa2b1eb645d",
+      "warnings": []
+    },
+    {
+      "name": "good_definition_test",
+      "result": "PASS",
+      "markers": [
+        "Good definition test PASS: all pure-data definition checks succeeded."
+      ],
+      "log_sha256": "810534aecde365d8ccd0ab0fe2b7653d804ae5aa39a0157c75882c540b071805",
+      "warnings": []
+    },
+    {
+      "name": "political_map_mode_test",
+      "result": "PASS",
+      "markers": [
+        "Political map mode test PASS: ownership, colors, adjacency and mask."
+      ],
+      "log_sha256": "b3f435caa3dd3b013b93222c9eef3deb5fba92ae9824c1621f6de22abc5ff8bf",
+      "warnings": []
+    },
+    {
+      "name": "prototype_content_catalogue_test",
+      "result": "PASS",
+      "markers": [
+        "Prototype content catalogue test PASS: all capability checks succeeded."
+      ],
+      "log_sha256": "a883c01b16adfe9d6e0cf7a181f9be7e35fd7bdefb31add46de440b23892793f",
+      "warnings": []
+    },
+    {
+      "name": "province_capability_state_test",
+      "result": "PASS",
+      "markers": [
+        "Province capability state test PASS: all deterministic capability checks succeeded."
+      ],
+      "log_sha256": "6932fbcaacd245006fa345f1d99378986448a2a0d2998e5cfb7442a608dfe403",
+      "warnings": []
+    },
+    {
+      "name": "province_geography_query_test",
+      "result": "PASS",
+      "markers": [
+        "Province geography query test PASS: 100 provinces, inland water, bounds, and multipart rings validated."
+      ],
+      "log_sha256": "9874abc4ca605547ce92d9c09290c29a3eb881ef3156213377fdb6da7a1b9ce5",
+      "warnings": []
+    },
+    {
+      "name": "province_realm_state_test",
+      "result": "PASS",
+      "markers": [
+        "Province state test PASS: synthetic metrics remain isolated from canonical identity and ownership."
+      ],
+      "log_sha256": "8997923fe91163dded983affd9df59c28889b4d3b01f23c11977810dba02a728",
+      "warnings": []
+    },
+    {
+      "name": "simulation_clock_test",
+      "result": "PASS",
+      "markers": [
+        "Simulation clock test PASS: all deterministic clock checks succeeded."
+      ],
+      "log_sha256": "be7dbe665b1f4eac32dc2107b3580dd9c70dc1b4a848158751afea3fafd2bf68",
+      "warnings": []
+    },
+    {
+      "name": "world_gameplay_scene_test",
+      "result": "PASS",
+      "markers": [
+        "World gameplay scene test PASS: wrapper architecture and locked files validated."
+      ],
+      "log_sha256": "dea1dc7d1a638874e4b0ef7ecc2f34c997d7b6228d2c87943485309b0d56d47c",
+      "warnings": []
+    },
+    {
+      "name": "world_identity_catalogue_test",
+      "result": "PASS",
+      "markers": [
+        "World identity catalogue test PASS: 100 provinces, 43 realms, ownership, mixed identity, formables, special systems, UTF-8, and rejection paths validated."
+      ],
+      "log_sha256": "5d297eb4fdafed4fbcebc8496cfb0af9529e4d3f6dfaa0d40730635f8e500d7a",
+      "warnings": []
+    },
+    {
+      "name": "world_map_integration_proof_test",
+      "result": "PASS",
+      "markers": [
+        "World-map integration proof test PASS: terrain, scene, camera, and input checks succeeded."
+      ],
+      "log_sha256": "93d52f210cccc475ebfc8531a81c278bfa0b94eb7c716c36afd1d1dc43191ff6",
+      "warnings": []
+    }
+  ],
+  "direct_suites_passed": 26,
+  "economy_stress": [
+    {
+      "elapsed_ms": 731632,
+      "hidden_opportunities": 33457,
+      "minimum_true": {
+        "opportunity_fertile_land": 5,
+        "opportunity_iron": 2
+      },
+      "minimum_visible": {
+        "opportunity_fertile_land": 4,
+        "opportunity_iron": 1
+      },
+      "normal_building_counts": [
+        38145,
+        37928,
+        14222,
+        4705
+      ],
+      "opportunity_counts_before_repair": [
+        20050,
+        44988,
+        29930,
+        5032
+      ],
+      "powerhouse_building_counts": [
+        1023,
+        2021,
+        1444,
+        512
+      ],
+      "seeds": 1000,
+      "site_roll_successes": 3968,
+      "sites": 3159,
+      "unique_worlds": 1000
+    }
+  ],
+  "cast_stress": [
+    {
+      "attempt_histogram": {
+        "1": 979,
+        "2": 20,
+        "3": 1
+      },
+      "characters": 144416,
+      "deceased_spouses": 3849,
+      "dynasties": 70990,
+      "elapsed_ms": 88384,
+      "empty_heirs": 26378,
+      "female_heirs": 7939,
+      "maximum_lineage_pool_use": {
+        "central": 18,
+        "eastern": 15,
+        "kharven": 7,
+        "mediterranean": 19,
+        "northern": 9,
+        "western": 24
+      },
+      "repeated_given_names": 41970,
+      "seeds": 1000,
+      "stat_ranges": {
+        "childless": [
+          18,
+          34
+        ],
+        "large_family": [
+          0,
+          7
+        ],
+        "male": [
+          25,
+          40
+        ],
+        "old": [
+          0,
+          12
+        ],
+        "remarried": [
+          0,
+          3
+        ],
+        "young": [
+          0,
+          10
+        ]
+      },
+      "unique_casts": 1000
+    }
+  ],
+  "economy_golden": "5aba598b8eab515bf1986e9d5556398ddd5dfc2b4ef6152e3728104273a639a2",
+  "cast_golden": "7b025d69d906c30e3c427cd45df3108584a5f46f5cafbe912437ae62cb14317c",
+  "transcription": {
+    "economy": "PASS: 26 opportunities, 32 countryside types, 37 strategic families, 13 Day-1 types",
+    "cast": "PASS: 230 given names, 194 lineages, 43 Seats"
+  },
+  "editor": {
+    "exit_code": 0,
+    "warnings": [
+      "WARNING: instance_reset_physics_interpolation() is deprecated."
+    ]
+  },
+  "inspection": {
+    "buildings": 86,
+    "config_hash": "42d99b82bc475378a81f1fdc20629d8a57bc089c93529174d593d7db51929468",
+    "configuration_status": "fixture",
+    "economy_generator": 1,
+    "owner_visible_opportunities": {
+      "opportunity_amber": 2,
+      "opportunity_bee_meadows": 3,
+      "opportunity_clay": 3,
+      "opportunity_copper": 2,
+      "opportunity_deep_forest": 4,
+      "opportunity_dye_plant": 4,
+      "opportunity_fertile_land": 5,
+      "opportunity_flax": 3,
+      "opportunity_fruit": 5,
+      "opportunity_gemstones": 2,
+      "opportunity_glass_sand": 5,
+      "opportunity_gold": 3,
+      "opportunity_hemp": 6,
+      "opportunity_herb": 3,
+      "opportunity_hop": 2,
+      "opportunity_horse_breeding": 7,
+      "opportunity_iron": 4,
+      "opportunity_limestone": 3,
+      "opportunity_marble": 4,
+      "opportunity_pastureland": 4,
+      "opportunity_rare_timber": 3,
+      "opportunity_salt": 6,
+      "opportunity_silver": 2,
+      "opportunity_slate": 5,
+      "opportunity_tin": 2,
+      "opportunity_vine": 5
+    },
+    "provinces": 100,
+    "schema": 3,
+    "seed": "economy-inspection",
+    "sites": 3,
+    "true_opportunities": {
+      "opportunity_amber": 4,
+      "opportunity_bee_meadows": 3,
+      "opportunity_clay": 4,
+      "opportunity_copper": 3,
+      "opportunity_deep_forest": 4,
+      "opportunity_dye_plant": 4,
+      "opportunity_fertile_land": 5,
+      "opportunity_flax": 4,
+      "opportunity_fruit": 5,
+      "opportunity_gemstones": 2,
+      "opportunity_glass_sand": 5,
+      "opportunity_gold": 4,
+      "opportunity_hemp": 6,
+      "opportunity_herb": 3,
+      "opportunity_hop": 2,
+      "opportunity_horse_breeding": 7,
+      "opportunity_iron": 7,
+      "opportunity_limestone": 4,
+      "opportunity_marble": 4,
+      "opportunity_pastureland": 6,
+      "opportunity_rare_timber": 4,
+      "opportunity_salt": 7,
+      "opportunity_silver": 3,
+      "opportunity_slate": 5,
+      "opportunity_tin": 2,
+      "opportunity_vine": 6
+    }
+  },
+  "inspection_save_sha256": "d605e4d84c6b7282ea748e413865a3b66b32d2994f589a057fe9e4e201bfdf86",
+  "preservation": {
+    "baseline_files": 1386,
+    "unchanged_files": 1367,
+    "changed_files": [
+      ".gitattributes",
+      "AGENTS.md",
+      "README.md",
+      "docs/code_map.md",
+      "docs/decision_log.md",
+      "docs/gameplay_state/campaign_start_v1.md",
+      "docs/implementation_plan.md",
+      "docs/project_index.md",
+      "src/simulation/campaign/campaign_bootstrap.gd",
+      "src/simulation/campaign/campaign_codec.gd",
+      "src/simulation/campaign/campaign_session.gd",
+      "src/simulation/campaign/campaign_state.gd",
+      "src/simulation/campaign/campaign_validator.gd",
+      "src/simulation/campaign/realm_lifecycle.gd",
+      "src/simulation/campaign/state_schema.gd",
+      "src/simulation/province_state.gd",
+      "tests/campaign_save_load_test.gd",
+      "tests/campaign_start_test.gd",
+      "tools/campaign/inspect_campaign_start.gd"
+    ],
+    "source_authority_sha256": "556c38e250deac9fde1dd61831336256875d0470246a96d29fd45c78ffb5b799",
+    "downloads_cumulative_sha256": "3e31ec75ac0e5b2019f23c7c08689e63fd1b6aed37815ce46120b65207c67a68",
+    "preserved_cumulative_prefix_bytes": 97708,
+    "incidental_imports_preserved_outside_repository": 2
+  },
+  "canonical_configuration_status": "incomplete; generation refused",
+  "unresolved_inputs": [
+    "26 rarity weights",
+    "hidden probability",
+    "anti-clustering tags/penalty",
+    "Powerhouse Realm IDs",
+    "authored countryside/city starts",
+    "fixed suitable coast/aquatic bindings"
+  ],
+  "deferred": [
+    "permanent strategic capacity",
+    "Seravelle Cathedral decision",
+    "production/stockpiles/finished-good scope",
+    "staffing/workforce",
+    "construction costs/timing",
+    "survey/discovery runtime",
+    "trade/AI",
+    "traditions/institutions",
+    "building/military effects",
+    "UI/art"
+  ],
+  "delivery": "Implementation commit identity is recorded by a subsequent documentation commit."
+}

@@ -25,6 +25,30 @@ static func load_file(path: String) -> Dictionary:
     return decode_json(file.get_as_text())
 
 
+static func migrate_v2(data: Variant) -> Dictionary:
+    # Explicit lossless migration only; no economy is generated from historical saves.
+    var errors: PackedStringArray = []
+    var root_fields: Dictionary = CampaignValidator.ROOT_FIELDS.duplicate()
+    root_fields.erase("economy_generation")
+    StateSchema.validate_record(data, root_fields, "Schema-2 campaign", errors)
+    if not errors.is_empty():
+        return {"state": null, "errors": errors}
+    if int(data["schema_version"]) != 2:
+        return {"state": null, "errors": PackedStringArray(["Explicit migration requires schema 2."])}
+    var province_fields: Dictionary = ProvinceState.FIELDS.duplicate()
+    province_fields.erase("economy")
+    for record: Variant in data["provinces"]:
+        StateSchema.validate_record(record, province_fields, "Schema-2 Province", errors)
+    if not errors.is_empty():
+        return {"state": null, "errors": errors}
+    var migrated: Dictionary = data.duplicate(true)
+    migrated["schema_version"] = CampaignState.SCHEMA_VERSION
+    migrated["economy_generation"] = null
+    for record: Dictionary in migrated["provinces"]:
+        record["economy"] = null
+    return decode_data(migrated)
+
+
 static func save_file(state: CampaignState, path: String) -> PackedStringArray:
     var key_errors: PackedStringArray = CampaignValidator.validate_registry_keys(state)
     if not key_errors.is_empty():

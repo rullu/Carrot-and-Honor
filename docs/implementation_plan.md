@@ -1,5 +1,19 @@
 # Implementation Plan
 
+## Province Economy Foundation / Campaign-Start Generation v1
+
+**Status: IMPLEMENTED AND VERIFIED (2026-09-20; September 19 task).** All 26 direct suites pass, including 347 focused economy checks, 877,128 economy stress checks over 1,000 seeds and the unchanged 393,729-check cast stress sample. Canonical configuration remains explicitly incomplete pending approved content inputs.
+
+- [x] Verify the exact sealed authority SHA-256 and newest cumulative log against integrated main `4b1f36e`; preserve Downloads originals and record 1,386 baseline file hashes.
+- [x] Audit legacy capability proofs and keep superseded assumptions out of campaign economy.
+- [x] Add typed catalogue/configuration, Province economy state, Realm-specific positive knowledge and persisted origin identities.
+- [x] Add independent deterministic opportunity/hiding/site/building domains, safety repair, family-first sites and authored/Normal/Powerhouse starts.
+- [x] Integrate strict schema 3, explicit schema-2 migration, complete-config bootstrap and atomic lifecycle/ownership behavior.
+- [x] Refuse canonical generation while unapproved tuning/start-content/suitable-geography bindings are incomplete.
+- [x] Complete 26-suite regression, both 1,000-seed samples, transcription, editor and preservation review. Delivery identities are recorded in the milestone report and cumulative log.
+
+See `gameplay_state/province_economy_v1.md`. No production arithmetic, labour allocator, survey runtime, trade scope, AI or presentation redesign is introduced.
+
 ## Repository integration
 
 **Status: INTEGRATED AND VERIFIED (2026-09-18).** All 24 direct suites pass, including the unchanged 1,000-seed stress sample and four presentation compatibility suites. Naming transcription, editor/import, production bootstrap/atomic save and preservation checks pass.

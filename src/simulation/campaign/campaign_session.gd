@@ -67,6 +67,11 @@ func capture(province_id: int, owner_id: String) -> Dictionary:
     return _commit(candidate, RealmLifecycle.capture(candidate, province_id, owner_id))
 
 
+func transition_economy_instance(province_id: int, instance_id: String, next_state: String) -> Dictionary:
+    var candidate: CampaignState = _state.copy()
+    return _commit(candidate, EconomyLifecycle.transition(candidate, province_id, instance_id, next_state))
+
+
 func restore(realm_id: String, provinces: Array[int], capital_id: int, ruler_id: String, legitimacy: String) -> Dictionary:
     var candidate: CampaignState = _state.copy()
     return _commit(candidate, RealmLifecycle.restore(candidate, realm_id, provinces, capital_id, ruler_id, legitimacy))

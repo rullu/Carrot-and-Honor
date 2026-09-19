@@ -1,0 +1,774 @@
+{
+  "content_version": 1,
+  "background_access": [
+    "ordinary_timber",
+    "firewood",
+    "ordinary_stone",
+    "basic_metalwork",
+    "crude_clay",
+    "common_sand",
+    "small_scale_foraging"
+  ],
+  "definitions": [
+    {
+      "definition_id": "opportunity_fertile_land",
+      "display_name": "Fertile Land",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_fruit",
+      "display_name": "Fruit-Growing Conditions",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_vine",
+      "display_name": "Vine-Growing Conditions",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_hop",
+      "display_name": "Hop-Growing Conditions",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_flax",
+      "display_name": "Flax Conditions",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_hemp",
+      "display_name": "Hemp Conditions",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_herb",
+      "display_name": "Herb-Growing Conditions",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_dye_plant",
+      "display_name": "Dye-Plant Conditions",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_bee_meadows",
+      "display_name": "Bee-rich Meadows",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_pastureland",
+      "display_name": "Pastureland / Grazing Land",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_horse_breeding",
+      "display_name": "Horse-Breeding Conditions",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_deep_forest",
+      "display_name": "Deep Forest",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_rare_timber",
+      "display_name": "Rare Timber",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_iron",
+      "display_name": "Iron Deposit",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_copper",
+      "display_name": "Copper Deposit",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_tin",
+      "display_name": "Tin Deposit",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_silver",
+      "display_name": "Silver Deposit",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_gold",
+      "display_name": "Gold Deposit",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_salt",
+      "display_name": "Salt Deposit / Brine",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_limestone",
+      "display_name": "Limestone",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_marble",
+      "display_name": "Marble",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_slate",
+      "display_name": "Slate",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_clay",
+      "display_name": "Clay Deposit",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_glass_sand",
+      "display_name": "Glassmaking Sand",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_amber",
+      "display_name": "Amber",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "opportunity_gemstones",
+      "display_name": "Gemstones",
+      "kind": "opportunity",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "site_grain_fields",
+      "display_name": "Grain Fields",
+      "kind": "site",
+      "source_id": "opportunity_fertile_land",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_carrot_fields",
+      "display_name": "Carrot Fields",
+      "kind": "site",
+      "source_id": "opportunity_fertile_land",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_root_crop_fields",
+      "display_name": "Root Crop Fields",
+      "kind": "site",
+      "source_id": "opportunity_fertile_land",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_legume_fields",
+      "display_name": "Legume Fields",
+      "kind": "site",
+      "source_id": "opportunity_fertile_land",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_vegetable_fields",
+      "display_name": "Vegetable Fields",
+      "kind": "site",
+      "source_id": "opportunity_fertile_land",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_oilseed_fields",
+      "display_name": "Oilseed Fields",
+      "kind": "site",
+      "source_id": "opportunity_fertile_land",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_orchard",
+      "display_name": "Orchard",
+      "kind": "site",
+      "source_id": "opportunity_fruit",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_vineyard",
+      "display_name": "Vineyard",
+      "kind": "site",
+      "source_id": "opportunity_vine",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_hop_garden",
+      "display_name": "Hop Garden",
+      "kind": "site",
+      "source_id": "opportunity_hop",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_flax_fields",
+      "display_name": "Flax Fields",
+      "kind": "site",
+      "source_id": "opportunity_flax",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_hemp_fields",
+      "display_name": "Hemp Fields",
+      "kind": "site",
+      "source_id": "opportunity_hemp",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_herb_garden",
+      "display_name": "Herb Garden",
+      "kind": "site",
+      "source_id": "opportunity_herb",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_dye_plant_fields",
+      "display_name": "Dye Plant Fields",
+      "kind": "site",
+      "source_id": "opportunity_dye_plant",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_apiary",
+      "display_name": "Apiary",
+      "kind": "site",
+      "source_id": "opportunity_bee_meadows",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_sheep_pasture",
+      "display_name": "Sheep Pasture",
+      "kind": "site",
+      "source_id": "opportunity_pastureland",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_horse_stud",
+      "display_name": "Horse Stud",
+      "kind": "site",
+      "source_id": "opportunity_horse_breeding",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_forestry_camp",
+      "display_name": "Forestry Camp",
+      "kind": "site",
+      "source_id": "opportunity_deep_forest",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_rare_timber_working",
+      "display_name": "Rare Timber Working",
+      "kind": "site",
+      "source_id": "opportunity_rare_timber",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_iron_mine",
+      "display_name": "Iron Mine",
+      "kind": "site",
+      "source_id": "opportunity_iron",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_copper_mine",
+      "display_name": "Copper Mine",
+      "kind": "site",
+      "source_id": "opportunity_copper",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_tin_mine",
+      "display_name": "Tin Mine",
+      "kind": "site",
+      "source_id": "opportunity_tin",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_silver_mine",
+      "display_name": "Silver Mine",
+      "kind": "site",
+      "source_id": "opportunity_silver",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_gold_mine",
+      "display_name": "Gold Mine",
+      "kind": "site",
+      "source_id": "opportunity_gold",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_saltworks",
+      "display_name": "Saltworks",
+      "kind": "site",
+      "source_id": "opportunity_salt",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_limestone_quarry",
+      "display_name": "Limestone Quarry",
+      "kind": "site",
+      "source_id": "opportunity_limestone",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_marble_quarry",
+      "display_name": "Marble Quarry",
+      "kind": "site",
+      "source_id": "opportunity_marble",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_slate_quarry",
+      "display_name": "Slate Quarry",
+      "kind": "site",
+      "source_id": "opportunity_slate",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_clay_pit",
+      "display_name": "Clay Pit",
+      "kind": "site",
+      "source_id": "opportunity_clay",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_glass_sand_pit",
+      "display_name": "Glass Sand Pit",
+      "kind": "site",
+      "source_id": "opportunity_glass_sand",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_amber_workings",
+      "display_name": "Amber Workings",
+      "kind": "site",
+      "source_id": "opportunity_amber",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_gemstone_mine",
+      "display_name": "Gemstone Mine",
+      "kind": "site",
+      "source_id": "opportunity_gemstones",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "site_fishery",
+      "display_name": "Fishery / Fishing Village",
+      "kind": "site",
+      "source_id": "aquatic",
+      "day_one_random": true,
+      "requirement": "source"
+    },
+    {
+      "definition_id": "building_mill",
+      "display_name": "Mill",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "grain"
+    },
+    {
+      "definition_id": "building_bakery",
+      "display_name": "Bakery",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_brewery",
+      "display_name": "Brewery",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_winery",
+      "display_name": "Winery",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_storehouse",
+      "display_name": "Storehouse",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_oil_press",
+      "display_name": "Oil Press",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_luxury_kitchen",
+      "display_name": "Luxury Kitchen / Confectioner",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_textile_workshop",
+      "display_name": "Textile Workshop",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_ropeworks",
+      "display_name": "Ropeworks",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_woodworks",
+      "display_name": "Woodworks",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_clayworks",
+      "display_name": "Clayworks",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_masonry_works",
+      "display_name": "Masonry Works",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_glassworks",
+      "display_name": "Glassworks",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_smelter",
+      "display_name": "Smelter / Foundry",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_smithy",
+      "display_name": "Smithy / Metalworks",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_jeweller",
+      "display_name": "Jeweller",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_leather_parchment_works",
+      "display_name": "Leather & Parchment Works",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_apothecary",
+      "display_name": "Apothecary",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_scriptorium",
+      "display_name": "Scriptorium",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_artisan_workshop",
+      "display_name": "Artisan Workshop",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_market",
+      "display_name": "Market",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_trade_house",
+      "display_name": "Trade House / Caravanserai",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_harbour",
+      "display_name": "Harbour / Docks",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "coast"
+    },
+    {
+      "definition_id": "building_shipyard",
+      "display_name": "Shipyard",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_barracks",
+      "display_name": "Barracks",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_archery_grounds",
+      "display_name": "Archery Grounds",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_stables",
+      "display_name": "Stables",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_fortification_works",
+      "display_name": "Fortification Works",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_siege_workshop",
+      "display_name": "Siege Workshop",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_military_academy",
+      "display_name": "Military Academy",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_administrative_hall",
+      "display_name": "Administrative Hall",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_justice_house",
+      "display_name": "Watch / Justice House",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_palace",
+      "display_name": "Palace",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_church",
+      "display_name": "Church / Temple",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": true,
+      "requirement": "always"
+    },
+    {
+      "definition_id": "building_cathedral",
+      "display_name": "Cathedral / Great Temple",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_school",
+      "display_name": "School / Scholarly House",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    },
+    {
+      "definition_id": "building_hospital",
+      "display_name": "Hospital / Almshouse",
+      "kind": "building",
+      "source_id": "",
+      "day_one_random": false,
+      "requirement": "authored"
+    }
+  ]
+}

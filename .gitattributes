@@ -21,5 +21,8 @@ data/world_map/astra_province_corrections.json text eol=lf
 scenes/world_map/astra_natural_world_final.tscn text eol=lf
 src/presentation/world_map/astra_natural_world.gd text eol=lf
 data/campaign/campaign_start_v1.json text eol=lf
+data/economy/*.json text eol=lf
+docs/design_authority/FCAH_Province_Economy_Production_Discovery_v1_FINAL_SEALED_IMPLEMENTATION_AUTHORITY_2026-09-19.txt -text
+docs/design_authority/FCAH_Changelog_Cumulative_2026-09-19.txt -text
 docs/design_authority/FCAH_Campaign_Start_Procedural_Cast_Naming_Generator_v1_FINAL_SEALED_2026-09-18.txt -text
 "docs/design_authority/FCAH_Changelog_2026-09-17 (1).txt" -text

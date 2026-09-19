@@ -5,6 +5,7 @@ extends RefCounted
 const ROOT_FIELDS: Dictionary = {
     "campaign_seed": "seed", "generator_version": "positive_int", "days_per_year": "positive_int",
     "schema_version": "positive_int", "world_binding": "text",
+    "economy_generation": "economy_generation",
     "player_realm_id": "text", "game_over": "bool", "retired_ids": "object",
     "provinces": "array", "realms": "array", "characters": "array",
     "dynasties": "array", "relationships": "array", "wars": "array",
@@ -85,6 +86,7 @@ static func validate_data(data: Variant) -> PackedStringArray:
     validate_family_graph(state, errors)
     _validate_relationships_and_wars(state, errors)
     _validate_claims(state, errors)
+    EconomySchema.validate_state(state, errors)
     if not state.world_binding.is_empty():
         CampaignWorldBinding.validate(state, errors)
     return errors

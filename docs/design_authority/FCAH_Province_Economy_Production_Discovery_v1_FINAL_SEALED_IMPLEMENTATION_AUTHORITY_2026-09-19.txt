@@ -1,0 +1,1588 @@
+FOR CARROT AND HONOUR
+PROVINCE / ECONOMY / PRODUCTION / DISCOVERY V1
+FINAL SEALED DESIGN + IMPLEMENTATION AUTHORITY
+2026-09-19
+
+STATUS
+FINAL / SEALED FOR THE CURRENT PROVINCE-ECONOMY FOUNDATION MILESTONE.
+IMPLEMENTATION-READY AUTHORITY; REPOSITORY MODIFICATION STILL REQUIRES A SEPARATE EXPLICIT USER TASK.
+
+This file is the clean successor to:
+- FCAH_Province_Economy_Production_Discovery_WORKING_SUCCESSOR_v4_2026-09-19.txt
+- FCAH_Province_Economy_Production_Discovery_WORKING_SUCCESSOR_v3_2026-09-19.txt
+- FCAH_Province_Economy_Production_Discovery_WORKING_SUCCESSOR_v2_2026-09-19.txt
+- FCAH_Province_Economy_Production_Discovery_SEALED_CHECKPOINT_2026-09-19.txt
+- the pre-seal working lineage for this subsystem.
+
+Those files remain historical evidence. Where they contain stale OPEN language or older
+assumptions that differ from this file, THIS FILE wins for the Province / Economy /
+Production / Discovery milestone described here.
+
+This file does NOT replace:
+- locked World Identity / starting-ownership authority;
+- the locked Gameplay State Architecture and its ownership/lifecycle boundaries;
+- the implemented campaign-start cast/naming generator authority;
+- implementation changelogs and repository verification records.
+
+The implementation changelog is not modified by this design seal. It is updated only
+when code/files/tests actually change.
+
+======================================================================
+1. FINAL AUDIT RESULT
+======================================================================
+
+A final reconciliation sweep was performed against the current working successor and the
+relevant project authorities, including:
+- FCAH_Province_Economy_Production_Reference_v1_0.pdf;
+- FCAH_Province_Realm_Gameplay_State_Model_v1_WORKING.txt;
+- FCAH_Gameplay_Systems_Working_Design_Canon variants;
+- For_Carrot_and_Honour_Goods_Design_Workbook_v1.3 and older Goods lineage where useful;
+- For_Carrot_and_Honour_Gameplay_Direction_Change_Register_v0.1;
+- For_Carrot_and_Honour_Master_Bible_v1.6 as historical/reconciliation evidence only;
+- FCAH_Campaign_Start_Procedural_Cast_Naming_Generator_v1_FINAL_SEALED_2026-09-18.txt;
+- Gameplay State Architecture / Logic Foundation implementation records;
+- repository integration / save-load / validation handovers;
+- all accepted Province/Economy decisions made on 2026-09-18 and 2026-09-19.
+
+FINAL AUDIT CONCLUSION
+- No hard contradiction remains inside this sealed authority.
+- Several older documents contain rules that are now superseded; those conflicts are
+  explicitly quarantined in this file.
+- Several tuning/content inputs remain intentionally unresolved. They are NOT permission
+  for implementation to invent final design values.
+- The next bounded implementation can proceed on the state/configuration/generator
+  foundation without first designing the entire production/trade/workforce game.
+- A fully tuned canonical new-game economy distribution still requires the deferred
+  tuning/content inputs listed later in this file.
+
+IMPORTANT AUDIT CLARIFICATIONS ADDED AT SEAL
+1. Mill placement conflict is closed:
+   - Farm/fields remain countryside.
+   - Mill is a STRATEGIC CITY building family under current authority.
+   - older prototype/Master-Bible wording that treated Mill as a rural site is historical.
+
+2. Ordinary Harbour eligibility is clarified:
+   - a normal Harbour / Docks requires suitable coastal access;
+   - exceptional Natural Harbour / Great Trade Harbour potential is NOT required for an
+     ordinary Harbour;
+   - exceptional harbour potential remains a separate later world/content capability.
+
+3. Starting exploitation site vs hidden-resource ambiguity is closed:
+   - an authored or RNG exploitation site cannot coexist, for the owning Realm, with its
+     underlying opportunity being hidden;
+   - an authored starting exploitation site makes its underlying opportunity owner-known
+     at campaign start and removes that opportunity from hidden-selection eligibility;
+   - unrelated authored countryside content such as a monastery does not suppress the
+     resource-site RNG unless it belongs to this resource-exploitation subsystem.
+
+4. Unresolved tuning must be explicit configuration:
+   - exact opportunity rarity weights;
+   - exact hidden-opportunity probability;
+   - exact soft anti-clustering tuning / rare-resource tags;
+   - final Powerhouse Realm list;
+   - final mandatory authored strategic/countryside starts.
+   Implementation may create typed/configurable support and test fixtures for these, but
+   must not silently invent final canonical values.
+
+5. Slash-separated catalogue labels such as `Salt Deposit / Brine`, `Church / Temple`,
+   `Smithy / Metalworks`, or `Harbour / Docks` describe ONE mechanical family/type unless
+   this file explicitly says otherwise. Local names/variants must not accidentally create
+   duplicate mechanical catalogue entries.
+
+======================================================================
+2. AUTHORITY ROUTING
+======================================================================
+
+For this subsystem and milestone, resolve conflicts in this order:
+
+1. THIS FINAL SEALED AUTHORITY.
+2. Locked Gameplay State Architecture for ownership, references, lifecycle, typed state,
+   validation and persistence boundaries.
+3. Locked World Identity / starting ownership / current campaign-start authority for
+   fixed Provinces, Realms, culture/religion and Realm Seats.
+4. Province/Economy Reference v1.0 Locked Core where this file is silent.
+5. Current implementation reality and verification records for already-implemented APIs.
+6. Older Goods workbooks / Master Bible / historical working logs only as evidence where
+   all newer authority is silent.
+
+Old `Locked` labels do not beat newer explicit accepted decisions.
+
+Knights of Honor material remains inspiration only, never authority.
+
+======================================================================
+3. FIXED WORLD / ARCHITECTURE BASELINE
+======================================================================
+
+Preserve current locked world facts:
+- 100 active Provinces;
+- 43 starting Realms;
+- frozen starting Province ownership / Realm footprints;
+- locked Province culture and religion/belief data;
+- locked Realm identity/style/type and fixed Realm Seats;
+- stable opaque IDs and current lifecycle semantics.
+
+Realm Seat / capital remains a lightweight government reference only.
+It does NOT automatically grant:
+- extra starting buildings;
+- extra resources;
+- a Palace;
+- fortification;
+- economic output;
+- special city capacity;
+- visual grandeur.
+
+The current campaign-state architecture remains authoritative:
+- ProvinceState owns current Province facts;
+- Realm territory is derived from Province ownership;
+- Realm.capital_province_id owns capital truth;
+- stable IDs are not array positions and are not recycled;
+- authoritative state must participate in strict validation and versioned persistence;
+- no generic catch-all ProjectState / unvalidated extension bag is authorized.
+
+======================================================================
+4. CORE PROVINCE MODEL
+======================================================================
+
+Every Province has three conceptual layers.
+
+A. LAND / COUNTRYSIDE
+Contains:
+- fixed geography / terrain facts;
+- background/untracked mundane access;
+- generated tracked opportunities;
+- farms, fields, mines, quarries, orchards, pastures, forestry and similar exploitation
+  sites;
+- other rural systems only when separately designed.
+
+B. STRATEGIC CITY
+Contains deliberate ruler-level investment in:
+- processing;
+- workshops;
+- commerce;
+- administration;
+- military organization;
+- religion;
+- scholarship;
+- advanced / prestige production.
+
+C. REALM NETWORK
+Later connects Provinces through:
+- Realm-level access;
+- trade/import/export;
+- strategic supply relationships;
+- overseas expeditions;
+- Realm goods-set / achievement systems.
+
+CORE RULE
+Land exposes / produces.
+City refines / crafts / organizes / weaponizes / commercializes.
+Realm network converts local specialization into wider strategic access.
+
+NO SECOND COUNTRYSIDE SLOT GRID
+- There is no generic `6 rural slots`, rural points or manually filled countryside board.
+- The opportunity/deposit/land condition is the limiting slot: `the deposit is the slot`.
+- Countryside sites do not consume strategic city slots.
+
+STRATEGIC CITY CAPACITY
+- CURRENT PROTOTYPE STANDARD: 10 strategic slots per Province.
+- 8 and 12 remain deliberate comparison/stress-test values.
+- Final permanent count is NOT locked yet.
+- 10 must be data/configuration, not a permanent architecture constant where avoidable.
+
+VISUAL ABSTRACTION
+- Province UI is authoritative for exact state.
+- World-map economic visuals are selective hints.
+- Mechanics never depend on fitting every tracked object physically into a small Province.
+- Visual defensive architecture is not proof of mechanical Fortification Works.
+
+======================================================================
+5. ECONOMIC TAXONOMY
+======================================================================
+
+Every resource-like noun belongs to a mechanical class.
+Do not throw all nouns into one generic resource list.
+
+A. FIXED GEOGRAPHY / PHYSICAL CONDITION
+- intrinsic/handcrafted world fact;
+- does not consume the generated 0-3 opportunity count.
+
+Current examples:
+- Coast;
+- Major / Large River;
+- Mountains;
+- Hills;
+- Wetlands / Marsh;
+- Drylands / arid terrain;
+- fixed biome/climate identity;
+- Natural Harbour / exceptional harbour potential where authored;
+- exceptional river-valley geography where physically represented.
+
+Ancient Forest is not a second mechanical opportunity. It may be flavour/visual/lore
+identity for Deep Forest.
+
+B. BACKGROUND / UNTRACKED BASELINE ACCESS
+Mundane availability sufficient for ordinary civilization.
+Normally omitted from Province resource UI.
+
+Current background access:
+- ordinary Timber;
+- Firewood;
+- ordinary construction Stone / rubble;
+- ordinary basic metalwork / ironware for normal tools, basic buildings and ordinary
+  soldiers;
+- ordinary dirt / crude household clay for trivial uses;
+- common sand;
+- ordinary tiny-scale herbs, bees and foraging where appropriate.
+
+C. TRACKED GENERATED PROVINCE OPPORTUNITY
+Replay-varying strategic land/deposit/suitability.
+Consumes one of the Province's 0-3 generated opportunity positions.
+Does not produce anything until an appropriate exploitation site exists.
+
+D. GEOGRAPHY-DERIVED SITE / OUTPUT
+Enabled by fixed geography rather than the 0-3 generator.
+Example: Fishery from suitable aquatic geography.
+
+E. DERIVED / PROCESSED GOOD OR CAPABILITY
+Produced by countryside sites, city buildings, trade, or other systems.
+Does not consume an opportunity position merely because it exists.
+
+F. REALM / CULTURAL / TRADE ACCESS
+Availability determined by Realm/culture/trade rather than a Province deposit roll.
+Example: Camels.
+
+G. OFF-MAP / OVERSEAS EXPEDITION GOOD
+Cannot be generated by playable-map Province geography.
+Examples already accepted:
+- Ebony / exotic overseas woods;
+- Exotic Spices.
+
+H. ERA-DEFERRED / CUT-FOR-NOW
+Excluded until another system gives it a clear job.
+Current examples:
+- Lead;
+- Peat;
+- Sulfur;
+- Saltpeter;
+- Coal.
+
+======================================================================
+6. ACTIVE GENERATED OPPORTUNITY CATALOGUE — 26 TYPES
+======================================================================
+
+LAND / CROPS
+1. Fertile Land
+2. Fruit-Growing Conditions
+3. Vine-Growing Conditions
+4. Hop-Growing Conditions
+5. Flax Conditions
+6. Hemp Conditions
+7. Herb-Growing Conditions
+8. Dye-Plant Conditions
+9. Bee-rich Meadows
+10. Pastureland / Grazing Land
+11. Horse-Breeding Conditions
+
+FOREST
+12. Deep Forest
+13. Rare Timber
+
+METALS
+14. Iron Deposit
+15. Copper Deposit
+16. Tin Deposit
+17. Silver Deposit
+18. Gold Deposit
+
+EARTH / MATERIALS
+19. Salt Deposit / Brine
+20. Limestone
+21. Marble
+22. Slate
+23. Clay Deposit
+24. Glassmaking Sand
+
+RARE / PRESTIGE
+25. Amber
+26. Gemstones
+
+NOT IN THE ACTIVE 0-3 POOL
+- ordinary Timber / Firewood / Stone / basic metalwork / crude clay / common sand;
+- Grain / physical Carrots / Roots / Legumes / Vegetables / Seeds/Oilseeds;
+- Nuts / Mushrooms / Reeds / Hay/Forage;
+- Honey / Beeswax / Wool / Hides / Horses / Camels;
+- Fish;
+- Resin / Charcoal and other derived goods;
+- Ebony / Exotic Spices and other overseas goods;
+- Lead / Peat / Sulfur / Saltpeter / Coal.
+
+======================================================================
+7. IMPORTANT RESOURCE-FAMILY BINDINGS
+======================================================================
+
+FERTILE LAND
+One broad opportunity may support simultaneously:
+- Grain Fields;
+- Carrot Fields;
+- Root-Crop Fields;
+- Legume Fields;
+- Vegetable Fields / Gardens;
+- Oilseed / Seed cultivation.
+
+No hidden rural-capacity number is introduced.
+Fruit, Grapes, Hops, Flax, Hemp, Herbs and Dye Plants remain separate opportunities.
+
+CARROTS — DUAL SYSTEM
+- Treasury Carrots = Realm currency / unit of account.
+- Physical carrots = edible staple crop.
+- They are distinct state/content concepts.
+- Physical Carrot Fields come from Fertile Land.
+- Gold remains a physical material/ore, not the treasury currency.
+
+FOREST
+- Ordinary Timber / Firewood = background.
+- Deep Forest = exceptional extensive forestry opportunity.
+- Rare Timber = separate exceptional wood opportunity.
+- Deep Forest and Rare Timber may coexist but do not require one another.
+- Resin is derived from serious Deep-Forest forestry; no mandatory Resin Collector site.
+- Charcoal is derived from ordinary wood processing and does NOT require Deep Forest.
+- Ebony is off-map expedition cargo, never domestic Rare Timber.
+
+PASTORAL / HIDES
+Pastureland -> Sheep Pasture -> Wool + Hide Supply.
+- Sheep/Wool/Hides are not separate opportunity rolls.
+- Hide Supply is an abstract herd-lifecycle by-product.
+- No Meat, Mutton, Butcher, Slaughterhouse or Hide Deposit system is introduced.
+- Hide Supply may feed local Tanner/Parchment production later.
+- finished Leather/Parchment may become Realm-accessible according to downstream scope.
+
+HORSES
+Horse-Breeding Conditions -> Horse Stud -> domestic breeding capability / horse stock.
+- Horses are not a generated deposit.
+- breeding capability/tradition remains local;
+- actual horse access may later move through Realm/trade systems.
+
+CAMELS
+- no generated camel opportunity;
+- access may come from culture/region/trade/diplomacy;
+- Stables organize/maintain mounted capability; Stables do not create animals.
+
+BEES
+Bee-rich Meadows -> Apiary -> Honey + Beeswax.
+Honey and Beeswax are outputs, not opportunity rolls.
+
+STONE / CLAY / GLASS
+- ordinary Stone = background everywhere for normal construction;
+- Limestone / Marble / Slate = tracked special stone opportunities;
+- serious Clay Deposit = tracked; crude household clay remains background;
+- ordinary Bricks are accepted as a Realm-accessible finished good once genuinely produced;
+- common sand = background; Glassmaking Sand = tracked specialist opportunity;
+- source-local extraction/industry remains distinct from finished-good access.
+
+FISH
+- retained in FCAH despite older exclusion language;
+- Fish does NOT occupy the 0-3 opportunity pool;
+- suitable aquatic fixed geography -> Fishery / Fishing Village -> Fresh Fish;
+- Fresh Fish is mainly local food/economic capability;
+- preserved Salted/Smoked Fish may later be Realm-accessible/tradeable;
+- Fish is optional to Realm viability;
+- no basic building/unit should require Fish;
+- `Rich Fishing Waters` is retired as a normal random opportunity for now.
+
+HERBS / SPICES
+- Herbs = domestic tracked agricultural opportunity.
+- Exotic Spices = off-map expedition/external-trade good.
+
+FLAX / HEMP
+- remain separate tracked opportunities;
+- Flax primarily supports linen/finer textiles;
+- Hemp primarily supports rope/canvas/heavy-duty/maritime uses.
+
+MUSHROOMS / NUTS / REEDS / PEAT / LEAD
+- Mushrooms = contextual/background foraging, not strategic deposit;
+- Nuts = contextual/orchard/woodland/agricultural development, not separate opportunity;
+- Reeds = contextual Wetland/river output, not separate opportunity;
+- Peat = deferred until fuel design gives it a distinct role;
+- Lead = deferred until technology/content gives it a distinct role.
+
+======================================================================
+8. OPPORTUNITY GENERATION RULES
+======================================================================
+
+8.1 COUNT PER PROVINCE
+Prototype distribution:
+- 0 opportunities: 20%
+- 1 opportunity: 45%
+- 2 opportunities: 30%
+- 3 opportunities: 5%
+- >3 forbidden.
+
+Count is rolled first. Content is selected second.
+
+8.2 SAME COUNT TABLE EVERYWHERE
+No count modifier from:
+- capital status;
+- Realm identity;
+- Powerhouse status;
+- owner;
+- terrain;
+- climate;
+- region;
+- wealth;
+- existing city development.
+
+8.3 GLOBAL RARITY, NOT REGIONAL RARITY
+- opportunity types may have different global rarity weights;
+- the same opportunity weight applies in every Province;
+- no mountain Iron bonus;
+- no southern Grapes bonus;
+- no Realm/culture/capital ownership weighting.
+
+Exact canonical weights are deferred configuration and MUST NOT be invented by Codex.
+
+8.4 DISTINCT OPPORTUNITIES
+No duplicate exact opportunity inside one Province.
+Broad + specific combinations such as Deep Forest + Rare Timber are valid.
+No generic combination blacklist exists unless a true contradiction is explicitly authored.
+
+8.5 SOFT ANTI-CLUSTERING
+Rare/high-value opportunities receive soft anti-clustering.
+- no hard universal distance law;
+- nearby rare pairs remain possible;
+- exact rare tags / penalty strength / algorithmic tuning are deferred configuration.
+
+Implementation may provide a deterministic configurable mechanism and fixture data.
+It must not invent a final balance table.
+
+8.6 NO EXACT WORLD QUOTAS
+No rule such as exactly four Gold deposits.
+Normal campaign totals vary.
+
+8.7 NON-DEPLETION
+Underlying generated opportunity does not permanently vanish through ordinary exploitation.
+Sites may be disrupted; the opportunity remains.
+
+======================================================================
+9. WORLD-PRESENCE / VISIBLE SAFETY FLOORS
+======================================================================
+
+Safety floors are repair safeguards, not target distributions and not Realm guarantees.
+Normal generation runs first; repair only catches pathological low-presence seeds.
+
+For the current 100-Province prototype:
+
+FERTILE LAND
+- minimum true world presence: 5 Provinces;
+- minimum visible Day 1: 4 Provinces.
+
+IRON DEPOSIT
+- minimum true world presence: 2 Provinces;
+- minimum visible Day 1: 1 Province.
+
+No other opportunity has a floor by default.
+
+REPAIR RULES
+- world-level and ownership-blind;
+- never guarantee a resource to a specific Realm;
+- preserve max 3 per Province;
+- preserve no-duplicate rules;
+- preserve anti-clustering where possible;
+- prefer adding to a Province with fewer than 3 opportunities;
+- if every suitable Province is full, deterministically replace a sensible common /
+  non-essential opportunity rather than creating a fourth;
+- exact non-100-Province scaling remains tuning.
+
+======================================================================
+10. HIDDEN OPPORTUNITIES
+======================================================================
+
+Most generated opportunities are visible/known to their owning Realm on Day 1.
+`Visible Day 1` does NOT require universal foreign omniscience.
+
+HIDDEN START RULE
+- Province gets one hidden-opportunity roll if it has one or more generated opportunities;
+- at most one hidden opportunity per Province;
+- if the roll succeeds, choose one eligible tracked opportunity at equal odds;
+- same hidden probability in every Province;
+- no modifier from capital, Realm, terrain, region, remoteness or resource count;
+- fixed geography is never hidden;
+- exact hidden probability is DEFERRED tuning and MUST NOT be silently hard-coded as 10%.
+
+ORDER
+1. fixed geography exists;
+2. roll opportunity count;
+3. select distinct opportunities;
+4. apply anti-clustering / world repair;
+5. enforce true world safety floors;
+6. perform hidden selection while respecting visible-Day-1 safety floors;
+7. run dependent starting-site logic afterward.
+
+VISIBLE FLOOR RULE
+If hiding an essential opportunity would push its visible count below the locked visible
+floor, that instance is not eligible to hide. Choose another eligible opportunity if one
+exists; otherwise the Province remains with no hidden opportunity.
+
+SITE-VISIBILITY RULE
+No starting exploitation site may advertise a resource that is still hidden to the owning
+Realm.
+- RNG starting sites require visible/known source.
+- authored resource-exploitation sites make their source owner-known and remove it from
+  hidden eligibility.
+
+DISCOVERY reveals existing truth. It never spawns a convenient new resource.
+
+======================================================================
+11. COUNTRYSIDE EXPLOITATION CATALOGUE
+======================================================================
+
+GENERAL
+- opportunities normally exist at campaign start without developed sites;
+- known opportunity -> deliberate site establishment -> construction -> Active;
+- known opportunity needs no second survey tax before ordinary exploitation;
+- ordinary exploitation does not require an arbitrary strategic-city unlock;
+- one functional site per exact function; no duplicate identical Mine/Farm spam;
+- broad opportunities may expose several compatible distinct sites;
+- no generic Mine I -> Mine II -> Mine III ladder;
+- no visible ore/day or individual worker counters at this layer;
+- sites are raidable/disruptable and normally recover rather than being permanently erased;
+- exact cost/time/recovery/workforce values remain later design.
+
+BASIC SITE MAPPING
+
+FERTILE LAND
+-> Grain Fields
+-> Carrot Fields
+-> Root-Crop Fields
+-> Legume Fields
+-> Vegetable Fields / Gardens
+-> Oilseed Fields
+
+FRUIT-GROWING CONDITIONS
+-> Orchard
+
+VINE-GROWING CONDITIONS
+-> Vineyard
+
+HOP-GROWING CONDITIONS
+-> Hop Garden
+
+FLAX CONDITIONS
+-> Flax Fields
+
+HEMP CONDITIONS
+-> Hemp Fields
+
+HERB-GROWING CONDITIONS
+-> Herb Garden
+
+DYE-PLANT CONDITIONS
+-> Dye-Plant Fields
+
+BEE-RICH MEADOWS
+-> Apiary
+
+PASTURELAND
+-> Sheep Pasture
+
+HORSE-BREEDING CONDITIONS
+-> Horse Stud
+
+DEEP FOREST
+-> Logging / Forestry Camp
+
+RARE TIMBER
+-> Rare-Timber Working
+
+IRON
+-> Iron Mine
+
+COPPER
+-> Copper Mine
+
+TIN
+-> Tin Mine
+
+SILVER
+-> Silver Mine
+
+GOLD
+-> Gold Mine
+
+SALT DEPOSIT / BRINE
+-> Saltworks family
+   local presentation may be Salt Mine / Brine Works / Salt Pans without becoming
+   separate mechanical families.
+
+LIMESTONE
+-> Limestone Quarry
+
+MARBLE
+-> Marble Quarry
+
+SLATE
+-> Slate Quarry
+
+CLAY DEPOSIT
+-> Clay Pit
+
+GLASSMAKING SAND
+-> Glass-Sand Pit
+
+AMBER
+-> Amber Workings
+
+GEMSTONES
+-> Gemstone Mine
+
+SUITABLE AQUATIC FIXED GEOGRAPHY
+-> Fishery / Fishing Village
+
+EXPLICITLY NOT GENERATED BASIC RESOURCE SITES
+- ordinary Timber / Firewood;
+- generic Stone;
+- crude/background clay;
+- ordinary common sand;
+- Mushrooms;
+- Nuts;
+- Reeds;
+- Hay/Forage as its own site family;
+- Camels;
+- ordinary Horses without breeding conditions;
+- Resin as a separate mandatory site;
+- Charcoal as a natural site;
+- expedition-only goods;
+- deferred Lead/Peat/Sulfur/Saltpeter/Coal.
+
+Villages, monasteries, shrines and unrelated settlement/religious content are separate
+systems and do not enter this resource-exploitation catalogue merely because they may be
+physically rural.
+
+COUNTRYSIDE SITE STATE
+Minimum conceptual lifecycle:
+Absent -> Under Construction -> Active -> Disrupted/Pillaged -> Recovering -> Active.
+Exact enum names are implementation freedom if behavior is preserved.
+
+A completed site that is not disrupted/recovering is Active automatically.
+There is no routine manual `suspend mine/farm` management toggle in this abstraction.
+
+======================================================================
+12. CAMPAIGN-START COUNTRYSIDE SITES
+======================================================================
+
+Normal start:
+- opportunities exist;
+- developed exploitation sites usually do not.
+
+Two possible pre-existing sources:
+A. explicit authored canonical/historical exploitation site;
+B. deterministic 4% RNG chance per Province for one eligible base exploitation site.
+
+4% RULE
+- same chance for every Province;
+- no capital / Realm / Powerhouse / wealth / terrain modifier;
+- independent per Province;
+- no Realm/world quota;
+- maximum one RNG-created starting countryside site per Province;
+- authored exploitation site(s) may exceed one but suppress the Province's 4% resource-site
+  RNG entirely;
+- unrelated authored non-resource countryside content does not suppress this roll;
+- hidden opportunity cannot receive an RNG site;
+- starting sites are base form, fully constructed, active, revealed and mechanically real;
+- valuable resource does not make the base site `advanced`: Gold Mine is still a base mine.
+
+DAY-1 ELIGIBLE POOL
+Any straightforward BASIC site in Section 11 may participate if its source is valid and
+visible/known, including Fishery from fixed aquatic geography.
+
+FAMILY-FIRST SELECTION
+Do NOT choose equally among all eligible site nouns.
+
+Algorithm:
+1. roll the Province's 4% site chance;
+2. if fail -> no RNG site;
+3. if success -> collect eligible source/opportunity families;
+4. exclude hidden/invalid sources;
+5. choose one eligible source family at equal probability;
+6. if that family exposes several eligible basic site types, choose one equally inside
+   the family;
+7. create that one base site.
+
+If no eligible source family exists after a successful 4% roll, create no site.
+Do not transfer the roll to another Province and do not violate prerequisites.
+
+This prevents Fertile Land from receiving six lottery tickets merely because it exposes
+six site nouns.
+
+======================================================================
+13. STRATEGIC CITY-BUILDING CATALOGUE
+======================================================================
+
+CORE RULE
+Strategic city slots represent meaningful ruler-level investments.
+Do not create one slot per historical craft noun.
+A named craft may instead be:
+- branch;
+- in-place upgrade;
+- local variant;
+- institution interaction;
+- flavour/presentation.
+
+Hybrid upgrade policy remains data/content-driven:
+- some families upgrade in-place;
+- genuinely distinct choices consume separate slots;
+- there is no universal upgrade doctrine.
+
+13.1 FOOD / STORAGE
+TRUE FAMILIES
+- Mill
+- Bakery
+- Brewery
+- Winery
+- Storehouse
+- Oil Press
+- Luxury Kitchen / Confectioner
+
+GROUPING
+- Granary / Root Cellar / Great Root Store / ordinary Warehouse -> Storehouse family;
+- Distillery -> later Brewery/Winery branch;
+- farms/fields/orchards/vineyards/hop gardens remain countryside.
+
+13.2 TEXTILE / MATERIAL / CRAFT
+TRUE FAMILIES
+- Textile Workshop
+- Ropeworks
+- Woodworks
+- Clayworks
+- Masonry Works
+- Glassworks
+- Smelter / Foundry
+- Smithy / Metalworks
+- Jeweller
+- Leather & Parchment Works
+- Apothecary
+- Scriptorium
+- Artisan Workshop
+
+BRANCH EXAMPLES
+Textile Workshop -> Weaver / Fuller / Tailor / Dyer / fine cloth / tapestry.
+Ropeworks -> Ropewalk / Sailmaker / canvas/heavy-fibre craft.
+Woodworks -> Sawmill / Carpenter / Cooper / Master Joiner / appropriate wood processing.
+Clayworks -> Potter / Brickworks / tiles / advanced ceramics.
+Masonry Works -> Lime Kiln / Mason / Sculptor / specialist stone work.
+Smithy / Metalworks -> Blacksmith / Weaponsmith / Armourer / hardware/tools.
+Jeweller -> Goldsmith / Silversmith / Amber / Gem craft.
+Leather & Parchment Works -> Tanner / Parchment Workshop / appropriate saddlery.
+Scriptorium -> manuscripts / Bookbinder / later writing branches.
+Artisan Workshop -> Candlemaker / Soapworks / other small crafts that do not earn a slot.
+
+13.3 COMMERCE / LOGISTICS
+TRUE FAMILIES
+- Market
+- Trade House / Caravanserai
+- Harbour / Docks
+- Shipyard
+
+GROUPING
+- Great Market / Trade Exchange -> advanced Market development;
+- Customs House / Trade Depot / Trade Office -> broader trade-infrastructure branches;
+- Moneychanger/banking remains era/finance deferred.
+
+NORMAL HARBOUR ELIGIBILITY
+- ordinary Harbour / Docks requires suitable Coast / coastal access;
+- exceptional Natural Harbour / Great Trade Harbour potential is NOT required for an
+  ordinary Harbour;
+- exceptional harbour potential remains a later authored/world capability for advanced
+  maritime content and overseas expeditions.
+
+13.4 MILITARY / FORTIFICATION
+TRUE FAMILIES
+- Barracks
+- Archery Grounds
+- Stables
+- Fortification Works
+- Siege Workshop
+- Military Academy
+
+Barracks / Archery Grounds / Stables are THREE distinct strategic building types.
+Do not collapse them into generic Training Grounds.
+
+Muster Hall / Recruitment Office is not a separate core slot family for now.
+Arsenal / Armoury / Weapons Depot are support branches/functions, not mandatory separate
+slot families.
+
+Fortification Works is one serious defensive investment family covering walls/gates/
+towers mechanically. Visual walls are not the same as mechanical investment.
+
+13.5 GOVERNMENT / ORDER
+TRUE FAMILIES
+- Administrative Hall
+- Watch / Justice House
+- Palace
+
+Administrative Hall may express Chancery / Tax Office / Records / Council / Governor
+functions.
+Watch / Justice House may express Courthouse / Watch HQ / Prison.
+Palace is prestige/higher development and not in the normal Day-1 RNG pool.
+Treasury and Mint are not separate core slot families now.
+Spendable Carrot treasury remains Realm-level state.
+
+13.6 RELIGION / KNOWLEDGE / WELFARE
+TRUE FAMILIES
+- Church / Temple
+- Cathedral / Great Temple
+- School / Scholarly House
+- Hospital / Almshouse
+
+Church and Cathedral are distinct standalone strategic choices.
+Cathedral is NOT mandatory Church II.
+Library / Religious School are branches/forms unless later mechanics justify separation.
+University is advanced development.
+Observatory remains era/prestige dependent.
+Theatre and Artisans' Academy remain later/prestige candidates.
+
+13.7 BUILDING / INSTITUTION / TRADITION SEPARATION
+Building = physical infrastructure/place.
+Institution = organized social body.
+Tradition = accumulated local practice/capability/history.
+
+Therefore Merchant Guild and Craft Guild are primarily Institutions, not automatic slot
+buildings. A physical Guildhall may later exist without collapsing this distinction.
+
+13.8 BROADLY BUILDABLE VS SOURCE-SENSITIVE
+Broadly buildable basics:
+- Smithy / Metalworks does NOT require tracked Iron merely for ordinary smithing;
+- Woodworks does NOT require Deep Forest / Rare Timber merely for ordinary carpentry.
+
+Source-sensitive specialist industries include, under current principle:
+- Clayworks;
+- Glassworks;
+- Smelter / Foundry;
+- Jeweller for source-specific rare/precious local mastery;
+- Leather & Parchment Works for source-industry Hide Supply;
+- comparable future source-bound specialist chains.
+
+Finished-good Realm access never automatically clones extraction, source industry,
+traditions, mastery or special military capability in another Province.
+
+======================================================================
+14. CAMPAIGN-START STRATEGIC CITY BUILDINGS
+======================================================================
+
+Every playable Province independently receives 0-3 starting strategic buildings.
+
+NORMAL REALM COUNT DISTRIBUTION
+- 0: 40%
+- 1: 40%
+- 2: 15%
+- 3: 5%
+
+POWERHOUSE REALM COUNT DISTRIBUTION
+- 0: 20%
+- 1: 40%
+- 2: 30%
+- 3: 10%
+
+Powerhouse rules:
+- hand-picked explicit Realm designation only;
+- do NOT infer from size, resources, capital, culture, wealth or geography;
+- affects starting BUILDING COUNT only;
+- does not affect building-type odds, resources, hidden chance, rural-site chance or
+  permanent output;
+- final canonical Powerhouse list remains an authoring input and MUST NOT be guessed.
+
+NO CAPITAL BONUS
+Realm Seat/capital gives no starting-building count bonus.
+
+EXACT NORMAL DAY-1 BASIC RANDOM POOL — 13 TYPES
+1. Market
+2. Storehouse
+3. Mill
+4. Woodworks
+5. Smithy / Metalworks
+6. Church / Temple
+7. Administrative Hall
+8. Watch / Justice House
+9. Fortification Works
+10. Barracks
+11. Archery Grounds
+12. Stables
+13. Harbour / Docks
+
+HARD ELIGIBILITY
+- normal Harbour / Docks requires suitable Coast/coastal access;
+- Mill requires a visible local grain-producing basis at campaign start: visible Fertile
+  Land and/or an authored/active Grain Fields site; it must not be rolled merely because
+  grain could theoretically be imported later;
+- Church / Temple uses the Province's appropriate starting religion/rite/cultural variant;
+- all hard prerequisites must be validated before random selection;
+- do not use hidden resource knowledge to satisfy a Day-1 prerequisite and thereby leak it.
+
+TYPE SELECTION
+After hard eligibility filtering:
+- eligible mechanical types have equal odds;
+- no resource-synergy weighting;
+- no capital/wealth/Realm optimization;
+- no AI-style min-maxing;
+- no exact duplicate mechanical type;
+- base forms only;
+- fully constructed and revealed;
+- not automatically assumed staffed;
+- occupy normal strategic slots;
+- local culture/religion variant identity is stamped at creation and persists through
+  later conquest/identity change.
+
+If content/configuration somehow leaves fewer distinct eligible types than the rolled
+required total, generation must fail validation/content checks rather than duplicate a
+building, violate a prerequisite, or silently shrink the rolled count.
+
+MANDATORY AUTHORED BUILDINGS
+1. roll normal total;
+2. insert mandatory authored buildings first;
+3. if rolled total < mandatory count, raise effective total to mandatory count;
+4. fill remaining places from the normal valid Day-1 pool.
+
+Rules:
+- effective total max 3;
+- >3 mandatory authored starts in one Province = content error;
+- mandatory building may be outside normal RNG pool;
+- mandatory buildings consume the cap and do not grant compensation rolls;
+- exact duplicate mechanical type forbidden unless explicitly distinct content;
+- authored canonical building must also satisfy its own authored exception rules.
+
+EXCLUDED FROM NORMAL DAY-1 RANDOM STARTS
+- Bakery
+- Brewery
+- Winery
+- Distillery
+- Oil Press
+- Luxury Kitchen / Confectioner
+- Textile Workshop
+- Ropeworks
+- Clayworks
+- Masonry Works
+- Glassworks
+- Smelter / Foundry
+- Jeweller
+- Leather & Parchment Works
+- Apothecary
+- Scriptorium
+- Artisan Workshop
+- Trade House / Caravanserai
+- Shipyard
+- Great Market / Trade Exchange
+- Siege Workshop
+- Military Academy
+- Palace
+- Cathedral / Great Temple
+- University
+- Observatory
+- Theatre / performance hall
+- Artisans' Academy
+- advanced/prestige/special branches generally.
+
+R008 SERAVELLE
+Seravelle remains the obvious candidate for an authored Cathedral / Great Temple start.
+That exact exception is NOT locked by this file and must not be invented by implementation.
+
+======================================================================
+15. LOCAL SOURCE / REALM ACCESS / IMPORT PRINCIPLE
+======================================================================
+
+A. BACKGROUND CIVILIZATION ACCESS
+Basic civilization does not fail because a Province lacks a resource icon.
+Ordinary wood, ordinary stone and ordinary metalwork are available at baseline as defined
+above.
+
+B. TRACKED RESOURCE = SPECIAL DEVELOPMENT POTENTIAL
+Tracked resource means serious exploitable local capacity and identity, not literal
+existence of the substance nowhere else.
+
+C. SOURCE-BOUND SPECIALIST INDUSTRY STAYS LOCAL
+For source-bound resources:
+- extraction is local;
+- source-bound specialist industry/mastery/tradition remains local unless a future rule
+  explicitly spreads it;
+- importing raw material does not automatically reproduce source capability elsewhere.
+
+D. IMPORTS ARE HAND-AUTHORED BY USE
+Imports may satisfy specifically designated:
+- consumption;
+- construction;
+- equipment;
+- trade;
+- Realm-level access;
+- other explicit downstream uses.
+
+There is NO universal rule that imported good = every local prerequisite satisfied.
+
+E. PROCESSED/FINISHED OUTPUT SCOPE IS PER CONTENT
+A downstream good may be:
+- Province-local;
+- Realm-accessible;
+- trade/import satisfiable;
+- restricted to local recruitment;
+- available only for defined downstream uses.
+
+Exact finished-good scope is the next major design pass and is NOT required to implement
+this milestone's generation/state foundation.
+
+Already accepted examples:
+- ordinary Bricks can become Realm-accessible once genuinely produced;
+- Leather/Parchment may become Realm-accessible finished goods;
+- preserved fish may become Realm-accessible/tradeable;
+- finished glass products may become Realm-accessible according to catalogue scope.
+
+======================================================================
+16. DISCOVERY / KNOWLEDGE CANON
+======================================================================
+
+These rules are SEALED design canon, but full runtime survey/passive-discovery behavior is
+OUT OF SCOPE for the next narrow implementation slice unless separately authorized.
+
+OBJECTIVE TRUTH VS REALM KNOWLEDGE
+- opportunities exist objectively in Province state;
+- hidden-resource knowledge may differ by Realm;
+- one global `resource_known` boolean is insufficient for the eventual complete system.
+
+ACTIVE SURVEY
+- generic `Survey Province`, never Search-for-Gold etc.;
+- only actual owner may order normal survey;
+- temporary military occupation is insufficient;
+- completion guarantees a final answer: reveal hidden opportunity or confirm none;
+- survey cannot arbitrarily fail after completion;
+- committed cost/duration are fixed and shown once ordered;
+- duration/cost may depend on Province-facing difficulty but not the hidden result;
+- gradual payment;
+- insufficient funds auto-pause without progress loss;
+- manual cancel = indefinite pause, not reroll;
+- loss of ownership stops spending and preserves progress;
+- reacquisition requires explicit Resume;
+- no progress decay;
+- multiple simultaneous Realm surveys allowed;
+- completed negative result is permanent Realm-specific knowledge;
+- no negative-survey transfer on conquest.
+
+PASSIVE DISCOVERY
+- independent alternative to active survey;
+- contextual parchment/event/report channels;
+- reveals existing positive truth only;
+- small baseline chance exists for owned hidden opportunity;
+- context may raise chance;
+- periodic/event-based, not per-frame/per-day invisible spam;
+- continues while an owned Province's active survey is paused for lack of funding;
+- no guaranteed discovery deadline;
+- exact cadence/chances remain later tuning.
+
+If passive discovery reveals the hidden opportunity while an active or funding-paused
+survey is still valid and the Realm still owns the Province:
+- reveal immediately;
+- resolve/close that survey;
+- do not charge future unpaid survey cost.
+
+The historical `ever discovered` trace affects passive rediscovery only. It does not
+reduce active-survey cost or duration.
+
+CONQUEST / KNOWLEDGE
+- secret undeveloped knowledge does not automatically transfer on conquest;
+- a real existing exploitation site reveals its represented resource to the actual new
+  owner because the site is physical Province state;
+- temporary occupation alone grants no special resource knowledge;
+- both positive discoveries and negative survey conclusions remain remembered by the
+  discovering Realm after later loss;
+- no generic formal buy/sell/share-resource-map diplomatic action.
+
+HISTORICAL REDISCOVERY TRACE
+- once an opportunity was discovered by any Realm, keep a binary `ever discovered`
+  historical trace;
+- later unknown owners get a small passive rediscovery chance bonus;
+- no decay;
+- no stacking;
+- passive only, no active-survey discount.
+
+FOREIGN INFORMATION
+- positive hidden opportunity may become known through plausible spies/merchants/
+  travellers/diplomatic/narrative channels;
+- negative survey conclusion normally remains private;
+- knowledge changes neither ownership nor site state;
+- the Province owner is not automatically notified merely because another Realm learned
+  the positive information.
+
+======================================================================
+17. WARFARE / SITE / BUILDING PERSISTENCE
+======================================================================
+
+COUNTRYSIDE
+- sites may be raided/pillaged/devastated;
+- disruption may remove downstream availability temporarily;
+- normal raid does not permanently delete site;
+- site proceeds through recovery;
+- developed site persists through ownership change, including damage state;
+- actual new owner knows the resource represented by that physical site.
+
+STRATEGIC CITY
+- buildings normally persist through ordinary ownership change/warfare;
+- normal warfare does not randomly erase them;
+- normal generated strategic buildings are intended to be removable/replaceable later;
+- explicitly authored landmarks may later be protected/non-removable;
+- exact demolition/protection mechanics remain future design;
+- exceptional destruction requires a separately designed rule.
+
+TEMPORARY OCCUPATION
+- is not ownership;
+- does not unlock survey;
+- does not auto-reveal hidden resources;
+- does not trigger new-owner site-knowledge logic.
+
+======================================================================
+18. LOCAL VARIANTS / HISTORICAL IDENTITY
+======================================================================
+
+Mechanical building type and local variant are separate concepts.
+
+At creation:
+- secular building variant is primarily based on local culture where applicable;
+- religious building variant may depend on culture + religion/communion/rite.
+
+Variant/origin identity persists after:
+- conquest;
+- culture change;
+- religion change;
+- save/load.
+
+Do not silently reskin an old building into a new culture merely because ownership or
+current identity changed.
+
+Future rebuilding/replacement may create a new variant under then-current rules, but that
+is separate later content behavior.
+
+======================================================================
+19. GENERATION ORDER / RNG DOMAIN CONTRACT
+======================================================================
+
+Required logical order:
+1. fixed world/geography is already authoritative;
+2. generate tracked opportunity counts;
+3. select distinct opportunity types from explicit configured global weights;
+4. apply configured soft anti-clustering;
+5. apply true-world safety-floor repair;
+6. apply hidden selection while preserving visible floors;
+7. resolve authored starting countryside sites and visibility implications;
+8. run RNG starting countryside-site logic;
+9. resolve authored strategic starting buildings;
+10. run strategic building count/type generation;
+11. validate complete economy-start state before publication.
+
+Exact traversal may differ if all outcomes/invariants remain equivalent.
+
+RNG DOMAINS MUST BE INDEPENDENT
+At minimum preserve independent deterministic domains/substreams for:
+- campaign cast/naming generation;
+- opportunity generation;
+- opportunity hiding;
+- starting countryside sites;
+- starting strategic buildings;
+- later survey commitment randomness when that runtime system is implemented.
+
+Adding an RNG draw to one domain must not silently perturb another domain's generated
+world.
+
+REPRODUCIBILITY
+Same campaign seed + same relevant generator/content version/configuration -> same
+objective economy-start result.
+
+Persist enough provenance to recreate/debug generation consistently without regenerating
+saved authoritative state on load.
+
+Generation-affecting changes require an appropriate generator/config version bump rather
+than silently changing old-seed meaning.
+
+======================================================================
+20. IMPLEMENTATION-FACING STATE / PERSISTENCE REQUIREMENTS
+======================================================================
+
+Exact class/file layout is implementation freedom inside the current architecture.
+Required information includes:
+
+PROVINCE OBJECTIVE STATE
+- generated opportunity identities;
+- hidden/objective visibility state as required by the design;
+- countryside exploitation site instances and lifecycle/construction state;
+- strategic building instances occupying strategic slots;
+- building local variant/origin data;
+- per-opportunity ever-discovered historical trace when discovery runtime is implemented.
+
+Do not create pointless per-Province tags for universal background access solely to say
+`ordinary timber = true` everywhere.
+
+REALM-SPECIFIC KNOWLEDGE
+Complete discovery implementation must support:
+- positive knowledge of undeveloped hidden opportunities;
+- completed negative survey knowledge;
+without collapsing those into objective Province truth.
+
+SURVEY STATE
+When runtime survey is implemented, state must be able to preserve committed progress /
+cost / duration / owner / pause semantics and concurrent surveys.
+
+TYPED VALIDATED STATE
+- integrate with current typed campaign state;
+- do not use unvalidated generic dictionaries as a permanent authority escape hatch;
+- validate IDs, references, catalogue IDs, max counts, duplicate constraints and legal
+  state transitions before publication.
+
+SAVE / LOAD
+New authoritative state must participate in the existing standards:
+- versioned persistence;
+- strict schema/reference validation;
+- deterministic round-trip behavior;
+- validate-before-write;
+- atomic publication / no half-applied live state;
+- schema/generator migration/version handling when required.
+
+STABLE IDS
+- Province/Realm IDs stay opaque/non-contiguous;
+- content definition IDs should likewise be stable identities rather than array positions;
+- no retired geographic identity may be silently reused.
+
+LEGACY PROTOTYPE
+Existing old GoodDefinition / BuildingDefinition / PrototypeContentCatalogue /
+ProvinceCapabilityState and tiny Farm/Mill/Bakery proof must be audited deliberately.
+Reuse useful primitives only where they fit current authority.
+Do not extend old prototype assumptions as if they were current design canon.
+
+======================================================================
+21. NEXT BOUNDED IMPLEMENTATION SLICE
+======================================================================
+
+The next recommended implementation milestone is:
+
+PROVINCE ECONOMY FOUNDATION / CAMPAIGN-START GENERATION V1
+
+IN SCOPE
+- typed content definitions/configuration required by this foundation;
+- active 26-opportunity catalogue identity support;
+- separation of fixed geography, background access and generated opportunities;
+- deterministic 0-3 opportunity-count generation;
+- configurable global opportunity weights;
+- deterministic no-duplicate content selection;
+- configurable soft anti-clustering mechanism;
+- Fertile Land / Iron safety-floor repair;
+- configurable hidden-opportunity selection with visible-floor protection;
+- countryside exploitation-site definitions/state;
+- deterministic authored + 4% family-first Day-1 countryside-site generation;
+- strategic city-building definition/state sufficient for accepted catalogue/pool;
+- deterministic authored + Normal/Powerhouse Day-1 city-building generation;
+- local building-variant origin persistence;
+- campaign bootstrap/session integration;
+- strict validation;
+- save/load round-trip;
+- generator/config provenance/versioning;
+- focused tests + full regression;
+- documentation and implementation changelog after actual repository changes.
+
+OUT OF SCOPE FOR THIS IMPLEMENTATION SLICE
+- detailed runtime production arithmetic;
+- numerical stockpiles for every good;
+- full finished-goods Realm/local/import scope implementation;
+- trade throughput / route economy redesign;
+- workforce allocator reconciliation;
+- staffing/productivity calculations;
+- actual construction costs/timers for all sites/buildings;
+- active survey timers/cost/payment runtime;
+- passive-discovery event engine;
+- foreign intelligence system;
+- AI economic planning;
+- traditions/institutions implementation;
+- full building-effects catalogue;
+- military unit effects;
+- UI/art/presentation redesign;
+- final permanent strategic-slot count;
+- final Powerhouse list;
+- final Seravelle Cathedral exception;
+- final canonical rarity weights / hidden chance if they have not separately been approved.
+
+IMPORTANT TUNING BOUNDARY
+The engine/framework may be implemented before every tuning value is finalized.
+However:
+- Codex/Astra must expose unresolved values as explicit data/configuration;
+- tests may inject fixture weights/chances/tier lists;
+- test fixture values are NOT canon;
+- implementation must not silently turn fixture defaults into design authority;
+- if canonical production configuration lacks a required unresolved value, fail loudly /
+  mark configuration incomplete rather than guessing.
+
+Thus this seal authorizes architecture/generator implementation without pretending that
+unfinished balance data has already been decided.
+
+======================================================================
+22. REQUIRED ACCEPTANCE / REGRESSION INVARIANTS
+======================================================================
+
+DETERMINISM / DOMAIN INDEPENDENCE
+- same seed/version/config -> same economy-start output;
+- changing cast/naming RNG draw count does not change economy RNG domains;
+- changing building RNG does not change resource/site/hiding results;
+- changing site RNG does not change resources/buildings;
+- save/load never regenerates accepted authoritative start state.
+
+WORLD AUTHORITY
+- exactly current 100 active Province identities are used;
+- current 43 Realm ownership/world authority remains unchanged;
+- no terrain/world-asset mutation occurs;
+- no capital bonus appears.
+
+OPPORTUNITIES
+- 0-3 only;
+- no exact duplicate type in one Province;
+- active catalogue only unless explicit fixture tests an extension;
+- count table = 20/45/30/5;
+- no region/terrain/Realm/Powerhouse/capital weighting;
+- global weights are explicit config;
+- no generic Stone opportunity;
+- no mountain-weighted Iron;
+- Fertile true floor >=5, visible floor >=4 in 100-Province production config;
+- Iron true floor >=2, visible floor >=1 in 100-Province production config;
+- repair never creates a fourth opportunity.
+
+HIDDEN
+- at most one hidden opportunity per Province;
+- hiding happens after true-world generation/repair;
+- fixed geography never hidden;
+- visible safety floors preserved;
+- hidden probability explicit config, not secretly 10%;
+- authored/RNG exploitation site never coexists with owner-hidden source.
+
+COUNTRYSIDE STARTS
+- 4% chance per Province in accepted prototype config;
+- at most one RNG starting exploitation site;
+- authored exploitation site suppresses resource-site RNG;
+- unrelated authored non-resource countryside content does not suppress it;
+- hidden source not eligible;
+- family-first selection, then site-within-family;
+- no geography/wealth/capital/Realm weighting;
+- no duplicate identical functional site;
+- no generic site upgrade level required.
+
+STRATEGIC BUILDING STARTS
+- Normal count table = 40/40/15/5;
+- Powerhouse count table = 20/40/30/10;
+- Powerhouse affects count only;
+- exact Powerhouse list supplied by explicit config, never inferred;
+- no capital count bonus;
+- only the 13 accepted normal Day-1 types may appear from normal RNG;
+- hard prerequisites respected;
+- Mill cannot leak hidden Fertile Land;
+- Harbour requires valid Coast/coastal access;
+- no exact duplicate type;
+- base forms only;
+- advanced/prestige/special entries excluded from normal RNG;
+- mandatory authored insertion obeys max-3 and no-compensation rules;
+- variant origin survives conquest and save/load.
+
+STATE / VALIDATION
+- stable IDs remain opaque/non-contiguous;
+- missing/unknown catalogue IDs rejected;
+- duplicate IDs/types violating rules rejected;
+- malformed state rejected before publication;
+- strict save/load round-trip passes;
+- failure does not partially publish a candidate state;
+- existing locked campaign architecture tests continue to pass.
+
+LEGACY-LEAK TESTS / REVIEW
+Implementation review must explicitly verify that no active logic reintroduces:
+- exactly-eight permanent slot assumption;
+- rural-slot-grid assumption;
+- Farm/Mine/Quarry as strategic city-slot requirement;
+- rural Mill placement from old prototype authority;
+- hidden building/craft knowledge;
+- generic Stone deposit prerequisite for normal construction;
+- mountain/region-weighted Iron/resources;
+- Fish exclusion;
+- raw-resource routes cloning full source industry;
+- Deep Forest as sole source of ordinary Timber;
+- old automatic workforce allocator as part of this milestone;
+- universal imported-good prerequisite satisfaction.
+
+======================================================================
+23. EXPLICITLY DEFERRED / NON-BLOCKING DESIGN
+======================================================================
+
+These remain real future design questions. They are NOT stale leftovers and do not need to
+be solved before the narrow foundation implementation, unless implementation discovers a
+hard dependency.
+
+TUNING / START CONTENT
+- exact global rarity weight per opportunity;
+- rare/high-value tag list and anti-clustering tuning;
+- exact hidden-opportunity probability;
+- final Powerhouse Realm list;
+- final mandatory canonical starting strategic buildings;
+- final mandatory canonical starting countryside sites;
+- exact Seravelle Cathedral/Great Temple start;
+- non-100-Province safety-floor scaling.
+
+PRODUCTION / ACCESS
+- final downstream finished-good scope: Province-local vs Realm-accessible vs importable;
+- Bronze and mixed-input rules;
+- detailed processed/manufactured product catalogue;
+- exact supply accounting / trade throughput / storage abstraction;
+- local-vs-import efficiency where relevant.
+
+WORKFORCE
+- reconcile older automatic workforce model against current abstraction;
+- decide any surviving high-level labour limitation;
+- do not add per-site worker dragging/micromanagement.
+
+BUILDINGS / SITES
+- final permanent slot count after 8/10/12 stress tests;
+- costs / construction times / recovery times / upkeep;
+- detailed advanced building branches / upgrades;
+- protected landmarks / demolition rules;
+- exact building effects;
+- extraordinary site variants only when gameplay earns them.
+
+DISCOVERY
+- survey time/cost formulas;
+- survey payment cadence;
+- passive-discovery probabilities/cadence;
+- narrative event library;
+- foreign-intelligence reliability;
+- final typed knowledge storage architecture.
+
+ERA
+- Lead / Coal / Sulfur / Saltpeter / Paper / Printing / gunpowder / advanced finance scope.
+
+OVERSEAS
+- exact exceptional-harbour Province list;
+- final Great Trade Harbour naming/tiering;
+- expedition costs/duration/risk;
+- cargo tables beyond accepted Ebony / Exotic Spices examples;
+- whether expeditions require a separate ship resource.
+
+AI / UI / NARRATIVE
+- exact AI economic planning;
+- final Province economy UI;
+- map visualization density;
+- tradition/institution downstream consequences;
+- Goods Set / Realm Advantage exact cards/effects.
+
+======================================================================
+24. SUPERSEDED / QUARANTINED RULES
+======================================================================
+
+The following older statements are HISTORICAL ONLY and must not re-enter implementation
+unless the design is explicitly reopened:
+
+1. Exactly 8 strategic city slots are permanently locked.
+   CURRENT: 10 prototype standard; 8/12 tests; permanent count open.
+
+2. Farm / Mine / Quarry consume strategic city slots.
+   CURRENT: countryside exploitation; no city slot.
+
+3. Mill is a rural-site family by current authority.
+   CURRENT: Mill is strategic-city processing.
+
+4. A second fixed/manually filled countryside slot grid is required.
+   CURRENT: rejected; opportunity/deposit constrains countryside.
+
+5. Buildings/crafts themselves must be discovered as hidden knowledge.
+   CURRENT: normal building catalogue is known from Day 1.
+
+6. Mountain-adjacent Provinces get better Iron odds / geography weights tracked resources.
+   CURRENT: same base generation conditions everywhere; global rarity only.
+
+7. Generic Stone deposit / Quarry is required for normal stone construction.
+   CURRENT: ordinary Stone is background; Limestone/Marble/Slate are special tracked types.
+
+8. Deep Forest is required for ordinary Timber / Firewood.
+   CURRENT: ordinary wood is background; Deep Forest is exceptional forestry.
+
+9. Raw Iron/Stone/Clay import or route automatically grants destination the full same
+   source industry.
+   CURRENT: imports satisfy only explicitly designated uses; specialist source identity
+   stays local.
+
+10. Fish is excluded from FCAH entirely.
+    CURRENT: Fish retained as optional geography-derived regional/cultural food/trade.
+
+11. Carrots are only currency OR only physical crop.
+    CURRENT: separate treasury currency and physical carrot crop coexist.
+
+12. Wool/Hides/Horses/Camels are direct random Province deposits.
+    CURRENT: Pastureland / Horse-Breeding / Realm-access models.
+
+13. Seeds/Nuts/Mushrooms/Reeds/Hay all require individual generated opportunity rolls.
+    CURRENT: contextual/broad-system classification.
+
+14. Lead/Peat/Coal/Sulfur/Saltpeter are active merely because older catalogues list them.
+    CURRENT: deferred/inactive until later scope justifies them.
+
+15. Old automatic workforce allocator is already part of this economy milestone.
+    CURRENT: workforce remains separate reconciliation; starting buildings are not assumed
+    staffed.
+
+16. Old special Imperial Realm `2-3 buildings across the whole Realm` is the current start
+    generator rule.
+    CURRENT: every Province independently rolls 0-3; that Realm may later be explicitly
+    designated Powerhouse but the old total-count semantics are superseded.
+
+17. Capital/Realm Seat automatically improves economy/buildings/fortification.
+    CURRENT: no automatic bonus.
+
+18. Every craft noun in the old building brainstorm is an independent strategic slot.
+    CURRENT: cleaned strategic families + branches/upgrades/institutions/flavour.
+
+======================================================================
+25. POST-IMPLEMENTATION REVIEW INTENT
+======================================================================
+
+After the next implementation milestone is complete, verified and committed, a separate
+Astra advisory/review pass is desirable.
+
+That review should:
+- inspect the actual implementation, tests, sealed authority and project architecture;
+- NOT modify code/files during the advisory phase;
+- freely identify inconsistencies, hidden assumptions, simplification opportunities,
+  design weaknesses and edge cases;
+- propose ideas for additions, improvements, deeper interactions, removals or scope cuts;
+- challenge the design where useful rather than merely checking compliance;
+- distinguish observed implementation facts from suggestions;
+- identify deferred questions that implementation evidence now makes easier to resolve.
+
+This review is advisory only. Its proposals are not automatically canon.
+
+======================================================================
+26. FINAL SEAL
+======================================================================
+
+SEALED FACTS FOR THIS MILESTONE INCLUDE:
+- two-layer Province economy + Realm Network concept;
+- no second countryside slot grid;
+- active 26-opportunity catalogue;
+- resource/background/fixed/derived/Realm/expedition/deferred taxonomy;
+- 0-3 opportunity generation structure and prototype count distribution;
+- no regional/geographic resource weighting;
+- world/visible safety floors for Fertile Land and Iron;
+- hidden-resource structural rules;
+- countryside exploitation catalogue;
+- 4% rare starting-site prototype + family-first selection;
+- strategic city-building cleaned family catalogue;
+- exact 13-type normal Day-1 city-building pool;
+- Normal/Powerhouse starting-building count distributions;
+- no capital bonus;
+- local building-variant persistence;
+- source-local specialist-industry principle;
+- discovery/knowledge design direction recorded above;
+- persistence/validation/determinism requirements;
+- bounded next implementation slice and explicit non-goals.
+
+FINAL AUDIT STATUS
+NO KNOWN HARD DESIGN CONTRADICTION BLOCKS THE BOUNDED FOUNDATION IMPLEMENTATION.
+
+KNOWN UNRESOLVED ITEMS ARE EXPLICITLY DEFERRED, NOT SILENTLY MISSING.
+THEY MUST REMAIN DATA/CONFIGURATION OR FUTURE DESIGN UNTIL EXPLICITLY DECIDED.
+
+Reopening a sealed rule requires an explicit later design decision.
+Implementation discoveries may justify reopening, but code must not silently rewrite canon.
+
+END OF FILE

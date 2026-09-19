@@ -6,8 +6,11 @@ func _initialize() -> void:
     var days: int = 0
     var player: String = ""
     var save_path: String = ""
+    var cast_only: bool = false
     for argument: String in OS.get_cmdline_user_args():
-        if argument.begins_with("--seed="):
+        if argument == "--cast-only":
+            cast_only = true
+        elif argument.begins_with("--seed="):
             seed = argument.trim_prefix("--seed=")
         elif argument.begins_with("--days-per-year="):
             var year_text: String = argument.trim_prefix("--days-per-year=")
@@ -24,7 +27,7 @@ func _initialize() -> void:
             push_error("Unknown campaign-start argument: " + argument)
             quit(1)
             return
-    var result: Dictionary = CampaignBootstrap.new_campaign(seed, days, player)
+    var result: Dictionary = CampaignBootstrap.new_cast_campaign(seed, days, player) if cast_only else CampaignBootstrap.new_campaign(seed, days, player)
     if result["state"] == null:
         push_error("Campaign creation failed: " + str(result["errors"]))
         quit(1)
